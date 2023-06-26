@@ -9,11 +9,12 @@
 ## 구성원
 |개발 1 팀 홍상준|개발 1 팀 양시훈|
 |---|---|
-|@DogGuyMan|@slhun22|
+|<a href="https://github.com/DogGuyMan"><img src="https://github.com/DogGuyMan.png" width="90"></a>|@slhun22|
 
 ---
 
 ## 시작하기
+
 ```txt
 ```
 
@@ -25,3 +26,4 @@
 2. 리소스, 에셋 이외의 것들은 Github으로 공유
 
 ---
+
