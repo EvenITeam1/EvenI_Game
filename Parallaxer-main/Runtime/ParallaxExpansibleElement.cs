@@ -16,21 +16,12 @@ namespace PixelSpark.Parallaxer
 
         [SerializeField]
         [Tooltip("Cache the speed calculation result to improve performance. Check this when you are done adjusting the speed.")]
-#if UNITY_EDITOR
-        [InspectorAttributes.LeftToggle]
-#endif
         private bool _cacheSpeed = false;
 
         [SerializeField] 
-#if UNITY_EDITOR
-        [InspectorAttributes.LeftToggle]
-#endif
         private bool _preventHorizontalMovement = false;
 
         [SerializeField] 
-#if UNITY_EDITOR
-        [InspectorAttributes.LeftToggle] 
-#endif
         private bool _preventVerticalMovement = false;
 
         private float _parallaxExitDistance = 1f;

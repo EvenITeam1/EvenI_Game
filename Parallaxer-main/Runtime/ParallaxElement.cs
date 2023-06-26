@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-#if UNITY_EDITOR
-using PixelSpark.Parallaxer.InspectorAttributes;
-#endif
 using PixelSpark.Parallaxer.Helpers;
 
 namespace PixelSpark.Parallaxer
@@ -15,9 +12,6 @@ namespace PixelSpark.Parallaxer
 
         [SerializeField]
         [Tooltip("Prevents the object from moving below its initial position.")]
-#if UNITY_EDITOR
-        [LeftToggle]
-#endif
         private bool _preventMovingBelowInitialPosition = true;
 
         [SerializeField]
