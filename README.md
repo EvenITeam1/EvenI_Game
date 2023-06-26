@@ -15,14 +15,44 @@
 
 ## 시작하기
 
+**1. 개발했던 파일 따로 빼기**
+<div align=center>
+    <img src="https://imgur.com/B4KjPtt.png">
+</div>
+
+**2. 프로젝트명 EvenIgame**
 <div align=center>
     <img src="https://imgur.com/AcVcmIC.png">
     <h5>2D(URP) 선택</h5>
     <h5>"EvenIgame" 으로 생성</h5>
 </div>
 
-```txt
-```
+**3.** ~~/EvenIgame/Asset~~ **/EvenIgame/ 폴더에 GitClone https://github.com/EvenITeam1/EvenI_Game 하기**
+
+<div align=center>
+    <img src="https://imgur.com/Xyz5Uoq.png">
+</div>
+
+
+
+**4. EvenI_Game 파일 이름을 Asset으로 변경, 그리고 따로 보관했던 파일 Assets에 넣기**
+<div align=center>
+    <img src="https://imgur.com/u7V2OTc.png">
+</div>
+
+**5. Assets에 폴더정리를 하자**
+<div align=center>
+    <img src="https://imgur.com/fOyLYBA.png">
+    <h5>Scripts : .cs 파일은 Scripts로</h5>
+    <h5>Resources : 나머지 Scene, 그래픽, Prefeb은 모두 Resources</h5>
+</div>
+
+
+**6. Assets에 README 수정**
+<div align=center>
+    <img src="https://imgur.com/pVjUKAg.png">
+</div>
+
 
 ---
 
