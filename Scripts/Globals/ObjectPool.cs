@@ -77,14 +77,22 @@ public class ObjectPool : MonoBehaviour
                 returnObject = Instantiate(getObject);
                 returnObject.SetActive(false);
             }
+<<<<<<< HEAD
             returnObject.transform.parent = null;
+=======
+            returnObject.transform.SetParent(null);
+>>>>>>> develop2
             return returnObject;
         }
         else
         {
             Debug.LogWarning(getObject + "이(가) 오브젝트풀에 없어서 추가 후 풀링합니다");
             returnObject = AddPool(getObject);
+<<<<<<< HEAD
             returnObject.transform.parent = null;
+=======
+            returnObject.transform.SetParent(null);
+>>>>>>> develop2
             return returnObject;
         }
     }
@@ -97,7 +105,11 @@ public class ObjectPool : MonoBehaviour
         if (_pooledObjects.ContainsKey(returnObject.name))//돌려줄 오브젝트가 dictionary에 있으면
         {
             returnObject.SetActive(false);
+<<<<<<< HEAD
             returnObject.transform.parent = null;
+=======
+            returnObject.transform.SetParent(null);
+>>>>>>> develop2
             _pooledObjects[returnObject.name].Enqueue(returnObject);//돌려주기
         }
         else//없으면(이럴가능성 거의 없음)
@@ -123,7 +135,11 @@ public class ObjectPool : MonoBehaviour
             int index = newObject.name.IndexOf("(Clone)");
             if (index > 0)
                 newObject.name = newObject.name.Substring(0, index);
+<<<<<<< HEAD
             newObject.transform.parent = null;
+=======
+            newObject.transform.SetParent(null);
+>>>>>>> develop2
             newObject.SetActive(false);
             _pooledObjects[addObject.name].Enqueue(newObject);
         }
