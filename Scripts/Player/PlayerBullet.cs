@@ -1,30 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
-<<<<<<< HEAD
-using UnityEngine;
-using UnityEngine.UI;
-=======
 using TMPro;
 using UnityEngine;
->>>>>>> develop2
 
 public class PlayerBullet : MonoBehaviour, Hit
 {
     public LayerMask _enemyLayer;
-<<<<<<< HEAD
-    [SerializeField] Rigidbody2D _bulletRigid;
-    public int _damage;
-    public int _setDmg;
-    float _time;
-    public float _lastTime;
-    Vector2 _moveDir;
-    public float _bulletSpeed;
-=======
     public int _minDmg;
     public int _maxDmg;
     int _damage;
     public float _critChance;
-    public float _critConst;//Å©¸®Æ¼ÄÃ ¹èÀ²
+    public float _critConst;//Å©ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     float _time;
     public float _lastTime;
     Vector2 _moveDir;
@@ -35,7 +21,6 @@ public class PlayerBullet : MonoBehaviour, Hit
     [SerializeField] int _nonCritFontSize;
     [SerializeField] Color32 _critColor;
     [SerializeField] Color32 _nonCritColor;
->>>>>>> develop2
 
     void Update()
     {
@@ -45,11 +30,7 @@ public class PlayerBullet : MonoBehaviour, Hit
     void OnEnable()
     {
         _time = 0;
-<<<<<<< HEAD
-        setDamage(_setDmg);
-=======
         setDamage(Random.Range(_minDmg, _maxDmg + 1));
->>>>>>> develop2
         setDir();
     }
 
@@ -61,14 +42,8 @@ public class PlayerBullet : MonoBehaviour, Hit
             ObjectPool.instance.ReturnObject(gameObject);
         }
     }
-<<<<<<< HEAD
-    public void getDamage(GameObject obj)
-    {
-        EnemyHP enemyScript = obj.GetComponent<EnemyHP>();
-        float currentHp = enemyScript.getHP();
-        enemyScript.setHP(currentHp - _damage);
-=======
-    public void getDamage(GameObject obj)//obj¿¡ µ¥¹ÌÁö¸¦ °¡ÇÏ´Â ÇÔ¼ö
+
+    public void getDamage(GameObject obj)//objï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½
     {
         EnemyHP enemyScript = obj.GetComponent<EnemyHP>();
         float currentHp = enemyScript.getHP();
@@ -76,7 +51,7 @@ public class PlayerBullet : MonoBehaviour, Hit
         var dmgPrefab = ObjectPool.instance.GetObject(_dmgPrefab);
         var dmgScript = dmgPrefab.GetComponent<DamageUI>();
 
-        if (isCrit())//Å©¸®Æ¼ÄÃÀÌ ÅÍÁö¸é ½ÇÁúÀûÀ¸·Î µé¾î°¥ µ¥¹ÌÁö¿¡ Å©¸®Æ¼ÄÃ ¹èÀ²À» °öÇØÁØ´Ù.
+        if (isCrit())//Å©ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î°¥ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½.
         {
             actualDmg *= _critConst;
             dmgScript._text.color = _critColor;
@@ -95,7 +70,6 @@ public class PlayerBullet : MonoBehaviour, Hit
         dmgPrefab.SetActive(true);
 
         enemyScript.setHP(currentHp - actualDmg);
->>>>>>> develop2
         enemyScript.updateHpBar();
         if (!enemyScript.isAlive())
         {
@@ -103,30 +77,18 @@ public class PlayerBullet : MonoBehaviour, Hit
         }
     }
 
-<<<<<<< HEAD
-    public void setDamage(int dmg)
-=======
-    public void setDamage(int dmg)//Åõ»çÃ¼ÀÇ µ¥¹ÌÁö¸¦ Á¤ÇÏ´Â ÇÔ¼ö
->>>>>>> develop2
+    public void setDamage(int dmg)//ï¿½ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½
     {
         _damage = dmg;
     }
 
-<<<<<<< HEAD
-    public void setDir()
-=======
-    public void setDir()//Åõ»çÃ¼°¡ ³ª°¥ ¹æÇâÀ» Á¤ÇÏ´Â ÇÔ¼ö
->>>>>>> develop2
+    public void setDir()//ï¿½ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½
     {
         _moveDir = new Vector2(1, 0);
         _bulletRigid.velocity = _moveDir * _bulletSpeed;
     }
 
-<<<<<<< HEAD
-    public void lastLimit()
-=======
-    public void lastLimit() //Á¤ÇØÁø Áö¼Ó½Ã°£(_lastTime)ÀÌ °æ°úÇÏ¸é Åõ»çÃ¼¸¦ ¾À¿¡¼­ Á¦°ÅÇÏ´Â ÇÔ¼ö
->>>>>>> develop2
+    public void lastLimit() //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó½Ã°ï¿½(_lastTime)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½
     {
        _time += Time.deltaTime;
 
@@ -135,9 +97,8 @@ public class PlayerBullet : MonoBehaviour, Hit
             ObjectPool.instance.ReturnObject(gameObject);
         }        
     }
-<<<<<<< HEAD
-=======
-    public bool isCrit()//Á¤ÇØÁø Å©¸®Æ¼ÄÃ È®·ü(_critChance)¿¡ µû¶ó Å©¸®Æ¼ÄÃ ÀÎÁö ¾Æ´ÑÁö¸¦ ¹ÝÈ¯ÇÏ´Â ÇÔ¼ö
+
+    public bool isCrit()//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½Æ¼ï¿½ï¿½ È®ï¿½ï¿½(_critChance)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½
     {
         if (Random.Range(0.0f, 1.0f) < _critChance)
         {
@@ -147,6 +108,4 @@ public class PlayerBullet : MonoBehaviour, Hit
         else
             return false;
     }
-
->>>>>>> develop2
 }
