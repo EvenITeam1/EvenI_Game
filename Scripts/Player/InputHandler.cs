@@ -6,10 +6,12 @@ using UnityEngine.InputSystem;
 namespace TwoDimensions {    
     public class InputHandler : MonoBehaviour {
         public float    Horizontal;
-        public bool    IsJumpPressd;
+        public bool     IsJumpPressd;
+        public bool    IsJumpUnHold;
         public float    moveAmount;
         private float   movementInput;
-        private bool   jumpInput;
+        private bool    jumpInput;
+        private bool    JumpUnHold;
         RunnerControll inputActions;
 
         private void OnEnable(){
@@ -18,15 +20,21 @@ namespace TwoDimensions {
                 inputActions.TwoDimensions.Movement.performed += (_input) => {
                     movementInput = _input.ReadValue<float>();
                 };
-                inputActions.TwoDimensions.Jump.started += (_input) => {
-                    jumpInput = _input.ReadValueAsButton();
-                    Debug.Log(jumpInput);
-                };
                 inputActions.TwoDimensions.Movement.canceled += (_input) => {
                     movementInput = _input.ReadValue<float>();
                 };
+                inputActions.TwoDimensions.Jump.started += (_input) => {
+                    jumpInput = _input.ReadValueAsButton();
+                    JumpUnHold = !_input.ReadValueAsButton();
+                    Debug.Log(jumpInput);
+                };
+                inputActions.TwoDimensions.Jump.performed += (_input) => {
+                    jumpInput = _input.ReadValueAsButton();
+                    JumpUnHold = !_input.ReadValueAsButton();
+                };
                 inputActions.TwoDimensions.Jump.canceled += (_input) => {
                     jumpInput = _input.ReadValueAsButton();
+                    JumpUnHold = !_input.ReadValueAsButton();
                     Debug.Log(jumpInput);
                 };
             }
@@ -39,6 +47,7 @@ namespace TwoDimensions {
         public void MoveInput(float _delta) {
             Horizontal = movementInput;
             IsJumpPressd = jumpInput;
+            IsJumpUnHold = JumpUnHold;
             moveAmount = Mathf.Clamp01(Mathf.Abs(Horizontal));
         }
     }
