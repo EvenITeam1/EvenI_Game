@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-//¿ÀºêÁ§Æ®Ç® »ç¿ë¹ý
-//1. ¿ÀºêÁ§Æ®Ç® ÇÁ¸®ÆÕÀ» ¾À¿¡ ³Ö±â
-//2. Ç®¸µÇÏ°í ½ÍÀº ¿ÀºêÁ§Æ®¸¦ ÀÎ½ºÆåÅÍ»óÀÇ Pooling Objects ¸®½ºÆ®¿¡ Ãß°¡
-//3. ±×·¯¸é °ÔÀÓ ½ÃÀÛÇÒ¶§ ¾Ë¾Æ¼­ Pooling Amount¸¸Å­ Ç®¿¡ Ãß°¡ÇÏ°í ½ÃÀÛÇÕ´Ï´Ù.
-//4. Ç®¸µÀÌ ÇÊ¿äÇÑ °æ¿ì¿¡´Â ½Ì±ÛÅæÀ¸·Î ÇÊ¿äÇÑ ÇÔ¼ö »ç¿ëÇÏ½Ã¸é µË´Ï´Ù.
-//ÁÖÀÇ : Ç®¿¡ ¾ø´Â ¿ÀºêÁ§Æ® Ç®¸µ½ÃµµÇÏ¸é ¾Ë¾Æ¼­ ¸¸µé¾î¼­ ÁÖ±â´Â ÇÏ´Âµ¥ À¢¸¸ÇÏ¸é Ç®¿¡ ³Ö°í Ç®¸µ½ÃµµÇØÁÖ¼¼¿ä.
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®Ç® ï¿½ï¿½ï¿½ï¿½
+//1. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®Ç® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö±ï¿½
+//2. Ç®ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Î½ï¿½ï¿½ï¿½ï¿½Í»ï¿½ï¿½ï¿½ Pooling Objects ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ß°ï¿½
+//3. ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò¶ï¿½ ï¿½Ë¾Æ¼ï¿½ Pooling Amountï¿½ï¿½Å­ Ç®ï¿½ï¿½ ï¿½ß°ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
+//4. Ç®ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½ì¿¡ï¿½ï¿½ ï¿½Ì±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ ï¿½ï¿½ï¿½ï¿½Ï½Ã¸ï¿½ ï¿½Ë´Ï´ï¿½.
+//ï¿½ï¿½ï¿½ï¿½ : Ç®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® Ç®ï¿½ï¿½ï¿½Ãµï¿½ï¿½Ï¸ï¿½ ï¿½Ë¾Æ¼ï¿½ ï¿½ï¿½ï¿½ï¿½î¼­ ï¿½Ö±ï¿½ï¿½ ï¿½Ï´Âµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ Ç®ï¿½ï¿½ ï¿½Ö°ï¿½ Ç®ï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½.
 
 
 public class ObjectPool : MonoBehaviour
@@ -37,7 +37,7 @@ public class ObjectPool : MonoBehaviour
     }
 
     /// <summary>
-    /// ¾À ·Îµù½Ã °¢°¢ 50°³¾¿ Ç®¸µÇÏ±â
+    /// ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 50ï¿½ï¿½ï¿½ï¿½ Ç®ï¿½ï¿½ï¿½Ï±ï¿½
     /// </summary>
     private void InitialPooling()
     {
@@ -61,7 +61,7 @@ public class ObjectPool : MonoBehaviour
         }
     }
     /// <summary>
-    /// ¿ÀºêÁ§Æ®°¡ µñ¼Å³Ê¸®¿¡ ÀÖ´ÂÁö È®ÀÎ ÈÄ ÀÖÀ¸¸é Ç®¿¡¼­ »©°Å³ª »ý¼ºÇØ¼­ return(active false »óÅÂ), ¾øÀ¸¸é Ç®¸µÇÏ°í return ÈÄ °æ°í ·Î±× Ãâ·Â, °¡±ÞÀû ¾ø´Â°Å Ç®¸µ ¿ä±¸ÇÏÁö ¾Ê±â!!!
+    /// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½Å³Ê¸ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ç®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Å³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ return(active false ï¿½ï¿½ï¿½ï¿½), ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ç®ï¿½ï¿½ï¿½Ï°ï¿½ return ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â°ï¿½ Ç®ï¿½ï¿½ ï¿½ä±¸ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½!!!
     /// </summary>
     public GameObject GetObject(GameObject getObject)
     {
@@ -82,7 +82,7 @@ public class ObjectPool : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning(getObject + "ÀÌ(°¡) ¿ÀºêÁ§Æ®Ç®¿¡ ¾ø¾î¼­ Ãß°¡ ÈÄ Ç®¸µÇÕ´Ï´Ù");
+            Debug.LogWarning(getObject + "ï¿½ï¿½(ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®Ç®ï¿½ï¿½ ï¿½ï¿½ï¿½î¼­ ï¿½ß°ï¿½ ï¿½ï¿½ Ç®ï¿½ï¿½ï¿½Õ´Ï´ï¿½");
             returnObject = AddPool(getObject);
             returnObject.transform.parent = null;
             return returnObject;
@@ -90,28 +90,28 @@ public class ObjectPool : MonoBehaviour
     }
 
     /// <summary>
-    /// ¿ÀºêÁ§Æ® µñ¼Å³Ê¸®¿¡ ÀÖ´ÂÁö È®ÀÎ ÈÄ ÀÖÀ¸¸é Ç®·Î µ¹·Áº¸³»±â, ¾øÀ¸¸é µñ¼Å³Ê¸®¿¡ Ç® Ãß°¡ ÈÄ µ¹·Áº¸³»±â, ¾øÀ¸¸é °æ°í ·Î±× Ãâ·Â
+    /// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Å³Ê¸ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ç®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³Ê¸ï¿½ï¿½ï¿½ Ç® ï¿½ß°ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ ï¿½ï¿½ï¿½
     /// </summary>
     public void ReturnObject(GameObject returnObject)
     {
-        if (_pooledObjects.ContainsKey(returnObject.name))//µ¹·ÁÁÙ ¿ÀºêÁ§Æ®°¡ dictionary¿¡ ÀÖÀ¸¸é
+        if (_pooledObjects.ContainsKey(returnObject.name))//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ dictionaryï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         {
             returnObject.SetActive(false);
             returnObject.transform.parent = null;
-            _pooledObjects[returnObject.name].Enqueue(returnObject);//µ¹·ÁÁÖ±â
+            _pooledObjects[returnObject.name].Enqueue(returnObject);//ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½
         }
-        else//¾øÀ¸¸é(ÀÌ·²°¡´É¼º °ÅÀÇ ¾øÀ½)
+        else//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½Ì·ï¿½ï¿½ï¿½ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
         {
-            Debug.LogWarning(returnObject + "ÀÌ(°¡) ¿ÀºêÁ§Æ®Ç®¿¡ ¾ø¾î¼­ Ãß°¡ ÈÄ Ç®¸µÇÕ´Ï´Ù");
+            Debug.LogWarning(returnObject + "ï¿½ï¿½(ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®Ç®ï¿½ï¿½ ï¿½ï¿½ï¿½î¼­ ï¿½ß°ï¿½ ï¿½ï¿½ Ç®ï¿½ï¿½ï¿½Õ´Ï´ï¿½");
             returnObject.SetActive(false);
             Queue<GameObject> newQueue = new Queue<GameObject>();
-            _pooledObjects.Add(returnObject.name, newQueue);//dictionary¿¡ Ãß°¡ÇÏ°í
-            _pooledObjects[returnObject.name].Enqueue(returnObject);//³Ö±â
+            _pooledObjects.Add(returnObject.name, newQueue);//dictionaryï¿½ï¿½ ï¿½ß°ï¿½ï¿½Ï°ï¿½
+            _pooledObjects[returnObject.name].Enqueue(returnObject);//ï¿½Ö±ï¿½
         }
     }
 
     /// <summary>
-    /// ¿ä±¸ÇÏ´Â ¿ÀºêÁ§Æ®°¡ Ç®¿¡ ¾øÀ»¶§ _poolingAmount ¸¸Å­ Ãß°¡
+    /// ï¿½ä±¸ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ Ç®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ _poolingAmount ï¿½ï¿½Å­ ï¿½ß°ï¿½
     /// </summary>
     private GameObject AddPool(GameObject addObject)
     {

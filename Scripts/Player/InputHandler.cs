@@ -10,6 +10,7 @@ namespace TwoDimensions {
         public      bool         IsJumpUnHold;
         public      bool         IsAirHold;
         public      float        moveAmount;
+
         private     float        movementInput;
         private     bool         JumpUnHold;
         private     bool         jumpInput;
@@ -41,11 +42,9 @@ namespace TwoDimensions {
                 };
                 inputActions.TwoDimensions.Hold.performed += (_input) => {
                     airHold = _input.ReadValueAsButton();
-                    Debug.Log(jumpInput);
                 };
                 inputActions.TwoDimensions.Hold.canceled += (_input) => {
                     airHold = _input.ReadValueAsButton();
-                    Debug.Log(jumpInput);
                 };
             }
             inputActions.Enable();

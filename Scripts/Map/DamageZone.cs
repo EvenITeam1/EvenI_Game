@@ -2,16 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DamageZone : MonoBehaviour
+namespace TwoDimensions
 {
-    public int  DamageAmount;
-    public bool IsKilling;
-    void OnTriggerEnter2D(Collider2D other) {
-        PlayerHP playerHP = other.GetComponent<PlayerHP>();
-        if(IsKilling == true){playerHP.die();}
-        else {
-            float currentHp = playerHP.getHP();
-            playerHP.setHP((float)(currentHp - DamageAmount));
+    public class DamageZone : MonoBehaviour
+    {
+        public PlayerMovement player;
+        public int DamageAmount;
+        public bool IsKilling;
+        void OnTriggerEnter2D(Collider2D other)
+        {
+            if (player.GetCollider() == other)
+            {
+                PlayerHP_Two playerHP = player.GetComponent<PlayerHP_Two>();
+                if (IsKilling == true) { playerHP.die(); }
+                else
+                {
+                    float currentHp = playerHP.getHP();
+                    playerHP.setHP((float)(currentHp - DamageAmount));
+                    if(!playerHP.isAlive()){playerHP.die();}
+                }
+            }
         }
     }
 }
