@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public enum PlayerState {Jump = 0, Hold}
+
 namespace TwoDimensions
 {
     public class PlayerMovement : MonoBehaviour
@@ -16,6 +18,8 @@ namespace TwoDimensions
         public bool     isFacingRight = true;
 
         public bool     isJumping;
+        public bool     isAiring;
+        public bool     isAirHoldable = true;
 
         public  float   coyoteTime = 0.2f;
         public  float   coyoteTimeCounter;
@@ -23,6 +27,11 @@ namespace TwoDimensions
         public  float   jumpBufferTime = 0.2f;
         public  float   jumpBufferCounter;
 
+        private PlayerState playerState;
+        private float originGravityScale;
+
+        [SerializeField] private Collider2D         cd;
+        public Collider2D GetCollider() {return this.cd;}
         [SerializeField] private InputHandler       inputHandler;
         [SerializeField] private Rigidbody2D        rb;
         [SerializeField] private Transform          groundCheckerTransform;
@@ -40,15 +49,21 @@ namespace TwoDimensions
 
             inputHandler ??= GetComponent<InputHandler>();
             rb  ??= GetComponent<Rigidbody2D>();
+            cd  ??= GetComponent<Collider2D>();
             spriteRenderer ??= GetComponent<SpriteRenderer>();
             animator ??= GetComponent<Animator>();
             if(groundCheckerTransform == null){throw new System.Exception("자식 오브젝트에 있는 GroundCheck GameObject 가저올것");}
+            originGravityScale = rb.gravityScale;
+        }
+        private void Start() {
+            FlipSprite(1);
         }
         private void Update()
         {
             inputHandler.TickInput(0);
             Move();
             Jump();
+            Animations();
         }
 
         private void FixedUpdate()
@@ -62,15 +77,20 @@ namespace TwoDimensions
             if      (_horizontal < 0) {spriteRenderer.flipX = false; }
             else if (0 < _horizontal) {spriteRenderer.flipX = true; }
         }
+        private void Animations() {
+            animator.SetFloat("MoveSpeed"   , Mathf.Abs(rb.velocity.x));
+            animator.SetBool("Ascend"       , rb.velocity.y > 0.01f);
+            animator.SetBool("Falling"      , rb.velocity.y < -0.01f);
+        }
 #endregion 
 
 /*********************************************************************************/
 
 #region Move
         private void Move(){ 
-            horizontal = inputHandler.Horizontal; 
-            FlipSprite(horizontal);
-            animator.SetFloat("MoveSpeed", Mathf.Abs(rb.velocity.x));
+            //horizontal = inputHandler.Horizontal; //키보드 인풋 받기
+            horizontal = 1;
+            FlipSprite(1);
         }
 #endregion
 
@@ -78,12 +98,22 @@ namespace TwoDimensions
 
 #region Jump
         private void Jump(){
-            animator.SetBool("Ascend", isJumping);
             HandleHoldUp(inputHandler.IsJumpPressd);
-//            HandleCoyote(IsGrounded());
-//            HandleInputBuffer(inputHandler.IsJumpPressd);
 
-//            if (coyoteTimeCounter > 0f && jumpBufferCounter > 0f && !isJumping && jumpCount > 0)
+            if(inputHandler.IsAirHold && isAirHoldable && !IsGrounded()){
+                rb.gravityScale = 0;
+                rb.velocity = Vector2.right * rb.velocity.x;
+                isAiring = true;
+                return;
+            }
+            if(!inputHandler.IsAirHold){
+                rb.gravityScale = originGravityScale;
+                isAiring = false;
+            }
+//          HandleCoyote(IsGrounded());
+//          HandleInputBuffer(inputHandler.IsJumpPressd);
+
+//          if (coyoteTimeCounter > 0f && jumpBufferCounter > 0f && !isJumping && jumpCount > 0)
             if (inputHandler.IsJumpPressd && !isJumping && jumpCount > 0)
             {
                 rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
@@ -98,9 +128,7 @@ namespace TwoDimensions
             }
         }
 
-        public void RestoreJumpCount(){
-
-        }
+        public void RestoreJumpCount(){jumpCount = maxJumpCount;}
 
         public void HandleHoldUp(bool _isPressed){
             if(_isPressed == false) {
@@ -132,7 +160,7 @@ namespace TwoDimensions
                 return Physics2D.OverlapCircle(groundCheckerTransform.position, 1, groundLayer) && GlobalFunction.GetIsFloatEqual(rb.velocity.y, 0.001f);
             });
             isJumping = false;
-            jumpCount = maxJumpCount;
+            RestoreJumpCount();
         }
 
         private void HandleCoyote(bool _isGrounded){ //IsGrounded()
@@ -148,5 +176,13 @@ namespace TwoDimensions
 #endregion
 
 /*********************************************************************************/
+
+#region State
+        private void ChangeState(PlayerState _newState){
+            StopCoroutine(playerState.ToString());
+            playerState = _newState;
+            StartCoroutine(playerState.ToString());
+        }
+#endregion
     }
 }

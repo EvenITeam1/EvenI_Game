@@ -21,4 +21,6 @@ public class GameManager : MonoBehaviour
             return _instance;
         }
     }
+    
+    public GlobalEvent GlobalEventInstance;
 }

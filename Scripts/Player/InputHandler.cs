@@ -5,13 +5,16 @@ using UnityEngine.InputSystem;
 
 namespace TwoDimensions {    
     public class InputHandler : MonoBehaviour {
-        public float    Horizontal;
-        public bool     IsJumpPressd;
-        public bool    IsJumpUnHold;
-        public float    moveAmount;
-        private float   movementInput;
-        private bool    jumpInput;
-        private bool    JumpUnHold;
+        public      float        Horizontal;
+        public      bool         IsJumpPressd;
+        public      bool         IsJumpUnHold;
+        public      bool         IsAirHold;
+        public      float        moveAmount;
+
+        private     float        movementInput;
+        private     bool         JumpUnHold;
+        private     bool         jumpInput;
+        private     bool         airHold;
         RunnerControll inputActions;
 
         private void OnEnable(){
@@ -37,6 +40,12 @@ namespace TwoDimensions {
                     JumpUnHold = !_input.ReadValueAsButton();
                     Debug.Log(jumpInput);
                 };
+                inputActions.TwoDimensions.Hold.performed += (_input) => {
+                    airHold = _input.ReadValueAsButton();
+                };
+                inputActions.TwoDimensions.Hold.canceled += (_input) => {
+                    airHold = _input.ReadValueAsButton();
+                };
             }
             inputActions.Enable();
         }
@@ -45,10 +54,11 @@ namespace TwoDimensions {
         private void OnDisable(){inputActions.Disable();}
         public void TickInput(float _delta) {MoveInput(_delta);}
         public void MoveInput(float _delta) {
-            Horizontal = movementInput;
-            IsJumpPressd = jumpInput;
-            IsJumpUnHold = JumpUnHold;
-            moveAmount = Mathf.Clamp01(Mathf.Abs(Horizontal));
+            Horizontal      = movementInput;
+            IsJumpPressd    = jumpInput;
+            IsJumpUnHold    = JumpUnHold;
+            IsAirHold       = airHold;
+            moveAmount      = Mathf.Clamp01(Mathf.Abs(Horizontal));
         }
     }
 }
