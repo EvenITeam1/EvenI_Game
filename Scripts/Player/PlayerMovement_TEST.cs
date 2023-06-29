@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 namespace TwoDimensions
 {
-    public class PlayerMovement : MonoBehaviour
+    public class PlayerMovement_TEST : MonoBehaviour
     {
         public float    horizontal;
         public float    speed = 8f;
@@ -16,6 +16,7 @@ namespace TwoDimensions
         public bool     isFacingRight = true;
 
         public bool     isJumping;
+        public bool     isAiring;
 
         public  float   coyoteTime = 0.2f;
         public  float   coyoteTimeCounter;
@@ -31,6 +32,7 @@ namespace TwoDimensions
         [SerializeField] private Animator           animator;
         
         private Coroutine jumpCooldownCoroutine;
+        private Coroutine jumpHoldingCoroutine;
         private bool IsJumpCooldownCoroutineRunnting = false;
 
 /*********************************************************************************/
@@ -88,17 +90,18 @@ namespace TwoDimensions
 #region Jump
         private void Jump(){
             animator.SetBool("Ascend", isJumping);
-            HandleHoldUp(inputHandler.IsJumpPressd);
-//            HandleCoyote(IsGrounded());
-//            HandleInputBuffer(inputHandler.IsJumpPressd);
+//            HandleHoldUp(inputHandler.IsJumpPressd);
 
-//            if (coyoteTimeCounter > 0f && jumpBufferCounter > 0f && !isJumping && jumpCount > 0)
+//          HandleCoyote(IsGrounded());
+//          HandleInputBuffer(inputHandler.IsJumpPressd);
+//          if (coyoteTimeCounter > 0f && jumpBufferCounter > 0f && !isJumping && jumpCount > 0)
+            
             if (inputHandler.IsJumpPressd && !isJumping && jumpCount > 0)
             {
                 rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
                 if(!IsActivatedOnce){IsActivatedOnce = true; jumpCount--;}
                 jumpBufferCounter = 0f;
-                ActivateJumpCool();
+                ActivateCoroutine(out jumpCooldownCoroutine, JumpCooldown(), IsJumpCooldownCoroutineRunnting);
             }
 
             if (!inputHandler.IsJumpPressd && rb.velocity.y > 0f) {
@@ -124,13 +127,13 @@ namespace TwoDimensions
             return Physics2D.OverlapCircle(groundCheckerTransform.position, 1, groundLayer);
         }
 
-        private void ActivateJumpCool(){
-            if(IsJumpCooldownCoroutineRunnting == false){
-                jumpCooldownCoroutine = StartCoroutine(JumpCooldown());
+        private void ActivateCoroutine(out Coroutine coroutine, IEnumerator _enumerator, bool _flag){
+            if(_flag == false){
+                coroutine = StartCoroutine(_enumerator);
             }
             else {
                 StopCoroutine(jumpCooldownCoroutine);
-                jumpCooldownCoroutine = StartCoroutine(JumpCooldown());
+                coroutine = StartCoroutine(_enumerator);
             }
         }
 
@@ -154,6 +157,13 @@ namespace TwoDimensions
             if (_isPressed) { jumpBufferCounter = jumpBufferTime; }
             else{jumpBufferCounter -= Time.deltaTime;}
 
+        }
+
+        private IEnumerator JumpHolding(){
+            rb.velocity = Vector2.right * rb.velocity.x;
+            isAiring = true;
+            yield return new WaitUntil(() => {return !inputHandler.IsAirHold;});
+            isAiring = false;
         }
 #endregion
 
