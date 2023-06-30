@@ -77,14 +77,14 @@ public class ObjectPool : MonoBehaviour
                 returnObject = Instantiate(getObject);
                 returnObject.SetActive(false);
             }
-            returnObject.transform.parent = null;
+            returnObject.transform.SetParent(null);
             return returnObject;
         }
         else
         {
             Debug.LogWarning(getObject + "��(��) ������ƮǮ�� ��� �߰� �� Ǯ���մϴ�");
             returnObject = AddPool(getObject);
-            returnObject.transform.parent = null;
+            returnObject.transform.SetParent(null);
             return returnObject;
         }
     }
@@ -97,7 +97,7 @@ public class ObjectPool : MonoBehaviour
         if (_pooledObjects.ContainsKey(returnObject.name))//������ ������Ʈ�� dictionary�� ������
         {
             returnObject.SetActive(false);
-            returnObject.transform.parent = null;
+            returnObject.transform.SetParent(null);
             _pooledObjects[returnObject.name].Enqueue(returnObject);//�����ֱ�
         }
         else//������(�̷����ɼ� ���� ����)
@@ -123,7 +123,7 @@ public class ObjectPool : MonoBehaviour
             int index = newObject.name.IndexOf("(Clone)");
             if (index > 0)
                 newObject.name = newObject.name.Substring(0, index);
-            newObject.transform.parent = null;
+            newObject.transform.SetParent(null);
             newObject.SetActive(false);
             _pooledObjects[addObject.name].Enqueue(newObject);
         }
