@@ -79,8 +79,6 @@ namespace TwoDimensions
         }
         private void Animations() {
             animator.SetFloat("MoveSpeed"   , Mathf.Abs(rb.velocity.x));
-            animator.SetBool("Ascend"       , rb.velocity.y > 0.01f);
-            animator.SetBool("Falling"      , rb.velocity.y < -0.01f);
         }
 #endregion 
 
