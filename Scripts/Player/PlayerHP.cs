@@ -7,11 +7,37 @@ public class PlayerHP : MonoBehaviour, HP
 {
     [SerializeField] float _hp;
     [SerializeField] float _setHp;
+    [SerializeField] float _recoverHp;
+    [SerializeField] float _recoverInterval;
+    float _time;
+
     void Start() {
         setHP(_setHp);
+        _time = 0;
     }
 
-    public void setHP(float hp) { this._hp = hp; }
+    private void Update()
+    {
+        if(_time < _recoverInterval)
+        {
+            _time += Time.deltaTime;
+        }
+
+        else
+        {
+            recoverHp(_recoverHp);
+            _time = 0;
+        }
+    }
+
+    public void setHP(float hp)
+    {
+       _hp = hp;
+        if (!isAlive())
+        {
+            die();
+        }
+    }
     public float getHP() { return this._hp; }
 
     public bool isAlive()
@@ -26,6 +52,14 @@ public class PlayerHP : MonoBehaviour, HP
     {
         setHP(0);
         SceneManager.LoadScene("gameOverScene");
+    }
+
+    public void recoverHp(float recoverHp)//혹시나 회복 템 나오면 이 함수 쓰라고 매개변수 달아놓음
+    {
+        if(_hp < _setHp)
+        {
+            _hp += recoverHp;
+        }     
     }
 
 }

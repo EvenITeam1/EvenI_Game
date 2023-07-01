@@ -29,6 +29,8 @@ public class PlayerShoot : MonoBehaviour, Fire
 
     public void fireJumpBullet()
     {
-
+        GameObject bullet = ObjectPool.instance.GetObject(_jumpBullet);
+        bullet.transform.position = transform.position;
+        bullet.SetActive(true);
     }
 }

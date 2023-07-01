@@ -10,6 +10,7 @@ public class EnemyBullet : MonoBehaviour, Hit
     float _time;
     public float _lastTime;
     public float _bulletSpeed;
+    public float _bulletAngle;
     [SerializeField] Rigidbody2D _bulletRigid;
     public Vector2 _moveDir;
     void Update()
@@ -37,10 +38,6 @@ public class EnemyBullet : MonoBehaviour, Hit
         PlayerHP playerScript = obj.GetComponent<PlayerHP>();
         float currentHp = playerScript.getHP();
         playerScript.setHP(currentHp - _damage);
-        if (!playerScript.isAlive())
-        {
-            playerScript.die();
-        }
     }
 
     public void setDamage(int dmg)

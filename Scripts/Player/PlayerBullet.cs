@@ -10,7 +10,7 @@ public class PlayerBullet : MonoBehaviour, Hit
     public int _maxDmg;
     int _damage;
     public float _critChance;
-    public float _critConst;//크리티컬 배율
+    public float _critConst;
     float _time;
     public float _lastTime;
     Vector2 _moveDir;
@@ -42,7 +42,8 @@ public class PlayerBullet : MonoBehaviour, Hit
             ObjectPool.instance.ReturnObject(gameObject);
         }
     }
-    public void getDamage(GameObject obj)//obj에 데미지를 가하는 함수
+
+    public void getDamage(GameObject obj)
     {
         EnemyHP enemyScript = obj.GetComponent<EnemyHP>();
         float currentHp = enemyScript.getHP();
@@ -50,7 +51,7 @@ public class PlayerBullet : MonoBehaviour, Hit
         var dmgPrefab = ObjectPool.instance.GetObject(_dmgPrefab);
         var dmgScript = dmgPrefab.GetComponent<DamageUI>();
 
-        if (isCrit())//크리티컬이 터지면 실질적으로 들어갈 데미지에 크리티컬 배율을 곱해준다.
+        if (isCrit())
         {
             actualDmg *= _critConst;
             dmgScript._text.color = _critColor;
@@ -70,24 +71,20 @@ public class PlayerBullet : MonoBehaviour, Hit
 
         enemyScript.setHP(currentHp - actualDmg);
         enemyScript.updateHpBar();
-        if (!enemyScript.isAlive())
-        {
-            enemyScript.die();
-        }
     }
 
-    public void setDamage(int dmg)//투사체의 데미지를 정하는 함수
+    public void setDamage(int dmg)
     {
         _damage = dmg;
     }
 
-    public void setDir()//투사체가 나갈 방향을 정하는 함수
+    public void setDir()
     {
-        _moveDir = new Vector2(1, 0);
+        _moveDir = transform.right;
         _bulletRigid.velocity = _moveDir * _bulletSpeed;
     }
 
-    public void lastLimit() //정해진 지속시간(_lastTime)이 경과하면 투사체를 씬에서 제거하는 함수
+    public void lastLimit()
     {
        _time += Time.deltaTime;
 
@@ -96,7 +93,8 @@ public class PlayerBullet : MonoBehaviour, Hit
             ObjectPool.instance.ReturnObject(gameObject);
         }        
     }
-    public bool isCrit()//정해진 크리티컬 확률(_critChance)에 따라 크리티컬 인지 아닌지를 반환하는 함수
+
+    public bool isCrit()
     {
         if (Random.Range(0.0f, 1.0f) < _critChance)
         {
@@ -106,5 +104,4 @@ public class PlayerBullet : MonoBehaviour, Hit
         else
             return false;
     }
-
 }

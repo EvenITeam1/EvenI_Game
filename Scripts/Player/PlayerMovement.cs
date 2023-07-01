@@ -78,6 +78,7 @@ namespace TwoDimensions
 
 #region Jump
         private void Jump(){
+            PlayerShoot shootScript = GetComponent<PlayerShoot>();//bullet 발사 관련 스크립트 가져오기
             animator.SetBool("Ascend", isJumping);
             HandleHoldUp(inputHandler.IsJumpPressd);
 //            HandleCoyote(IsGrounded());
@@ -88,7 +89,11 @@ namespace TwoDimensions
             {
                 rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
                 if(!IsActivatedOnce){IsActivatedOnce = true; jumpCount--;}
-                jumpBufferCounter = 0f;
+
+                if (!shootScript) { Debug.Log("Player 오브젝트에 PlayerShoot 스크립트가 없습니다."); }//추가타 코드
+                else { shootScript.fireJumpBullet(); }//추가타 코드
+
+                    jumpBufferCounter = 0f;
                 ActivateJumpCool();
             }
 
