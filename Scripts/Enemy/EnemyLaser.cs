@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TwoDimensions;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -7,13 +8,14 @@ public class EnemyLaser : MonoBehaviour, Hit //laserObject 를 기준으로 좌측으로 
 {
     [SerializeField] bool _isStatic;
     [SerializeField] LayerMask _playerLayer;
-    [SerializeField] int _damage;
+    private int _damage;
     [SerializeField] int _setDmg;
     [SerializeField] float _width;
     [SerializeField] float _warningLastTime;
     [SerializeField] GameObject _warningEffect;
     [SerializeField] GameObject _laserEffect;
     float _time;
+    
 
 
     [SerializeField] float _shotLastTime;
@@ -23,6 +25,7 @@ public class EnemyLaser : MonoBehaviour, Hit //laserObject 를 기준으로 좌측으로 
     [SerializeField] Vector2 _startPoint;
     [SerializeField] Vector2 _endPoint;
     [SerializeField] float _moveSpeed;
+    bool _ready;
 
     private void Awake()
     {
@@ -32,9 +35,10 @@ public class EnemyLaser : MonoBehaviour, Hit //laserObject 를 기준으로 좌측으로 
 
     private void OnEnable()
     {
-        _time = 0; 
+        _time = 0;
+        _ready = false;
     }
-    private void Update()
+    private void FixedUpdate()
     {
         switch(_isStatic)
         {
@@ -50,7 +54,7 @@ public class EnemyLaser : MonoBehaviour, Hit //laserObject 를 기준으로 좌측으로 
     {
         Vector2 objPos = transform.position;
         Vector2 leftUp = objPos + new Vector2(-100, width /2);
-        Vector2 rightDown = objPos + new Vector2(0, width /2);
+        Vector2 rightDown = objPos + new Vector2(0, -width /2);
         var targets = Physics2D.OverlapAreaAll(leftUp, rightDown, _playerLayer);
         var targetN = targets.Length;
 
@@ -66,7 +70,9 @@ public class EnemyLaser : MonoBehaviour, Hit //laserObject 를 기준으로 좌측으로 
 
     public void laserStatic(float width, Vector2 shotPoint)
     {
-        transform.position = (Vector3)shotPoint;
+        if (transform.position != (Vector3)shotPoint)
+            transform.position = shotPoint;
+
         if (_time < _shotLastTime + _warningLastTime)
         {
             _time += Time.deltaTime;
@@ -94,6 +100,14 @@ public class EnemyLaser : MonoBehaviour, Hit //laserObject 를 기준으로 좌측으로 
 
     public void laserDynamic(float width, Vector2 startPoint, Vector2 endPoint, float moveSpeed)
     {
+      
+        if (transform.position != (Vector3)startPoint && _ready == false)
+        {
+            transform.position = startPoint;
+            _ready = true;
+        }
+           
+
         if (_time < _warningLastTime)
         {
             _time += Time.deltaTime;
@@ -109,12 +123,11 @@ public class EnemyLaser : MonoBehaviour, Hit //laserObject 를 기준으로 좌측으로 
                 _warningEffect.SetActive(false);
 
 
-            if (!_laserEffect.activeSelf)
-            {
-                _laserEffect.SetActive(true);
-                transform.position = Vector3.MoveTowards((Vector3)startPoint, (Vector3)endPoint, Time.deltaTime * moveSpeed);
-            }
+            if (!_laserEffect.activeSelf)       
+                _laserEffect.SetActive(true);       
+            
             laserShot(width);
+            transform.position = Vector3.MoveTowards(transform.position, (Vector3)endPoint, Time.deltaTime * moveSpeed);
         }
           
         if(transform.position == (Vector3)endPoint)
@@ -129,12 +142,10 @@ public class EnemyLaser : MonoBehaviour, Hit //laserObject 를 기준으로 좌측으로 
     public void getDamage(GameObject obj)
     {
         PlayerHP playerScript = obj.GetComponent<PlayerHP>();
+        PlayerState playerState = obj.GetComponent<PlayerState>();
         float currentHp = playerScript.getHP();
         playerScript.setHP(currentHp - _damage);
-        if (!playerScript.isAlive())
-        {
-            playerScript.die();
-        }
+        playerState.ChangeState(PLAYER_STATES.GHOST_STATE);
     }
 
     public void setDamage(int dmg)

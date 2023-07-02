@@ -18,7 +18,8 @@ public class BossPatternManager : MonoBehaviour
 
         else
         {
-            SetEnemyLaser.instance.executeLaser(_laserObj[0]);
+            int n = Random.Range(0, 2);
+            SetEnemyLaser.executeLaser(_laserObj[n]);         
             _time = 0;
         }
     }

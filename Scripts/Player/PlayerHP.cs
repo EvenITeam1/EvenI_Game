@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -32,7 +33,7 @@ public class PlayerHP : MonoBehaviour, HP
 
     public void setHP(float hp)
     {
-       _hp = hp;
+       _hp = hp; 
         if (!isAlive())
         {
             die();
@@ -50,7 +51,7 @@ public class PlayerHP : MonoBehaviour, HP
 
     public void die()
     {
-        setHP(0);
+        _hp = 0;
         SceneManager.LoadScene("gameOverScene");
     }
 
