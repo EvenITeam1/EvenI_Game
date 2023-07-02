@@ -24,11 +24,13 @@ namespace TwoDimensions{
         IEnumerator GHOST_STATE(){
             gameObject.layer = LayerMask.NameToLayer(GlobalStrings.GHOST_STRING);
             yield return YieldInstructionCache.WaitForSeconds(1f);
-            gameObject.layer = LayerMask.NameToLayer(GlobalStrings.DEFAULT_STRING);
             ChangeState(PLAYER_STATES.DEFAULT_STATE);
         }
 
-        IEnumerator DEFAULT_STATE(){yield break;}
+        IEnumerator DEFAULT_STATE(){
+            gameObject.layer = LayerMask.NameToLayer(GlobalStrings.DEFAULT_STRING);
+            yield break;
+        }
         
         public void ChangeState(PLAYER_STATES _state){
             if(currentState == _state) return;

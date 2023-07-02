@@ -10,7 +10,10 @@ public class PlayerHP : MonoBehaviour, HP
     
     void Start() {setHP(_setHp);}
 
-    public void setHP(float hp) { this._hp = hp; }
+    public void setHP(float hp) { 
+        this._hp = hp; 
+        if(!isAlive()){die();}
+    }
     public float getHP() { return this._hp; }
 
     public bool isAlive()
@@ -23,7 +26,7 @@ public class PlayerHP : MonoBehaviour, HP
 
     public void die()
     {
-        setHP(0);
+        _hp = 0;
         SceneManager.LoadScene("GameOverScene");
     }
 
