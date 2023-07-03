@@ -3,33 +3,45 @@ using System.Collections.Generic;
 using TwoDimensions;
 using UnityEngine;
 
-public class EnemyBullet : MonoBehaviour, Hit
+public class EnemyReflectBullet : MonoBehaviour
 {
     public LayerMask _playerLayer;
-    public int _damage;
+    int _damage;
     public int _setDmg;
     float _time;
     public float _lastTime;
     public float _bulletSpeed;
+    public int _maxReflectCount;
     public Rigidbody2D _bulletRigid;
+    Vector2 _lastDir;
+    int _reflectCount;
     void Update()
     {
         lastLimit();
+        _lastDir = _bulletRigid.velocity;
     }
 
     void OnEnable()
     {
         _time = 0;
+        _reflectCount = 0;
         setDamage(_setDmg);
-        setDir();
+        setInitialDir();
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<PlayerHP>())
-        {
+        if (collision.gameObject.GetComponent<PlayerHP>())   
             getDamage(collision.gameObject);
+
+        else if (collision.gameObject.GetComponent<ReflectAxisX>() || collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+            ReflectAxisX();
+
+        else if (collision.gameObject.GetComponent<ReflectAxisY>())
+            ReflectAxisY();
+
+        if (_reflectCount == _maxReflectCount)
             ObjectPool.instance.ReturnObject(gameObject);
-        }
     }
 
     public void getDamage(GameObject obj)
@@ -55,8 +67,22 @@ public class EnemyBullet : MonoBehaviour, Hit
         }
     }
 
-    public void setDir() 
+    public void setInitialDir()
     {
         _bulletRigid.velocity = transform.right * _bulletSpeed;
+    }
+
+    public void ReflectAxisX()
+    {
+        Vector2 reflectedDir = new Vector2(_lastDir.x, -_lastDir.y).normalized;
+        _bulletRigid.velocity = reflectedDir * _bulletSpeed;
+        _reflectCount++;
+    }
+
+    public void ReflectAxisY()
+    {
+        Vector2 reflectedDir = new Vector2(-_lastDir.x, _lastDir.y).normalized;
+        _bulletRigid.velocity = reflectedDir * _bulletSpeed;
+        _reflectCount++;
     }
 }

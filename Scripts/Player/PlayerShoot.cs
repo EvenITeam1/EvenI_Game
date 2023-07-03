@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerShoot : MonoBehaviour, Fire
+public class PlayerShoot : MonoBehaviour
 {
     [SerializeField] GameObject _playerBullet;
     [SerializeField] GameObject _jumpBullet;

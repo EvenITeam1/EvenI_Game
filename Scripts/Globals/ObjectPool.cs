@@ -21,6 +21,8 @@ public class ObjectPool : MonoBehaviour
 
     [SerializeField] int _poolingAmount;
 
+    [SerializeField] Transform _parent;
+
     private void Start()
     {
         InitialPooling();
@@ -50,8 +52,8 @@ public class ObjectPool : MonoBehaviour
                 _pooledObjects.Add(_poolingObjects[i].name, newQueue);
                 for (int j = 0; j < _poolingAmount; j++)
                 {
-                    GameObject newObject = Instantiate(_poolingObjects[i]);
-                    newObject.transform.SetParent(transform);
+                    GameObject newObject = Instantiate(_poolingObjects[i], transform);
+                    newObject.transform.SetParent(_parent);
                     int index = newObject.name.IndexOf("(Clone)");
                     if (index > 0)
                         newObject.name = newObject.name.Substring(0, index);
@@ -98,7 +100,6 @@ public class ObjectPool : MonoBehaviour
         if (_pooledObjects.ContainsKey(returnObject.name))//������ ������Ʈ�� dictionary�� ������
         {
             returnObject.SetActive(false);
-            //returnObject.transform.SetParent(null);
             _pooledObjects[returnObject.name].Enqueue(returnObject);//�����ֱ�
         }
         else//������(�̷����ɼ� ���� ����)

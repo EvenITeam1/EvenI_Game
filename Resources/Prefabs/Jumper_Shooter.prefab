@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 8314735206681165698}
   - component: {fileID: 8314735206681165699}
   - component: {fileID: 8314735206681165696}
+  - component: {fileID: 8903057775886419436}
   m_Layer: 0
   m_Name: Jumper_Shooter
   m_TagString: Untagged
@@ -269,3 +270,19 @@ MonoBehaviour:
   _playerBullet: {fileID: 7239013096102837009, guid: 181b4c106c4d21d48bab70490525c4bf, type: 3}
   _jumpBullet: {fileID: 557377395792406256, guid: 54f7c329d32de10459c84e86874af928, type: 3}
   _coolTime: 0.1
+--- !u!114 &8903057775886419436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8314735206681165697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5683b1599182741f6965c14c69ecd968, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ColorsByState:
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 0, b: 0, a: 0.4117647}
+  rend: {fileID: 8314735206681165705}
