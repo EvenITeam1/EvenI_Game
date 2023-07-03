@@ -10,7 +10,7 @@ namespace TwoDimensions
 {
     public class HealthBar : MonoBehaviour
     {
-        public TwoDimensions.PlayerHP_Two playerHP;
+        public PlayerHP playerHP;
         public Slider slider;
         public Image fill;
         public Gradient gradient;
@@ -20,7 +20,7 @@ namespace TwoDimensions
         private void Awake()
         {
             fill.color = gradient.Evaluate(1f);
-            playerHP ??= GameObject.Find("Player").GetComponent<TwoDimensions.PlayerHP_Two>();
+            playerHP ??= GameObject.Find("Player").GetComponent<PlayerHP>();
         }
 
         private void Update()
