@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerShoot : MonoBehaviour, Fire
+public class PlayerShoot : MonoBehaviour
 {
     [SerializeField] GameObject _playerBullet;
     [SerializeField] GameObject _jumpBullet;
@@ -29,6 +29,8 @@ public class PlayerShoot : MonoBehaviour, Fire
 
     public void fireJumpBullet()
     {
-
+        GameObject bullet = ObjectPool.instance.GetObject(_jumpBullet);
+        bullet.transform.position = transform.position;
+        bullet.SetActive(true);
     }
 }

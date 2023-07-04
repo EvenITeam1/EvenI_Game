@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface Fire
 {
-    public void fireBullet();
+    public void fireBullet(Vector2 dest);
 }

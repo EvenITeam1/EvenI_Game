@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 internal static class YieldInstructionCache
 {
     class FloatComparer : IEqualityComparer<float>

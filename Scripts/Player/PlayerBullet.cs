@@ -10,7 +10,7 @@ public class PlayerBullet : MonoBehaviour, Hit
     public int _maxDmg;
     int _damage;
     public float _critChance;
-    public float _critConst;//ũ��Ƽ�� ����
+    public float _critConst;
     float _time;
     public float _lastTime;
     Vector2 _moveDir;
@@ -43,7 +43,7 @@ public class PlayerBullet : MonoBehaviour, Hit
         }
     }
 
-    public void getDamage(GameObject obj)//obj�� �������� ���ϴ� �Լ�
+    public void getDamage(GameObject obj)
     {
         EnemyHP enemyScript = obj.GetComponent<EnemyHP>();
         float currentHp = enemyScript.getHP();
@@ -51,7 +51,7 @@ public class PlayerBullet : MonoBehaviour, Hit
         var dmgPrefab = ObjectPool.instance.GetObject(_dmgPrefab);
         var dmgScript = dmgPrefab.GetComponent<DamageUI>();
 
-        if (isCrit())//ũ��Ƽ���� ������ ���������� �� �������� ũ��Ƽ�� ������ �����ش�.
+        if (isCrit())
         {
             actualDmg *= _critConst;
             dmgScript._text.color = _critColor;
@@ -71,24 +71,20 @@ public class PlayerBullet : MonoBehaviour, Hit
 
         enemyScript.setHP(currentHp - actualDmg);
         enemyScript.updateHpBar();
-        if (!enemyScript.isAlive())
-        {
-            enemyScript.die();
-        }
     }
 
-    public void setDamage(int dmg)//����ü�� �������� ���ϴ� �Լ�
+    public void setDamage(int dmg)
     {
         _damage = dmg;
     }
 
-    public void setDir()//����ü�� ���� ������ ���ϴ� �Լ�
+    public void setDir()
     {
-        _moveDir = new Vector2(1, 0);
+        _moveDir = transform.right;
         _bulletRigid.velocity = _moveDir * _bulletSpeed;
     }
 
-    public void lastLimit() //������ ���ӽð�(_lastTime)�� ����ϸ� ����ü�� ������ �����ϴ� �Լ�
+    public void lastLimit()
     {
        _time += Time.deltaTime;
 
@@ -98,7 +94,7 @@ public class PlayerBullet : MonoBehaviour, Hit
         }        
     }
 
-    public bool isCrit()//������ ũ��Ƽ�� Ȯ��(_critChance)�� ���� ũ��Ƽ�� ���� �ƴ����� ��ȯ�ϴ� �Լ�
+    public bool isCrit()
     {
         if (Random.Range(0.0f, 1.0f) < _critChance)
         {

@@ -15,7 +15,13 @@ public class EnemyHP : MonoBehaviour, HP
         updateHpBar();
     }
 
-    public void setHP(float hp) { this._hp = hp; }
+    public void setHP(float hp)
+    {
+        _hp = hp;
+
+        if (!isAlive())
+            die();
+    }
     public float getHP() { return this._hp; }
 
     public bool isAlive()
@@ -28,7 +34,7 @@ public class EnemyHP : MonoBehaviour, HP
     
     public void die()
     {
-        setHP(0);
+        _hp = 0;
         gameObject.SetActive(false);
         SceneManager.LoadScene("StageClearScene");
     }
