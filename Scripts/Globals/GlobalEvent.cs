@@ -13,6 +13,11 @@ using UnityEngine.Events;
 /// <param name="input"></param>
 /// <typeparam name="T"></typeparam>
 
+public enum EVENT_FLAG {
+    BOOL, FLOAT, STRING
+}
+
+
 public class GlobalEvent : MonoBehaviour
 {
     private void Awake()
@@ -55,5 +60,11 @@ public class GlobalEvent : MonoBehaviour
     }
 
     //DotTween 사용해서 증가 커브 설정하기
+#endregion
+    /////////////////////////////////////////////////////////////////////////////////
+#region DebugEvent
+    public void PrintString(string _input){
+        Debug.Log(_input);
+    }
 #endregion
 }

@@ -7,7 +7,6 @@ public class BossPatternManager : MonoBehaviour
     float _time;
     [SerializeField] float coolTime;
     [SerializeField] float moveSpeed;
-    [SerializeField] float enemyRadius;
     [SerializeField] GameObject[] laserObj;
     [SerializeField] GameObject player;
     [SerializeField] GameObject enemy;
@@ -122,7 +121,7 @@ public class BossPatternManager : MonoBehaviour
 
     void pattern4()
     {
-        float n = SetEnemyMove.goUp(5, moveSpeed, enemyRadius, enemy, flag);
+        float n = SetEnemyMove.goUp(5, moveSpeed, enemy, flag);
         pattern2_sub6();
         for(int i = 1; i< 6; i++)
         Invoke("pattern2_sub6", 0.7f * i);
@@ -132,6 +131,6 @@ public class BossPatternManager : MonoBehaviour
 
     void patternSub4()
     {
-        SetEnemyMove.goDown(5, moveSpeed, enemyRadius, enemy, flag);
+        SetEnemyMove.goDown(5, moveSpeed, enemy, flag);
     }
 }
