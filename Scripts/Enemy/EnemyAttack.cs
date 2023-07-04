@@ -14,12 +14,12 @@ public class EnemyAttack : MonoBehaviour, Fire
             _time += Time.deltaTime;
         else
         {
-            fireBullet();
+            fireBullet(Vector2.zero);
             _time = 0;
         } 
     }
 
-    public void fireBullet()
+    public void fireBullet(Vector2 dest)
     {
         GameObject bullet = ObjectPool.instance.GetObject(_enemyBullet);
         bullet.transform.position = transform.position;

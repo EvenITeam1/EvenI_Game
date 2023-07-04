@@ -21,6 +21,8 @@ public class ObjectPool : MonoBehaviour
 
     [SerializeField] int _poolingAmount;
 
+    [SerializeField] Transform _parent;
+
     private void Start()
     {
         InitialPooling();
@@ -50,7 +52,8 @@ public class ObjectPool : MonoBehaviour
                 _pooledObjects.Add(_poolingObjects[i].name, newQueue);
                 for (int j = 0; j < _poolingAmount; j++)
                 {
-                    GameObject newObject = Instantiate(_poolingObjects[i]);
+                    GameObject newObject = Instantiate(_poolingObjects[i], transform);
+                    newObject.transform.SetParent(_parent);
                     int index = newObject.name.IndexOf("(Clone)");
                     if (index > 0)
                         newObject.name = newObject.name.Substring(0, index);
@@ -77,14 +80,14 @@ public class ObjectPool : MonoBehaviour
                 returnObject = Instantiate(getObject);
                 returnObject.SetActive(false);
             }
-            returnObject.transform.SetParent(null);
+            //returnObject.transform.SetParent(null);
             return returnObject;
         }
         else
         {
             Debug.LogWarning(getObject + "��(��) ������ƮǮ�� ��� �߰� �� Ǯ���մϴ�");
             returnObject = AddPool(getObject);
-            returnObject.transform.SetParent(null);
+            //returnObject.transform.SetParent(null);
             return returnObject;
         }
     }
@@ -97,7 +100,6 @@ public class ObjectPool : MonoBehaviour
         if (_pooledObjects.ContainsKey(returnObject.name))//������ ������Ʈ�� dictionary�� ������
         {
             returnObject.SetActive(false);
-            returnObject.transform.SetParent(null);
             _pooledObjects[returnObject.name].Enqueue(returnObject);//�����ֱ�
         }
         else//������(�̷����ɼ� ���� ����)
@@ -123,7 +125,7 @@ public class ObjectPool : MonoBehaviour
             int index = newObject.name.IndexOf("(Clone)");
             if (index > 0)
                 newObject.name = newObject.name.Substring(0, index);
-            newObject.transform.SetParent(null);
+            //newObject.transform.SetParent(null);
             newObject.SetActive(false);
             _pooledObjects[addObject.name].Enqueue(newObject);
         }

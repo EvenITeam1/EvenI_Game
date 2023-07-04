@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TwoDimensions;
 using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour, Hit
@@ -10,8 +11,7 @@ public class EnemyBullet : MonoBehaviour, Hit
     float _time;
     public float _lastTime;
     public float _bulletSpeed;
-    [SerializeField] Rigidbody2D _bulletRigid;
-    public Vector2 _moveDir;
+    public Rigidbody2D _bulletRigid;
     void Update()
     {
         lastLimit();
@@ -35,23 +35,15 @@ public class EnemyBullet : MonoBehaviour, Hit
     public void getDamage(GameObject obj)
     {
         PlayerHP playerScript = obj.GetComponent<PlayerHP>();
+        PlayerState playerState = obj.GetComponent<PlayerState>();
         float currentHp = playerScript.getHP();
         playerScript.setHP(currentHp - _damage);
-        if (!playerScript.isAlive())
-        {
-            playerScript.die();
-        }
+        playerState.ChangeState(PLAYER_STATES.GHOST_STATE);
     }
 
     public void setDamage(int dmg)
     {
         this._damage = dmg;
-    }
-
-    public void setDir()
-    {
-        _moveDir = -transform.right;
-        _bulletRigid.velocity = _moveDir * _bulletSpeed;
     }
     public void lastLimit()
     {
@@ -61,5 +53,11 @@ public class EnemyBullet : MonoBehaviour, Hit
         {
             ObjectPool.instance.ReturnObject(gameObject);
         }
+    }
+
+    public void setDir() 
+    {
+        _bulletRigid.velocity = transform.right * _bulletSpeed;
+
     }
 }
