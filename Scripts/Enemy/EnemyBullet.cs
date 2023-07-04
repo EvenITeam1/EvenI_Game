@@ -58,5 +58,6 @@ public class EnemyBullet : MonoBehaviour, Hit
     public void setDir() 
     {
         _bulletRigid.velocity = transform.right * _bulletSpeed;
+
     }
 }

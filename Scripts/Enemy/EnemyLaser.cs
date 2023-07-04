@@ -8,6 +8,7 @@ public class EnemyLaser : MonoBehaviour, Hit //laserObject 를 기준으로 좌측으로 
 {
     [SerializeField] bool _isStatic;
     [SerializeField] LayerMask _playerLayer;
+    [SerializeField] GameObject _player;
     private int _damage;
     [SerializeField] int _setDmg;
     [SerializeField] float _width;
@@ -15,9 +16,9 @@ public class EnemyLaser : MonoBehaviour, Hit //laserObject 를 기준으로 좌측으로 
     [SerializeField] GameObject _warningEffect;
     [SerializeField] GameObject _laserEffect;
     float _time;
-    
 
 
+    [SerializeField] bool _targetIsPlayer;
     [SerializeField] float _shotLastTime;
     [SerializeField] Vector2 _shotPoint;
 
@@ -42,7 +43,9 @@ public class EnemyLaser : MonoBehaviour, Hit //laserObject 를 기준으로 좌측으로 
     {
         switch(_isStatic)
         {
-            case true: laserStatic(_width, _shotPoint);
+            case true:
+                if (_targetIsPlayer) laserStatic(_width, new Vector2(7, _player.transform.position.y));
+                else laserStatic(_width, _shotPoint);
                 break;
 
             case false: laserDynamic(_width, _startPoint, _endPoint, _moveSpeed);
