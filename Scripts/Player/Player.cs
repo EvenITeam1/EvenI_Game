@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Cysharp.Threading.Tasks;
 
 public class Player : MonoBehaviour
 {
@@ -32,7 +33,7 @@ public class Player : MonoBehaviour
 
     /*********************************************************************************/
 
-    private void Awake()
+    private async void Awake()
     {
         /*Set Compoenent*/
         inputHandler ??= GetComponent<InputHandler>();
@@ -41,7 +42,9 @@ public class Player : MonoBehaviour
         playerCollider ??= GetComponent<Collider2D>();
 
         /*Set PlayerData*/
-        playerData = GameManager.Instance.CharacterDataTableDesign.playerDataforms[(int)this.Index]; //외부에서 받는것
+        int pdi = (int)((int)this.Index - PlayerData.indexBasis);
+        Debug.Log(pdi);
+        playerData = await GameManager.Instance.CharacterDataTableDesign.GetPlayerDataByINDEX(this.Index); //외부에서 받는것
 
         /*Set PlayerJumpData*/
         PlayerJumpData.jumpCount = PlayerJumpData.maxJumpCount;

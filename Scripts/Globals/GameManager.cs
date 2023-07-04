@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
             return _instance;
         }
     }
-    
+
     public Game_PL_Character_DataTable_design CharacterDataTableDesign;
     public Game_PL_Object_DataTable_design ObjectDataTableDesign;
     public GlobalEvent GlobalEventInstance;
