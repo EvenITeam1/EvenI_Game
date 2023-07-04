@@ -53,6 +53,10 @@ public class Player : MonoBehaviour
         /*Set PlayerVisualData*/
         PlayerVisualData.spriteRenderer ??= GetComponent<SpriteRenderer>();
         PlayerVisualData.animator ??= GetComponent<Animator>();
+
+        /*Set PlayerHP*/
+        playerHP.setHP(playerData.Character_hp);
+        playerHP._restoreHpPreSec = playerData.Character_per_hp_heal;
     }
 
     private void Start()

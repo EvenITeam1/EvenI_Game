@@ -7,6 +7,7 @@ public class PlayerHP : MonoBehaviour, HP
 {
     [SerializeField] float _hp;
     [SerializeField] float _setHp;
+    [SerializeField] public float _restoreHpPreSec;
     
     void Start() {setHP(_setHp);}
 
@@ -31,4 +32,12 @@ public class PlayerHP : MonoBehaviour, HP
         SceneManager.LoadScene("GameOverScene");
     }
 
+    float passedTime = 0f;
+    private void Update() {
+        if(this._hp < this._setHp && passedTime >= 1f){
+            this._hp += _restoreHpPreSec;
+            passedTime = 0;
+        }
+        passedTime += Time.deltaTime;
+    }
 }
