@@ -11,9 +11,8 @@ public class SetEnemyMove
         flag.transform.position = enemy.transform.position + localDest;
         flag.SetActive(true);
         var enemyRigid = enemy.GetComponent<Rigidbody2D>();
-        enemyRigid.velocity = localDest.normalized * speed;   
+        enemyRigid.velocity = localDest.normalized * speed;
     }
-
     public static float goUp(float y, float speed, float enemyRadius, GameObject enemy, GameObject flag)
     {
         move(0, y, speed, enemyRadius, enemy, flag);
@@ -36,8 +35,4 @@ public class SetEnemyMove
         move(x, 0, speed, enemyRadius, enemy, flag);
         return x / speed;
     }
-
-
-
-
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 #if UNITY_EDITOR
+using PixelSpark.Parallaxer.InspectorAttributes;
 #endif
 using PixelSpark.Parallaxer.Helpers;
 
@@ -16,6 +17,9 @@ namespace PixelSpark.Parallaxer
         private bool _useMainCamera = true;
 
         [SerializeField]
+#if UNITY_EDITOR
+        [InspectorAttributes.HideIf(nameof(_useMainCamera))]
+#endif
         [Tooltip("Camera used to calculate the parallax speed.")]
         private Camera _targetCamera;
 
@@ -24,15 +28,27 @@ namespace PixelSpark.Parallaxer
         private bool _debugMode;
 
         [SerializeField]
+#if UNITY_EDITOR
+        [InspectorAttributes.ShowIf(nameof(_debugMode))]
+#endif
         private Transform _mainCameraTransform;
 
         [SerializeField]
+#if UNITY_EDITOR
+        [InspectorAttributes.ShowIf(nameof(_debugMode))]
+#endif
         private Vector3 _previousCameraPosition;
 
         [SerializeField]
+#if UNITY_EDITOR
+        [InspectorAttributes.ShowIf(nameof(_debugMode))]
+#endif
         private Vector3 _currentCameraPosition;
 
         [SerializeField]
+#if UNITY_EDITOR
+        [InspectorAttributes.ShowIf(nameof(_debugMode))]
+#endif
         private float _currentCameraHorizontalDisplacement;
 
         #endregion
