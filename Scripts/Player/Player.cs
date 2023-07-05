@@ -31,6 +31,8 @@ public class Player : MonoBehaviour
     [SerializeField] private Rigidbody2D playerRigid;
     private float originGravityScale = 0;
 
+    [SerializeField] SlowDown slowDown;
+
     /*********************************************************************************/
 
     private async void Awake()
@@ -73,7 +75,8 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        playerRigid.velocity = new Vector2(PlayerMoveData.horizontal * PlayerMoveData.speed, playerRigid.velocity.y);
+        if (slowDown.bossInComing == false) { playerRigid.velocity = new Vector2(PlayerMoveData.horizontal * PlayerMoveData.speed, playerRigid.velocity.y); }
+        else { playerRigid.velocity = new Vector2(0, playerRigid.velocity.y); }
     }
     /*********************************************************************************/
 
@@ -104,6 +107,8 @@ public class Player : MonoBehaviour
     #region Jump
     private void Jump()
     {
+        PlayerShoot shootScript = GetComponent<PlayerShoot>();//bullet 발사 관련 스크립트 가져오기
+
         if (IsGrounded() && !IsJumped()) { RestoreJumpCount(); } //점프횟수 복구
 
         if (!inputHandler.IsJumpPressd) { PlayerJumpData.IsActivatedOnce = false; } // 점프버튼 뗐는지 체크
@@ -114,7 +119,8 @@ public class Player : MonoBehaviour
             if (PlayerJumpData.IsActivatedOnce) { return; } //한번 눌렀는지 체크
             else
             {
-                playerRigid.velocity = Vector2.up * PlayerJumpData.jumpingPower;
+                playerRigid.velocity = Vector2.up * PlayerJumpData.jumpingPower;             
+                shootScript.fireJumpBullet();//추가타 코드
                 PlayerJumpData.jumpCount--;
                 PlayerJumpData.IsActivatedOnce = true;
             }
