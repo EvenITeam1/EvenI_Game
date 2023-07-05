@@ -53,7 +53,7 @@ public class BossPatternManager : MonoBehaviour
         ready = false;
     }
 
-    void pattern1()//example : ÇöÀç ·¹ÀÌÀú ¿ÀºêÁ§Æ®°¡ 2°³ ³Ö¾îÁ® ÀÖ´Â »óÈ²¿¡¼­, 0¹ø 1¹ø Áß¿¡ ·£´ýÀ¸·Î ÇÏ³ªÀÇ ·¹ÀÌÀú¸¦ ½î´Â ÆÐÅÏ
+    void pattern1()//example : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ 2ï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½È²ï¿½ï¿½ï¿½ï¿½, 0ï¿½ï¿½ 1ï¿½ï¿½ ï¿½ß¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     {
         int n = Random.Range(0, 2);
         SetEnemyLaser.executeLaser(laserObj[n]);
@@ -61,7 +61,8 @@ public class BossPatternManager : MonoBehaviour
 
     void pattern3()
     {
-        SetEnemyBullet.fireBullet(new Vector2(7, 5), reflectBullet, enemy);   
+        int n = Random.Range(-3, 7);
+        SetEnemyBullet.fireBullet(new Vector2(7, n), reflectBullet, enemy);   
     }
 
     public float _pattern2SubCool;

@@ -36,8 +36,4 @@ public class SetEnemyMove
         move(x, 0, speed, enemy, flag);
         return x / speed;
     }
-
-
-
-
 }

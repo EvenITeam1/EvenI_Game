@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Cysharp.Threading.Tasks;
 
 public class Player : MonoBehaviour
 {
@@ -31,9 +32,10 @@ public class Player : MonoBehaviour
     private float originGravityScale = 0;
 
     [SerializeField] SlowDown slowDown;
+
     /*********************************************************************************/
 
-    private void Awake()
+    private async void Awake()
     {
         /*Set Compoenent*/
         inputHandler ??= GetComponent<InputHandler>();
@@ -42,7 +44,9 @@ public class Player : MonoBehaviour
         playerCollider ??= GetComponent<Collider2D>();
 
         /*Set PlayerData*/
-        playerData = GameManager.Instance.CharacterDataTableDesign.playerDataforms[(int)this.Index]; //외부에서 받는것
+        int pdi = (int)((int)this.Index - PlayerData.indexBasis);
+        Debug.Log(pdi);
+        playerData = await GameManager.Instance.CharacterDataTableDesign.GetPlayerDataByINDEX(this.Index); //외부에서 받는것
 
         /*Set PlayerJumpData*/
         PlayerJumpData.jumpCount = PlayerJumpData.maxJumpCount;
@@ -51,6 +55,10 @@ public class Player : MonoBehaviour
         /*Set PlayerVisualData*/
         PlayerVisualData.spriteRenderer ??= GetComponent<SpriteRenderer>();
         PlayerVisualData.animator ??= GetComponent<Animator>();
+
+        /*Set PlayerHP*/
+        playerHP.setHP(playerData.Character_hp);
+        playerHP._recoverHp = playerData.Character_per_hp_heal;
     }
 
     private void Start()
@@ -67,6 +75,7 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+       
         if (slowDown.bossInComing == false) { playerRigid.velocity = new Vector2(PlayerMoveData.horizontal * PlayerMoveData.speed, playerRigid.velocity.y); }
         else { playerRigid.velocity = new Vector2(0, playerRigid.velocity.y); }
     }
@@ -111,10 +120,9 @@ public class Player : MonoBehaviour
             if (PlayerJumpData.IsActivatedOnce) { return; } //한번 눌렀는지 체크
             else
             {
-                playerRigid.velocity = Vector2.up * PlayerJumpData.jumpingPower;
+                playerRigid.velocity = Vector2.up * PlayerJumpData.jumpingPower;             
+                shootScript.fireJumpBullet();//추가타 코드
                 PlayerJumpData.jumpCount--;
-                if (!shootScript) { Debug.Log("Player 오브젝트에 PlayerShoot 스크립트가 없습니다."); }//추가타 코드
-                else { shootScript.fireJumpBullet(); }//추가타 코드
                 PlayerJumpData.IsActivatedOnce = true;
             }
         }

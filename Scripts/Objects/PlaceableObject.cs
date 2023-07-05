@@ -26,7 +26,7 @@ public class PlaceableObject : MonoBehaviour {
         objectCollider  ??= GetComponent<BoxCollider2D>();
 
         /*Set ObjectData*/
-        objectData = GameManager.Instance.ObjectDataTableDesign.objectDataforms[(int)this.Index];
+        objectData = GameManager.Instance.ObjectDataTableDesign.objectDataforms[(int)Index - ObjectData.indexBasis];
 
         /*Set CoinData*/
         /*Set ItemData*/

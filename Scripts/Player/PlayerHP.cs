@@ -8,7 +8,7 @@ public class PlayerHP : MonoBehaviour, HP
 {
     [SerializeField] float _hp;
     [SerializeField] float _setHp;
-    [SerializeField] float _recoverHp;
+    [SerializeField] public float _recoverHp;
     [SerializeField] float _recoverInterval;
     float _time;
 
@@ -40,8 +40,7 @@ public class PlayerHP : MonoBehaviour, HP
         }
     }
     public float getHP() { return this._hp; }
-    public float getMaxHp() { return this._setHp; }
-
+    public float getMaxHp() {return this._setHp;}
     public bool isAlive()
     {
         if (_hp > 0)
@@ -56,7 +55,7 @@ public class PlayerHP : MonoBehaviour, HP
         SceneManager.LoadScene("gameOverScene");
     }
 
-    public void recoverHp(float recoverHp)//È¤½Ã³ª È¸º¹ ÅÛ ³ª¿À¸é ÀÌ ÇÔ¼ö ¾²¶ó°í ¸Å°³º¯¼ö ´Þ¾Æ³õÀ½
+    public void recoverHp(float recoverHp)//È¤ï¿½Ã³ï¿½ È¸ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ô¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¾Æ³ï¿½ï¿½ï¿½
     {
         if(_hp < _setHp)
         {
