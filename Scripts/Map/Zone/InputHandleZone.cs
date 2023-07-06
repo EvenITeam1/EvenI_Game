@@ -8,7 +8,6 @@ namespace TwoDimensions
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            Debug.Log("Checked");
             if (player.GetCollider() == other)
             {
                 player.PlayerJumpData.isAirHoldable = false;

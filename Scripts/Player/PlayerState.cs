@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum PLAYER_STATES
 {
-    DEFAULT_STATE = 0, GHOST_STATE
+    PLAYER_STATE = 0, GHOST_STATE
 }
 
 public class PlayerState : MonoBehaviour
@@ -24,19 +24,22 @@ public class PlayerState : MonoBehaviour
 
     IEnumerator GHOST_STATE()
     {
+        GameManager.Instance.GlobalPlayer.IsHitedOnce = true;
         gameObject.layer = LayerMask.NameToLayer(GlobalStrings.GHOST_STRING);
         yield return YieldInstructionCache.WaitForSeconds(1f);
-        ChangeState(PLAYER_STATES.DEFAULT_STATE);
+        GameManager.Instance.GlobalPlayer.IsHitedOnce = false;
+        ChangeState(PLAYER_STATES.PLAYER_STATE);
     }
 
-    IEnumerator DEFAULT_STATE()
+    IEnumerator PLAYER_STATE()
     {
-        gameObject.layer = LayerMask.NameToLayer(GlobalStrings.DEFAULT_STRING);
+        gameObject.layer = LayerMask.NameToLayer(GlobalStrings.PLAYER_STRING);
         yield break;
     }
 
     public void ChangeState(PLAYER_STATES _state)
     {
+        Debug.Log($"ChangeState : {_state.ToString()}");
         if (currentState == _state) return;
         currentState = _state;
         rend.material.color = ColorsByState[(int)_state];

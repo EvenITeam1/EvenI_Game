@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Cysharp.Threading.Tasks;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IDamagable
 {
     [SerializeField]
     private DOG_INDEX Index;
@@ -42,8 +42,6 @@ public class Player : MonoBehaviour
         playerCollider ??= GetComponent<Collider2D>();
 
         /*Set PlayerData*/
-        int pdi = (int)((int)this.Index - PlayerData.indexBasis);
-        Debug.Log(pdi);
         playerData = await GameManager.Instance.CharacterDataTableDesign.GetPlayerDataByINDEX(this.Index); //외부에서 받는것
 
         /*Set PlayerJumpData*/
@@ -148,12 +146,14 @@ public class Player : MonoBehaviour
 
     /*********************************************************************************/
 
-    #region State
-    private void ChangeState(PlayerState _newState)
-    {
-        StopCoroutine(playerState.ToString());
-        playerState = _newState;
-        StartCoroutine(playerState.ToString());
+    #region GetHit
+    public bool IsHitedOnce = false;
+    public bool GetDamage(float _amount){
+        if(IsHitedOnce == true) {return false;}
+        float currentHp = playerHP.getHP();
+        playerHP.setHP(currentHp - _amount);
+        playerState.ChangeState(PLAYER_STATES.GHOST_STATE);
+        return true;
     }
     #endregion
 }

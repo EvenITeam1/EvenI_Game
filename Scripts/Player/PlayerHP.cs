@@ -10,6 +10,7 @@ public class PlayerHP : MonoBehaviour, HP
     [SerializeField] float _setHp;
     [SerializeField] public float _recoverHp;
     [SerializeField] float _recoverInterval;
+
     float _time;
 
     void Start() {
@@ -34,11 +35,11 @@ public class PlayerHP : MonoBehaviour, HP
     public void setHP(float hp)
     {
        _hp = hp; 
-        if (!isAlive())
-        {
+        if (!isAlive()) {
             die();
         }
     }
+
     public float getHP() { return this._hp; }
     public float getMaxHp() {return this._setHp;}
     public bool isAlive()

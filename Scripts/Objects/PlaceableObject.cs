@@ -38,6 +38,7 @@ public class PlaceableObject : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
+        Debug.Log("OnTriggerEnter");
         switch (objectData.Ob_category)
         {
             case OBJECT_CATEGORY.DEFAULT : {HandleDefault(other); break;}
@@ -53,17 +54,12 @@ public class PlaceableObject : MonoBehaviour {
     }
     public void HandleTrap(Collider2D _other){
         if(_other.TryGetComponent(out Player player)){
-            PlayerHP playerHP = player.playerHP;
-            PlayerState playerState = player.playerState;
-            
-            float currentHp = player.playerHP.getHP();
-            playerHP.setHP((float)(currentHp - objectData.Ob_damage));
-            playerState.ChangeState(PLAYER_STATES.GHOST_STATE);
+           Debug.Log(player.GetDamage(objectData.Ob_damage));
         }
     }
     public void HandleCoin(Collider2D _other){
-        if(_other.TryGetComponent(out ScoreCheck scoreCheck)){
-            scoreCheck.Score += this.coinData.ScoreValue;
+        if(_other.TryGetComponent(out Player player)){
+            GameManager.Instance.GlobalEventInstance.scoreCheck.Score +=this.coinData.ScoreValue;
             Instantiate(this.coinData.particle, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }

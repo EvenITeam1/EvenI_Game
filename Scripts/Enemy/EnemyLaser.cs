@@ -4,7 +4,7 @@ using TwoDimensions;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class EnemyLaser : MonoBehaviour, Hit //laserObject ¸¦ ±âÁØÀ¸·Î ÁÂÃøÀ¸·Î ·¹ÀÌÀú¸¦ ¹ß»çÇÏ´Â ÄÚµå laserObject À§Ä¡ º¯µ¿Àº setLaser
+public class EnemyLaser : MonoBehaviour, Hit //laserObject ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï´ï¿½ ï¿½Úµï¿½ laserObject ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ setLaser
 {
     [SerializeField] bool _isStatic;
     [SerializeField] LayerMask _playerLayer;
@@ -66,7 +66,7 @@ public class EnemyLaser : MonoBehaviour, Hit //laserObject ¸¦ ±âÁØÀ¸·Î ÁÂÃøÀ¸·Î 
             if (targets[i].gameObject.GetComponent<PlayerHP>())
             {
                 getDamage(targets[i].gameObject);
-                Debug.Log("°ø°İ¹Ş¾Ò´Ù.");
+                //Debug.Log("ï¿½ï¿½ï¿½İ¹Ş¾Ò´ï¿½.");
             }
         } 
     }
@@ -156,8 +156,8 @@ public class EnemyLaser : MonoBehaviour, Hit //laserObject ¸¦ ±âÁØÀ¸·Î ÁÂÃøÀ¸·Î 
         this._damage = dmg;
     }
 
-    public void setDir() { }//·¹ÀÌÀú´Â Åõ»çÃ¼°¡ ¾ø¾î¼­ ¾È¾¸
-    public void lastLimit() { }//·¹ÀÌÀú´Â Åõ»çÃ¼°¡ ¾ø¾î¼­ ¾È¾¸
+    public void setDir() { }//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½î¼­ ï¿½È¾ï¿½
+    public void lastLimit() { }//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½î¼­ ï¿½È¾ï¿½
 
 
 }

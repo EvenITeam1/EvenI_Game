@@ -18,8 +18,9 @@ public class ObjectData {
 
     public ObjectData(string _parsedLine){
         string[] datas = _parsedLine.Split(",");
+
         this.Index = IntToINDEX(int.Parse(datas[0]));
-        this.Ob_name = datas[1];
+        this.Ob_name = datas[1].Replace('_', ' ');;
         this.Ob_category = (OBJECT_CATEGORY)int.Parse(datas[2]);
         this.Ob_height = int.Parse(datas[3]);
         this.Ob_width = int.Parse(datas[4]);
