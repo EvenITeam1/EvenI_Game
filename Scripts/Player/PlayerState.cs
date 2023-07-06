@@ -9,7 +9,7 @@ public enum PLAYER_STATES
 
 public class PlayerState : MonoBehaviour
 {
-    public List<Color> ColorsByState = new List<Color>();
+    public List<Material> MaterialByState = new List<Material>();
     [SerializeField]
     private SpriteRenderer rend;
 
@@ -26,6 +26,7 @@ public class PlayerState : MonoBehaviour
     {
         GameManager.Instance.GlobalPlayer.IsHitedOnce = true;
         gameObject.layer = LayerMask.NameToLayer(GlobalStrings.GHOST_STRING);
+        rend.material = MaterialByState[(int)PLAYER_STATES.GHOST_STATE];
         yield return YieldInstructionCache.WaitForSeconds(1f);
         GameManager.Instance.GlobalPlayer.IsHitedOnce = false;
         ChangeState(PLAYER_STATES.PLAYER_STATE);
@@ -34,6 +35,7 @@ public class PlayerState : MonoBehaviour
     IEnumerator PLAYER_STATE()
     {
         gameObject.layer = LayerMask.NameToLayer(GlobalStrings.PLAYER_STRING);
+        rend.material = MaterialByState[(int)PLAYER_STATES.PLAYER_STATE];
         yield break;
     }
 
@@ -42,7 +44,6 @@ public class PlayerState : MonoBehaviour
         Debug.Log($"ChangeState : {_state.ToString()}");
         if (currentState == _state) return;
         currentState = _state;
-        rend.material.color = ColorsByState[(int)_state];
         currentCoroutine = StartCoroutine(currentState.ToString());
     }
 }
