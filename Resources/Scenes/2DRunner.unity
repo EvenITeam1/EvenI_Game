@@ -59746,6 +59746,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 4851095387492329631}
+--- !u!1 &1658466362
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1658466363}
+  m_Layer: 0
+  m_Name: sidemirror
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1658466363
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658466362}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -14.148393, y: 7.8365273, z: -0.025542198}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1666748723
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -59907,6 +59938,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1713915428}
+  - component: {fileID: 1713915429}
   m_Layer: 0
   m_Name: SlowDown
   m_TagString: Untagged
@@ -59922,13 +59954,27 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1713915427}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.47211212, y: 5.201932, z: -0.23983657}
+  m_LocalPosition: {x: -8.27, y: 9.26, z: -0.23983657}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1713915429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713915427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18fe98e935ffe594e8464dbbef9bdfc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossInComing: 0
+  _sideMirror: {fileID: 1658466362}
 --- !u!1 &1729405871
 GameObject:
   m_ObjectHideFlags: 0
@@ -65389,7 +65435,7 @@ MonoBehaviour:
   inputHandler: {fileID: 4851095387492329629}
   playerCollider: {fileID: 4851095387492329633}
   playerRigid: {fileID: 193205190929239518}
-  slowDown: {fileID: 0}
+  slowDown: {fileID: 1713915429}
 --- !u!58 &4851095387492329633
 CircleCollider2D:
   m_ObjectHideFlags: 0
