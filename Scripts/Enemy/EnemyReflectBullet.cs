@@ -9,6 +9,7 @@ public class EnemyReflectBullet : MonoBehaviour
     int _damage;
     public int _setDmg;
     float _time;
+    
     public float _lastTime;
     public float _bulletSpeed;
     public int _maxReflectCount;
