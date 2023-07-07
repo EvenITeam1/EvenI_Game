@@ -11,7 +11,6 @@ public class SlowDown : MonoBehaviour
     {
         if(collision.GetComponent<PlayerHP>())
         {
-           //Debug.Log("������ ����!");
             bossInComing = true;
             _sideMirror.SetActive(true);
             gameObject.SetActive(false);

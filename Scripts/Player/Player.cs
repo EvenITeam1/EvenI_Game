@@ -6,6 +6,7 @@ using Cysharp.Threading.Tasks;
 
 public class Player : MonoBehaviour, IDamagable
 {
+
     [SerializeField]
     private DOG_INDEX Index;
 
@@ -73,6 +74,7 @@ public class Player : MonoBehaviour, IDamagable
 
     private void FixedUpdate()
     {
+       
         if (slowDown.bossInComing == false) { playerRigid.velocity = new Vector2(PlayerMoveData.horizontal * PlayerMoveData.speed, playerRigid.velocity.y); }
         else { playerRigid.velocity = new Vector2(0, playerRigid.velocity.y); }
     }

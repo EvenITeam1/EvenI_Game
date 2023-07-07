@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class SetEnemyBullet
 {
+    /// <summary>
+    /// Shot bullet to destination with selected bulletType
+    /// </summary>
+    /// <param name="destination"></param>
+    /// <param name="bulletType"></param>
+    /// <param name="enemyObj"></param>
     public static void fireBullet(Vector2 destination, GameObject bulletType, GameObject enemyObj)
     {
         GameObject bullet = ObjectPool.instance.GetObject(bulletType);
@@ -11,4 +17,34 @@ public class SetEnemyBullet
         bullet.transform.right = (Vector3)destination - enemyObj.transform.position;
         bullet.SetActive(true);
     }
+
+
+    /// <summary>
+    /// Shot bullet to local position y by enemy with selected bulletType
+    /// </summary>
+    /// <param name="y"></param>
+    /// <param name="bulletType"></param>
+    /// <param name="enemyObj"></param>
+    public static void fireBulletLocal(float y, GameObject bulletType, GameObject enemyObj)
+    {
+        fireBullet(new Vector2(-1, y) + (Vector2)enemyObj.transform.position, bulletType, enemyObj);
+    }
+
+    /// <summary>
+    /// Shot bullet to random y position [min, max] with selected bulletType
+    /// </summary>
+    /// <param name="min"></param>
+    /// <param name="max"></param>
+    /// <param name="bulletType"></param>
+    /// <param name="enemyObj"></param>
+    public static void fireBulletRandomPos(int min, int max, GameObject bulletType, GameObject enemyObj)
+    {
+        int n = Random.Range(min, max + 1);
+
+        fireBullet(new Vector2(7, n), bulletType, enemyObj);
+    }
+
+   
+
+
 }

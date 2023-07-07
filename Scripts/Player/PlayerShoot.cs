@@ -24,6 +24,8 @@ public class PlayerShoot : MonoBehaviour
     {
         GameObject bullet = ObjectPool.instance.GetObject(_playerBullet);
         bullet.transform.position = transform.position;
+        var bulletScript = bullet.GetComponent<PlayerBullet>();
+        bulletScript._playerRigid = GetComponent<Rigidbody2D>();
         bullet.SetActive(true);
     }
 
@@ -31,6 +33,8 @@ public class PlayerShoot : MonoBehaviour
     {
         GameObject bullet = ObjectPool.instance.GetObject(_jumpBullet);
         bullet.transform.position = transform.position;
+        var bulletScript = bullet.GetComponent<PlayerBullet>();
+        bulletScript._playerRigid = GetComponent<Rigidbody2D>();
         bullet.SetActive(true);
     }
 }

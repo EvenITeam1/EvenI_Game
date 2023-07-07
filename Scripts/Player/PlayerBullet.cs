@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerBullet : MonoBehaviour, Hit
 {
-    public LayerMask _enemyLayer;
+    public Rigidbody2D _playerRigid; 
     public int _minDmg;
     public int _maxDmg;
     int _damage;
@@ -81,7 +81,8 @@ public class PlayerBullet : MonoBehaviour, Hit
     public void setDir()
     {
         _moveDir = transform.right;
-        _bulletRigid.velocity = _moveDir * _bulletSpeed;
+        var playerVector = new Vector2(_playerRigid.velocity.x, 0);
+        _bulletRigid.velocity = _moveDir * _bulletSpeed + playerVector;
     }
 
     public void lastLimit()
