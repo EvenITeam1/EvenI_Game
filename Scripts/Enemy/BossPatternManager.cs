@@ -21,7 +21,7 @@ public class BossPatternManager : MonoBehaviour
         if(!ready)
         {
             ready = true;
-            StartCoroutine(executeRandomPattern(4));
+            StartCoroutine(executeRandomPattern(6));
         }
     }
 
@@ -30,52 +30,54 @@ public class BossPatternManager : MonoBehaviour
         yield return new WaitForSeconds(coolTime);
 
         int n = Random.Range(0, PatternN);
+      
 
             switch (n)
             {
                 case 0:
-                    pattern1();
-                    break;
+                pattern1();
+                break;
 
                 case 1:
-                    pattern2();
-                    break;
+                pattern2();
+                break;
 
                 case 2 :
-                    pattern3();
-                    break;
+                pattern3();
+                break;
 
                 case 3 :
                 pattern4();
                 break;
 
+                case 4:
+                pattern5();
+                break;
+
+                case 5:
+                pattern6();
+                break;
             }
         ready = false;
     }
 
-    void pattern1()//example : ÇöÀç ·¹ÀÌÀú ¿ÀºêÁ§Æ®°¡ 2°³ ³Ö¾îÁ® ÀÖ´Â »óÈ²¿¡¼­, 0¹ø 1¹ø Áß¿¡ ·£´ýÀ¸·Î ÇÏ³ªÀÇ ·¹ÀÌÀú¸¦ ½î´Â ÆÐÅÏ
+    void pattern1()//example : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ 2ï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½È²ï¿½ï¿½ï¿½ï¿½, 0ï¿½ï¿½ 1ï¿½ï¿½ ï¿½ß¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     {
         int n = Random.Range(0, 2);
         SetEnemyLaser.executeLaser(laserObj[n]);
     }
 
-    void pattern3()
-    {
-        SetEnemyBullet.fireBullet(new Vector2(7, 5), reflectBullet, enemy);   
-    }
-
-    public float _pattern2SubCool;
-
+    public float interval2;
     void pattern2()//example
     {
         pattern2_sub1();
-        Invoke("pattern2_sub2", _pattern2SubCool);
-        Invoke("pattern2_sub3", _pattern2SubCool * 2);
-        Invoke("pattern2_sub4", _pattern2SubCool * 3);
-        Invoke("pattern2_sub5", _pattern2SubCool * 4);
-        Invoke("pattern2_sub6", _pattern2SubCool * 5);
+        Invoke("pattern2_sub2", interval2);
+        Invoke("pattern2_sub3", interval2 * 2);
+        Invoke("pattern2_sub4", interval2 * 3);
+        Invoke("pattern2_sub5", interval2 * 4);
+        Invoke("pattern2_sub6", interval2 * 5);
     }
-
+    #region íŒ¨í„´2 êµ¬ì„±í•¨ìˆ˜
     void pattern2_sub1()
     {
         SetEnemyBullet.fireBullet(new Vector2(7, 4), basicBullet, enemy);
@@ -91,7 +93,7 @@ public class BossPatternManager : MonoBehaviour
         SetEnemyBullet.fireBullet(new Vector2(7, 4), basicBullet, enemy);
         SetEnemyBullet.fireBullet(new Vector2(7, 2), basicBullet, enemy);
         SetEnemyBullet.fireBullet(new Vector2(7, 0), basicBullet, enemy);
-        SetEnemyBullet.fireBullet(new Vector2(7, 2), basicBullet, enemy);
+        SetEnemyBullet.fireBullet(new Vector2(7, -2), basicBullet, enemy);
     }
 
     void pattern2_sub3()
@@ -117,20 +119,94 @@ public class BossPatternManager : MonoBehaviour
     {
         SetEnemyBullet.fireBullet(player.transform.position, basicBullet, enemy);
     }
+    #endregion
 
+    void pattern3()
+    {
+        SetEnemyBullet.fireBulletRandomPos(-3, 14, reflectBullet, enemy);
+    }
 
     void pattern4()
     {
         float n = SetEnemyMove.goUp(5, moveSpeed, enemy, flag);
+        Invoke("patternSub4", n);
+
+
         pattern2_sub6();
         for(int i = 1; i< 6; i++)
-        Invoke("pattern2_sub6", 0.7f * i);
-
-        Invoke("patternSub4", n);
+        Invoke("pattern2_sub6", 0.7f * i);     
     }
-
+    #region íŒ¨í„´4 êµ¬ì„±í•¨ìˆ˜
     void patternSub4()
     {
         SetEnemyMove.goDown(5, moveSpeed, enemy, flag);
     }
+    #endregion
+
+
+    public float interval5;
+    void pattern5()
+    {
+        pattern5_sub1();
+        for (int i = 1; i < 10; i++)
+        {
+            Invoke("pattern5_sub1", interval5 * i);
+        }
+    }
+    #region íŒ¨í„´5 êµ¬ì„±í•¨ìˆ˜
+    void pattern5_sub1()
+    {
+        for (int i = 0; i < 6; i++)
+        {
+            SetEnemyBullet.fireBulletRandomPos(-3, 5, basicBullet, enemy);
+        }
+    }
+    #endregion
+
+
+    public float interval6;
+    public float interval6_1;
+    void pattern6()
+    {
+        float n1 = SetEnemyMove.goDown(1, moveSpeed, enemy, flag);
+        Invoke("pattern6_sub2", n1 + interval6);
+        Invoke("pattern6_sub2", (n1 + interval6) * 2);
+        Invoke("pattern6_sub3", (n1 + interval6) * 3);
+
+        for (int i = 0; i < 6; i++)
+        {
+            Invoke("pattern6_sub1", n1 + interval6_1 * i);
+        }
+
+        for (int i = 0; i < 6; i++)
+        {
+            Invoke("pattern6_sub1", (n1 + interval6) + interval6_1 * i);
+        }
+
+        for (int i = 0; i < 6; i++)
+        {
+            Invoke("pattern6_sub1", (n1 + interval6) * 2 + interval6_1 * i);
+        }
+
+        for (int i = 0; i < 6; i++)
+        {
+            Invoke("pattern6_sub1", (n1 + interval6) * 3 + interval6_1 * i);
+        }
+    }
+    #region íŒ¨í„´6 êµ¬ì„±í•¨ìˆ˜
+    void pattern6_sub1()
+    {
+        SetEnemyBullet.fireBulletLocal(0, basicBullet, enemy);
+    }
+
+    void pattern6_sub2()
+    {
+        SetEnemyMove.goUp(1, moveSpeed, enemy, flag);
+    }
+
+    void pattern6_sub3()
+    {
+        SetEnemyMove.goDown(1, moveSpeed, enemy, flag);
+    }
+    #endregion
 }

@@ -78,12 +78,12 @@ Transform:
   m_GameObject: {fileID: 6112941702285521837}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.2491, y: 1.9465, z: 0}
-  m_LocalScale: {x: 4.5714, y: 2.6134, z: 1}
+  m_LocalScale: {x: 3.7834952, y: 3.4660692, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7755182815742950345}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6112941702285521836
 SpriteRenderer:
@@ -126,8 +126,8 @@ SpriteRenderer:
   m_SortingLayerID: -1140292413
   m_SortingLayer: 1
   m_SortingOrder: 1
-  m_Sprite: {fileID: -9095717837082945937, guid: bd3cb4af8406d4436a2ae8c2aafe1f8d, type: 3}
-  m_Color: {r: 0.723607, g: 0.02264148, b: 1, a: 1}
+  m_Sprite: {fileID: 1868939048, guid: 4ffe010f803384545ad71eacdb9cb614, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hp: 0
-  _setHp: 2000
+  _setHp: 5000
   _hpBar: {fileID: 0}
 --- !u!50 &5357731713422839526
 Rigidbody2D:
@@ -172,7 +172,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 7
+  m_Constraints: 4
 --- !u!95 &3344573347959742252
 Animator:
   serializedVersion: 4
