@@ -30,4 +30,5 @@ public class GameManager : MonoBehaviour
     public GlobalEvent GlobalEventInstance;
 
     public Player GlobalPlayer;
+    public MobGenerator GlobalMobGenerator;
 }

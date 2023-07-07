@@ -39,8 +39,8 @@ public class PlayerData
         Character_skill = 0;
         Character_cost = 0;
         Character_expl = "비어있는 데이터 입니다.";
-
     }
+    
     public PlayerData(string _parsedLine)
     {
         string[] datas = _parsedLine.Split('\t');
@@ -76,8 +76,11 @@ public class PlayerJumpData
     public int jumpCount = 0;
     public bool isJumping = false;
     public bool IsActivatedOnce = false;
+
     public bool isAiring = false;
     public bool isAirHoldable = true;
+    public bool isAirHoldPrevented = false;
+    
     public float coyoteTime = 0.2f;
     public float coyoteTimeCounter;
     public float jumpBufferTime = 0.2f;

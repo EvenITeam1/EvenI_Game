@@ -24,15 +24,18 @@ public class GlobalEvent : MonoBehaviour
     {
         scoreCheck ??= GetComponent<ScoreCheck>();
     }
+    private void Start(){}
     void Update()
     {
         Time.timeScale = GameTimeScale;
     }
     
     /////////////////////////////////////////////////////////////////////////////////
+
 #region ScoreCheck
     public ScoreCheck scoreCheck;
 #endregion
+
     /////////////////////////////////////////////////////////////////////////////////
 #region TimeScaleEventHandler
 

@@ -56,7 +56,7 @@ public class PlayerHP : MonoBehaviour, HP
         SceneManager.LoadScene("gameOverScene");
     }
 
-    public void recoverHp(float recoverHp)//Ȥ�ó� ȸ�� �� ������ �� �Լ� ����� �Ű����� �޾Ƴ���
+    public virtual void recoverHp(float recoverHp)//Ȥ�ó� ȸ�� �� ������ �� �Լ� ����� �Ű����� �޾Ƴ���
     {
         if(_hp < _setHp)
         {

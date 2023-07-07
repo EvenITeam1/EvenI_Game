@@ -37,9 +37,9 @@ public class Player : MonoBehaviour, IDamagable
     {
         /*Set Compoenent*/
         inputHandler ??= GetComponent<InputHandler>();
+        playerCollider ??= GetComponent<Collider2D>();
         playerRigid ??= GetComponent<Rigidbody2D>();
         originGravityScale = playerRigid.gravityScale;
-        playerCollider ??= GetComponent<Collider2D>();
 
         /*Set PlayerData*/
         playerData = await GameManager.Instance.CharacterDataTableDesign.GetPlayerDataByINDEX(this.Index); //외부에서 받는것
@@ -105,7 +105,7 @@ public class Player : MonoBehaviour, IDamagable
         if (IsGrounded() && !IsJumped()) { RestoreJumpCount(); } //점프횟수 복구
 
         if (!inputHandler.IsJumpPressd) { PlayerJumpData.IsActivatedOnce = false; } // 점프버튼 뗐는지 체크
-        if (inputHandler.IsJumpPressd)
+        else if (inputHandler.IsJumpPressd)
         {
             if (PlayerJumpData.isAiring) { return; } //홀드중일떄는 점프 못하게 하기
             if (PlayerJumpData.jumpCount <= 0) { return; } //점프수 체크
@@ -118,8 +118,11 @@ public class Player : MonoBehaviour, IDamagable
             }
         }
 
-        if (!inputHandler.IsAirHoldPressed) { playerRigid.gravityScale = originGravityScale; PlayerJumpData.isAiring = false; } // 홀드버튼 떼면 다시 하강
-        if (inputHandler.IsAirHoldPressed)
+        if (!inputHandler.IsAirHoldPressed || PlayerJumpData.isAirHoldPrevented) { 
+            playerRigid.gravityScale = originGravityScale; 
+            PlayerJumpData.isAiring = false; 
+        } // 홀드버튼 떼면 다시 하강
+        else if (inputHandler.IsAirHoldPressed)
         {
             if (!PlayerJumpData.isAirHoldable) { return; } //홀드버튼이 작동 안되면 작동 시키지 말자.
             if (IsGrounded()) { return; } //땅에 있을떄는 작동 못하게 한다.
@@ -148,10 +151,12 @@ public class Player : MonoBehaviour, IDamagable
 
     #region GetHit
     public bool IsHitedOnce = false;
+    public GameObject HitParticle = null;
     public bool GetDamage(float _amount){
         if(IsHitedOnce == true) {return false;}
         float currentHp = playerHP.getHP();
         playerHP.setHP(currentHp - _amount);
+        Instantiate(HitParticle, transform);
         playerState.ChangeState(PLAYER_STATES.GHOST_STATE);
         return true;
     }
