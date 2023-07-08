@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Rigidbody2D playerRigid;
     private float originGravityScale = 0;
 
-    [SerializeField] SlowDown slowDown;
+    public bool stop = false;
 
     /*********************************************************************************/
 
@@ -76,7 +76,7 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
        
-        if (slowDown.bossInComing == false) { playerRigid.velocity = new Vector2(PlayerMoveData.horizontal * PlayerMoveData.speed, playerRigid.velocity.y); }
+        if (stop == false) { playerRigid.velocity = new Vector2(PlayerMoveData.horizontal * PlayerMoveData.speed, playerRigid.velocity.y); }
         else { playerRigid.velocity = new Vector2(0, playerRigid.velocity.y); }
     }
     /*********************************************************************************/

@@ -81,8 +81,13 @@ public class PlayerBullet : MonoBehaviour, Hit
     public void setDir()
     {
         _moveDir = transform.right;
-        var playerVector = new Vector2(_playerRigid.velocity.x, 0);
-        _bulletRigid.velocity = _moveDir * _bulletSpeed + playerVector;
+        if (_playerRigid)
+        {
+            var playerVector = new Vector2(_playerRigid.velocity.x, 0);
+            _bulletRigid.velocity = _moveDir * _bulletSpeed + playerVector;
+        }
+        else
+            Debug.Log("PlayerRigid is null. This Log is normal result of Initial Pooling.");
     }
 
     public void lastLimit()
