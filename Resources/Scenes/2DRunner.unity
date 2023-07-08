@@ -39110,6 +39110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da033a7da0e7946b58cdc316c3402d77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreCheck: {fileID: 0}
   PausedEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -59977,7 +59978,8 @@ MonoBehaviour:
   PrintString:
     m_PersistentCalls:
       m_Calls: []
-  _sideMirror: {fileID: 1658466362}
+  leftMirror: {fileID: 0}
+  upMirror: {fileID: 0}
 --- !u!1 &1729405871
 GameObject:
   m_ObjectHideFlags: 0
@@ -62501,6 +62503,8 @@ MonoBehaviour:
   CharacterDataTableDesign: {fileID: 2039237313}
   ObjectDataTableDesign: {fileID: 410215849}
   GlobalEventInstance: {fileID: 1352091788}
+  GlobalPlayer: {fileID: 0}
+  GlobalMobGenerator: {fileID: 0}
 --- !u!4 &2031987344
 Transform:
   m_ObjectHideFlags: 0
@@ -63708,6 +63712,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  isActivated: 0
 --- !u!1 &1273100219361300255
 GameObject:
   m_ObjectHideFlags: 0
@@ -65360,7 +65365,7 @@ GameObject:
   - component: {fileID: 4851095387492329636}
   m_Layer: 31
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65426,6 +65431,7 @@ MonoBehaviour:
     IsActivatedOnce: 0
     isAiring: 0
     isAirHoldable: 1
+    isAirHoldPrevented: 0
     coyoteTime: 0.2
     coyoteTimeCounter: 0
     jumpBufferTime: 0.2
@@ -65439,6 +65445,8 @@ MonoBehaviour:
   playerCollider: {fileID: 4851095387492329633}
   playerRigid: {fileID: 193205190929239518}
   stop: 0
+  IsHitedOnce: 0
+  HitParticle: {fileID: 0}
 --- !u!58 &4851095387492329633
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -65480,9 +65488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5683b1599182741f6965c14c69ecd968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ColorsByState:
-  - {r: 1, g: 1, b: 1, a: 1}
-  - {r: 0.6509434, g: 0.6509434, b: 0.6509434, a: 0.43137255}
+  MaterialByState: []
   rend: {fileID: 885462538}
 --- !u!114 &4851095387492329637
 MonoBehaviour:

@@ -29,8 +29,8 @@ public class BossPatternManager : MonoBehaviour
     {
         yield return new WaitForSeconds(coolTime);
 
-        int n = Random.Range(0, PatternN);
-      
+        //int n = Random.Range(0, PatternN);
+        int n = 5;
 
             switch (n)
             {
@@ -166,6 +166,7 @@ public class BossPatternManager : MonoBehaviour
 
     public float interval6;
     public float interval6_1;
+    public float delay6;
     void pattern6()
     {
         float n1 = SetEnemyMove.goDown(1, moveSpeed, enemy, flag);
@@ -180,17 +181,17 @@ public class BossPatternManager : MonoBehaviour
 
         for (int i = 0; i < 6; i++)
         {
-            Invoke("pattern6_sub1", (n1 + interval6) + interval6_1 * i);
+            Invoke("pattern6_sub1", (n1 + interval6) + interval6_1 * i + delay6);
         }
 
         for (int i = 0; i < 6; i++)
         {
-            Invoke("pattern6_sub1", (n1 + interval6) * 2 + interval6_1 * i);
+            Invoke("pattern6_sub1", (n1 + interval6) * 2 + interval6_1 * i + delay6);
         }
 
         for (int i = 0; i < 6; i++)
         {
-            Invoke("pattern6_sub1", (n1 + interval6) * 3 + interval6_1 * i);
+            Invoke("pattern6_sub1", (n1 + interval6) * 3 + interval6_1 * i + delay6);
         }
     }
     #region 패턴6 구성함수
