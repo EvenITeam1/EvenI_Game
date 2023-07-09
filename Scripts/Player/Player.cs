@@ -31,6 +31,8 @@ public class Player : MonoBehaviour, IDamagable
     [SerializeField] private Rigidbody2D playerRigid;
     private float originGravityScale = 0;
 
+    [SerializeField] public BulletShooter bulletShooter;
+
     /*********************************************************************************/
 
     private async void Awake()
@@ -67,6 +69,8 @@ public class Player : MonoBehaviour, IDamagable
         Move();
         Jump();
         Animations();
+
+        bulletShooter.FireBullet();
     }
 
     private void FixedUpdate()
@@ -112,6 +116,7 @@ public class Player : MonoBehaviour, IDamagable
             if (PlayerJumpData.IsActivatedOnce) { return; } //한번 눌렀는지 체크
             else
             {
+                bulletShooter.FireJumpBullet();
                 playerRigid.velocity = Vector2.up * PlayerJumpData.jumpingPower;
                 PlayerJumpData.jumpCount--;
                 PlayerJumpData.IsActivatedOnce = true;

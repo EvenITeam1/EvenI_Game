@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
 
     public Game_PL_Character_DataTable_design CharacterDataTableDesign;
     public Game_PL_Object_DataTable_design ObjectDataTableDesign;
+    public Game_PL_Bullet_DataTable_design BulletDataTableDesign;
     public GlobalEvent GlobalEventInstance;
 
     public Player GlobalPlayer;

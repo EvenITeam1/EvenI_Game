@@ -45,6 +45,7 @@ public class EnemyBullet : MonoBehaviour, Hit
     {
         this._damage = dmg;
     }
+    
     public void lastLimit()
     {
         _time += Time.deltaTime;
