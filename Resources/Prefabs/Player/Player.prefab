@@ -152,6 +152,7 @@ MonoBehaviour:
   inputHandler: {fileID: 797491152534364093}
   playerCollider: {fileID: 797491152534364033}
   playerRigid: {fileID: 5399160025061964542}
+  stop: 0
   bulletShooter: {fileID: 5207230407031977937}
   IsHitedOnce: 0
   HitParticle: {fileID: 7124663019238293431, guid: 301f99a9c0b0643798ca6ef1fad42b44, type: 3}
@@ -336,8 +337,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c10f1248b486f469b91f349a7b2cf8a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerBullet: {fileID: 626804335690743037, guid: 674c01e81472647ceab3adc8364dc49f, type: 3}
-  jumpBullet: {fileID: 626804335690743037, guid: bda32e45916e54ff19226998c60cd687, type: 3}
+  bullets:
+  - {fileID: 626804335690743037, guid: 674c01e81472647ceab3adc8364dc49f, type: 3}
+  - {fileID: 626804335690743037, guid: bda32e45916e54ff19226998c60cd687, type: 3}
   _coolTime: 0.2
 --- !u!1 &5207230407327077623
 GameObject:
