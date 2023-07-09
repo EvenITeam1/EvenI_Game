@@ -27,6 +27,7 @@ public class MobGenMarker : EventMarker
         {
             isActivated = true;
             GameManager.Instance.GlobalMobGenerator.GenerateMobs(mobElements);
+            Destroy(gameObject);
         }
     }
 

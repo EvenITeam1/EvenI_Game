@@ -23,6 +23,7 @@ public class Mob : MonoBehaviour, IDamagable
     [SerializeField] private Collider2D mobCollider;
     public Collider2D GetCollider() { return this.mobCollider; }
     [SerializeField] private Rigidbody2D mobRigid;
+    [SerializeField] public BulletShooter bulletShooter;
 
     [HideInInspector]
     public bool IsInstantiatedFirst = false;
@@ -38,6 +39,10 @@ public class Mob : MonoBehaviour, IDamagable
         /*Set MobHP*/
         
         gameObject.SetActive(false);
+    }
+
+    private void Update() {
+        bulletShooter.FireBullet();
     }
 
     private void OnEnable() {

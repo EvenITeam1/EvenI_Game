@@ -4,13 +4,14 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class EventMarker : MonoBehaviour
+public class CutSceneMarker : EventMarker
 {
-    [SerializeField] private string inputString;
-    [SerializeField] private UnityEvent<string> PrintString;
-    public bool isActivated;
-    protected RaycastHit2D[] hits;
-    protected virtual void FixedUpdate()
+    // [SerializeField] private string inputString;
+    // [SerializeField] private UnityEvent<string> PrintString;
+    // public bool isActivated;
+    // protected RaycastHit2D[] hits;
+    public GameObject CutSceneUI;
+    protected override void FixedUpdate()
     {
         hits = GetCastedTarget();
         var player = (
@@ -23,12 +24,9 @@ public class EventMarker : MonoBehaviour
         else if(player.Count() != 0 && !isActivated)
         {
             isActivated = true;
-            PrintString.Invoke(inputString);
+            //SomeEvent
+            Instantiate(CutSceneUI, Vector3.zero, Quaternion.identity);
             Destroy(gameObject);
         }
-    }
-    protected virtual RaycastHit2D[] GetCastedTarget()
-    {
-        return hits = Physics2D.RaycastAll(transform.position, Vector2.down, float.NegativeInfinity);
     }
 }

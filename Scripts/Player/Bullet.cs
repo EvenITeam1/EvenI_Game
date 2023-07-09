@@ -12,11 +12,10 @@ public class Bullet : MonoBehaviour, Hit
     [SerializeField] public BulletVisualData bulletVisualData;
 
     public float _lastTime;
+    [SerializeField] 
+    protected Rigidbody2D bulletRigid;
 
-    Vector2 _moveDir;
-    [SerializeField] Rigidbody2D bulletRigid;
-
-    private void Awake() {
+    protected virtual void Awake() {
         player = GameManager.Instance.GlobalPlayer;
         bulletRigid = GetComponent<Rigidbody2D>();
     }
@@ -62,7 +61,7 @@ public class Bullet : MonoBehaviour, Hit
         bulletData.Bullet_set_dmg = dmg;
     }
 
-    public void setDir()
+    public virtual void setDir()
     {
         float speed = player.PlayerMoveData.speed + bulletData.Bullet_speed;
         bulletRigid.velocity = Vector2.right * speed;

@@ -34,11 +34,8 @@ public class EnemyBullet : MonoBehaviour, Hit
 
     public void getDamage(GameObject obj)
     {
-        PlayerHP playerScript = obj.GetComponent<PlayerHP>();
-        PlayerState playerState = obj.GetComponent<PlayerState>();
-        float currentHp = playerScript.getHP();
-        playerScript.setHP(currentHp - _damage);
-        playerState.ChangeState(PLAYER_STATES.GHOST_STATE);
+        Player player = obj.GetComponent<Player>();
+        player.GetDamage(_damage);
     }
 
     public void setDamage(int dmg)
