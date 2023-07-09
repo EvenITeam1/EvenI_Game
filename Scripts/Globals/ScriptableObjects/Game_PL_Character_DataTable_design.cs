@@ -14,6 +14,7 @@ public class Game_PL_Character_DataTable_design : MonoBehaviour {
 
     private void Awake() {
     }
+
     [ContextMenu("구글 스프레드 시트 로딩")]
     public async void LoadDataFromSheet(){
         await DownloadItemSO();
@@ -21,11 +22,15 @@ public class Game_PL_Character_DataTable_design : MonoBehaviour {
 
     async UniTask DownloadItemSO(){
         playerDataforms.Clear();
+
         playerDataforms.Add(emptyData);
+
         var txt = (await UnityWebRequest.Get(sheet_URL).SendWebRequest()).downloadHandler.text;
+        
         string[] lines = txt.Split('\n');
+        
         for(int i = 4; i < lines.Length; i++){
-            playerDataforms.Add(new PlayerData(lines[i]));
+            playerDataforms.Add( new PlayerData(lines[i]));
         }
     }
 

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,25 +9,26 @@ public class EventMarker : MonoBehaviour
     [SerializeField] private string inputString;
     [SerializeField] private UnityEvent<string> PrintString;
     public bool isActivated;
-    protected RaycastHit2D hit;
+    protected RaycastHit2D[] hits;
     protected virtual void FixedUpdate()
     {
-        hit = Physics2D.Raycast(transform.position, Vector2.down, float.NegativeInfinity);
-        if (hit.collider != null)
+        hits = GetCastedTarget();
+        var player = (
+            from hit in hits  
+            where (hit.collider.name == GlobalStrings.PLAYER_STRING)  
+            select hit
+        );
+
+        if(player.Count() == 0) {isActivated = false;}
+        else if(player.Count() != 0 && !isActivated)
         {
-            if (hit.collider.name == "Player" && !isActivated)
-            {
-                isActivated = true;
-                PrintString.Invoke(inputString);
-            }
-            if (hit.collider.name != "Player")
-            {
-                isActivated = false;
-            }
+            isActivated = true;
+            PrintString.Invoke(inputString);
+            Destroy(gameObject);
         }
     }
-    protected virtual RaycastHit2D GetCastedTarget()
+    protected virtual RaycastHit2D[] GetCastedTarget()
     {
-        return hit = Physics2D.Raycast(transform.position, Vector2.down, float.NegativeInfinity);
+        return hits = Physics2D.RaycastAll(transform.position, Vector2.down, float.NegativeInfinity);
     }
 }

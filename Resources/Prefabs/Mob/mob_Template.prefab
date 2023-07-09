@@ -13,14 +13,13 @@ GameObject:
   - component: {fileID: 433485986516850947}
   - component: {fileID: 433485986516850946}
   - component: {fileID: 433485986516850945}
-  - component: {fileID: 6390105175153535007}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: mob_Template
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &433485986516850951
 Transform:
   m_ObjectHideFlags: 0
@@ -34,6 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 433485986660834037}
+  - {fileID: 2489134053883128028}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -103,23 +103,26 @@ MonoBehaviour:
     Mob_category: 0
     Mob_width: 1
     Mob_height: 1
-    Mob_hp: 10
+    Mob_hp: 100
     Mob_bullet_index: 0
     Mob_character: 0
-    Mob_movement: 0
+    Mob_movement: 5
     Mob_speed: 0
   mobMoveData:
-    invokeEase: 27
-    invokePosition: -12
-    invokeEaseTime: 2
     IsInfiniteLifetime: 0
     lifeTime: 6
-    exitPosition: -50
+    invokePosition: {x: 0, y: 0}
+    exitPosition: {x: 0, y: 0}
+    invokeEaseTime: 2
     exitEaseTime: 3
+    invokeEase: 27
     exitEase: 26
+    movementStrength: 0
   mobHP: {fileID: 433485986516850945}
   mobCollider: {fileID: 433485986516850944}
   mobRigid: {fileID: 433485986516850947}
+  bulletShooter: {fileID: 5572308724434334806}
+  IsInstantiatedFirst: 0
   HitParticle: {fileID: 7124663019238293431, guid: 301f99a9c0b0643798ca6ef1fad42b44, type: 3}
 --- !u!114 &433485986516850945
 MonoBehaviour:
@@ -134,37 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hp: 0
-  _setHp: 10
---- !u!114 &6390105175153535007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 433485986516850950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Events:
-    m_Signals:
-    - {fileID: 11400000, guid: 2dd074273475d489aa414ff7abc880cd, type: 2}
-    m_Events:
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 433485986516850946}
-          m_TargetAssemblyTypeName: Mob, Assembly-CSharp
-          m_MethodName: EnableMob
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+  _setHp: 100
 --- !u!1 &433485986660834036
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,7 +149,7 @@ GameObject:
   - component: {fileID: 433485986660834037}
   - component: {fileID: 3585553583902592131}
   - component: {fileID: 433485986660834034}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -270,3 +243,50 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1715670475951310741
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2489134053883128028}
+  - component: {fileID: 5572308724434334806}
+  m_Layer: 30
+  m_Name: bulletShooter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2489134053883128028
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715670475951310741}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 433485986516850951}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5572308724434334806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715670475951310741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c10f1248b486f469b91f349a7b2cf8a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullets:
+  - {fileID: 1347473405143956396, guid: aa94b34e438ed447dbea1e4b5efa0152, type: 3}
+  _coolTime: 1

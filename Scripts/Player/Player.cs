@@ -6,6 +6,7 @@ using Cysharp.Threading.Tasks;
 
 public class Player : MonoBehaviour, IDamagable
 {
+
     [SerializeField]
     private DOG_INDEX Index;
 
@@ -31,8 +32,8 @@ public class Player : MonoBehaviour, IDamagable
     [SerializeField] private Rigidbody2D playerRigid;
     private float originGravityScale = 0;
 
+    [SerializeField] public BulletShooter bulletShooter;
     public bool stop = false;
-    PlayerShoot shootScript;
     /*********************************************************************************/
 
     private async void Awake()
@@ -70,6 +71,8 @@ public class Player : MonoBehaviour, IDamagable
         Move();
         Jump();
         Animations();
+
+        bulletShooter.FireBullet();
     }
 
     private void FixedUpdate()
@@ -120,7 +123,7 @@ public class Player : MonoBehaviour, IDamagable
                 playerRigid.velocity = Vector2.up * PlayerJumpData.jumpingPower;
                 PlayerJumpData.jumpCount--;
                 PlayerJumpData.IsActivatedOnce = true;
-                shootScript.fireJumpBullet();//추가타 코드
+                bulletShooter.FireJumpBullet();
             }
         }
 

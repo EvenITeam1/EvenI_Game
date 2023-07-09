@@ -36,6 +36,7 @@ public class EnemyBullet : MonoBehaviour
     {
         this._damage = dmg;
     }
+    
     public void lastLimit()
     {
         _time += Time.deltaTime;

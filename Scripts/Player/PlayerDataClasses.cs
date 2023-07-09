@@ -94,7 +94,7 @@ public class PlayerMoveData
 {
     public float horizontal = 1;
     public float speed = 10f;
-
+    public bool IsSlowDownStart = false;
     public PlayerMoveData() { }
 }
 
