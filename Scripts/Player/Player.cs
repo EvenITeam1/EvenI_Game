@@ -32,7 +32,7 @@ public class Player : MonoBehaviour, IDamagable
     [SerializeField] private Rigidbody2D playerRigid;
     private float originGravityScale = 0;
 
-    [SerializeField] SlowDown slowDown;
+    [SerializeField] public BulletShooter bulletShooter;
 
     /*********************************************************************************/
 
@@ -70,6 +70,8 @@ public class Player : MonoBehaviour, IDamagable
         Move();
         Jump();
         Animations();
+
+        bulletShooter.FireBullet();
     }
 
     private void FixedUpdate()
@@ -119,10 +121,10 @@ public class Player : MonoBehaviour, IDamagable
             if (PlayerJumpData.IsActivatedOnce) { return; } //한번 눌렀는지 체크
             else
             {
-                playerRigid.velocity = Vector2.up * PlayerJumpData.jumpingPower;             
-                shootScript.fireJumpBullet();//추가타 코드
+                playerRigid.velocity = Vector2.up * PlayerJumpData.jumpingPower;
                 PlayerJumpData.jumpCount--;
                 PlayerJumpData.IsActivatedOnce = true;
+                bulletShooter.FireJumpBullet();
             }
         }
 

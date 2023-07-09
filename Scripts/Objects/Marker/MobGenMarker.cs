@@ -1,27 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using Cysharp.Threading.Tasks;
 
 public class MobGenMarker : EventMarker 
 {
     // public bool isActivated;
-    // protected RaycastHit2D hit;
-    public List<Mob> mobElements;
-    public List<float> invokePosition;
-    public List<int> genPositions;
+    // protected RaycastHit2D[] hits;
+    public List<MobGenData> mobElements;
 
     private void Awake() {
         if(mobElements == null){throw new System.Exception("리스트가 비어있습니다.");}
-        if(genPositions == null){throw new System.Exception("리스트가 비어있습니다.");}
-
-        if(mobElements.Count != genPositions.Count) {throw new System.Exception("몬스터와 위치의 개수가 동일하지 않음");}
-        if(mobElements.Count != invokePosition.Count) {throw new System.Exception("몬스터와 보이는 위치의 개수가 동일하지 않음");}
     }
+
     protected override void FixedUpdate() {
-        hit = GetCastedTarget();
-        if(hit.collider.name == GlobalStrings.PLAYER_STRING && this.isActivated == false){
-            this.isActivated = true;
-            GameManager.Instance.GlobalMobGenerator.GenerateMobs(mobElements, invokePosition, genPositions);
+        hits = GetCastedTarget();
+        var player = (
+            from hit in hits  
+            where (hit.collider.name == GlobalStrings.PLAYER_STRING)  
+            select hit
+        );
+
+        if(player.Count() == 0) {isActivated = false;}
+        else if(player.Count() != 0 && !isActivated)
+        {
+            isActivated = true;
+            GameManager.Instance.GlobalMobGenerator.GenerateMobs(mobElements);
         }
     }
+
 }

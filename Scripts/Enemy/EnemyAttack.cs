@@ -21,7 +21,7 @@ public class EnemyAttack : MonoBehaviour, Fire
 
     public void fireBullet(Vector2 dest)
     {
-        GameObject bullet = ObjectPool.instance.GetObject(_enemyBullet);
+        GameObject bullet = ObjectPool.instance.GetObject(_enemyBullet); //== Instanciate
         bullet.transform.position = transform.position;
         bullet.SetActive(true);
     }
