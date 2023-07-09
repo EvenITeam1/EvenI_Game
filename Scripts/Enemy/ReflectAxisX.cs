@@ -4,4 +4,8 @@ using UnityEngine;
 
 public class ReflectAxisX : MonoBehaviour
 {
+    private void Awake()
+    {
+        gameObject.SetActive(false);
+    }
 }

@@ -33,7 +33,7 @@ public class Player : MonoBehaviour, IDamagable
     private float originGravityScale = 0;
 
     [SerializeField] public BulletShooter bulletShooter;
-
+    public bool stop = false;
     /*********************************************************************************/
 
     private async void Awake()
@@ -42,6 +42,7 @@ public class Player : MonoBehaviour, IDamagable
         inputHandler ??= GetComponent<InputHandler>();
         playerCollider ??= GetComponent<Collider2D>();
         playerRigid ??= GetComponent<Rigidbody2D>();
+        shootScript ??= GetComponent<PlayerShoot>();
         originGravityScale = playerRigid.gravityScale;
 
         /*Set PlayerData*/
@@ -77,7 +78,8 @@ public class Player : MonoBehaviour, IDamagable
     private void FixedUpdate()
     {
        
-        playerRigid.velocity = new Vector2(PlayerMoveData.horizontal * PlayerMoveData.speed, playerRigid.velocity.y);
+        if (stop == false) { playerRigid.velocity = new Vector2(PlayerMoveData.horizontal * PlayerMoveData.speed, playerRigid.velocity.y); }
+        else { playerRigid.velocity = new Vector2(0, playerRigid.velocity.y); }
     }
     /*********************************************************************************/
 
@@ -108,8 +110,6 @@ public class Player : MonoBehaviour, IDamagable
     #region Jump
     private void Jump()
     {
-        PlayerShoot shootScript = GetComponent<PlayerShoot>();//bullet 발사 관련 스크립트 가져오기
-
         if (IsGrounded() && !IsJumped()) { RestoreJumpCount(); } //점프횟수 복구
 
         if (!inputHandler.IsJumpPressd) { PlayerJumpData.IsActivatedOnce = false; } // 점프버튼 뗐는지 체크

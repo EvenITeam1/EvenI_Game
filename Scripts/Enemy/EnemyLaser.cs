@@ -4,11 +4,10 @@ using TwoDimensions;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class EnemyLaser : MonoBehaviour, Hit //laserObject �� �������� �������� �������� �߻��ϴ� �ڵ� laserObject ��ġ ������ setLaser
+public class EnemyLaser : MonoBehaviour
 {
     [SerializeField] bool _isStatic;
     [SerializeField] LayerMask _playerLayer;
-    [SerializeField] GameObject _player;
     private int _damage;
     [SerializeField] int _setDmg;
     [SerializeField] float _width;
@@ -43,9 +42,7 @@ public class EnemyLaser : MonoBehaviour, Hit //laserObject �� �����
     {
         switch(_isStatic)
         {
-            case true:
-                if (_targetIsPlayer) laserStatic(_width, new Vector2(7, _player.transform.position.y));
-                else laserStatic(_width, _shotPoint);
+            case true: laserStatic(_width, _shotPoint);
                 break;
 
             case false: laserDynamic(_width, _startPoint, _endPoint, _moveSpeed);
@@ -65,8 +62,7 @@ public class EnemyLaser : MonoBehaviour, Hit //laserObject �� �����
         {
             if (targets[i].gameObject.GetComponent<PlayerHP>())
             {
-                getDamage(targets[i].gameObject);
-                //Debug.Log("���ݹ޾Ҵ�.");
+                targets[i].GetComponent<Player>().GetDamage(_damage);
             }
         } 
     }
@@ -140,15 +136,6 @@ public class EnemyLaser : MonoBehaviour, Hit //laserObject �� �����
         }
        
 
-    }
-
-    public void getDamage(GameObject obj)
-    {
-        PlayerHP playerScript = obj.GetComponent<PlayerHP>();
-        PlayerState playerState = obj.GetComponent<PlayerState>();
-        float currentHp = playerScript.getHP();
-        playerScript.setHP(currentHp - _damage);
-        playerState.ChangeState(PLAYER_STATES.GHOST_STATE);
     }
 
     public void setDamage(int dmg)
