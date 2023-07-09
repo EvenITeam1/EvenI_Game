@@ -14,6 +14,7 @@ Material:
   m_ValidKeywords:
   - _ALPHATEST_ON
   - _EMISSION
+  m_InvalidKeywords:
   - _SURFACE_TYPE_TRANSPARENT
   m_InvalidKeywords:
   - _SPECULAR_SETUP
@@ -90,7 +91,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+<<<<<<< HEAD
     - _AlphaClip: 0
+=======
+    - _AlphaClip: 1
+>>>>>>> Escatrgot
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BlendOp: 0

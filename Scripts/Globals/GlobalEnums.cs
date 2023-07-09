@@ -1,7 +1,7 @@
 #region Players
 
     public enum DOG_INDEX {
-        DEFAULT = 1000, 
+        DEFAULT = 1000,
         C_01, C_02, C_03, C_04, C_05, C_06, C_07, C_08, C_09, C_10
     }
 
@@ -29,6 +29,16 @@
 #endregion
 
 /////////////////////////////////////////////////////////////////////////////////
+    public enum BULLET_INDEX {
+        DEFAULT = 3000,
+        B_3001, B_3002, B_3003, B_3004
+    }
+
+    public enum BULLET_CATEGORY {
+        DEFAULT = 0, NORMAL, REFLECT 
+    }
+    
+/////////////////////////////////////////////////////////////////////////////////
 
 #region Mobs
 
@@ -36,4 +46,9 @@
         DEFAULT = 4000
     }
 
+    public enum MOB_MOVEMENT {
+        HOLD = 0, DOWN, UP, LEFT, RIGHT, VERTICAL_LOOP, HORIZONTAL_LOOP
+    }
+
 #endregion
+

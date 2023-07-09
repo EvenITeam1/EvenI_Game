@@ -37,5 +37,6 @@ public class MobHP : MonoBehaviour, HP
     public void die()
     {
         _hp = 0;
+        Destroy(gameObject);
     }
 }

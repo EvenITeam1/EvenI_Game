@@ -7,23 +7,34 @@ using UnityEngine.SceneManagement;
 using Cysharp.Threading.Tasks;
 
 public class MobGenerator : MonoBehaviour {
-    public Transform[] GenFloor;
+    public Transform InstantTransform;
     public GameObject AlertObject;
     public float arrowposition;
 
     private void Awake() {
-        foreach(Transform child in GenFloor){
-            GameObject alert = Instantiate(AlertObject ,child.transform);
-            alert.transform.localPosition = Vector2.right * arrowposition;
-        }        
     }
 
-    public void GenerateMobs(List<Mob> _mobList, List<float> _mobInvokePos, List<int> _FloorList){
-        for(int i = 0; i < _FloorList.Count; i++){
-            GenFloor[i].GetChild(0).gameObject.SetActive(true);
-            Mob instantMob = Instantiate(_mobList[i], GenFloor[i]);
-            instantMob.mobMoveData.invokePosition = _mobInvokePos[i];
+    public void GenerateMobs(List<MobGenData> _mobGenDatas){
+        foreach(MobGenData item in _mobGenDatas){
+            Mob[] mobs = item.mobs;
+            MobMoveData[] mobMoveDatas = item.mobMoveData;
+            StartCoroutine(AsyncGenerateSubMobs(mobs, mobMoveDatas, item.gap));
+        }
+    }
+    
+    IEnumerator AsyncGenerateSubMobs(Mob[] _mobs, MobMoveData[] _mobMoveDatas, float _gapTime) {
+        for(int i = 0; i < _mobs.Length; i++){
+            yield return YieldInstructionCache.WaitForSeconds(_gapTime);
+            Mob instantMob = Instantiate(_mobs[i], InstantTransform);
+            instantMob.transform.localPosition = Vector2.up * _mobMoveDatas[i].invokePosition.y;
+            instantMob.mobMoveData = _mobMoveDatas[i];
+            instantMob.IsInstantiatedFirst = true;
             instantMob.gameObject.SetActive(true);
         }
+    }
+
+    public void GenerateAlertObject(Vector2 instantPos){
+        GameObject alertObj = Instantiate(AlertObject, InstantTransform);
+        alertObj.transform.localPosition = instantPos;
     }
 }
