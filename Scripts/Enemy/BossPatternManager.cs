@@ -29,8 +29,7 @@ public class BossPatternManager : MonoBehaviour
     {
         yield return new WaitForSeconds(coolTime);
 
-        //int n = Random.Range(0, PatternN);
-        int n = 5;
+        int n = Random.Range(0, PatternN);
 
             switch (n)
             {
@@ -61,7 +60,7 @@ public class BossPatternManager : MonoBehaviour
         ready = false;
     }
 
-    void pattern1()//example : ���� ������ ������Ʈ�� 2�� �־��� �ִ� ��Ȳ����, 0�� 1�� �߿� �������� �ϳ��� �������� ��� ����
+    void pattern1()
     {
         int n = Random.Range(0, 2);
         SetEnemyLaser.executeLaser(laserObj[n]);

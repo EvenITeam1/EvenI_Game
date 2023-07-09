@@ -9,7 +9,6 @@ public class StopEvent : MonoBehaviour
     public UnityEvent<string> PrintString;
 
     RaycastHit2D hit;
-    [SerializeField] GameObject leftMirror;
     [SerializeField] GameObject upMirror;
 
     private void FixedUpdate()
@@ -18,7 +17,6 @@ public class StopEvent : MonoBehaviour
         if (hit.collider != null && hit.collider.name == "Player")
         {
             PrintString.Invoke(inputString);
-            leftMirror.SetActive(true);
             upMirror.SetActive(true);
             hit.collider.GetComponent<Player>().stop = true;
             hit.collider.GetComponent<PlayerShoot>().enabled = true;
