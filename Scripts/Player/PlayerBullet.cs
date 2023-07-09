@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerBullet : MonoBehaviour, Hit
 {
-    public LayerMask _enemyLayer;
+    public Rigidbody2D _playerRigid; 
     public int _minDmg;
     public int _maxDmg;
     int _damage;
@@ -81,7 +81,13 @@ public class PlayerBullet : MonoBehaviour, Hit
     public void setDir()
     {
         _moveDir = transform.right;
-        _bulletRigid.velocity = _moveDir * _bulletSpeed;
+        if (_playerRigid)
+        {
+            var playerVector = new Vector2(_playerRigid.velocity.x, 0);
+            _bulletRigid.velocity = _moveDir * _bulletSpeed + playerVector;
+        }
+        else
+            Debug.Log("PlayerRigid is null. This Log is normal result of Initial Pooling.");
     }
 
     public void lastLimit()

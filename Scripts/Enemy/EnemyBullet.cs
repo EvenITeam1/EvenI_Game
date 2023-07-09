@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TwoDimensions;
 using UnityEngine;
 
-public class EnemyBullet : MonoBehaviour, Hit
+public class EnemyBullet : MonoBehaviour
 {
     public LayerMask _playerLayer;
     public int _damage;
@@ -27,24 +27,16 @@ public class EnemyBullet : MonoBehaviour, Hit
     {
         if (collision.gameObject.GetComponent<PlayerHP>())
         {
-            getDamage(collision.gameObject);
+            collision.gameObject.GetComponent<Player>().GetDamage(_damage);
             ObjectPool.instance.ReturnObject(gameObject);
         }
-    }
-
-    public void getDamage(GameObject obj)
-    {
-        PlayerHP playerScript = obj.GetComponent<PlayerHP>();
-        PlayerState playerState = obj.GetComponent<PlayerState>();
-        float currentHp = playerScript.getHP();
-        playerScript.setHP(currentHp - _damage);
-        playerState.ChangeState(PLAYER_STATES.GHOST_STATE);
     }
 
     public void setDamage(int dmg)
     {
         this._damage = dmg;
     }
+    
     public void lastLimit()
     {
         _time += Time.deltaTime;

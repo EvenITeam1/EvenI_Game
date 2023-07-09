@@ -4,11 +4,10 @@ using TwoDimensions;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class EnemyLaser : MonoBehaviour, Hit //laserObject ¸¦ ±âÁØÀ¸·Î ÁÂÃøÀ¸·Î ·¹ÀÌÀú¸¦ ¹ß»çÇÏ´Â ÄÚµå laserObject À§Ä¡ º¯µ¿Àº setLaser
+public class EnemyLaser : MonoBehaviour
 {
     [SerializeField] bool _isStatic;
     [SerializeField] LayerMask _playerLayer;
-    [SerializeField] GameObject _player;
     private int _damage;
     [SerializeField] int _setDmg;
     [SerializeField] float _width;
@@ -43,9 +42,7 @@ public class EnemyLaser : MonoBehaviour, Hit //laserObject ¸¦ ±âÁØÀ¸·Î ÁÂÃøÀ¸·Î 
     {
         switch(_isStatic)
         {
-            case true:
-                if (_targetIsPlayer) laserStatic(_width, new Vector2(7, _player.transform.position.y));
-                else laserStatic(_width, _shotPoint);
+            case true: laserStatic(_width, _shotPoint);
                 break;
 
             case false: laserDynamic(_width, _startPoint, _endPoint, _moveSpeed);
@@ -65,8 +62,7 @@ public class EnemyLaser : MonoBehaviour, Hit //laserObject ¸¦ ±âÁØÀ¸·Î ÁÂÃøÀ¸·Î 
         {
             if (targets[i].gameObject.GetComponent<PlayerHP>())
             {
-                getDamage(targets[i].gameObject);
-                Debug.Log("°ø°İ¹Ş¾Ò´Ù.");
+                targets[i].GetComponent<Player>().GetDamage(_damage);
             }
         } 
     }
@@ -142,22 +138,13 @@ public class EnemyLaser : MonoBehaviour, Hit //laserObject ¸¦ ±âÁØÀ¸·Î ÁÂÃøÀ¸·Î 
 
     }
 
-    public void getDamage(GameObject obj)
-    {
-        PlayerHP playerScript = obj.GetComponent<PlayerHP>();
-        PlayerState playerState = obj.GetComponent<PlayerState>();
-        float currentHp = playerScript.getHP();
-        playerScript.setHP(currentHp - _damage);
-        playerState.ChangeState(PLAYER_STATES.GHOST_STATE);
-    }
-
     public void setDamage(int dmg)
     {
         this._damage = dmg;
     }
 
-    public void setDir() { }//·¹ÀÌÀú´Â Åõ»çÃ¼°¡ ¾ø¾î¼­ ¾È¾¸
-    public void lastLimit() { }//·¹ÀÌÀú´Â Åõ»çÃ¼°¡ ¾ø¾î¼­ ¾È¾¸
+    public void setDir() { }//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½î¼­ ï¿½È¾ï¿½
+    public void lastLimit() { }//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½î¼­ ï¿½È¾ï¿½
 
 
 }

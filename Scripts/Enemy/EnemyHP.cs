@@ -22,6 +22,7 @@ public class EnemyHP : MonoBehaviour, HP
         if (!isAlive())
             die();
     }
+    public float getMaxHp(){return this._setHp;}
     public float getHP() { return this._hp; }
 
     public bool isAlive()

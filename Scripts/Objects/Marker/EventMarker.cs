@@ -1,29 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace TwoDimensions
+public class EventMarker : MonoBehaviour
 {
-    public class EventMarker : MonoBehaviour
+    [SerializeField] private string inputString;
+    [SerializeField] private UnityEvent<string> PrintString;
+    public bool isActivated;
+    protected RaycastHit2D[] hits;
+    protected virtual void FixedUpdate()
     {
-        public string inputString;
-        public UnityEvent<string> PrintString;
+        hits = GetCastedTarget();
+        var player = (
+            from hit in hits  
+            where (hit.collider.name == GlobalStrings.PLAYER_STRING)  
+            select hit
+        );
 
-        bool isActivated;
-        RaycastHit2D hit;
-        private void FixedUpdate()
+        if(player.Count() == 0) {isActivated = false;}
+        else if(player.Count() != 0 && !isActivated)
         {
-            hit = Physics2D.Raycast(transform.position, Vector2.down, float.NegativeInfinity);
-            if(hit.collider != null){
-                if (hit.collider.name == "Player" && !isActivated){
-                    isActivated = true;
-                    PrintString.Invoke(inputString);
-                }
-                if(hit.collider.name != "Player") {
-                    isActivated = false;
-                }
-            }
+            isActivated = true;
+            PrintString.Invoke(inputString);
+            Destroy(gameObject);
         }
+    }
+    protected virtual RaycastHit2D[] GetCastedTarget()
+    {
+        return hits = Physics2D.RaycastAll(transform.position, Vector2.down, float.NegativeInfinity);
     }
 }

@@ -10,6 +10,7 @@ public class PlayerHP : MonoBehaviour, HP
     [SerializeField] float _setHp;
     [SerializeField] public float _recoverHp;
     [SerializeField] float _recoverInterval;
+
     float _time;
 
     void Start() {
@@ -34,8 +35,7 @@ public class PlayerHP : MonoBehaviour, HP
     public void setHP(float hp)
     {
        _hp = hp; 
-        if (!isAlive())
-        {
+        if (!isAlive()) {
             die();
         }
     }
@@ -55,7 +55,7 @@ public class PlayerHP : MonoBehaviour, HP
         SceneManager.LoadScene("gameOverScene");
     }
 
-    public void recoverHp(float recoverHp)//Ȥ�ó� ȸ�� �� ������ �� �Լ� ����� �Ű����� �޾Ƴ���
+    public virtual void recoverHp(float recoverHp)//Ȥ�ó� ȸ�� �� ������ �� �Լ� ����� �Ű����� �޾Ƴ���
     {
         if(_hp < _setHp)
         {

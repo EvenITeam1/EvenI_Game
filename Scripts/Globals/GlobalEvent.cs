@@ -22,12 +22,20 @@ public class GlobalEvent : MonoBehaviour
 {
     private void Awake()
     {
+        scoreCheck ??= GetComponent<ScoreCheck>();
     }
+    private void Start(){}
     void Update()
     {
         Time.timeScale = GameTimeScale;
     }
     
+    /////////////////////////////////////////////////////////////////////////////////
+
+#region ScoreCheck
+    public ScoreCheck scoreCheck;
+#endregion
+
     /////////////////////////////////////////////////////////////////////////////////
 #region TimeScaleEventHandler
 
@@ -49,14 +57,13 @@ public class GlobalEvent : MonoBehaviour
             if (value == true) { GameTimeScale = 0; }
             else { GameTimeScale = mCurrentTimeScale; }
             mIsGamePaused = value;
-            Debug.Log("Time Changed");
+           //Debug.Log("Time Changed");
         }
     }
 
     public void HandleTimeSlow()
     {
         if (mIsSlowed) return;
-        Debug.Log("StartSlowed");
     }
 
     //DotTween 사용해서 증가 커브 설정하기
@@ -64,7 +71,7 @@ public class GlobalEvent : MonoBehaviour
     /////////////////////////////////////////////////////////////////////////////////
 #region DebugEvent
     public void PrintString(string _input){
-        Debug.Log(_input);
+       //Debug.Log(_input);
     }
 #endregion
 }
