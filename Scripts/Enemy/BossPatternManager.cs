@@ -14,7 +14,13 @@ public class BossPatternManager : MonoBehaviour
     [SerializeField] GameObject basicBullet;
     [SerializeField] GameObject reflectBullet;
 
+    public Transform relativePosition;
+
     bool ready = false;
+
+    private void OnEnable() {
+        SetBossBullet.relativePosition = this.relativePosition;
+    }
     
     void Update()
     {
@@ -63,7 +69,7 @@ public class BossPatternManager : MonoBehaviour
     void pattern1()
     {
         int n = Random.Range(0, 2);
-        SetEnemyLaser.executeLaser(laserObj[n]);
+        SetBossLaser.executeLaser(laserObj[n]);
     }
 
     public float interval2;
@@ -79,55 +85,60 @@ public class BossPatternManager : MonoBehaviour
     #region 패턴2 구성함수
     void pattern2_sub1()
     {
-        SetEnemyBullet.fireBullet(new Vector2(7, 4), basicBullet, enemy);
-        SetEnemyBullet.fireBullet(new Vector2(7, 3), basicBullet, enemy);
-        SetEnemyBullet.fireBullet(new Vector2(7, 2), basicBullet, enemy);
-        SetEnemyBullet.fireBullet(new Vector2(7, 1), basicBullet, enemy);
-        SetEnemyBullet.fireBullet(new Vector2(7, 0), basicBullet, enemy);
-        SetEnemyBullet.fireBullet(new Vector2(7, -1), basicBullet, enemy);
+        float relativePositionX = relativePosition.position.x;
+        SetBossBullet.fireBullet(new Vector2(relativePositionX, 4), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(relativePositionX, 3), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(relativePositionX, 2), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(relativePositionX, 1), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(relativePositionX, 0), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(relativePositionX, -1), basicBullet, enemy);
     }
 
     void pattern2_sub2()
     {
-        SetEnemyBullet.fireBullet(new Vector2(7, 4), basicBullet, enemy);
-        SetEnemyBullet.fireBullet(new Vector2(7, 2), basicBullet, enemy);
-        SetEnemyBullet.fireBullet(new Vector2(7, 0), basicBullet, enemy);
-        SetEnemyBullet.fireBullet(new Vector2(7, -2), basicBullet, enemy);
+        float relativePositionX = relativePosition.position.x;
+        SetBossBullet.fireBullet(new Vector2(relativePositionX, 4), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(relativePositionX, 2), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(relativePositionX, 0), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(relativePositionX, -2), basicBullet, enemy);
     }
 
     void pattern2_sub3()
     {
-        SetEnemyBullet.fireBullet(new Vector2(7, 3), basicBullet, enemy);
-        SetEnemyBullet.fireBullet(new Vector2(7, 1), basicBullet, enemy);
-        SetEnemyBullet.fireBullet(new Vector2(7, -1), basicBullet, enemy);
+        float relativePositionX = relativePosition.position.x;
+        SetBossBullet.fireBullet(new Vector2(relativePositionX, 3), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(relativePositionX, 1), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(relativePositionX, -1), basicBullet, enemy);
     }
     void pattern2_sub4()
     {
-        SetEnemyBullet.fireBullet(new Vector2(7, 2), basicBullet, enemy);
-        SetEnemyBullet.fireBullet(new Vector2(7, 0), basicBullet, enemy);
-        SetEnemyBullet.fireBullet(new Vector2(7, -2), basicBullet, enemy);
+        float relativePositionX = relativePosition.position.x;
+        SetBossBullet.fireBullet(new Vector2(relativePositionX, 2), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(relativePositionX, 0), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(relativePositionX, -2), basicBullet, enemy);
     }
 
     void pattern2_sub5()
     {
-        SetEnemyBullet.fireBullet(new Vector2(7, 1), basicBullet, enemy);
-        SetEnemyBullet.fireBullet(new Vector2(7, -1), basicBullet, enemy);
+        float relativePositionX = relativePosition.position.x;
+        SetBossBullet.fireBullet(new Vector2(relativePositionX, 1), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(relativePositionX, -1), basicBullet, enemy);
     }
 
     void pattern2_sub6()
     {
-        SetEnemyBullet.fireBullet(player.transform.position, basicBullet, enemy);
+        SetBossBullet.fireBullet(player.transform.position, basicBullet, enemy);
     }
     #endregion
 
     void pattern3()
     {
-        SetEnemyBullet.fireBulletRandomPos(-3, 14, reflectBullet, enemy);
+        SetBossBullet.fireBulletRandomPos(-3, 14, reflectBullet, enemy);
     }
 
     void pattern4()
     {
-        float n = SetEnemyMove.goUp(5, moveSpeed, enemy, flag);
+        float n = SetBossMove.goUp(5, moveSpeed, enemy, flag);
         Invoke("patternSub4", n);
 
 
@@ -138,7 +149,7 @@ public class BossPatternManager : MonoBehaviour
     #region 패턴4 구성함수
     void patternSub4()
     {
-        SetEnemyMove.goDown(5, moveSpeed, enemy, flag);
+        SetBossMove.goDown(5, moveSpeed, enemy, flag);
     }
     #endregion
 
@@ -157,7 +168,7 @@ public class BossPatternManager : MonoBehaviour
     {
         for (int i = 0; i < 6; i++)
         {
-            SetEnemyBullet.fireBulletRandomPos(-3, 5, basicBullet, enemy);
+            SetBossBullet.fireBulletRandomPos(-3, 5, basicBullet, enemy);
         }
     }
     #endregion
@@ -168,7 +179,7 @@ public class BossPatternManager : MonoBehaviour
     public float delay6;
     void pattern6()
     {
-        float n1 = SetEnemyMove.goDown(1, moveSpeed, enemy, flag);
+        float n1 = SetBossMove.goDown(1, moveSpeed, enemy, flag);
         Invoke("pattern6_sub2", n1 + interval6);
         Invoke("pattern6_sub2", (n1 + interval6) * 2);
         Invoke("pattern6_sub3", (n1 + interval6) * 3);
@@ -196,17 +207,17 @@ public class BossPatternManager : MonoBehaviour
     #region 패턴6 구성함수
     void pattern6_sub1()
     {
-        SetEnemyBullet.fireBulletLocal(0, basicBullet, enemy);
+        SetBossBullet.fireBulletLocal(0, basicBullet, enemy);
     }
 
     void pattern6_sub2()
     {
-        SetEnemyMove.goUp(1, moveSpeed, enemy, flag);
+        SetBossMove.goUp(1, moveSpeed, enemy, flag);
     }
 
     void pattern6_sub3()
     {
-        SetEnemyMove.goDown(1, moveSpeed, enemy, flag);
+        SetBossMove.goDown(1, moveSpeed, enemy, flag);
     }
     #endregion
 }

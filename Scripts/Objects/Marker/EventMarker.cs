@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class EventMarker : MonoBehaviour
 {
     [SerializeField] private string inputString;
-    [SerializeField] private UnityEvent<string> PrintString;
+    [SerializeField]  UnityEvent<string> PrintString;
     public bool isActivated;
     protected RaycastHit2D[] hits;
     protected virtual void FixedUpdate()

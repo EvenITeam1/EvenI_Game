@@ -4,7 +4,7 @@ using TwoDimensions;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class EnemyLaser : MonoBehaviour
+public class BossLaser : MonoBehaviour
 {
     [SerializeField] bool _isStatic;
     [SerializeField] LayerMask _playerLayer;

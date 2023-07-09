@@ -34,6 +34,7 @@ public class Bullet : MonoBehaviour, Hit
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+
         if (other.TryGetComponent(out Mob mob))
         {
             float currentHp = mob.mobHP.getHP();
@@ -45,9 +46,27 @@ public class Bullet : MonoBehaviour, Hit
             
             dmgScript._damage = actualDmg;
             dmgPrefab.transform.position = transform.position;
+            dmgPrefab.SetActive(true);
             
             mob.GetDamage(actualDmg);
+            ObjectPool.instance.ReturnObject(gameObject);
+        }
+        else if(other.TryGetComponent(out BossHP boss))
+        {
+            float currentHp = boss.getHP();
+            float actualDmg = bulletData.Bullet_set_dmg;
+            
+            var dmgPrefab = ObjectPool.instance.GetObject(bulletVisualData.dmgPrefab);
+            var dmgScript = dmgPrefab.GetComponent<DamageUI>();
+
+            isCrit(ref actualDmg, ref dmgScript);
+
+            dmgScript._damage = actualDmg;
+            dmgPrefab.transform.position = transform.position;
             dmgPrefab.SetActive(true);
+
+            boss.setHP(currentHp - actualDmg);
+            boss.updateHpBar();
             ObjectPool.instance.ReturnObject(gameObject);
         }
     }

@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SetEnemyBullet
+public class SetBossBullet
 {
+    public static Transform relativePosition;
     /// <summary>
     /// Shot bullet to destination with selected bulletType
     /// </summary>
@@ -41,10 +42,7 @@ public class SetEnemyBullet
     {
         int n = Random.Range(min, max + 1);
 
-        fireBullet(new Vector2(7, n), bulletType, enemyObj);
+        fireBullet(new Vector2(relativePosition.position.x, n), bulletType, enemyObj);
     }
-
-   
-
 
 }

@@ -36,7 +36,7 @@ public class PlayerBullet : MonoBehaviour, Hit
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<EnemyHP>())
+        if (collision.gameObject.GetComponent<BossHP>())
         {
             getDamage(collision.gameObject);
             ObjectPool.instance.ReturnObject(gameObject);
@@ -45,7 +45,7 @@ public class PlayerBullet : MonoBehaviour, Hit
 
     public void getDamage(GameObject obj)
     {
-        EnemyHP enemyScript = obj.GetComponent<EnemyHP>();
+        BossHP enemyScript = obj.GetComponent<BossHP>();
         float currentHp = enemyScript.getHP();
         float actualDmg = _damage;
         var dmgPrefab = ObjectPool.instance.GetObject(_dmgPrefab);

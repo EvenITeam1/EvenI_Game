@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SetEnemyMove
+public class SetBossMove
 {
    
     public static void move(float x, float y, float speed, GameObject enemy, GameObject flag)

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class EnemyHP : MonoBehaviour, HP
+public class BossHP : MonoBehaviour, HP
 {
     [SerializeField] float _hp;
     [SerializeField] float _setHp;

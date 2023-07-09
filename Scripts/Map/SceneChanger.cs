@@ -7,6 +7,6 @@ public class SceneChanger : MonoBehaviour
 {
     public void SceneChange()
     {
-        SceneManager.LoadScene("Danmaku");
+        SceneManager.LoadScene("2DRunner_Escatrgot");
     }
 }

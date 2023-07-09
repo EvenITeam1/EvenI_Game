@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TwoDimensions;
 using UnityEngine;
 
-public class EnemyBullet : MonoBehaviour
+public class BossBullet : MonoBehaviour
 {
     public LayerMask _playerLayer;
     public int _damage;

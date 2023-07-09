@@ -21,7 +21,7 @@ public class ObjectPool : MonoBehaviour
 
     [SerializeField] int _poolingAmount;
 
-    [SerializeField] Transform _parent;
+    [SerializeField] public Transform _parent;
 
     private void Start()
     {
