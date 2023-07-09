@@ -6,11 +6,15 @@ namespace TwoDimensions
     {
         public Player player;
 
+        private void Start() {
+            player = GameManager.Instance.GlobalPlayer;
+        }
+
         private void OnTriggerEnter2D(Collider2D other)
         {
-            Debug.Log("Checked");
             if (player.GetCollider() == other)
             {
+                player.PlayerJumpData.isAirHoldPrevented = true;
                 player.PlayerJumpData.isAirHoldable = false;
             }
         }
@@ -19,6 +23,7 @@ namespace TwoDimensions
         {
             if (player.GetCollider() == other)
             {
+                player.PlayerJumpData.isAirHoldPrevented = true;
                 player.PlayerJumpData.isAirHoldable = false;
             }
         }
@@ -27,6 +32,7 @@ namespace TwoDimensions
         {
             if (player.GetCollider() == other)
             {
+                player.PlayerJumpData.isAirHoldPrevented = false;
                 player.PlayerJumpData.isAirHoldable = true;
             }
         }

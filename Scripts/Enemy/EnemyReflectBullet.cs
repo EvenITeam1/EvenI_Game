@@ -31,8 +31,8 @@ public class EnemyReflectBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<PlayerHP>())   
-            getDamage(collision.gameObject);
+        if (collision.gameObject.GetComponent<PlayerHP>())
+            collision.gameObject.GetComponent<Player>().GetDamage(_damage);
 
         else if (collision.gameObject.GetComponent<ReflectAxisX>() || collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
             ReflectAxisX();
@@ -42,15 +42,6 @@ public class EnemyReflectBullet : MonoBehaviour
 
         if (_reflectCount == _maxReflectCount)
             ObjectPool.instance.ReturnObject(gameObject);
-    }
-
-    public void getDamage(GameObject obj)
-    {
-        PlayerHP playerScript = obj.GetComponent<PlayerHP>();
-        PlayerState playerState = obj.GetComponent<PlayerState>();
-        float currentHp = playerScript.getHP();
-        playerScript.setHP(currentHp - _damage);
-        playerState.ChangeState(PLAYER_STATES.GHOST_STATE);
     }
 
     public void setDamage(int dmg)

@@ -34,7 +34,6 @@ public class InputHandler : MonoBehaviour
             {
                 jumpInput = _input.ReadValueAsButton();
                 JumpUnHold = !_input.ReadValueAsButton();
-                Debug.Log(jumpInput);
             };
             inputActions.TwoDimensions.Jump.performed += (_input) =>
             {
@@ -45,7 +44,6 @@ public class InputHandler : MonoBehaviour
             {
                 jumpInput = _input.ReadValueAsButton();
                 JumpUnHold = !_input.ReadValueAsButton();
-                Debug.Log(jumpInput);
             };
             inputActions.TwoDimensions.Hold.performed += (_input) =>
             {

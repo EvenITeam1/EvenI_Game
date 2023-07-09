@@ -39,14 +39,15 @@ public class PlayerData
         Character_skill = 0;
         Character_cost = 0;
         Character_expl = "비어있는 데이터 입니다.";
-
     }
+    
     public PlayerData(string _parsedLine)
     {
         string[] datas = _parsedLine.Split('\t');
+        
         this.Index = (DOG_INDEX)int.Parse(datas[0]);
-        this.Character_korname = datas[1];
-        this.Character_engname = datas[2];
+        this.Character_korname = datas[1].Replace('_', ' ');
+        this.Character_engname = datas[2].Replace('_', ' ');
         this.Character_type = int.Parse(datas[3]);
         this.Character_damage = float.Parse(datas[4]);
         this.Maxdamage = float.Parse(datas[5]);
@@ -58,7 +59,7 @@ public class PlayerData
         this.Character_attack_speed = float.Parse(datas[11]);
         this.Character_skill = int.Parse(datas[12]);
         this.Character_cost = int.Parse(datas[13]);
-        this.Character_expl = datas[14];
+        this.Character_expl = datas[14].Replace('_', ' ');
     }
 }
 
@@ -75,8 +76,11 @@ public class PlayerJumpData
     public int jumpCount = 0;
     public bool isJumping = false;
     public bool IsActivatedOnce = false;
+
     public bool isAiring = false;
     public bool isAirHoldable = true;
+    public bool isAirHoldPrevented = false;
+    
     public float coyoteTime = 0.2f;
     public float coyoteTimeCounter;
     public float jumpBufferTime = 0.2f;
