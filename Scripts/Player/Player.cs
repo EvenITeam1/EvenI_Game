@@ -42,7 +42,7 @@ public class Player : MonoBehaviour, IDamagable
         inputHandler ??= GetComponent<InputHandler>();
         playerCollider ??= GetComponent<Collider2D>();
         playerRigid ??= GetComponent<Rigidbody2D>();
-        shootScript ??= GetComponent<PlayerShoot>();
+        bulletShooter ??= GetComponent<BulletShooter>();
         originGravityScale = playerRigid.gravityScale;
 
         /*Set PlayerData*/
