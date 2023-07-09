@@ -104,13 +104,13 @@ public class Mob : MonoBehaviour, IDamagable
     public void MovementVerticalLoop(){
         transform.DOLocalMove(mobMoveData.invokePosition + Vector2.up * mobMoveData.movementStrength, 1f)
             .SetLoops(-1, LoopType.Yoyo)
-            .SetEase(Ease.Unset);
+            .SetEase(Ease.InOutBack);
     }
     
     public void MovementHorizontalLoop(){
         transform.DOLocalMove(mobMoveData.invokePosition + Vector2.left * mobMoveData.movementStrength, 1f)
             .SetLoops(-1, LoopType.Yoyo)
-            .SetEase(Ease.Unset);
+            .SetEase(Ease.InOutBack);
     }
     public void ExitMovement(){
         if(mobMoveData.IsInfiniteLifetime){return;}
