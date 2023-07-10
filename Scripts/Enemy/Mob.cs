@@ -61,7 +61,7 @@ public class Mob : MonoBehaviour, IDamagable
         await UniTask.Delay(TimeSpan.FromSeconds(1f));
         InvokeMovement();
         await UniTask.Delay(TimeSpan.FromSeconds(mobMoveData.invokeEaseTime));
-        mobMoveData.moveType[(int)mobData.Mob_movement].Invoke();
+        mobMoveData.moveType[(int)mobData.Mob_movement_index].Invoke();
         await UniTask.Delay(TimeSpan.FromSeconds(mobMoveData.lifeTime));
         GameManager.Instance.GlobalMobGenerator.GenerateAlertObject(
             new Vector2(transform.localPosition.x, transform.localPosition.y) + (Vector2.left * 1.5f)

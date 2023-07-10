@@ -12,29 +12,39 @@ public class ObjectData {
     public OBJECT_CATEGORY Ob_category;
     public float Ob_width;
     public float Ob_height;
-    public int Ob_damage;
+    public float Ob_damage;
     public int Ob_bullet_index;
-    public OBJECT_MOVEMENT Ob_movement;
+    public MOVEMENT_INDEX Ob_movement_index;
     public float Ob_movement_speed;
+    public string Ob_filecode;
 
-    public ObjectData(string _parsedLine){
-        string[] datas = _parsedLine.Split(",");
-
-        this.Index = IntToINDEX(int.Parse(datas[0]));
-        this.Ob_name = datas[1].Replace('_', ' ');;
-        this.Ob_category = (OBJECT_CATEGORY)int.Parse(datas[2]);
-        this.Ob_width = float.Parse(datas[3]);
-        this.Ob_height = float.Parse(datas[4]);
-        this.Ob_damage = int.Parse(datas[5]);
-        this.Ob_bullet_index = int.Parse(datas[6]);
-        this.Ob_movement = (OBJECT_MOVEMENT)int.Parse(datas[7]);
-        this.Ob_movement_speed = float.Parse(datas[8]);
+    public ObjectData()
+    {
+        this.Index              = OBJECT_INDEX.DEFAULT;
+        this.Ob_name            = "비어있음";
+        this.Ob_category        = OBJECT_CATEGORY.DEFAULT;
+        this.Ob_width           = 0;
+        this.Ob_height          = 0;
+        this.Ob_damage          = 0;
+        this.Ob_bullet_index    = -1;
+        this.Ob_movement_index  = MOVEMENT_INDEX.HOLD;
+        this.Ob_movement_speed  = 0;
+        this.Ob_filecode        = "";
     }
 
-    public static OBJECT_INDEX IntToINDEX(int _input){
-        int res = (_input - indexBasis);
-        if(res <= 0) {throw new Exception("인덱스가 음수임");}
-        return (OBJECT_INDEX)res;
+    public ObjectData(string _parsedLine){
+        string[] datas = _parsedLine.Trim().Split('\t');
+
+        this.Index              = (OBJECT_INDEX)int.Parse(datas[0]);
+        this.Ob_name            = datas[1].Replace('_', ' ');
+        this.Ob_category        = (OBJECT_CATEGORY)int.Parse(datas[2]);
+        this.Ob_width           = float.Parse(datas[3]);
+        this.Ob_height          = float.Parse(datas[4]);
+        this.Ob_damage          = int.Parse(datas[5]);
+        this.Ob_bullet_index    = int.Parse(datas[6]);
+        this.Ob_movement_index  = (MOVEMENT_INDEX)int.Parse(datas[7]);
+        this.Ob_movement_speed  = float.Parse(datas[8]);
+        this.Ob_filecode        = datas[9].Replace('_', ' ');
     }
 }
 [System.Serializable]

@@ -2,14 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroyZone : MonoBehaviour
+public class DestroyZone : Zone
 {
-    
-    void OnTriggerEnter2D(Collider2D other) 
+    protected override void OnTriggerEnter2D(Collider2D other) 
     {
-        if(other.TryGetComponent(out Mob mob)){
+        TriggerAction(other);
+    }
+
+    public override void TriggerAction(Collider2D _other)
+    {
+        if(_other.TryGetComponent(out Mob mob)){
             Destroy(mob.gameObject);
         }
     }
-
 }

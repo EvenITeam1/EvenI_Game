@@ -22,12 +22,12 @@ public class PlaceableObject : MonoBehaviour {
     
     private UnityAction<Collider2D>[] objectMovementActions;
 
-    private void Awake() {
+    private async void Awake() {
         /*Set Compoenent*/
         objectCollider  ??= GetComponent<BoxCollider2D>();
 
         /*Set ObjectData*/
-        objectData = GameManager.Instance.ObjectDataTableDesign.GetObjectDataByINDEX(this.Index); //외부에서 받는것
+        objectData = await GameManager.Instance.ObjectDataTableDesign.GetObjectDataByINDEX(this.Index); //외부에서 받는것
         /*Set CoinData*/
         /*Set ItemData*/
     }
@@ -62,7 +62,7 @@ public class PlaceableObject : MonoBehaviour {
     public void HandleTrap(Collider2D _other){
         if(_other.TryGetComponent(out Player player)){
            player.GetDamage(objectData.Ob_damage);
-           objectMovementActions[(int)objectData.Ob_movement].Invoke(_other);
+           objectMovementActions[(int)objectData.Ob_movement_index].Invoke(_other);
         }
     }
     public void HandleCoin(Collider2D _other){

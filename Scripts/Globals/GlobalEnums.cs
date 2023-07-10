@@ -22,10 +22,6 @@
         DEFAULT = 0, TRAP, COIN, PLATFORM, HOLE, ITEM
     }
 
-    public enum OBJECT_MOVEMENT {
-        STATIC = 0, HANDLE_CONTROL
-    }
-
 #endregion
 
 /////////////////////////////////////////////////////////////////////////////////
@@ -37,6 +33,15 @@
     public enum BULLET_CATEGORY {
         DEFAULT = 0, NORMAL, REFLECT 
     }
+
+    public enum LASER_INDEX {
+        DEFAULT = 3100,
+        L_3101, L_3102
+    }
+
+    public enum LASER_CATEGORY {
+        DEFAULT = 0, STATIC, DYNAMIC
+    }
     
 /////////////////////////////////////////////////////////////////////////////////
 
@@ -46,9 +51,11 @@
         DEFAULT = 4000
     }
 
-    public enum MOB_MOVEMENT {
+#endregion
+
+#region  Movements 
+    public enum MOVEMENT_INDEX {
         HOLD = 0, DOWN, UP, LEFT, RIGHT, VERTICAL_LOOP, HORIZONTAL_LOOP
     }
 
 #endregion
-

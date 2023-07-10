@@ -2,19 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TwoDimensions
+public class DamageZone : Zone
 {
-    public class DamageZone : MonoBehaviour
+    public int DamageAmount;
+    protected override void OnTriggerEnter2D(Collider2D other)
     {
-        public GameObject player;
-        public int DamageAmount;
-        public bool IsKilling;
-        void OnTriggerEnter2D(Collider2D other)
+        TriggerAction(other);
+    }
+
+    public override void TriggerAction(Collider2D _other){
+        if (_other.TryGetComponent(out Player player))
         {
-            if(other.TryGetComponent(out Player player)){
-                if(IsKilling == true){player.playerHP.die();}
-                else {player.GetDamage(DamageAmount);}
-            }
+            player.GetDamage(this.DamageAmount);
         }
     }
 }
