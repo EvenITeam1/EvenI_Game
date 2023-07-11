@@ -98,7 +98,7 @@ public class PlaceableObject : MonoBehaviour {
     //                 transform.position, 
     //                 Vector2.one, 
     //                 0, Vector2.zero, 0, 
-    //                 LayerMask.NameToLayer(GlobalStrings.PLAYER_STRING)
+    //                 LayerMask.NameToLayer(GlobalStrings.LAYERS_STRING[(int)PROJECT_LAYERS.Player])
     //             );
     //             if(playerLayerHIt == false) {Debug.Log("빠져나왔다");}
     //             return playerLayerHIt;

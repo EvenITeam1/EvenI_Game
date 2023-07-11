@@ -34,6 +34,8 @@ public class Player : MonoBehaviour, IDamagable
 
     public bool stop = false;
     [SerializeField] public BulletShooter bulletShooter;
+
+    public bool IsEnable = false;
     /*********************************************************************************/
 
     private async void Awake()
@@ -67,17 +69,17 @@ public class Player : MonoBehaviour, IDamagable
     }
     private void Update()
     {
+        if(!IsEnable) return;
         inputHandler.TickInput(0);
         Move();
         Jump();
         Animations();
-
         bulletShooter.FireBullet();
     }
 
     private void FixedUpdate()
     {
-       
+        if(!IsEnable) return;
         if (stop == false) { playerRigid.velocity = new Vector2(PlayerMoveData.horizontal * PlayerMoveData.speed, playerRigid.velocity.y); }
         else { playerRigid.velocity = new Vector2(0, playerRigid.velocity.y); }
     }
@@ -166,8 +168,26 @@ public class Player : MonoBehaviour, IDamagable
         float currentHp = playerHP.getHP();
         playerHP.setHP(currentHp - _amount);
         Instantiate(HitParticle, transform);
-        playerState.ChangeState(PLAYER_STATES.GHOST_STATE);
+        StartCoroutine(AsyncGetDamage());
         return true;
+    }
+
+    IEnumerator AsyncGetDamage(){
+        GameManager.Instance.GlobalPlayer.IsHitedOnce = true;
+        playerState.ChangeState(PLAYER_STATES.GHOST_STATE);
+        yield return YieldInstructionCache.WaitForSeconds(1f);
+        playerState.ChangeState(PLAYER_STATES.PLAYER_STATE);
+        GameManager.Instance.GlobalPlayer.IsHitedOnce = false;
+    }
+
+    #endregion
+
+    #region Events
+    public void PlayerEnable(){
+        this.IsEnable = true;
+    }
+    public void PlayerDisable(){
+        this.IsEnable = false;
     }
     #endregion
 }

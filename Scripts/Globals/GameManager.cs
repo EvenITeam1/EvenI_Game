@@ -22,14 +22,17 @@ public class GameManager : MonoBehaviour
     }
 
     private void Awake() {
-        this.GlobalPlayer ??= GameObject.FindGameObjectWithTag(GlobalStrings.PLAYER_STRING).GetComponent<Player>();
+        this.GlobalPlayer ??= GameObject.FindGameObjectWithTag(GlobalStrings.LAYERS_STRING[(int)PROJECT_LAYERS.Player]).GetComponent<Player>();
     }
 
-    public Game_PL_Character_DataTable_design CharacterDataTableDesign;
-    public Game_PL_Object_DataTable_design ObjectDataTableDesign;
-    public Game_PL_Bullet_DataTable_design BulletDataTableDesign;
-    public GlobalEvent GlobalEventInstance;
+    public Game_PL_Character_DataTable_design       CharacterDataTableDesign;
+    public Game_PL_Object_DataTable_design          ObjectDataTableDesign;
+    public Game_PL_Bullet_DataTable_design          BulletDataTableDesign;
+    public Game_PL_Laser_DataTable_design           LaserDataTableDesign;
+    public Game_PL_Mob_DataTable_design             MobDataTableDesign;
+    
+    public GlobalEvent      GlobalEventInstance;
 
-    public Player GlobalPlayer;
-    public MobGenerator GlobalMobGenerator;
+    public Player           GlobalPlayer;
+    public MobGenerator     GlobalMobGenerator;
 }

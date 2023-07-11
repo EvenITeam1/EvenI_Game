@@ -48,7 +48,8 @@
 #region Mobs
 
     public enum MOB_INDEX {
-        DEFAULT = 4000
+        DEFAULT = 4000,
+        M_4001, M_4002 ,M_4003 ,M_4004 ,M_4005 , M_4006
     }
 
 #endregion
