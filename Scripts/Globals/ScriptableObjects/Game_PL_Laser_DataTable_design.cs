@@ -30,8 +30,8 @@ public class Game_PL_Laser_DataTable_design : GoogleDataTable {
         }
     }
 
-    public async UniTask<LaserData> GetLaserDataByINDEX(OBJECT_INDEX _index) {
+    public async UniTask<LaserData> GetLaserDataByINDEX(LASER_CATEGORY _index) {
         if(bulletDataforms.Count == 0){await DownloadItemSO();}
-        return bulletDataforms[(int)((int)_index - PlayerData.indexBasis)];
+        return bulletDataforms[(int)((int)_index - LaserData.indexBasis)];
     }
 }

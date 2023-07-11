@@ -36,6 +36,7 @@ public class PlayerState : MonoBehaviour
         yield break;
     }
 
+
     public void ChangeState(PLAYER_STATES _state)
     {
         Debug.Log($"ChangeState : {_state.ToString()}");

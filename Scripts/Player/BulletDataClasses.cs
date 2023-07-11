@@ -72,6 +72,7 @@ public class BulletVisualData
 
 [System.Serializable]
 public class LaserData {
+    public static readonly int indexBasis = 3100;
     public LASER_INDEX Index;
     public string Laser_name;
     public LASER_CATEGORY Laser_category;

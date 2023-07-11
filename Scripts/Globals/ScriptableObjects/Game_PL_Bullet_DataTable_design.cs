@@ -30,8 +30,8 @@ public class Game_PL_Bullet_DataTable_design : GoogleDataTable {
         }
     }
 
-    public async UniTask<BulletData> GetBulletDataByINDEX(OBJECT_INDEX _index) {
+    public async UniTask<BulletData> GetBulletDataByINDEX(BULLET_INDEX _index) {
         if(bulletDataforms.Count == 0){await DownloadItemSO();}
-        return bulletDataforms[(int)((int)_index - PlayerData.indexBasis)];
+        return bulletDataforms[(int)((int)_index - BulletData.indexBasis)];
     }
 }

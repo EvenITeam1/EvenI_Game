@@ -30,7 +30,7 @@ public class Game_PL_Mob_DataTable_design : GoogleDataTable {
         }
     }
 
-    public async UniTask<MobData> GetMobDataByINDEX(OBJECT_INDEX _index) {
+    public async UniTask<MobData> GetMobDataByINDEX(MOB_INDEX _index) {
         if(objectDataforms.Count == 0){await DownloadItemSO();}
         return objectDataforms[(int)((int)_index - MobData.indexBasis)];
     }
