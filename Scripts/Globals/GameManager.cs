@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     public Game_PL_Bullet_DataTable_design          BulletDataTableDesign;
     public Game_PL_Laser_DataTable_design           LaserDataTableDesign;
     public Game_PL_Mob_DataTable_design             MobDataTableDesign;
+    public Game_PL_Boss_DataTable_design            BossDataTableDesign;
     
     public GlobalEvent      GlobalEventInstance;
 
