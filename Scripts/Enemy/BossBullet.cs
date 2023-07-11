@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class BossBullet : MonoBehaviour
 {
-    public LayerMask _playerLayer;
     public int _damage;
     public int _setDmg;
     float _time;
