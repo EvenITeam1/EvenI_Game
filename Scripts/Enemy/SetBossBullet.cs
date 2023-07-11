@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SetBossBullet
 {
-    public static Transform relativePosition;
     /// <summary>
     /// Shot bullet to destination with selected bulletType
     /// </summary>
@@ -21,18 +20,18 @@ public class SetBossBullet
 
 
     /// <summary>
-    /// Shot bullet to local position y by enemy with selected bulletType
+    /// Shot bullet to local position (-10, y) by enemy with selected bulletType
     /// </summary>
     /// <param name="y"></param>
     /// <param name="bulletType"></param>
     /// <param name="enemyObj"></param>
     public static void fireBulletLocal(float y, GameObject bulletType, GameObject enemyObj)
     {
-        fireBullet(new Vector2(-1, y) + (Vector2)enemyObj.transform.position, bulletType, enemyObj);
+        fireBullet(new Vector2(-10, y) + (Vector2)enemyObj.transform.position, bulletType, enemyObj);
     }
 
     /// <summary>
-    /// Shot bullet to random y position [min, max] with selected bulletType
+    /// Shot bullet to random y position [min, max] with selected bulletType. (Local x position is -10)
     /// </summary>
     /// <param name="min"></param>
     /// <param name="max"></param>
@@ -42,7 +41,7 @@ public class SetBossBullet
     {
         int n = Random.Range(min, max + 1);
 
-        fireBullet(new Vector2(relativePosition.position.x, n), bulletType, enemyObj);
+        fireBulletLocal(n, bulletType, enemyObj);
     }
 
 }

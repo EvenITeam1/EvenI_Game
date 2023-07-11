@@ -1,6 +1,10 @@
+using Cysharp.Threading.Tasks;
+using Cysharp.Threading.Tasks.CompilerServices;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class BossPatternManager : MonoBehaviour
 {
@@ -18,70 +22,72 @@ public class BossPatternManager : MonoBehaviour
 
     bool ready = false;
 
-    private void OnEnable() {
-        SetBossBullet.relativePosition = this.relativePosition;
-    }
+    public float interval1;
+    public float interval2;
+    public float interval4;
+    public float interval5;
+    public float interval6_move;
+    public float interval6_shot;
+    float arriveTime6;
     
     void Update()
     {
         if(!ready)
         {
             ready = true;
-            StartCoroutine(executeRandomPattern(6));
+            executeRandomPattern(6).Forget();
         }
     }
 
-    IEnumerator executeRandomPattern(int PatternN)
+    async UniTaskVoid executeRandomPattern(int patternN)
     {
-        yield return new WaitForSeconds(coolTime);
+        await UniTask.Delay(TimeSpan.FromSeconds(coolTime));
+        int n = Random.Range(0, patternN);
 
-        int n = Random.Range(0, PatternN);
-
-            switch (n)
-            {
-                case 0:
+        switch (n)
+        {
+            case 0:
                 pattern1();
                 break;
 
-                case 1:
+            case 1:
                 pattern2();
                 break;
 
-                case 2 :
+            case 2:
                 pattern3();
                 break;
 
-                case 3 :
+            case 3:
                 pattern4();
                 break;
 
-                case 4:
+            case 4:
                 pattern5();
                 break;
 
-                case 5:
+            case 5:
                 pattern6();
                 break;
-            }
+        }
         ready = false;
     }
 
     void pattern1()
     {
-        int n = Random.Range(0, 2);
-        SetBossLaser.executeLaser(laserObj[n]);
+        pattern1_shot().Forget();
     }
 
-    public float interval2;
-    void pattern2()//example
+    async UniTaskVoid pattern1_shot()
     {
-        pattern2_sub1();
-        Invoke("pattern2_sub2", interval2);
-        Invoke("pattern2_sub3", interval2 * 2);
-        Invoke("pattern2_sub4", interval2 * 3);
-        Invoke("pattern2_sub5", interval2 * 4);
-        Invoke("pattern2_sub6", interval2 * 5);
+        for (int i = 0; i < 6; i++)
+        {
+            SetBossLaser.executeLaser(laserObj[i]);
+            await UniTask.Delay(TimeSpan.FromSeconds(interval1));
+        }   
     }
+
+   
     #region 패턴2 구성함수
     void pattern2_sub1()
     {
@@ -131,93 +137,99 @@ public class BossPatternManager : MonoBehaviour
     }
     #endregion
 
+    void pattern2()
+    {
+        pattern2_shot().Forget();
+    }
+
+    async UniTaskVoid pattern2_shot()
+    {
+        pattern2_sub1();
+        await UniTask.Delay(TimeSpan.FromSeconds(interval2));
+        pattern2_sub2();
+        await UniTask.Delay(TimeSpan.FromSeconds(interval2));
+        pattern2_sub3();
+        await UniTask.Delay(TimeSpan.FromSeconds(interval2));
+        pattern2_sub4();
+        await UniTask.Delay(TimeSpan.FromSeconds(interval2));
+        pattern2_sub5();
+        await UniTask.Delay(TimeSpan.FromSeconds(interval2));
+        pattern2_sub6();
+    }
     void pattern3()
     {
-        SetBossBullet.fireBulletRandomPos(-3, 14, reflectBullet, enemy);
+        SetBossBullet.fireBulletRandomPos(-10, 10, reflectBullet, enemy);
     }
 
     void pattern4()
     {
-        float n = SetBossMove.goUp(5, moveSpeed, enemy, flag);
-        Invoke("patternSub4", n);
-
-
-        pattern2_sub6();
-        for(int i = 1; i< 6; i++)
-        Invoke("pattern2_sub6", 0.7f * i);     
+        pattern4_move().Forget();
+        pattern4_shot().Forget();
     }
-    #region 패턴4 구성함수
-    void patternSub4()
+
+    async UniTaskVoid pattern4_move()
     {
+        float n = SetBossMove.goUp(5, moveSpeed, enemy, flag);
+        await UniTask.Delay(TimeSpan.FromSeconds(n));
         SetBossMove.goDown(5, moveSpeed, enemy, flag);
     }
-    #endregion
 
+    async UniTaskVoid pattern4_shot()
+    {
+        for (int i = 0; i < 7; i++)
+        {
+            SetBossBullet.fireBullet(player.transform.position, basicBullet, enemy);
+            await UniTask.Delay(TimeSpan.FromSeconds(interval4));
+        }       
+    }
 
-    public float interval5;
+    
     void pattern5()
     {
-        pattern5_sub1();
-        for (int i = 1; i < 10; i++)
-        {
-            Invoke("pattern5_sub1", interval5 * i);
-        }
+        pattern5_shot().Forget();
     }
-    #region 패턴5 구성함수
-    void pattern5_sub1()
+
+    async UniTaskVoid pattern5_shot()
     {
-        for (int i = 0; i < 6; i++)
+        for(int i = 0; i < 7; i++)
         {
-            SetBossBullet.fireBulletRandomPos(-3, 5, basicBullet, enemy);
-        }
+            for (int j = 0; j < 6; j++)
+            {
+                SetBossBullet.fireBulletRandomPos(-5, 3, basicBullet, enemy);
+            }
+            await UniTask.Delay(TimeSpan.FromSeconds(interval5));
+        }      
     }
-    #endregion
 
-
-    public float interval6;
-    public float interval6_1;
-    public float delay6;
     void pattern6()
     {
-        float n1 = SetBossMove.goDown(1, moveSpeed, enemy, flag);
-        Invoke("pattern6_sub2", n1 + interval6);
-        Invoke("pattern6_sub2", (n1 + interval6) * 2);
-        Invoke("pattern6_sub3", (n1 + interval6) * 3);
-
-        for (int i = 0; i < 6; i++)
-        {
-            Invoke("pattern6_sub1", n1 + interval6_1 * i);
-        }
-
-        for (int i = 0; i < 6; i++)
-        {
-            Invoke("pattern6_sub1", (n1 + interval6) + interval6_1 * i + delay6);
-        }
-
-        for (int i = 0; i < 6; i++)
-        {
-            Invoke("pattern6_sub1", (n1 + interval6) * 2 + interval6_1 * i + delay6);
-        }
-
-        for (int i = 0; i < 6; i++)
-        {
-            Invoke("pattern6_sub1", (n1 + interval6) * 3 + interval6_1 * i + delay6);
-        }
-    }
-    #region 패턴6 구성함수
-    void pattern6_sub1()
-    {
-        SetBossBullet.fireBulletLocal(0, basicBullet, enemy);
+        pattern6_move().Forget();
+        pattern6_shot().Forget();
     }
 
-    void pattern6_sub2()
+    async UniTaskVoid pattern6_move()
     {
+        float n = SetBossMove.goDown(1, moveSpeed, enemy, flag);
+        arriveTime6 = n;
+        await UniTask.Delay(TimeSpan.FromSeconds(n + interval6_move));
+        SetBossMove.goUp(1, moveSpeed, enemy, flag);
+        await UniTask.Delay(TimeSpan.FromSeconds(n + interval6_move));
+        SetBossMove.goDown(1, moveSpeed, enemy, flag);
+        await UniTask.Delay(TimeSpan.FromSeconds(n + interval6_move));
         SetBossMove.goUp(1, moveSpeed, enemy, flag);
     }
 
-    void pattern6_sub3()
+    async UniTaskVoid pattern6_shot()
     {
-        SetBossMove.goDown(1, moveSpeed, enemy, flag);
+        for (int i = 0; i < 4; i++)
+        {
+            await UniTask.Delay(TimeSpan.FromSeconds(arriveTime6 + 0.1f));
+            for (int j = 0; j < 8; j++)
+            {
+                SetBossBullet.fireBulletLocal(0, basicBullet, enemy);
+                await UniTask.Delay(TimeSpan.FromSeconds(interval6_shot));
+            }
+        }      
     }
-    #endregion
+   
 }
