@@ -6,6 +6,8 @@ using UnityEngine.Events;
 
 [System.Serializable]
 public class MobData {
+    
+    
     public static readonly int indexBasis = 4000;
     public MOB_INDEX  Index;
     public string Mob_name;
@@ -13,37 +15,41 @@ public class MobData {
     public float Mob_width;
     public float Mob_height;
     public float Mob_hp;
-    public int Mob_bullet_index;
-    public float Mob_character;
-    public MOB_MOVEMENT Mob_movement;
+    public BULLET_INDEX Mob_bullet_index;
+    public bool Mob_tracking;
+    public MOVEMENT_INDEX Mob_movement_index;
     public float Mob_speed;
+    public string Mob_filecode;
 
     public MobData(){
-        Index = MOB_INDEX.DEFAULT;
-        Mob_name = "비어있음";
-        Mob_category = 0;
-        Mob_width = 1;
-        Mob_height = 1;
-        Mob_hp = 1;
-        Mob_bullet_index = 0;
-        Mob_character = 0;
-        Mob_movement = MOB_MOVEMENT.HOLD;
-        Mob_speed = 0;
+        this.Index                  = MOB_INDEX.DEFAULT;
+        this.Mob_name               = "비어있음";
+        this.Mob_category           = 0;
+        this.Mob_width              = 1;
+        this.Mob_height             = 1;
+        this.Mob_hp                 = 1;
+        this.Mob_bullet_index       = 0;
+        this.Mob_tracking           = false;
+        this.Mob_movement_index     = MOVEMENT_INDEX.HOLD;
+        this.Mob_speed              = 0;
+        this.Mob_filecode           = "";
     }
 
     public MobData(string _parsedLine){
-        string[] datas = _parsedLine.Split('\t');
+        string[] datas = _parsedLine.Trim().Split('\t');
 
-        Index = (MOB_INDEX)int.Parse(datas[0]);
-        Mob_name = datas[1].Replace('_', ' ');
-        Mob_category = int.Parse(datas[2]);
-        Mob_width = float.Parse(datas[3]);
-        Mob_height = float.Parse(datas[4]);
-        Mob_hp = float.Parse(datas[5]);
-        Mob_bullet_index = int.Parse(datas[6]);
-        Mob_character = float.Parse(datas[7]);
-        Mob_movement = (MOB_MOVEMENT)int.Parse(datas[8]);
-        Mob_speed = float.Parse(datas[9]);
+        this.Index                  = (MOB_INDEX)int.Parse(datas[0]);
+        this.Mob_name               = datas[1].Replace('_', ' ');
+        this.Mob_category           = int.Parse(datas[2]);
+        this.Mob_width              = float.Parse(datas[3]);
+        this.Mob_height             = float.Parse(datas[4]);
+        this.Mob_hp                 = float.Parse(datas[5]);
+        this.Mob_bullet_index       = (BULLET_INDEX)int.Parse(datas[6]);
+        this.Mob_tracking           = int.Parse(datas[7]) == 1 ? true : false;
+        this.Mob_movement_index     = (MOVEMENT_INDEX)int.Parse(datas[8]);
+        this.Mob_speed              = float.Parse(datas[9]);
+        this.Mob_filecode           = datas[10].Replace('_', ' ');
+
     }
 }
 

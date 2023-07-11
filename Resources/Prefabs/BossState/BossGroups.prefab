@@ -412,6 +412,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   isActivated: 0
+  bossHPUI: {fileID: 0}
+  bossObj: {fileID: 0}
 --- !u!1 &1336791765250229856
 GameObject:
   m_ObjectHideFlags: 0
@@ -589,6 +591,7 @@ MonoBehaviour:
   flag: {fileID: 1336791765174448138}
   basicBullet: {fileID: 8620079346850200605, guid: b0dc6b4e86f807b4885f9e3e073cb6c3, type: 3}
   reflectBullet: {fileID: 7131970702525554512, guid: b15693d6466001d48af7120f99b726b0, type: 3}
+  relativePosition: {fileID: 0}
   interval2: 0.4
   interval5: 0.4
   interval6: 1
@@ -1431,6 +1434,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1336791765335168952}
     m_Modifications:
+    - target: {fileID: 6112941702285521836, guid: a2ece924f49464c63beda785c108d6ff, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
     - target: {fileID: 6112941702285521837, guid: a2ece924f49464c63beda785c108d6ff, type: 3}
       propertyPath: m_Name
       value: Boss

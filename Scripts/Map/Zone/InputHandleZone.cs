@@ -1,40 +1,39 @@
 using UnityEngine;
 
-namespace TwoDimensions
+public class InputHandleZone : Zone
 {
-    public class InputHandleZone : MonoBehaviour
+    public Player player;
+
+    private void Start()
     {
-        public Player player;
+        player = GameManager.Instance.GlobalPlayer;
+    }
 
-        private void Start() {
-            player = GameManager.Instance.GlobalPlayer;
-        }
-
-        private void OnTriggerEnter2D(Collider2D other)
+    protected override void OnTriggerEnter2D(Collider2D other)
+    {
+        if (player.GetCollider() == other)
         {
-            if (player.GetCollider() == other)
-            {
-                player.PlayerJumpData.isAirHoldPrevented = true;
-                player.PlayerJumpData.isAirHoldable = false;
-            }
-        }
-
-        private void OnTriggerStay2D(Collider2D other)
-        {
-            if (player.GetCollider() == other)
-            {
-                player.PlayerJumpData.isAirHoldPrevented = true;
-                player.PlayerJumpData.isAirHoldable = false;
-            }
-        }
-
-        private void OnTriggerExit2D(Collider2D other)
-        {
-            if (player.GetCollider() == other)
-            {
-                player.PlayerJumpData.isAirHoldPrevented = false;
-                player.PlayerJumpData.isAirHoldable = true;
-            }
+            player.PlayerJumpData.isAirHoldPrevented = true;
+            player.PlayerJumpData.isAirHoldable = false;
         }
     }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (player.GetCollider() == other)
+        {
+            player.PlayerJumpData.isAirHoldPrevented = true;
+            player.PlayerJumpData.isAirHoldable = false;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (player.GetCollider() == other)
+        {
+            player.PlayerJumpData.isAirHoldPrevented = false;
+            player.PlayerJumpData.isAirHoldable = true;
+        }
+    }
+    public override void TriggerAction(Collider2D _other) { }
 }

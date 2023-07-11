@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using PixelSpark.Parallaxer.Helpers;
 
 namespace PixelSpark.Parallaxer
@@ -74,7 +75,8 @@ namespace PixelSpark.Parallaxer
         #endregion
 
         #region Public methods
-
+        public UnityEvent AfterDrawSubBackgrounds;
+        public Material SpecialChildMaterial;
         public void SetMovementConstraints(bool horizontal, bool vertical)
         {
             _preventHorizontalMovement = horizontal;
@@ -215,7 +217,10 @@ namespace PixelSpark.Parallaxer
             {
                 _copies[i] = Instantiate(spriteRenderer, transform, false);
                 _copies[i].gameObject.name = $"Element{i}";
+                _copies[i].gameObject.layer = LayerMask.NameToLayer("BackGround");
+                if(SpecialChildMaterial != null) {_copies[i].material = SpecialChildMaterial;}
             }
+            AfterDrawSubBackgrounds.Invoke();
 
             Destroy(dummyObject);
         }

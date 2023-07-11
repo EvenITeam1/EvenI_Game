@@ -8,8 +8,14 @@ namespace TwoDimensions
     public class AutoRenderOrder : MonoBehaviour {
         [SerializeField] List<SpriteRenderer> spriteRenderer = new List<SpriteRenderer>();
 
+        public void GetChildSpriteRenderers(){
+            foreach(Transform items in transform){
+                spriteRenderer.Add(items.GetComponent<SpriteRenderer>());
+            }
+            SetRenderOrder((int)transform.localPosition.z);
+        }
+
         private void Awake() {
-            SetRenderOrder((int)transform.position.z);
         }
 
         public void SetRenderOrder(int _order){

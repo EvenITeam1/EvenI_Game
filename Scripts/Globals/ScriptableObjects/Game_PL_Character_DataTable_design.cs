@@ -7,20 +7,17 @@ using UnityEditor;
 using UnityEngine.Events;
 using Cysharp.Threading.Tasks;
 
-public class Game_PL_Character_DataTable_design : MonoBehaviour {
+public class Game_PL_Character_DataTable_design : GoogleDataTable {
     public List<PlayerData> playerDataforms = new List<PlayerData>();
     public PlayerData emptyData = new PlayerData();
-    const string sheet_URL = "https://docs.google.com/spreadsheets/d/1PgCd0ur1vz6mA0GTe5XthIgAzPK8fso36iuDjJ_5HcI/export?format=tsv";
-
-    private void Awake() {
-    }
+    const string sheet_URL = "https://docs.google.com/spreadsheets/d/1GiyKuTkw0z-Sp0Jo_CU6DcVtq8L0MNkyqI82eVjl_5Y/export?format=tsv";
 
     [ContextMenu("구글 스프레드 시트 로딩")]
-    public async void LoadDataFromSheet(){
+    public override async void LoadDataFromSheet(){
         await DownloadItemSO();
     }
 
-    async UniTask DownloadItemSO(){
+    protected override async UniTask DownloadItemSO(){
         playerDataforms.Clear();
 
         playerDataforms.Add(emptyData);
@@ -28,8 +25,7 @@ public class Game_PL_Character_DataTable_design : MonoBehaviour {
         var txt = (await UnityWebRequest.Get(sheet_URL).SendWebRequest()).downloadHandler.text;
         
         string[] lines = txt.Split('\n');
-        
-        for(int i = 4; i < lines.Length; i++){
+        for(int i = 5; i < lines.Length; i++){
             playerDataforms.Add( new PlayerData(lines[i]));
         }
     }

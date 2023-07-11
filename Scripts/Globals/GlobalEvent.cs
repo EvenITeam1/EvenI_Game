@@ -74,4 +74,5 @@ public class GlobalEvent : MonoBehaviour
        //Debug.Log(_input);
     }
 #endregion
+
 }

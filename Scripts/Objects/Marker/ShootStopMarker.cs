@@ -15,7 +15,7 @@ public class ShootStopMarker : EventMarker
         hits = GetCastedTarget();
         var player = (
             from hit in hits  
-            where (hit.collider.name == GlobalStrings.PLAYER_STRING)  
+            where (hit.collider.name == GlobalStrings.LAYERS_STRING[(int)PROJECT_LAYERS.Player])  
             select hit
         );
 

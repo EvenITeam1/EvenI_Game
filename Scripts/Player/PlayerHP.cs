@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class PlayerHP : MonoBehaviour, HP
 {
+    public UnityEvent OnDieEvent;
+    public UnityEvent OnHitEvent;
+
     [SerializeField] float _hp;
     [SerializeField] float _setHp;
     [SerializeField] public float _recoverHp;
@@ -52,7 +56,7 @@ public class PlayerHP : MonoBehaviour, HP
     public void die()
     {
         _hp = 0;
-        SceneManager.LoadScene("gameOverScene");
+
     }
 
     public virtual void recoverHp(float recoverHp)//Ȥ�ó� ȸ�� �� ������ �� �Լ� ����� �Ű����� �޾Ƴ���

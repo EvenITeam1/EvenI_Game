@@ -24,20 +24,18 @@ public class PlayerState : MonoBehaviour
 
     IEnumerator GHOST_STATE()
     {
-        GameManager.Instance.GlobalPlayer.IsHitedOnce = true;
-        gameObject.layer = LayerMask.NameToLayer(GlobalStrings.GHOST_STRING);
+        gameObject.layer = LayerMask.NameToLayer(GlobalStrings.LAYERS_STRING[(int)PROJECT_LAYERS.Ghost]);
         rend.material = MaterialByState[(int)PLAYER_STATES.GHOST_STATE];
-        yield return YieldInstructionCache.WaitForSeconds(1f);
-        GameManager.Instance.GlobalPlayer.IsHitedOnce = false;
-        ChangeState(PLAYER_STATES.PLAYER_STATE);
+        yield break;
     }
-
+    
     IEnumerator PLAYER_STATE()
     {
-        gameObject.layer = LayerMask.NameToLayer(GlobalStrings.PLAYER_STRING);
+        gameObject.layer = LayerMask.NameToLayer(GlobalStrings.LAYERS_STRING[(int)PROJECT_LAYERS.Player]);
         rend.material = MaterialByState[(int)PLAYER_STATES.PLAYER_STATE];
         yield break;
     }
+
 
     public void ChangeState(PLAYER_STATES _state)
     {

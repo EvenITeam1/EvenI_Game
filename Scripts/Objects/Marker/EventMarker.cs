@@ -8,6 +8,9 @@ public class EventMarker : MonoBehaviour
 {
     [SerializeField] private string inputString;
     [SerializeField]  UnityEvent<string> PrintString;
+    
+    [SerializeField] UnityEvent OnTriggerEvents;
+
     public bool isActivated;
     protected RaycastHit2D[] hits;
     protected virtual void FixedUpdate()
@@ -15,7 +18,7 @@ public class EventMarker : MonoBehaviour
         hits = GetCastedTarget();
         var player = (
             from hit in hits  
-            where (hit.collider.name == GlobalStrings.PLAYER_STRING)  
+            where (hit.collider.name == GlobalStrings.LAYERS_STRING[(int)PROJECT_LAYERS.Player])  
             select hit
         );
 
@@ -24,6 +27,7 @@ public class EventMarker : MonoBehaviour
         {
             isActivated = true;
             PrintString.Invoke(inputString);
+            OnTriggerEvents.Invoke();
             Destroy(gameObject);
         }
     }
