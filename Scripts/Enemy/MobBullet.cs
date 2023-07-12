@@ -50,7 +50,7 @@ public class MobBullet : Bullet
     
     public override void setDir()
     {
-        float speed = (player.PlayerMoveData.speed - bulletData.Bullet_speed) + 5f;
+        float speed = (player.playerMoveData.speed - bulletData.Bullet_speed) + 5f;
         bulletRigid.velocity = Vector2.left * speed;
     }
     //public void lastLimit()

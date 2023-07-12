@@ -92,7 +92,7 @@ public class PlaceableObject : MonoBehaviour {
     //     }
     // }
     // IEnumerator IHandleControl_001(Player _player) {
-    //     _player.PlayerJumpData.isAirHoldable = false;
+    //     _player.playerJumpData.isAirHoldable = false;
     //     yield return new WaitWhile( () => {
     //             RaycastHit2D playerLayerHIt = Physics2D.BoxCast(
     //                 transform.position, 
@@ -104,7 +104,7 @@ public class PlaceableObject : MonoBehaviour {
     //             return playerLayerHIt;
     //         }
     //     );
-    //     _player.PlayerJumpData.isAirHoldable = true;
+    //     _player.playerJumpData.isAirHoldable = true;
     // }
 #endregion
 }

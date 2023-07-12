@@ -13,8 +13,8 @@ public class InputHandleZone : Zone
     {
         if (player.GetCollider() == other)
         {
-            player.PlayerJumpData.isAirHoldPrevented = true;
-            player.PlayerJumpData.isAirHoldable = false;
+            player.playerJumpData.isAirHoldPrevented = true;
+            player.playerJumpData.isAirHoldable = false;
         }
     }
 
@@ -22,8 +22,8 @@ public class InputHandleZone : Zone
     {
         if (player.GetCollider() == other)
         {
-            player.PlayerJumpData.isAirHoldPrevented = true;
-            player.PlayerJumpData.isAirHoldable = false;
+            player.playerJumpData.isAirHoldPrevented = true;
+            player.playerJumpData.isAirHoldable = false;
         }
     }
 
@@ -31,8 +31,8 @@ public class InputHandleZone : Zone
     {
         if (player.GetCollider() == other)
         {
-            player.PlayerJumpData.isAirHoldPrevented = false;
-            player.PlayerJumpData.isAirHoldable = true;
+            player.playerJumpData.isAirHoldPrevented = false;
+            player.playerJumpData.isAirHoldable = true;
         }
     }
     public override void TriggerAction(Collider2D _other) { }

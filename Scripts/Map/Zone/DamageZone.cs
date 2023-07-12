@@ -13,7 +13,7 @@ public class DamageZone : Zone
     public override void TriggerAction(Collider2D _other){
         if (_other.TryGetComponent(out Player player))
         {
-            player.GetDamage(this.DamageAmount);
+            player.playerHP.die();
         }
     }
 }

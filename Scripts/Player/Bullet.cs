@@ -82,7 +82,7 @@ public class Bullet : MonoBehaviour, Hit
 
     public virtual void setDir()
     {
-        float speed = player.PlayerMoveData.speed + bulletData.Bullet_speed;
+        float speed = player.playerMoveData.speed + bulletData.Bullet_speed;
         bulletRigid.velocity = Vector2.right * speed;
     }
 
