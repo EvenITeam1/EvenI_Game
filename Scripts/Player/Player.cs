@@ -65,7 +65,6 @@ public class Player : MonoBehaviour, IDamagable
         playerHP._recoverHp = playerData.Character_per_hp_heal;
         //bulletShooter.bullets[0].bulletData = GameManager.Instance.BulletDataTableDesign.GetBulletDataByINDEX(playerData.Character_bullet_index_1);
         //bulletShooter.bullets[1].bulletData = GameManager.Instance.BulletDataTableDesign.GetBulletDataByINDEX(playerData.Character_bullet_index_2);
-
     }
 
     private void Start()
