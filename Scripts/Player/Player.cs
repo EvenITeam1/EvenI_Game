@@ -39,7 +39,7 @@ public class Player : MonoBehaviour, IDamagable
     public bool IsEnable = false;
     /*********************************************************************************/
 
-    private async void Awake()
+    private void Awake()
     {
         /*Set Compoenent*/
         inputHandler ??= GetComponent<InputHandler>();
@@ -47,9 +47,6 @@ public class Player : MonoBehaviour, IDamagable
         playerRigid ??= GetComponent<Rigidbody2D>();
         bulletShooter ??= GetComponent<BulletShooter>();
         mOriginGravityScale = playerRigid.gravityScale;
-
-        /*Set PlayerData*/
-        playerData = await GameManager.Instance.CharacterDataTableDesign.GetPlayerDataByINDEX(this.Index); //외부에서 받는것
 
         /*Set PlayerJumpData*/
         playerJumpData.jumpCount = playerJumpData.maxJumpCount;
@@ -59,15 +56,26 @@ public class Player : MonoBehaviour, IDamagable
         playerVisualData.spriteRenderer ??= GetComponent<SpriteRenderer>();
         playerVisualData.animator ??= GetComponent<Animator>();
 
+    }
+
+    private void OnEnable() {
+        playerData = GameManager.Instance.CharacterDataTableDesign.GetPlayerDataByINDEX(this.Index); //외부에서 받는것
         /*Set PlayerHP*/
         playerHP.setHP(playerData.Character_hp);
         playerHP._recoverHp = playerData.Character_per_hp_heal;
+        //bulletShooter.bullets[0].bulletData = GameManager.Instance.BulletDataTableDesign.GetBulletDataByINDEX(playerData.Character_bullet_index_1);
+        //bulletShooter.bullets[1].bulletData = GameManager.Instance.BulletDataTableDesign.GetBulletDataByINDEX(playerData.Character_bullet_index_2);
+
     }
 
     private void Start()
     {
         FlipSprite(1);
     }
+
+    public void InitializeAfterAsynchronous(){   
+    }
+    
     private void Update()
     {
         if(!IsEnable) return;
@@ -174,11 +182,11 @@ public class Player : MonoBehaviour, IDamagable
     }
 
     IEnumerator AsyncGetDamage(){
-        GameManager.Instance.GlobalPlayer.IsHitedOnce = true;
+        RunnerManager.Instance.GlobalPlayer.IsHitedOnce = true;
         playerState.ChangeState(PLAYER_STATES.GHOST_STATE);
         yield return YieldInstructionCache.WaitForSeconds(1f);
         playerState.ChangeState(PLAYER_STATES.PLAYER_STATE);
-        GameManager.Instance.GlobalPlayer.IsHitedOnce = false;
+        RunnerManager.Instance.GlobalPlayer.IsHitedOnce = false;
     }
 
     #endregion

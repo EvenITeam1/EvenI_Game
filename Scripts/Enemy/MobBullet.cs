@@ -15,20 +15,19 @@ public class MobBullet : Bullet
 
     protected override void Awake()
     {
-        player = GameManager.Instance.GlobalPlayer;
         bulletRigid = GetComponent<Rigidbody2D>();
+    }
+    void OnEnable()
+    {
+        player = RunnerManager.Instance.GlobalPlayer;
+        bulletData.Bullet_time = 0;
+        setDamage((int)Random.Range(bulletData.Bullet_min_dmg, bulletData.Bullet_max_dmg + 1f));
+        setDir();
     }
 
     void Update()
     {
         lastLimit();
-    }
-
-    void OnEnable()
-    {
-        bulletData.Bullet_time = 0;
-        setDamage((int)Random.Range(bulletData.Bullet_min_dmg, bulletData.Bullet_max_dmg + 1f));
-        setDir();
     }
 
     private void OnTriggerEnter2D(Collider2D other)

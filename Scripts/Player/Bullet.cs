@@ -7,7 +7,9 @@ public class Bullet : MonoBehaviour, Hit
 {
     public LayerMask _enemyLayer;
     
-    [HideInInspector] public Player player;
+    [SerializeField]
+    private BULLET_INDEX Index;
+    public Player player;
     [SerializeField] public BulletData bulletData;
     [SerializeField] public BulletVisualData bulletVisualData;
 
@@ -16,8 +18,11 @@ public class Bullet : MonoBehaviour, Hit
     protected Rigidbody2D bulletRigid;
 
     protected virtual void Awake() {
-        player = GameManager.Instance.GlobalPlayer;
         bulletRigid = GetComponent<Rigidbody2D>();
+        player = RunnerManager.Instance.GlobalPlayer;
+    }
+    private void Start() {
+        //bulletData = GameManager.Instance.BulletDataTableDesign.GetBulletDataByINDEX(this.Index);
     }
 
     void Update()

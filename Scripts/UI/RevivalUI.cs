@@ -11,7 +11,7 @@ public class RevivalUI : MonoBehaviour
     public TextMeshProUGUI ButtonTMP;
     Coroutine CurrentCoroutine;
     private void OnEnable() {
-        GameManager.Instance.GlobalEventInstance.IsGamePaused = true;
+        RunnerManager.Instance.GlobalEventInstance.IsGamePaused = true;
         ContienueTMP.text = "Continue?";
         TimmerTMP.text = "10";
         ButtonTMP.text = $"부활하기 : <#F0F>{GameManager.Instance.GlobalSaveNLoad.saveData.outGameData.RevivalCount}</color>";
@@ -47,11 +47,11 @@ public class RevivalUI : MonoBehaviour
     public void HandleContinue(){
         if(GameManager.Instance.GlobalSaveNLoad.saveData.outGameData.RevivalCount <= 0) return;
         StopCoroutine(CurrentCoroutine);
-        GameManager.Instance.GlobalPlayer.Revival();
+        RunnerManager.Instance.GlobalPlayer.Revival();
         this.gameObject.SetActive(false);
     }
 
     private void OnDisable() {
-        GameManager.Instance.GlobalEventInstance.IsGamePaused = false;
+        RunnerManager.Instance.GlobalEventInstance.IsGamePaused = false;
     }
 }

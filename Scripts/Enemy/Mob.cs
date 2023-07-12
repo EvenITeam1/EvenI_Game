@@ -55,15 +55,15 @@ public class Mob : MonoBehaviour, IDamagable
 
     #region Insantiate
     public async void InstantiateMobByAlert(){
-        GameManager.Instance.GlobalMobGenerator.GenerateAlertObject(
-            new Vector2(GameManager.Instance.GlobalMobGenerator.arrowposition, transform.localPosition.y) + (Vector2.left * 1.5f)
+        RunnerManager.Instance.GlobalMobGenerator.GenerateAlertObject(
+            new Vector2(RunnerManager.Instance.GlobalMobGenerator.arrowposition, transform.localPosition.y) + (Vector2.left * 1.5f)
         );
         await UniTask.Delay(TimeSpan.FromSeconds(1f));
         InvokeMovement();
         await UniTask.Delay(TimeSpan.FromSeconds(mobMoveData.invokeEaseTime));
         mobMoveData.moveType[(int)mobData.Mob_movement_index].Invoke();
         await UniTask.Delay(TimeSpan.FromSeconds(mobMoveData.lifeTime));
-        GameManager.Instance.GlobalMobGenerator.GenerateAlertObject(
+        RunnerManager.Instance.GlobalMobGenerator.GenerateAlertObject(
             new Vector2(transform.localPosition.x, transform.localPosition.y) + (Vector2.left * 1.5f)
         );
         await UniTask.Delay(TimeSpan.FromSeconds(1f));

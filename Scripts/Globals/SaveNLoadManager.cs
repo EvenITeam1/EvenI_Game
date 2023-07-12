@@ -14,11 +14,11 @@ public class SaveNLoadManager : MonoBehaviour {
     public SaveData saveData;
 
     public void Init(){
-        saveData.playerHp = GameManager.Instance.GlobalPlayer.playerHP;
+        saveData.playerHp = RunnerManager.Instance.GlobalPlayer.playerHP;
     }
 
     public void DataSave(){
-        this.saveData.playerHp = GameManager.Instance.GlobalPlayer.playerHP;
+        this.saveData.playerHp = RunnerManager.Instance.GlobalPlayer.playerHP;
     }
     public SaveData DataLoad(){
         return this.saveData;

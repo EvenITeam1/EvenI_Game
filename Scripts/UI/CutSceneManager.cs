@@ -17,7 +17,7 @@ public class CutSceneManager : MonoBehaviour, IPointer​Click​Handler
     }
     
     public void OnPointerClick(PointerEventData pointerEventData){
-        GameManager.Instance.GlobalEventInstance.IsGamePaused = true;
+        RunnerManager.Instance.GlobalEventInstance.IsGamePaused = true;
         if(imagesQueue.Count != 0){
             currentNum++;
             cutSceneNumertext.text = currentNum.ToString();
@@ -25,7 +25,7 @@ public class CutSceneManager : MonoBehaviour, IPointer​Click​Handler
             imagesQueue.RemoveAt(0);
         }
         else {
-            GameManager.Instance.GlobalEventInstance.IsGamePaused = false;
+            RunnerManager.Instance.GlobalEventInstance.IsGamePaused = false;
             Destroy(gameObject);
         }
     }

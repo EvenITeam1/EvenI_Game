@@ -26,7 +26,7 @@ public class MobGenMarker : EventMarker
         else if(player.Count() != 0 && !isActivated)
         {
             isActivated = true;
-            GameManager.Instance.GlobalMobGenerator.GenerateMobs(mobElements);
+            RunnerManager.Instance.GlobalMobGenerator.GenerateMobs(mobElements);
             Destroy(gameObject);
         }
     }

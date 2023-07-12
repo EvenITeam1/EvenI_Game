@@ -6,7 +6,7 @@ public class InputHandleZone : Zone
 
     private void Start()
     {
-        player = GameManager.Instance.GlobalPlayer;
+        player = RunnerManager.Instance.GlobalPlayer;
     }
 
     protected override void OnTriggerEnter2D(Collider2D other)
