@@ -73,6 +73,9 @@ public class GlobalEvent : MonoBehaviour
     public void PrintString(string _input){
        //Debug.Log(_input);
     }
+    public UnityEvent OnPlayerDieEvent;
+    public void BroadCastPlayerDie(){
+        OnPlayerDieEvent.Invoke();
+    }
 #endregion
-
 }

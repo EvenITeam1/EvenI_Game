@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
     public Game_PL_Mob_DataTable_design             MobDataTableDesign;
     
     public GlobalEvent      GlobalEventInstance;
-
     public Player           GlobalPlayer;
     public MobGenerator     GlobalMobGenerator;
+    public SaveNLoadManager GlobalSaveNLoad;
 }

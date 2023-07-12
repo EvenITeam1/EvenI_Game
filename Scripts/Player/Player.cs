@@ -189,5 +189,25 @@ public class Player : MonoBehaviour, IDamagable
     public void PlayerDisable(){
         this.IsEnable = false;
     }
+
+    public void Revival(){
+        StartCoroutine(AsyncRevival());
+    }
+    IEnumerator AsyncRevival(){
+        transform.position = new Vector2(transform.position.x, 3f);
+        originGravityScale = playerRigid.gravityScale;
+        playerHP.setHP(100f);
+        playerRigid.gravityScale = 0;
+        playerState.ChangeState(PLAYER_STATES.GHOST_STATE);
+        float passedTime = 0;
+        while(passedTime <= 3f) {
+            passedTime += Time.deltaTime;
+            yield return null;
+            if(inputHandler.IsJumpPressd) {break;}
+        }
+        playerRigid.gravityScale = originGravityScale;
+        playerState.ChangeState(PLAYER_STATES.PLAYER_STATE);
+        yield break;
+    }
     #endregion
 }
