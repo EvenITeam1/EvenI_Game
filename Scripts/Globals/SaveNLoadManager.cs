@@ -7,9 +7,20 @@ public class SaveNLoadManager : MonoBehaviour {
         public OutGameData outGameData;
 
         [SerializeField]
-        public PlayerData playerData;
+        public PlayerHP playerHp;
     }
 
     [SerializeField]
     public SaveData saveData;
+
+    public void Init(){
+        saveData.playerHp = GameManager.Instance.GlobalPlayer.playerHP;
+    }
+
+    public void DataSave(){
+        this.saveData.playerHp = GameManager.Instance.GlobalPlayer.playerHP;
+    }
+    public SaveData DataLoad(){
+        return this.saveData;
+    }
 }
