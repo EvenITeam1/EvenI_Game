@@ -54,8 +54,21 @@
 
 #endregion
 
+#region Boss
+
+public enum BOSS_INDEX {
+    DEFAULT = 5000,
+    BO_5001
+}
+
+public enum BOSS_CATEGORY {
+    DEFAULT = 0, NORMAL
+}
+
+#endregion
+
 #region  Movements 
-    public enum MOVEMENT_INDEX {
+public enum MOVEMENT_INDEX {
         HOLD = 0, DOWN, UP, LEFT, RIGHT, VERTICAL_LOOP, HORIZONTAL_LOOP
     }
 
