@@ -58,18 +58,18 @@ public class Player : MonoBehaviour, IDamagable
 
     }
 
-    private void OnEnable() {
+    private void OnEnable() {    }
+
+    private void Start()
+    {
+        FlipSprite(1);
         playerData = GameManager.Instance.CharacterDataTableDesign.GetPlayerDataByINDEX(this.Index); //외부에서 받는것
         /*Set PlayerHP*/
         playerHP.setHP(playerData.Character_hp);
         playerHP._recoverHp = playerData.Character_per_hp_heal;
         //bulletShooter.bullets[0].bulletData = GameManager.Instance.BulletDataTableDesign.GetBulletDataByINDEX(playerData.Character_bullet_index_1);
         //bulletShooter.bullets[1].bulletData = GameManager.Instance.BulletDataTableDesign.GetBulletDataByINDEX(playerData.Character_bullet_index_2);
-    }
 
-    private void Start()
-    {
-        FlipSprite(1);
     }
 
     public void InitializeAfterAsynchronous(){   
@@ -112,6 +112,10 @@ public class Player : MonoBehaviour, IDamagable
     {
         //horizontal = inputHandler.Horizontal; //키보드 인풋 받기
         playerMoveData.horizontal = 1;
+    }
+
+    public void SpeedUp(){
+        playerMoveData.speed += 10;
     }
     #endregion
 

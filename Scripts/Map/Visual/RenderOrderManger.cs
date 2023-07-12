@@ -11,6 +11,7 @@ namespace TwoDimensions
         private void Awake() {
             settingTargets = GetComponentsInChildren<AutoRenderOrder>().ToList();
         }
+        
         private void Start() {
             foreach(AutoRenderOrder aro in settingTargets){
                 aro.AddRenderOrder((int)transform.position.z);
