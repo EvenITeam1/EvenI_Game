@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8620079346850200607}
   - component: {fileID: 8620079346850200606}
   - component: {fileID: 1347473405143956396}
+  - component: {fileID: -7950240550755757705}
   m_Layer: 29
   m_Name: MobBullet_Template
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 8620079346850200605}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.3, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -73,11 +74,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1789428647
+  m_SortingLayerID: 1056075673
   m_SortingLayer: 4
   m_SortingOrder: 1
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0.764151, g: 0.15560597, b: 0, a: 1}
+  m_Sprite: {fileID: -640121303, guid: bd0ff90622bd0494d8beae63918f1d1e, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -142,7 +143,7 @@ MonoBehaviour:
   Index: 3000
   player: {fileID: 0}
   bulletData:
-    Index: 3000
+    Index: 3003
     Bullet_name: 
     Bullet_category: 0
     Bullet_width: 0
@@ -168,3 +169,23 @@ MonoBehaviour:
       rgba: 16777215
   _lastTime: 7
   bulletRigid: {fileID: 8620079346850200606}
+--- !u!95 &-7950240550755757705
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8620079346850200605}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 60357f7bbcfca6443a9b69b53846fcdf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
