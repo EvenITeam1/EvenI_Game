@@ -6,10 +6,11 @@ using UnityEngine.SceneManagement;
 public class LevelLoadScript : MonoBehaviour
 {
     public Animator Transition;
+    public string   scene;
     public float TransitionTime;
     [ContextMenu("LoadNextLevel")]
     public void LoadNextLevel(){
-        StartCoroutine(LoadLevel("Danmaku"));
+        StartCoroutine(LoadLevel(scene));
     }
 
     IEnumerator LoadLevel(string _scene){
