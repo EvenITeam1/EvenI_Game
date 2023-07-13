@@ -80,7 +80,9 @@ public class Player : MonoBehaviour, IDamagable
         if(!IsEnable) return;
         inputHandler.TickInput(0);
         Move();
+        RestoreJumpCount();
         Jump();
+        JumpHold();
         Animations();
         bulletShooter.FireBullet();
     }
@@ -122,10 +124,10 @@ public class Player : MonoBehaviour, IDamagable
     /*********************************************************************************/
 
     #region Jump
+    public void RestoreJumpCount() { if (IsGrounded() && !IsJumped()) {playerJumpData.jumpCount = playerJumpData.maxJumpCount;} }
+
     private void Jump()
     {
-        if (IsGrounded() && !IsJumped()) { RestoreJumpCount(); } //점프횟수 복구
-
         if (!inputHandler.IsJumpPressd) { playerJumpData.IsActivatedOnce = false; } // 점프버튼 뗐는지 체크
         else if (inputHandler.IsJumpPressd)
         {
@@ -140,7 +142,9 @@ public class Player : MonoBehaviour, IDamagable
                 bulletShooter.FireJumpBullet();
             }
         }
+    }
 
+    private void JumpHold(){
         if (!inputHandler.IsAirHoldPressed || playerJumpData.isAirHoldPrevented) { 
             playerRigid.gravityScale = OriginGravityScale; 
             playerJumpData.isAiring = false; 
@@ -153,10 +157,7 @@ public class Player : MonoBehaviour, IDamagable
             playerJumpData.isAiring = true;
             playerRigid.velocity = Vector2.right * playerRigid.velocity.x;
         }
-
-        Debug.DrawRay(playerJumpData.groundCheckerTransform.position, Vector3.down * 0.5f, Color.red);
     }
-    public void RestoreJumpCount() { playerJumpData.jumpCount = playerJumpData.maxJumpCount; }
 
     private bool IsGrounded()
     {
@@ -204,7 +205,7 @@ public class Player : MonoBehaviour, IDamagable
     Coroutine revivalCoroutine = null;
     public void Revival(){
         if(revivalCoroutine != null) {StopCoroutine(revivalCoroutine);}
-        GameManager.Instance.GlobalSaveNLoad.saveData.outGameData.RevivalCount--;
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().RevivalCount--;
         
         revivalCoroutine = StartCoroutine(AsyncRevival());
     }

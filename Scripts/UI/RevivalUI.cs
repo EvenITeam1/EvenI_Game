@@ -14,7 +14,7 @@ public class RevivalUI : MonoBehaviour
         RunnerManager.Instance.GlobalEventInstance.IsGamePaused = true;
         ContienueTMP.text = "Continue?";
         TimmerTMP.text = "10";
-        ButtonTMP.text = $"부활하기 : <#F0F>{GameManager.Instance.GlobalSaveNLoad.saveData.outGameData.RevivalCount}</color>";
+        ButtonTMP.text = $"부활하기 : <#F0F>{GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().RevivalCount}</color>";
     }
 
     public void DieEventHandler(){
@@ -45,7 +45,7 @@ public class RevivalUI : MonoBehaviour
     }
 
     public void HandleContinue(){
-        if(GameManager.Instance.GlobalSaveNLoad.saveData.outGameData.RevivalCount <= 0) return;
+        if(GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().RevivalCount <= 0) return;
         StopCoroutine(CurrentCoroutine);
         RunnerManager.Instance.GlobalPlayer.Revival();
         this.gameObject.SetActive(false);
