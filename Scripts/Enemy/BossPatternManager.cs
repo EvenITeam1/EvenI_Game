@@ -18,8 +18,6 @@ public class BossPatternManager : MonoBehaviour
     [SerializeField] GameObject basicBullet;
     [SerializeField] GameObject reflectBullet;
 
-    public Transform relativePosition;
-
     bool ready = false;
 
     public float interval1;
@@ -29,7 +27,7 @@ public class BossPatternManager : MonoBehaviour
     public float interval6_move;
     public float interval6_shot;
     float arriveTime6;
-    
+
     void Update()
     {
         if(!ready)
@@ -80,62 +78,12 @@ public class BossPatternManager : MonoBehaviour
 
     async UniTaskVoid pattern1_shot()
     {
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < 3; i++)
         {
             SetBossLaser.executeLaser(laserObj[i]);
             await UniTask.Delay(TimeSpan.FromSeconds(interval1));
         }   
     }
-
-   
-    #region 패턴2 구성함수
-    void pattern2_sub1()
-    {
-        float relativePositionX = relativePosition.position.x;
-        SetBossBullet.fireBullet(new Vector2(relativePositionX, 4), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(relativePositionX, 3), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(relativePositionX, 2), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(relativePositionX, 1), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(relativePositionX, 0), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(relativePositionX, -1), basicBullet, enemy);
-    }
-
-    void pattern2_sub2()
-    {
-        float relativePositionX = relativePosition.position.x;
-        SetBossBullet.fireBullet(new Vector2(relativePositionX, 4), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(relativePositionX, 2), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(relativePositionX, 0), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(relativePositionX, -2), basicBullet, enemy);
-    }
-
-    void pattern2_sub3()
-    {
-        float relativePositionX = relativePosition.position.x;
-        SetBossBullet.fireBullet(new Vector2(relativePositionX, 3), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(relativePositionX, 1), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(relativePositionX, -1), basicBullet, enemy);
-    }
-    void pattern2_sub4()
-    {
-        float relativePositionX = relativePosition.position.x;
-        SetBossBullet.fireBullet(new Vector2(relativePositionX, 2), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(relativePositionX, 0), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(relativePositionX, -2), basicBullet, enemy);
-    }
-
-    void pattern2_sub5()
-    {
-        float relativePositionX = relativePosition.position.x;
-        SetBossBullet.fireBullet(new Vector2(relativePositionX, 1), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(relativePositionX, -1), basicBullet, enemy);
-    }
-
-    void pattern2_sub6()
-    {
-        SetBossBullet.fireBullet(player.transform.position, basicBullet, enemy);
-    }
-    #endregion
 
     void pattern2()
     {
@@ -156,6 +104,49 @@ public class BossPatternManager : MonoBehaviour
         await UniTask.Delay(TimeSpan.FromSeconds(interval2));
         pattern2_sub6();
     }
+    #region 패턴2 구성함수
+    void pattern2_sub1()
+    {
+        SetBossBullet.fireBullet(new Vector2(7, 4), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(7, 3), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(7, 2), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(7, 1), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(7, 0), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(7, -1), basicBullet, enemy);
+    }
+
+    void pattern2_sub2()
+    {
+        SetBossBullet.fireBullet(new Vector2(7, 4), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(7, 2), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(7, 0), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(7, -2), basicBullet, enemy);
+    }
+
+    void pattern2_sub3()
+    {
+        SetBossBullet.fireBullet(new Vector2(7, 3), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(7, 1), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(7, -1), basicBullet, enemy);
+    }
+    void pattern2_sub4()
+    {
+        SetBossBullet.fireBullet(new Vector2(7, 2), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(7, 0), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(7, -2), basicBullet, enemy);
+    }
+
+    void pattern2_sub5()
+    {
+        SetBossBullet.fireBullet(new Vector2(7, 1), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(7, -1), basicBullet, enemy);
+    }
+
+    void pattern2_sub6()
+    {
+        SetBossBullet.fireBullet(player.transform.position, basicBullet, enemy);
+    }
+    #endregion
     void pattern3()
     {
         SetBossBullet.fireBulletRandomPos(-10, 10, reflectBullet, enemy);
@@ -193,7 +184,7 @@ public class BossPatternManager : MonoBehaviour
     {
         for(int i = 0; i < 7; i++)
         {
-            for (int j = 0; j < 6; j++)
+            for (int j = 0; j < 4; j++)
             {
                 SetBossBullet.fireBulletRandomPos(-5, 3, basicBullet, enemy);
             }
