@@ -48,5 +48,6 @@ public class LoadingSceneManager : MonoBehaviour
                 }
             }
         }
+        yield return new WaitUntil(() => {return GameManager.Instance.IsAsyncLoaded;});
     }
 }

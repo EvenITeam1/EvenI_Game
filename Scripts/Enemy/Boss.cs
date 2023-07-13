@@ -13,9 +13,12 @@ public class Boss : MonoBehaviour
     [SerializeField]
     public BossHP bossHP;
 
-    private async void Awake()
+    private void Start()
     {
-        bossData = await GameManager.Instance.BossDataTableDesign.GetBossDataByINDEX(this.Index); //외부에서 받는것
         bossHP.setHP(bossData.Boss_hp);
+    }
+
+    public void InitializeAfterAsynchronous(){
+        bossData = GameManager.Instance.BossDataTableDesign.GetBossDataByINDEX(this.Index);
     }
 }

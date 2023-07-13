@@ -11,13 +11,13 @@ public class Game_PL_Boss_DataTable_design : GoogleDataTable
     const string sheet_URL = "https://docs.google.com/spreadsheets/d/1PTNd26FM7_YcQn40cekZiWj399LpfjikXxVS4PPjACg/export?format=tsv";
     
 
-    [ContextMenu("±¸±Û ½ºÇÁ·¹µå ½ÃÆ® ·Îµù")]
+    [ContextMenu("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ® ï¿½Îµï¿½")]
     public override async void LoadDataFromSheet()
     {
         await DownloadItemSO();
     }
 
-    protected override async UniTask DownloadItemSO()
+    public override async UniTask DownloadItemSO()
     {
         bossDataforms.Clear();
 
@@ -32,9 +32,8 @@ public class Game_PL_Boss_DataTable_design : GoogleDataTable
         }
     }
 
-    public async UniTask<BossData> GetBossDataByINDEX(BOSS_INDEX _index)
+    public BossData GetBossDataByINDEX(BOSS_INDEX _index)
     {
-        if (bossDataforms.Count == 0) { await DownloadItemSO(); }
         return bossDataforms[(int)_index - BossData.indexBasis];
     }
 }

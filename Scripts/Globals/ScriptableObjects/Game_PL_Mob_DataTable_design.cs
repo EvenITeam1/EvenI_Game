@@ -17,7 +17,7 @@ public class Game_PL_Mob_DataTable_design : GoogleDataTable {
     public override async void LoadDataFromSheet(){
         await DownloadItemSO();
     }
-    protected override async UniTask DownloadItemSO(){
+    public override async UniTask DownloadItemSO(){
         objectDataforms.Clear();
 
         objectDataforms.Add(emptyData);
@@ -30,8 +30,7 @@ public class Game_PL_Mob_DataTable_design : GoogleDataTable {
         }
     }
 
-    public async UniTask<MobData> GetMobDataByINDEX(MOB_INDEX _index) {
-        if(objectDataforms.Count == 0){await DownloadItemSO();}
+    public MobData GetMobDataByINDEX(MOB_INDEX _index) {
         return objectDataforms[(int)((int)_index - MobData.indexBasis)];
     }
 }

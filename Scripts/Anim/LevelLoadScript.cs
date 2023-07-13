@@ -9,7 +9,7 @@ public class LevelLoadScript : MonoBehaviour
     public float TransitionTime;
     [ContextMenu("LoadNextLevel")]
     public void LoadNextLevel(){
-        StartCoroutine(LoadLevel("TEMP_DEST_CutScene"));
+        StartCoroutine(LoadLevel("Danmaku"));
     }
 
     IEnumerator LoadLevel(string _scene){

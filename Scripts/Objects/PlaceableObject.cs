@@ -27,7 +27,7 @@ public class PlaceableObject : MonoBehaviour {
         objectCollider  ??= GetComponent<BoxCollider2D>();
 
         /*Set ObjectData*/
-        objectData = await GameManager.Instance.ObjectDataTableDesign.GetObjectDataByINDEX(this.Index); //외부에서 받는것
+        
         /*Set CoinData*/
         /*Set ItemData*/
     }
@@ -39,8 +39,9 @@ public class PlaceableObject : MonoBehaviour {
         
         objectMovementActions[0] = new UnityAction<Collider2D>((_Collider2D) => {StaticMovement_000(_Collider2D);});
         //objectMovementActions[1] = new UnityAction<Collider2D>((_Collider2D) => {HandleControl_001(_Collider2D);});
-
-        ExtDebug.DrawBoxCastBox(transform.position, Vector2.one/2, Quaternion.identity, Vector2.zero, 1, Color.blue);
+    }
+    public void InitializeAfterAsynchronous(){
+        objectData = GameManager.Instance.ObjectDataTableDesign.GetObjectDataByINDEX(this.Index); //외부에서 받는것
     }
 
     /////////////////////////////////////////////////////////////////////////////////
@@ -67,7 +68,7 @@ public class PlaceableObject : MonoBehaviour {
     }
     public void HandleCoin(Collider2D _other){
         if(_other.TryGetComponent(out Player player)){
-            GameManager.Instance.GlobalEventInstance.scoreCheck.Score +=this.coinData.ScoreValue;
+            RunnerManager.Instance.GlobalEventInstance.scoreCheck.Score +=this.coinData.ScoreValue;
             Instantiate(this.coinData.particle, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
@@ -92,7 +93,7 @@ public class PlaceableObject : MonoBehaviour {
     //     }
     // }
     // IEnumerator IHandleControl_001(Player _player) {
-    //     _player.PlayerJumpData.isAirHoldable = false;
+    //     _player.playerJumpData.isAirHoldable = false;
     //     yield return new WaitWhile( () => {
     //             RaycastHit2D playerLayerHIt = Physics2D.BoxCast(
     //                 transform.position, 
@@ -104,7 +105,7 @@ public class PlaceableObject : MonoBehaviour {
     //             return playerLayerHIt;
     //         }
     //     );
-    //     _player.PlayerJumpData.isAirHoldable = true;
+    //     _player.playerJumpData.isAirHoldable = true;
     // }
 #endregion
 }

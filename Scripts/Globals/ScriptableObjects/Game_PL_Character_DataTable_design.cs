@@ -17,7 +17,7 @@ public class Game_PL_Character_DataTable_design : GoogleDataTable {
         await DownloadItemSO();
     }
 
-    protected override async UniTask DownloadItemSO(){
+    public override async UniTask DownloadItemSO(){
         playerDataforms.Clear();
 
         playerDataforms.Add(emptyData);
@@ -30,8 +30,7 @@ public class Game_PL_Character_DataTable_design : GoogleDataTable {
         }
     }
 
-    public async UniTask<PlayerData> GetPlayerDataByINDEX(DOG_INDEX _index) {
-        if(playerDataforms.Count == 0){await DownloadItemSO();}
+    public PlayerData GetPlayerDataByINDEX(DOG_INDEX _index) {
         return playerDataforms[(int)((int)_index - PlayerData.indexBasis)];
     }
 }

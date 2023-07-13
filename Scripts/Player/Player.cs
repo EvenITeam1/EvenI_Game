@@ -14,13 +14,13 @@ public class Player : MonoBehaviour, IDamagable
     public PlayerData playerData;
 
     [SerializeField]
-    public PlayerMoveData PlayerMoveData = new PlayerMoveData();
+    public PlayerMoveData playerMoveData = new PlayerMoveData();
 
     [SerializeField]
-    public PlayerJumpData PlayerJumpData = new PlayerJumpData();
+    public PlayerJumpData playerJumpData = new PlayerJumpData();
 
     [SerializeField]
-    public PlayerVisualData PlayerVisualData = new PlayerVisualData();
+    public PlayerVisualData playerVisualData = new PlayerVisualData();
 
     [SerializeField] public PlayerState playerState;
     [SerializeField] public PlayerHP playerHP;
@@ -30,7 +30,8 @@ public class Player : MonoBehaviour, IDamagable
     public Collider2D GetCollider() { return this.playerCollider; }
 
     [SerializeField] private Rigidbody2D playerRigid;
-    private float originGravityScale = 0;
+    private float mOriginGravityScale = 0;
+    private float OriginGravityScale {get {return mOriginGravityScale;}}
 
     public bool stop = false;
     [SerializeField] public BulletShooter bulletShooter;
@@ -38,35 +39,42 @@ public class Player : MonoBehaviour, IDamagable
     public bool IsEnable = false;
     /*********************************************************************************/
 
-    private async void Awake()
+    private void Awake()
     {
         /*Set Compoenent*/
         inputHandler ??= GetComponent<InputHandler>();
         playerCollider ??= GetComponent<Collider2D>();
         playerRigid ??= GetComponent<Rigidbody2D>();
         bulletShooter ??= GetComponent<BulletShooter>();
-        originGravityScale = playerRigid.gravityScale;
-
-        /*Set PlayerData*/
-        playerData = await GameManager.Instance.CharacterDataTableDesign.GetPlayerDataByINDEX(this.Index); //외부에서 받는것
+        mOriginGravityScale = playerRigid.gravityScale;
 
         /*Set PlayerJumpData*/
-        PlayerJumpData.jumpCount = PlayerJumpData.maxJumpCount;
-        if (PlayerJumpData.groundCheckerTransform == null) { throw new System.Exception("자식 오브젝트에 있는 GroundCheck GameObject 가저올것"); }
+        playerJumpData.jumpCount = playerJumpData.maxJumpCount;
+        if (playerJumpData.groundCheckerTransform == null) { throw new System.Exception("자식 오브젝트에 있는 GroundCheck GameObject 가저올것"); }
 
-        /*Set PlayerVisualData*/
-        PlayerVisualData.spriteRenderer ??= GetComponent<SpriteRenderer>();
-        PlayerVisualData.animator ??= GetComponent<Animator>();
+        /*Set playerVisualData*/
+        playerVisualData.spriteRenderer ??= GetComponent<SpriteRenderer>();
+        playerVisualData.animator ??= GetComponent<Animator>();
 
-        /*Set PlayerHP*/
-        playerHP.setHP(playerData.Character_hp);
-        playerHP._recoverHp = playerData.Character_per_hp_heal;
     }
+
+    private void OnEnable() {    }
 
     private void Start()
     {
         FlipSprite(1);
+        playerData = GameManager.Instance.CharacterDataTableDesign.GetPlayerDataByINDEX(this.Index); //외부에서 받는것
+        /*Set PlayerHP*/
+        playerHP.setHP(playerData.Character_hp);
+        playerHP._recoverHp = playerData.Character_per_hp_heal;
+        //bulletShooter.bullets[0].bulletData = GameManager.Instance.BulletDataTableDesign.GetBulletDataByINDEX(playerData.Character_bullet_index_1);
+        //bulletShooter.bullets[1].bulletData = GameManager.Instance.BulletDataTableDesign.GetBulletDataByINDEX(playerData.Character_bullet_index_2);
+
     }
+
+    public void InitializeAfterAsynchronous(){   
+    }
+    
     private void Update()
     {
         if(!IsEnable) return;
@@ -80,7 +88,7 @@ public class Player : MonoBehaviour, IDamagable
     private void FixedUpdate()
     {
         if(!IsEnable) return;
-        if (stop == false) { playerRigid.velocity = new Vector2(PlayerMoveData.horizontal * PlayerMoveData.speed, playerRigid.velocity.y); }
+        if (stop == false) { playerRigid.velocity = new Vector2(playerMoveData.horizontal * playerMoveData.speed, playerRigid.velocity.y); }
         else { playerRigid.velocity = new Vector2(0, playerRigid.velocity.y); }
     }
     /*********************************************************************************/
@@ -88,12 +96,12 @@ public class Player : MonoBehaviour, IDamagable
     #region Visual
     private void FlipSprite(float _horizontal)
     {
-        if (_horizontal < 0) { PlayerVisualData.spriteRenderer.flipX = false; }
-        else if (0 < _horizontal) { PlayerVisualData.spriteRenderer.flipX = true; }
+        if (_horizontal < 0) { playerVisualData.spriteRenderer.flipX = false; }
+        else if (0 < _horizontal) { playerVisualData.spriteRenderer.flipX = true; }
     }
     private void Animations()
     {
-        PlayerVisualData.animator.SetFloat("MoveSpeed", Mathf.Abs(playerRigid.velocity.x));
+        playerVisualData.animator.SetFloat("MoveSpeed", Mathf.Abs(playerRigid.velocity.x));
     }
     #endregion
 
@@ -103,7 +111,11 @@ public class Player : MonoBehaviour, IDamagable
     private void Move()
     {
         //horizontal = inputHandler.Horizontal; //키보드 인풋 받기
-        PlayerMoveData.horizontal = 1;
+        playerMoveData.horizontal = 1;
+    }
+
+    public void SpeedUp(){
+        playerMoveData.speed += 10;
     }
     #endregion
 
@@ -114,41 +126,41 @@ public class Player : MonoBehaviour, IDamagable
     {
         if (IsGrounded() && !IsJumped()) { RestoreJumpCount(); } //점프횟수 복구
 
-        if (!inputHandler.IsJumpPressd) { PlayerJumpData.IsActivatedOnce = false; } // 점프버튼 뗐는지 체크
+        if (!inputHandler.IsJumpPressd) { playerJumpData.IsActivatedOnce = false; } // 점프버튼 뗐는지 체크
         else if (inputHandler.IsJumpPressd)
         {
-            if (PlayerJumpData.isAiring) { return; } //홀드중일떄는 점프 못하게 하기
-            if (PlayerJumpData.jumpCount <= 0) { return; } //점프수 체크
-            if (PlayerJumpData.IsActivatedOnce) { return; } //한번 눌렀는지 체크
+            if (playerJumpData.isAiring) { return; } //홀드중일떄는 점프 못하게 하기
+            if (playerJumpData.jumpCount <= 0) { return; } //점프수 체크
+            if (playerJumpData.IsActivatedOnce) { return; } //한번 눌렀는지 체크
             else
             {
-                playerRigid.velocity = Vector2.up * PlayerJumpData.jumpingPower;
-                PlayerJumpData.jumpCount--;
-                PlayerJumpData.IsActivatedOnce = true;
+                playerRigid.velocity = Vector2.up * playerJumpData.jumpingPower;
+                playerJumpData.jumpCount--;
+                playerJumpData.IsActivatedOnce = true;
                 bulletShooter.FireJumpBullet();
             }
         }
 
-        if (!inputHandler.IsAirHoldPressed || PlayerJumpData.isAirHoldPrevented) { 
-            playerRigid.gravityScale = originGravityScale; 
-            PlayerJumpData.isAiring = false; 
+        if (!inputHandler.IsAirHoldPressed || playerJumpData.isAirHoldPrevented) { 
+            playerRigid.gravityScale = OriginGravityScale; 
+            playerJumpData.isAiring = false; 
         } // 홀드버튼 떼면 다시 하강
         else if (inputHandler.IsAirHoldPressed)
         {
-            if (!PlayerJumpData.isAirHoldable) { return; } //홀드버튼이 작동 안되면 작동 시키지 말자.
+            if (!playerJumpData.isAirHoldable) { return; } //홀드버튼이 작동 안되면 작동 시키지 말자.
             if (IsGrounded()) { return; } //땅에 있을떄는 작동 못하게 한다.
             playerRigid.gravityScale = 0;
-            PlayerJumpData.isAiring = true;
+            playerJumpData.isAiring = true;
             playerRigid.velocity = Vector2.right * playerRigid.velocity.x;
         }
 
-        Debug.DrawRay(PlayerJumpData.groundCheckerTransform.position, Vector3.down * 0.5f, Color.red);
+        Debug.DrawRay(playerJumpData.groundCheckerTransform.position, Vector3.down * 0.5f, Color.red);
     }
-    public void RestoreJumpCount() { PlayerJumpData.jumpCount = PlayerJumpData.maxJumpCount; }
+    public void RestoreJumpCount() { playerJumpData.jumpCount = playerJumpData.maxJumpCount; }
 
     private bool IsGrounded()
     {
-        Collider2D hit = Physics2D.OverlapCircle(PlayerJumpData.groundCheckerTransform.position, 0.5f, PlayerJumpData.groundLayer);
+        Collider2D hit = Physics2D.OverlapCircle(playerJumpData.groundCheckerTransform.position, 0.5f, playerJumpData.groundLayer);
         return hit != null;
     }
 
@@ -173,11 +185,11 @@ public class Player : MonoBehaviour, IDamagable
     }
 
     IEnumerator AsyncGetDamage(){
-        GameManager.Instance.GlobalPlayer.IsHitedOnce = true;
+        RunnerManager.Instance.GlobalPlayer.IsHitedOnce = true;
         playerState.ChangeState(PLAYER_STATES.GHOST_STATE);
         yield return YieldInstructionCache.WaitForSeconds(1f);
         playerState.ChangeState(PLAYER_STATES.PLAYER_STATE);
-        GameManager.Instance.GlobalPlayer.IsHitedOnce = false;
+        RunnerManager.Instance.GlobalPlayer.IsHitedOnce = false;
     }
 
     #endregion
@@ -188,6 +200,31 @@ public class Player : MonoBehaviour, IDamagable
     }
     public void PlayerDisable(){
         this.IsEnable = false;
+    }
+    Coroutine revivalCoroutine = null;
+    public void Revival(){
+        if(revivalCoroutine != null) {StopCoroutine(revivalCoroutine);}
+        GameManager.Instance.GlobalSaveNLoad.saveData.outGameData.RevivalCount--;
+        
+        revivalCoroutine = StartCoroutine(AsyncRevival());
+    }
+    IEnumerator AsyncRevival(){
+        transform.position = new Vector2(transform.position.x, 3f);
+        playerRigid.gravityScale = 0;
+        playerRigid.velocity = Vector2.right * playerRigid.velocity;
+        playerHP.setHP(100f);
+        playerState.ChangeState(PLAYER_STATES.GHOST_STATE);
+        float passedTime = 0;
+        while(passedTime <= 3f) {
+            passedTime += Time.deltaTime;
+            playerRigid.velocity = Vector2.right * playerRigid.velocity;
+            if(inputHandler.IsJumpPressd) {break;}
+            yield return null;
+        }
+        playerRigid.gravityScale = OriginGravityScale;
+        playerJumpData.jumpCount = 3;
+        playerState.ChangeState(PLAYER_STATES.PLAYER_STATE);
+        yield break;
     }
     #endregion
 }

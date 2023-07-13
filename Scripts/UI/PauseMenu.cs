@@ -12,14 +12,14 @@ public class PauseMenu : MonoBehaviour
         menuQueue.Enqueue(pauseMenuObject);
         var topMenu = menuQueue.Peek();
         topMenu.SetActive(true);
-        GameManager.Instance.GlobalEventInstance.IsGamePaused = true;
+        RunnerManager.Instance.GlobalEventInstance.IsGamePaused = true;
     }
 
     public void CloseMenu(){
         var topMenu = menuQueue.Peek();
         topMenu.SetActive(false);
         menuQueue.Dequeue();
-        GameManager.Instance.GlobalEventInstance.IsGamePaused = false;
+        RunnerManager.Instance.GlobalEventInstance.IsGamePaused = false;
     }
 
     private void Update() {

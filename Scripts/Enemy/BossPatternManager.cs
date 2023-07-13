@@ -28,6 +28,10 @@ public class BossPatternManager : MonoBehaviour
     public float interval6_shot;
     float arriveTime6;
 
+    private void Awake()
+    {
+        player ??= RunnerManager.Instance.GlobalPlayer.gameObject;
+    }
     void Update()
     {
         if(!ready)
@@ -41,6 +45,7 @@ public class BossPatternManager : MonoBehaviour
     {
         await UniTask.Delay(TimeSpan.FromSeconds(coolTime));
         int n = Random.Range(0, patternN);
+
         switch (n)
         {
             case 0:

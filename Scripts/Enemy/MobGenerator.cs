@@ -11,9 +11,6 @@ public class MobGenerator : MonoBehaviour {
     public GameObject AlertObject;
     public float arrowposition;
 
-    private void Awake() {
-    }
-
     public void GenerateMobs(List<MobGenData> _mobGenDatas){
         foreach(MobGenData item in _mobGenDatas){
             Mob[] mobs = item.mobs;

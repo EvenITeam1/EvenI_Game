@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletShooter : MonoBehaviour
 {
-    [SerializeField] Bullet[] bullets;
+    [SerializeField] public Bullet[] bullets;
     float _time = 0;
     [SerializeField] float _coolTime;
 

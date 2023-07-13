@@ -9,18 +9,16 @@
         public float Boss_width;
         public float Boss_height;
         public float Boss_hp;
-        public MOVEMENT_INDEX Movement_index;
         public string Boss_filecode;
 
         public BossData()
         {
             this.Index = BOSS_INDEX.DEFAULT;
-            this.Boss_name = "ºñ¾îÀÖÀ½";
+            this.Boss_name = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
             this.Boss_category = BOSS_CATEGORY.DEFAULT;
             this.Boss_width = 0;
             this.Boss_height = 0;
             this.Boss_hp = 0;
-            this.Movement_index = MOVEMENT_INDEX.HOLD;
             this.Boss_filecode = "";
         }
 
@@ -34,7 +32,6 @@
             this.Boss_width = float.Parse(datas[3]);
             this.Boss_height = float.Parse(datas[4]);
             this.Boss_hp = float.Parse(datas[5]);
-            this.Movement_index = (MOVEMENT_INDEX)int.Parse(datas[6]);
-            this.Boss_filecode = datas[7].Replace('_', ' ');
+            this.Boss_filecode = datas[6].Replace('_', ' ');
         }
     }

@@ -56,7 +56,7 @@ public class PlayerHP : MonoBehaviour, HP
     public void die()
     {
         _hp = 0;
-
+        RunnerManager.Instance.GlobalEventInstance.BroadCastPlayerDie();
     }
 
     public virtual void recoverHp(float recoverHp)//Ȥ�ó� ȸ�� �� ������ �� �Լ� ����� �Ű����� �޾Ƴ���
