@@ -109,6 +109,7 @@ MonoBehaviour:
     Boss_width: 0
     Boss_height: 0
     Boss_hp: 0
+    Movement_index: 0
     Boss_filecode: 
 --- !u!1 &909079728040901079
 GameObject:
@@ -335,6 +336,84 @@ MonoBehaviour:
     Ob_movement_index: 0
     Ob_movement_speed: 0
     Ob_filecode: 
+--- !u!1 &909079728366189084
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 909079728366189085}
+  - component: {fileID: 909079728366189091}
+  - component: {fileID: 909079728366189090}
+  m_Layer: 0
+  m_Name: GlobalEvent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &909079728366189085
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909079728366189084}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 909079728720041145}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &909079728366189091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909079728366189084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da033a7da0e7946b58cdc316c3402d77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreCheck: {fileID: 0}
+  PausedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  GameTimeScale: 1
+  OnPlayerDieEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: RevivalUI, Assembly-CSharp
+        m_MethodName: DieEventHandler
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &909079728366189090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909079728366189084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdc80c920f675437f96e63b3b8aa27b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScoreUI: {fileID: 0}
 --- !u!1 &909079728720041144
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,10 +449,11 @@ Transform:
   - {fileID: 909079728981919899}
   - {fileID: 909079727556902187}
   - {fileID: 909079727644979259}
+  - {fileID: 909079728366189085}
   - {fileID: 909079728040901076}
   - {fileID: 909079727222647289}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &909079728720041150
 MonoBehaviour:
@@ -402,7 +482,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-  IsTestMode: 0
   IsAsyncLoaded: 0
   CharacterDataTableDesign: {fileID: 909079728299141099}
   ObjectDataTableDesign: {fileID: 909079728320575962}
@@ -410,7 +489,10 @@ MonoBehaviour:
   LaserDataTableDesign: {fileID: 909079728981919896}
   MobDataTableDesign: {fileID: 909079727556902184}
   BossDataTableDesign: {fileID: 909079727644979256}
+  GlobalEventInstance: {fileID: 909079728366189091}
   GlobalSaveNLoad: {fileID: 909079727222647288}
+  GlobalPlayer: {fileID: 0}
+  GlobalMobGenerator: {fileID: 0}
 --- !u!1 &909079728981919898
 GameObject:
   m_ObjectHideFlags: 0
