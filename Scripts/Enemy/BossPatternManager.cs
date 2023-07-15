@@ -28,6 +28,10 @@ public class BossPatternManager : MonoBehaviour
     public float interval6_shot;
     float arriveTime6;
 
+    private void Awake()
+    {
+        player ??= RunnerManager.Instance.GlobalPlayer.gameObject;
+    }
     void Update()
     {
         if(!ready)

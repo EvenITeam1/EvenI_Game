@@ -117,7 +117,7 @@ public class Player : MonoBehaviour, IDamagable
     }
 
     public void SpeedUp(){
-        playerMoveData.speed += 10;
+        playerMoveData.speed += 2;
     }
     #endregion
 

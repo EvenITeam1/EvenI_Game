@@ -15,13 +15,13 @@ public class InputHandler : MonoBehaviour
     private bool JumpUnHold;
     private bool jumpInput;
     private bool airHold;
-    RunnerControll inputActions;
+    PlayerControll inputActions;
 
     private void OnEnable()
     {
         if (inputActions == null)
         {
-            inputActions = new RunnerControll();
+            inputActions = new PlayerControll();
             inputActions.TwoDimensions.Movement.performed += (_input) =>
             {
                 movementInput = _input.ReadValue<float>();

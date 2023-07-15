@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6036545524942803317}
   - component: {fileID: 9144402727235173464}
   - component: {fileID: 3216534354840288044}
+  - component: {fileID: -5585144578021607619}
   m_Layer: 29
   m_Name: EnemyReflectBullet
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7131970702525554512}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21.0949, y: 1.9819, z: 0}
+  m_LocalPosition: {x: 21.35, y: 1.9819, z: 0}
   m_LocalScale: {x: 7, y: 7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -76,10 +77,10 @@ SpriteRenderer:
   m_SortingLayerID: -1789428647
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0.5282096, b: 0, a: 0.35686275}
+  m_Sprite: {fileID: -1472942929, guid: f7d4eec0ef13e22479ce6f4c08aae432, type: 3}
+  m_Color: {r: 0.87812257, g: 0.514151, b: 1, a: 0.7294118}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
@@ -105,7 +106,7 @@ MonoBehaviour:
   _setDmg: 7
   _lastTime: 20
   _bulletSpeed: 6
-  _maxReflectCount: 10
+  _maxReflectCount: 5
   _bulletRigid: {fileID: 3216534354840288044}
 --- !u!58 &9144402727235173464
 CircleCollider2D:
@@ -120,9 +121,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.01, y: 0}
   serializedVersion: 2
-  m_Radius: 0.50000006
+  m_Radius: 0.34891874
 --- !u!50 &3216534354840288044
 Rigidbody2D:
   serializedVersion: 4
@@ -144,3 +145,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &-5585144578021607619
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7131970702525554512}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9ab1bffb213bb724b8e6e937f924f19d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

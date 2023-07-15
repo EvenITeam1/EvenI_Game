@@ -9,4 +9,9 @@ public class SceneChanger : MonoBehaviour
     {
         SceneManager.LoadScene("2DRunner_Proto");
     }
+
+    public void SceneChangeWithLoadingScene()
+    {
+        LoadingSceneManager.LoadScene("2DRunner_Proto");
+    }
 }

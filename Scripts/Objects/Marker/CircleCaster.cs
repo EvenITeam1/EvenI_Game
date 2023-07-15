@@ -7,6 +7,7 @@ public class CircleCaster : EventMarker
 {
     //public LayerMask castTargets;
     //protected RaycastHit2D[] hits;
+    public LayerMask castTargets;
     [SerializeField] UnityEvent OnTriggerEvents;
     
     protected override void FixedUpdate() {
