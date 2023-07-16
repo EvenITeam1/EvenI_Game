@@ -5,13 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
-    public void SceneChange()
+    public void SceneChange(string sceneName)
     {
-        SceneManager.LoadScene("2DRunner_Proto");
+        SceneManager.LoadScene(sceneName);
     }
 
-    public void SceneChangeWithLoadingScene()
+    public void SceneChangeWithLoadingScene(string sceneName)
     {
-        LoadingSceneManager.LoadScene("2DRunner_Proto");
+        LoadingSceneManager.LoadScene(sceneName);
     }
 }

@@ -3735,7 +3735,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -3978,16 +3978,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1497892440}
-        m_TargetAssemblyTypeName: ButtonTest, Assembly-CSharp
-        m_MethodName: DebugLog
-        m_Mode: 1
+      - m_Target: {fileID: 1497892441}
+        m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
+        m_MethodName: SceneChange
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: ShopScene
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1150931090
@@ -4175,7 +4175,6 @@ GameObject:
   - component: {fileID: 1314549176}
   - component: {fileID: 1314549175}
   - component: {fileID: 1314549174}
-  - component: {fileID: 1314549177}
   m_Layer: 5
   m_Name: GameStartButton
   m_TagString: Untagged
@@ -4248,16 +4247,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1314549177}
+      - m_Target: {fileID: 1497892441}
         m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
         m_MethodName: SceneChangeWithLoadingScene
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: 2DRunner_Proto
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 381677009}
@@ -4310,18 +4309,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1314549172}
   m_CullTransparentMesh: 1
---- !u!114 &1314549177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1314549172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f27e38e64df5dc049bfffae2e80e7bdf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1338909454
 GameObject:
   m_ObjectHideFlags: 0
@@ -4592,6 +4579,7 @@ GameObject:
   - component: {fileID: 1497892437}
   - component: {fileID: 1497892436}
   - component: {fileID: 1497892440}
+  - component: {fileID: 1497892441}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -4699,6 +4687,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86a3a88d74049d84784f65de49316f09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1497892441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1497892435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f27e38e64df5dc049bfffae2e80e7bdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1517954991
