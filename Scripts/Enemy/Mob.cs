@@ -1,5 +1,6 @@
 using DG.Tweening;
 using System;
+using System.Threading;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,9 +29,11 @@ public class Mob : MonoBehaviour, IDamagable
     [HideInInspector]
     public bool IsInstantiatedFirst = false;
 
+    Coroutine mobLifeCycleCoroutine;
     private void Awake(){
         /*Set Compoenent*/
         mobCollider ??= GetComponent<Collider2D>();
+        mobCollider.enabled = false;
         mobRigid = GetComponent<Rigidbody2D>();
 
         /*Set MobData*/
@@ -49,27 +52,28 @@ public class Mob : MonoBehaviour, IDamagable
         if(!IsInstantiatedFirst) {return;}
         InitMoveTypes();
         mobHP.setHP(mobData.Mob_hp);
-        if(!mobMoveData.IsInfiniteLifetime){InstantiateMobByAlert();}
+        if(!mobMoveData.IsInfiniteLifetime){mobLifeCycleCoroutine = StartCoroutine(InstantiateMobByAlert());}
         else {InstantiateMob();}
     }
 
     #region Insantiate
-    public async void InstantiateMobByAlert(){
+    IEnumerator InstantiateMobByAlert(){
         RunnerManager.Instance.GlobalMobGenerator.GenerateAlertObject(
             new Vector2(RunnerManager.Instance.GlobalMobGenerator.arrowposition, transform.localPosition.y) + (Vector2.left * 1.5f)
         );
-        await UniTask.Delay(TimeSpan.FromSeconds(1f));
+        yield return YieldInstructionCache.WaitForSeconds(1f);
         InvokeMovement();
-        await UniTask.Delay(TimeSpan.FromSeconds(mobMoveData.invokeEaseTime));
+        yield return YieldInstructionCache.WaitForSeconds(mobMoveData.invokeEaseTime);
+        mobCollider.enabled = true;
         mobMoveData.moveType[(int)mobData.Mob_movement_index].Invoke();
-        await UniTask.Delay(TimeSpan.FromSeconds(mobMoveData.lifeTime));
+        yield return YieldInstructionCache.WaitForSeconds(mobMoveData.lifeTime);
         RunnerManager.Instance.GlobalMobGenerator.GenerateAlertObject(
             new Vector2(transform.localPosition.x, transform.localPosition.y) + (Vector2.left * 1.5f)
         );
-        await UniTask.Delay(TimeSpan.FromSeconds(1f));
+        yield return YieldInstructionCache.WaitForSeconds(1f);
         ExitMovement();
     }
-    
+
     public void InstantiateMob(){
         InvokeMovement();
     }
@@ -143,6 +147,14 @@ public class Mob : MonoBehaviour, IDamagable
         mobHP.setHP(currentHp - _amount);
         Instantiate(HitParticle, transform);
         return true;
+    }
+
+    private void OnDisable() {
+        if(IsInstantiatedFirst) {
+            transform.DOKill();
+            mobCollider.enabled = false;
+            if(mobLifeCycleCoroutine != null) StopCoroutine(mobLifeCycleCoroutine);
+        }
     }
 
     #endregion

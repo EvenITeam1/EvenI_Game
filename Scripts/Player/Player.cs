@@ -85,6 +85,8 @@ public class Player : MonoBehaviour, IDamagable
         JumpHold();
         Animations();
         bulletShooter.FireBullet();
+
+        Debug.DrawRay(transform.position, Vector3.up * 20f, Color.red);
     }
 
     private void FixedUpdate()
@@ -128,8 +130,8 @@ public class Player : MonoBehaviour, IDamagable
 
     private void Jump()
     {
-        if (!inputHandler.IsJumpPressd) { playerJumpData.IsActivatedOnce = false; } // 점프버튼 뗐는지 체크
-        else if (inputHandler.IsJumpPressd)
+        if (!inputHandler.CheckJumpInput()) { playerJumpData.IsActivatedOnce = false; } // 점프버튼 뗐는지 체크
+        else if (inputHandler.CheckJumpInput())
         {
             if (playerJumpData.isAiring) { return; } //홀드중일떄는 점프 못하게 하기
             if (playerJumpData.jumpCount <= 0) { return; } //점프수 체크
@@ -145,11 +147,11 @@ public class Player : MonoBehaviour, IDamagable
     }
 
     private void JumpHold(){
-        if (!inputHandler.IsAirHoldPressed || playerJumpData.isAirHoldPrevented) { 
+        if (!inputHandler.CheckHoldInput() || playerJumpData.isAirHoldPrevented) { 
             playerRigid.gravityScale = OriginGravityScale; 
             playerJumpData.isAiring = false; 
         } // 홀드버튼 떼면 다시 하강
-        else if (inputHandler.IsAirHoldPressed)
+        else if (inputHandler.CheckHoldInput())
         {
             if (!playerJumpData.isAirHoldable) { return; } //홀드버튼이 작동 안되면 작동 시키지 말자.
             if (IsGrounded()) { return; } //땅에 있을떄는 작동 못하게 한다.
@@ -202,30 +204,44 @@ public class Player : MonoBehaviour, IDamagable
     public void PlayerDisable(){
         this.IsEnable = false;
     }
+    
     Coroutine revivalCoroutine = null;
+    
     public void Revival(){
         if(revivalCoroutine != null) {StopCoroutine(revivalCoroutine);}
         GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().RevivalCount--;
-        
+        transform.position = GetRevivalPosition();
         revivalCoroutine = StartCoroutine(AsyncRevival());
     }
+
     IEnumerator AsyncRevival(){
-        transform.position = new Vector2(transform.position.x, 3f);
+        transform.position = GetRevivalPosition();
         playerRigid.gravityScale = 0;
         playerRigid.velocity = Vector2.right * playerRigid.velocity;
         playerHP.setHP(100f);
         playerState.ChangeState(PLAYER_STATES.GHOST_STATE);
+        Invoke("BecomePlayerState", 3f + 0.2f);
         float passedTime = 0;
         while(passedTime <= 3f) {
             passedTime += Time.deltaTime;
             playerRigid.velocity = Vector2.right * playerRigid.velocity;
-            if(inputHandler.IsJumpPressd) {break;}
+            if(inputHandler.CheckJumpInput()) {break;}
             yield return null;
         }
         playerRigid.gravityScale = OriginGravityScale;
         playerJumpData.jumpCount = 3;
-        playerState.ChangeState(PLAYER_STATES.PLAYER_STATE);
         yield break;
     }
+    public void BecomePlayerState(){
+        playerState.ChangeState(PLAYER_STATES.PLAYER_STATE);
+    }
+
+    private Vector2 GetRevivalPosition() {
+        if(-6f < transform.position.y && transform.position.y < -4f) {
+            return new Vector2(transform.position.x, 1f);
+        }
+        return transform.position;
+    }
+
     #endregion
 }

@@ -84,12 +84,12 @@ public class PlaceableObject : MonoBehaviour {
 
 #region Movements
     public void StaticMovement_000(Collider2D _other){
-        Debug.Log("아무것도 안함"); 
+        //Debug.Log("아무것도 안함"); 
         return; 
     }
     // public void HandleControl_001(Collider2D _other){ 
     //     if(_other.TryGetComponent(out Player player)){
-    //         Debug.Log("플레이어 검증");
+    //         //Debug.Log("플레이어 검증");
     //     }
     // }
     // IEnumerator IHandleControl_001(Player _player) {
@@ -101,7 +101,7 @@ public class PlaceableObject : MonoBehaviour {
     //                 0, Vector2.zero, 0, 
     //                 LayerMask.NameToLayer(GlobalStrings.LAYERS_STRING[(int)PROJECT_LAYERS.Player])
     //             );
-    //             if(playerLayerHIt == false) {Debug.Log("빠져나왔다");}
+    //             if(playerLayerHIt == false) {//Debug.Log("빠져나왔다");}
     //             return playerLayerHIt;
     //         }
     //     );

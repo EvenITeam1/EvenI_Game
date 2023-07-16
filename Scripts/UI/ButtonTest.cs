@@ -6,6 +6,6 @@ public class ButtonTest : MonoBehaviour
 {
    public void DebugLog()
     {
-        Debug.Log("¹öÆ° Å¬¸¯µÇ¾úÀ½");
+        //Debug.Log("ï¿½ï¿½Æ° Å¬ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½");
     }
 }

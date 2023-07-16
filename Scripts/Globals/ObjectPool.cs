@@ -85,7 +85,7 @@ public class ObjectPool : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning(getObject + "��(��) ������ƮǮ�� ��� �߰� �� Ǯ���մϴ�");
+            //Debug.LogWarning(getObject + "��(��) ������ƮǮ�� ��� �߰� �� Ǯ���մϴ�");
             returnObject = AddPool(getObject);
             //returnObject.transform.SetParent(null);
             return returnObject;
@@ -104,7 +104,7 @@ public class ObjectPool : MonoBehaviour
         }
         else//������(�̷����ɼ� ���� ����)
         {
-            Debug.LogWarning(returnObject + "��(��) ������ƮǮ�� ��� �߰� �� Ǯ���մϴ�");
+            //Debug.LogWarning(returnObject + "��(��) ������ƮǮ�� ��� �߰� �� Ǯ���մϴ�");
             returnObject.SetActive(false);
             Queue<GameObject> newQueue = new Queue<GameObject>();
             _pooledObjects.Add(returnObject.name, newQueue);//dictionary�� �߰��ϰ�

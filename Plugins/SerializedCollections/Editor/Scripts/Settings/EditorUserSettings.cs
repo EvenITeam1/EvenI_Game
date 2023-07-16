@@ -46,7 +46,7 @@ namespace AYellowpaper.SerializedCollections.Editor
             }
             catch (Exception e)
             {
-                Debug.LogError(e);
+                //Debug.LogError(e);
                 return;
             }
         }

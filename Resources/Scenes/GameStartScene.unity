@@ -167,7 +167,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &199219257
 GameObject:
@@ -405,6 +405,14 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 909079727222647288, guid: 53c5f0b2c4471488993d2169f26e0fdd, type: 3}
+      propertyPath: saveData.prevHP
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 909079727222647288, guid: 53c5f0b2c4471488993d2169f26e0fdd, type: 3}
+      propertyPath: saveData.RevivalCount
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 909079728720041144, guid: 53c5f0b2c4471488993d2169f26e0fdd, type: 3}
       propertyPath: m_Name
       value: GameManager
