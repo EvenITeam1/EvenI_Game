@@ -11,7 +11,7 @@ public class Game_PL_Boss_DataTable_design : GoogleDataTable
     const string sheet_URL = "https://docs.google.com/spreadsheets/d/1PTNd26FM7_YcQn40cekZiWj399LpfjikXxVS4PPjACg/export?format=tsv";
     
 
-    [ContextMenu("���� �������� ��Ʈ �ε�")]
+    [ContextMenu("구글 스프레드 시트 로딩")]
     public override async void LoadDataFromSheet()
     {
         await DownloadItemSO();
