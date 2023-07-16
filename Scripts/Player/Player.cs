@@ -83,10 +83,9 @@ public class Player : MonoBehaviour, IDamagable
         RestoreJumpCount();
         Jump();
         JumpHold();
-        Animations();
+        AnimationTick();
         bulletShooter.FireBullet();
-
-        Debug.DrawRay(transform.position, Vector3.up * 20f, Color.red);
+        //Debug.DrawRay(transform.position, Vector3.up * 20f, Color.red);
     }
 
     private void FixedUpdate()
@@ -103,8 +102,10 @@ public class Player : MonoBehaviour, IDamagable
         if (_horizontal < 0) { playerVisualData.spriteRenderer.flipX = false; }
         else if (0 < _horizontal) { playerVisualData.spriteRenderer.flipX = true; }
     }
-    private void Animations()
-    {
+    private void AnimationTick(){
+        if(IsCeilHited()){playerVisualData.animator.SetBool("HitCeil",true);}
+        else {playerVisualData.animator.SetBool("HitCeil",false);}
+        playerVisualData.animator.SetFloat("FallingForce", playerRigid.velocity.y);
         playerVisualData.animator.SetFloat("MoveSpeed", Mathf.Abs(playerRigid.velocity.x));
     }
     #endregion
@@ -142,6 +143,7 @@ public class Player : MonoBehaviour, IDamagable
                 playerJumpData.jumpCount--;
                 playerJumpData.IsActivatedOnce = true;
                 bulletShooter.FireJumpBullet();
+                if(!IsCeilHited())playerVisualData.animator.SetTrigger("Jump");
             }
         }
     }
@@ -150,6 +152,7 @@ public class Player : MonoBehaviour, IDamagable
         if (!inputHandler.CheckHoldInput() || playerJumpData.isAirHoldPrevented) { 
             playerRigid.gravityScale = OriginGravityScale; 
             playerJumpData.isAiring = false; 
+            playerVisualData.animator.SetBool("IsHolding", false);
         } // 홀드버튼 떼면 다시 하강
         else if (inputHandler.CheckHoldInput())
         {
@@ -158,12 +161,22 @@ public class Player : MonoBehaviour, IDamagable
             playerRigid.gravityScale = 0;
             playerJumpData.isAiring = true;
             playerRigid.velocity = Vector2.right * playerRigid.velocity.x;
+            playerVisualData.animator.SetBool("IsHolding", true);
         }
     }
 
     private bool IsGrounded()
     {
-        Collider2D hit = Physics2D.OverlapCircle(playerJumpData.groundCheckerTransform.position, 0.5f, playerJumpData.groundLayer);
+        Vector2 pointA = Vector2.one * playerJumpData.groundCheckerTransform[0].position;
+        Vector2 pointB = Vector2.one * playerJumpData.groundCheckerTransform[1].position;
+        Collider2D hit = Physics2D.OverlapArea(pointA, pointB, playerJumpData.groundLayer);
+        return hit != null;
+    }
+
+    private bool IsCeilHited() {
+        Vector2 pointA = Vector2.one * playerJumpData.ceilCheckerTransform[0].position;
+        Vector2 pointB = Vector2.one * playerJumpData.ceilCheckerTransform[1].position;
+        Collider2D hit = Physics2D.OverlapArea(pointA, pointB, playerJumpData.groundLayer);
         return hit != null;
     }
 
