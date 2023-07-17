@@ -8,13 +8,17 @@ namespace TwoDimensions
     {
         [SerializeField] Transform StartTransform;
         [SerializeField] Transform EndTransform;
-        [SerializeField] Transform Player;
+        private Transform Player;
 
         public float MapDistance;
 
         private void Awake()
         {
             MapDistance = Mathf.Round(EndTransform.position.x - StartTransform.position.x);
+        }
+
+        private void Start() {
+            Player = RunnerManager.Instance.GlobalPlayer.transform;
         }
 
         public float GetRunningAmount()

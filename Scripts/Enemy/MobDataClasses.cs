@@ -18,7 +18,7 @@ public class MobData {
     public BULLET_INDEX Mob_bullet_index;
     public bool Mob_tracking;
     public MOVEMENT_INDEX Mob_movement_index;
-    public float Mob_speed;
+    public float Mob_move_strength;
     public string Mob_filecode;
 
     public MobData(){
@@ -31,7 +31,7 @@ public class MobData {
         this.Mob_bullet_index       = 0;
         this.Mob_tracking           = false;
         this.Mob_movement_index     = MOVEMENT_INDEX.HOLD;
-        this.Mob_speed              = 0;
+        this.Mob_move_strength              = 0;
         this.Mob_filecode           = "";
     }
 
@@ -47,9 +47,8 @@ public class MobData {
         this.Mob_bullet_index       = (BULLET_INDEX)int.Parse(datas[6]);
         this.Mob_tracking           = int.Parse(datas[7]) == 1 ? true : false;
         this.Mob_movement_index     = (MOVEMENT_INDEX)int.Parse(datas[8]);
-        this.Mob_speed              = float.Parse(datas[9]);
+        this.Mob_move_strength              = float.Parse(datas[9]);
         this.Mob_filecode           = datas[10].Replace('_', ' ');
-
     }
 }
 
@@ -67,7 +66,6 @@ public class MobMoveData {
     [HideInInspector] public Ease exitEase = Ease.InBack;
 
     public List<UnityAction> moveType = new List<UnityAction>();
-    public float movementStrength;
 
     public MobMoveData() {
         IsInfiniteLifetime = false;

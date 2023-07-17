@@ -51,7 +51,7 @@ namespace PixelSpark.Parallaxer
 #endif
         private float _currentCameraHorizontalDisplacement;
 
-        #endregion
+        #endregion /////////////////////////////////////////////////////////////////////////////////
 
         #region Non-Serialized Fields
 
@@ -65,7 +65,7 @@ namespace PixelSpark.Parallaxer
 
         private List<ParallaxElement> _parallaxElements = new List<ParallaxElement>();
 
-        #endregion
+        #endregion /////////////////////////////////////////////////////////////////////////////////
 
         #region Properties
 
@@ -77,10 +77,10 @@ namespace PixelSpark.Parallaxer
 
         internal Bounds CameraBounds => TargetCameraBounds();
 
-        #endregion
+        #endregion /////////////////////////////////////////////////////////////////////////////////
 
         #region Custom structures
-        #endregion
+        #endregion /////////////////////////////////////////////////////////////////////////////////
 
         #region Unity Methods
 
@@ -102,10 +102,10 @@ namespace PixelSpark.Parallaxer
             MoveChildrenParallaxObjects();
         }
 
-        #endregion
+        #endregion /////////////////////////////////////////////////////////////////////////////////
 
         #region Public Methods
-        #endregion
+        #endregion /////////////////////////////////////////////////////////////////////////////////
 
         #region Internal methods
 
@@ -114,7 +114,7 @@ namespace PixelSpark.Parallaxer
             return _lowestZvalueAvailable;
         }
 
-        #endregion
+        #endregion /////////////////////////////////////////////////////////////////////////////////
 
         #region Private Methods
 
@@ -201,6 +201,6 @@ namespace PixelSpark.Parallaxer
             _screenAspect = (float) Screen.width / (float) Screen.height;
         }
 
-        #endregion
+        #endregion /////////////////////////////////////////////////////////////////////////////////
     }
 }

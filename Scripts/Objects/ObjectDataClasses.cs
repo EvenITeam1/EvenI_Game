@@ -15,7 +15,9 @@ public class ObjectData {
     public float Ob_damage;
     public int Ob_bullet_index;
     public MOVEMENT_INDEX Ob_movement_index;
-    public float Ob_movement_speed;
+    public float Ob_move_strength;
+    public bool  OB_Hitable;
+    public float Ob_HP;
     public string Ob_filecode;
 
     public ObjectData()
@@ -28,7 +30,9 @@ public class ObjectData {
         this.Ob_damage          = 0;
         this.Ob_bullet_index    = -1;
         this.Ob_movement_index  = MOVEMENT_INDEX.HOLD;
-        this.Ob_movement_speed  = 0;
+        this.Ob_move_strength   = 0;
+        this.OB_Hitable         = false;
+        this.Ob_HP              = 10;
         this.Ob_filecode        = "";
     }
 
@@ -43,8 +47,10 @@ public class ObjectData {
         this.Ob_damage          = int.Parse(datas[5]);
         this.Ob_bullet_index    = int.Parse(datas[6]);
         this.Ob_movement_index  = (MOVEMENT_INDEX)int.Parse(datas[7]);
-        this.Ob_movement_speed  = float.Parse(datas[8]);
-        this.Ob_filecode        = datas[9].Replace('_', ' ');
+        this.Ob_move_strength  = float.Parse(datas[8]);
+        this.OB_Hitable  = int.Parse(datas[9]) == 1 ? true : false;
+        this.Ob_HP  = float.Parse(datas[10]);
+        this.Ob_filecode        = datas[11].Replace('_', ' ');
     }
 }
 [System.Serializable]
@@ -60,4 +66,11 @@ public class ObjectCoinData {
 public class ObjectItemData {
     string tmp;
     public ObjectItemData(){}
+}
+
+[System.Serializable]
+public class ObjectVisualData {
+    public SpriteRenderer   spriteRenderer;
+    public Color         defaultColor;
+    public Color         onHitColor;
 }

@@ -24,7 +24,7 @@ namespace PixelSpark.Parallaxer
         [Tooltip("The parallax moving speed depends on the plane that it is placed in.")]
         private ParallaxPlane _plane;
 
-        #endregion
+        #endregion /////////////////////////////////////////////////////////////////////////////////
 
         #region Non-Serialized Fields
 
@@ -34,7 +34,7 @@ namespace PixelSpark.Parallaxer
         private float _previousZValue;
         private ParallaxManager _manager;
 
-        #endregion
+        #endregion /////////////////////////////////////////////////////////////////////////////////
 
         #region Properties
 
@@ -45,7 +45,7 @@ namespace PixelSpark.Parallaxer
         protected ParallaxManager Manager => _manager;
         protected bool PreventMovingBelowInitialPos => _preventMovingBelowInitialPosition;
 
-        #endregion
+        #endregion /////////////////////////////////////////////////////////////////////////////////
 
         #region Unity Methods
 
@@ -59,7 +59,7 @@ namespace PixelSpark.Parallaxer
             Initialize();
         }
 
-        #endregion
+        #endregion /////////////////////////////////////////////////////////////////////////////////
 
         #region Public Methods
 
@@ -68,13 +68,13 @@ namespace PixelSpark.Parallaxer
             _initialPosition = newPosition;
         }
 
-        #endregion
+        #endregion /////////////////////////////////////////////////////////////////////////////////
 
         #region Internal methods
 
         internal abstract void Move(Vector2 displacement, EDirection direction);
 
-        #endregion
+        #endregion /////////////////////////////////////////////////////////////////////////////////
 
         #region Protected methods
 
@@ -111,11 +111,11 @@ namespace PixelSpark.Parallaxer
             _initialPosition = _transform.position;
         }
 
-        #endregion
+        #endregion /////////////////////////////////////////////////////////////////////////////////
 
-        #endregion
+        #endregion /////////////////////////////////////////////////////////////////////////////////
 
         #region Private methods
-        #endregion
+        #endregion /////////////////////////////////////////////////////////////////////////////////
     }
 }

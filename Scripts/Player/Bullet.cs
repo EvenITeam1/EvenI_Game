@@ -19,12 +19,7 @@ public class Bullet : MonoBehaviour, Hit
 
     protected virtual void Awake() {
         bulletRigid = GetComponent<Rigidbody2D>();
-        player = RunnerManager.Instance.GlobalPlayer;
     }
-    private void Start() {
-        //bulletData = GameManager.Instance.BulletDataTableDesign.GetBulletDataByINDEX(this.Index);
-    }
-
     void Update()
     {
         lastLimit();
@@ -32,10 +27,15 @@ public class Bullet : MonoBehaviour, Hit
 
     void OnEnable()
     {
+        player = RunnerManager.Instance.GlobalPlayer;
         bulletData.Bullet_time = 0;
         setDamage((int)Random.Range(bulletData.Bullet_min_dmg, bulletData.Bullet_max_dmg + 1f)); 
         setDir();
     }
+    private void Start() {
+        //bulletData = GameManager.Instance.BulletDataTableDesign.GetBulletDataByINDEX(this.Index);
+    }
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {

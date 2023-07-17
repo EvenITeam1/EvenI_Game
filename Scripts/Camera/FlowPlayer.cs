@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class FlowPlayer : MonoBehaviour
 {
-    [SerializeField] Transform target;
-    Vector3 positionOffsets;
+    private Transform target;
+    private Vector3 positionOffsets;
     public bool IsEnable = true;
     private void Awake() {
         positionOffsets = transform.position;
+    }
+    private void Start() {
+        target = RunnerManager.Instance.GlobalPlayer.transform;
     }
     void FixedUpdate()
     {

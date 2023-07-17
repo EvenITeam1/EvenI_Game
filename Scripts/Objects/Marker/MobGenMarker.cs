@@ -10,7 +10,7 @@ public class MobGenMarker : EventMarker
     // protected RaycastHit2D[] hits;
     public List<MobGenData> mobElements;
 
-    private void Awake() {
+    protected override void Awake() {
         if(mobElements == null){throw new System.Exception("리스트가 비어있습니다.");}
     }
 
@@ -18,7 +18,7 @@ public class MobGenMarker : EventMarker
         hits = GetCastedTarget();
         var player = (
             from hit in hits  
-            where (hit.collider.name == GlobalStrings.LAYERS_STRING[(int)PROJECT_LAYERS.Player])  
+            where (hit.collider.tag == GlobalStrings.LAYERS_STRING[(int)PROJECT_LAYERS.Player])
             select hit
         );
 

@@ -20,7 +20,7 @@ public class BossEngageMarker : EventMarker
         hits = GetCastedTarget();
         var player = (
             from hit in hits  
-            where (hit.collider.name == GlobalStrings.LAYERS_STRING[(int)PROJECT_LAYERS.Player])  
+            where (hit.collider.tag == GlobalStrings.LAYERS_STRING[(int)PROJECT_LAYERS.Player])  
             select hit
         );
         

@@ -20,7 +20,9 @@ namespace TwoDimensions
         private void Awake()
         {
             fill.color = gradient.Evaluate(1f);
-            playerHP ??= GameObject.Find("Player").GetComponent<PlayerHP>();
+        }
+        private void Start() {
+            playerHP = RunnerManager.Instance.GlobalPlayer.playerHP;
         }
 
         private void Update()

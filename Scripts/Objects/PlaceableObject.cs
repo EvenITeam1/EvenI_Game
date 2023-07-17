@@ -1,111 +1,207 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlaceableObject : MonoBehaviour {
+public class PlaceableObject : MonoBehaviour, IDamagable
+{
     [SerializeField]
-    private OBJECT_INDEX    Index;
+    private OBJECT_INDEX Index;
 
-    [SerializeField] 
+    [SerializeField]
     public ObjectData objectData;
 
-    [SerializeField] 
+    [SerializeField]
     public ObjectCoinData coinData = new ObjectCoinData();
 
-    [SerializeField] 
+    [SerializeField]
     public ObjectItemData itemData = new ObjectItemData();
 
-    [SerializeField] private BoxCollider2D         objectCollider;
-        public Collider2D GetCollider() {return this.objectCollider;}
-    
-    private UnityAction<Collider2D>[] objectMovementActions;
+    [SerializeField]
+    public ObjectVisualData visualData = new ObjectVisualData();
 
-    private async void Awake() {
+    [SerializeField] private BoxCollider2D objectCollider;
+    public Collider2D GetCollider() { return this.objectCollider; }
+
+    private List<UnityAction> moveType = new List<UnityAction>();
+    public float moveTriggerOffset = 5f;
+    public float ObjectHP;
+
+    /////////////////////////////////////////////////////////////////////////////////
+
+    #region Basic
+    private void Awake()
+    {
         /*Set Compoenent*/
-        objectCollider  ??= GetComponent<BoxCollider2D>();
+        objectCollider ??= GetComponent<BoxCollider2D>();
 
         /*Set ObjectData*/
-        
+
         /*Set CoinData*/
         /*Set ItemData*/
     }
 
-    private void Start() {
-        /*Set ObjectActions*/
-        objectMovementActions = new UnityAction<Collider2D>[10];
+    private void OnEnable()
+    {
+        InitMoveTypes();
+        ObjectHP = objectData.Ob_HP;
         objectCollider.size = new Vector2(objectData.Ob_width, objectData.Ob_height);
-        
-        objectMovementActions[0] = new UnityAction<Collider2D>((_Collider2D) => {StaticMovement_000(_Collider2D);});
-        //objectMovementActions[1] = new UnityAction<Collider2D>((_Collider2D) => {HandleControl_001(_Collider2D);});
-    }
-    public void InitializeAfterAsynchronous(){
-        objectData = GameManager.Instance.ObjectDataTableDesign.GetObjectDataByINDEX(this.Index); //외부에서 받는것
     }
 
+    private void Start()
+    {
+        /*Set ObjectActions*/
+
+        //objectMovementActions[1] = new UnityAction<Collider2D>((_Collider2D) => {HandleControl_001(_Collider2D);});
+        //objectData = GameManager.Instance.ObjectDataTableDesign.GetObjectDataByINDEX(this.Index); //외부에서 받는것
+    }
+
+    #endregion 
+    
     /////////////////////////////////////////////////////////////////////////////////
-#region Trigger
-    private void OnTriggerEnter2D(Collider2D other) {
+    
+    #region Trigger
+    private void OnTriggerEnter2D(Collider2D other)
+    {
         switch (objectData.Ob_category)
         {
-            case OBJECT_CATEGORY.DEFAULT : {HandleDefault(other); break;}
-            case OBJECT_CATEGORY.TRAP : {HandleTrap(other); break;}
-            case OBJECT_CATEGORY.COIN : {HandleCoin(other); break;}
-            case OBJECT_CATEGORY.PLATFORM : {HandlePlatform(other); break;}
-            case OBJECT_CATEGORY.ITEM : {HandleItem(other); break;}
+            case OBJECT_CATEGORY.DEFAULT: { HandleDefault(other); break; }
+            case OBJECT_CATEGORY.TRAP: { HandleTrap(other); break; }
+            case OBJECT_CATEGORY.COIN: { HandleCoin(other); break; }
+            case OBJECT_CATEGORY.PLATFORM: { HandlePlatform(other); break; }
+            case OBJECT_CATEGORY.ITEM: { HandleItem(other); break; }
         }
     }
 
-    public void HandleDefault(Collider2D _other){
+    public void HandleDefault(Collider2D _other)
+    {
         return;
     }
-    public void HandleTrap(Collider2D _other){
-        if(_other.TryGetComponent(out Player player)){
-           player.GetDamage(objectData.Ob_damage);
-           objectMovementActions[(int)objectData.Ob_movement_index].Invoke(_other);
+
+    public void HandleTrap(Collider2D _other)
+    {
+        if (_other.TryGetComponent(out Player player))
+        {
+            player.GetDamage(objectData.Ob_damage);
         }
     }
-    public void HandleCoin(Collider2D _other){
-        if(_other.TryGetComponent(out Player player)){
-            RunnerManager.Instance.GlobalEventInstance.scoreCheck.Score +=this.coinData.ScoreValue;
+    public void HandleCoin(Collider2D _other)
+    {
+        if (_other.TryGetComponent(out Player player))
+        {
+            RunnerManager.Instance.GlobalEventInstance.scoreCheck.Score += this.coinData.ScoreValue;
             Instantiate(this.coinData.particle, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }
-    public void HandlePlatform(Collider2D _other){
+    public void HandlePlatform(Collider2D _other)
+    {
         return;
     }
-    public void HandleItem(Collider2D _other){
+    public void HandleItem(Collider2D _other)
+    {
         return;
     }
-#endregion
+    #endregion 
+    
     /////////////////////////////////////////////////////////////////////////////////
+    
+    #region GetHit
 
-#region Movements
-    public void StaticMovement_000(Collider2D _other){
-        //Debug.Log("아무것도 안함"); 
-        return; 
+    public GameObject HitParticle = null;
+    public bool GetDamage(float _amount)
+    {
+        if (!objectData.OB_Hitable) { return false; }
+        ObjectHP -= _amount;
+        StartCoroutine(AsyncOnHitVisual());
+        if (ObjectHP <= 0)
+        {
+            //Instantiate(DestroyEffect);
+            gameObject.SetActive(false);
+        }
+        return true;
     }
-    // public void HandleControl_001(Collider2D _other){ 
-    //     if(_other.TryGetComponent(out Player player)){
-    //         //Debug.Log("플레이어 검증");
-    //     }
-    // }
-    // IEnumerator IHandleControl_001(Player _player) {
-    //     _player.playerJumpData.isAirHoldable = false;
-    //     yield return new WaitWhile( () => {
-    //             RaycastHit2D playerLayerHIt = Physics2D.BoxCast(
-    //                 transform.position, 
-    //                 Vector2.one, 
-    //                 0, Vector2.zero, 0, 
-    //                 LayerMask.NameToLayer(GlobalStrings.LAYERS_STRING[(int)PROJECT_LAYERS.Player])
-    //             );
-    //             if(playerLayerHIt == false) {//Debug.Log("빠져나왔다");}
-    //             return playerLayerHIt;
-    //         }
-    //     );
-    //     _player.playerJumpData.isAirHoldable = true;
-    // }
-#endregion
+
+    IEnumerator AsyncOnHitVisual()
+    {
+        visualData.spriteRenderer.color = visualData.onHitColor;
+        yield return YieldInstructionCache.WaitForSeconds(0.25f);
+        visualData.spriteRenderer.color = visualData.defaultColor;
+    }
+    #endregion 
+    
+    /////////////////////////////////////////////////////////////////////////////////
+    
+    #region Movements
+
+    IEnumerator CheckPlayerForMove(){
+        RaycastHit2D player;
+        Vector2 castPos = Vector2.one * transform.position + Vector2.left * moveTriggerOffset;
+        yield return new WaitUntil(
+            () => {
+                player = Physics2D.Raycast(castPos, Vector2.up, 6f, LayerMask.GetMask("Player", "Ghost"));
+                return player;
+            }
+        );
+        moveType[(int)objectData.Ob_movement_index].Invoke();
+    }
+
+    public void MovementHold()
+    {
+        return;
+    }
+
+    public void MovementDown()
+    {
+        transform.DOLocalMove((Vector2.one * transform.position) + (Vector2.down * objectData.Ob_move_strength), 1f)
+            .SetEase(Ease.Unset);
+    }
+
+    public void MovementUp()
+    {
+        transform.DOLocalMove((Vector2.one * transform.position) + (Vector2.left * objectData.Ob_move_strength), 1f)
+            .SetLoops(1, LoopType.Yoyo);
+    }
+
+    public void MovementLeft()
+    {
+        transform.DOLocalMove((Vector2.one * transform.position) + (Vector2.left * objectData.Ob_move_strength), 1f)
+            .SetEase(Ease.Unset);
+    }
+
+    public void MovementRight()
+    {
+        transform.DOLocalMove((Vector2.one * transform.position) + (Vector2.right * objectData.Ob_move_strength), 1f)
+            .SetEase(Ease.Unset);
+    }
+
+    public void MovementVerticalLoop()
+    {
+        transform.DOLocalMove((Vector2.one * transform.position) + (Vector2.up * objectData.Ob_move_strength), 1f)
+            .SetLoops(-1, LoopType.Yoyo)
+            .SetEase(Ease.InOutBack);
+    }
+
+    public void MovementHorizontalLoop()
+    {
+        transform.DOLocalMove((Vector2.one * transform.position) + (Vector2.left * objectData.Ob_move_strength), 1f)
+            .SetLoops(-1, LoopType.Yoyo)
+            .SetEase(Ease.InOutBack);
+    }
+    public void InitMoveTypes()
+    {
+        this.moveType.Add(new UnityAction(() => MovementHold()));
+        this.moveType.Add(new UnityAction(() => MovementDown()));
+        this.moveType.Add(new UnityAction(() => MovementUp()));
+        this.moveType.Add(new UnityAction(() => MovementLeft()));
+        this.moveType.Add(new UnityAction(() => MovementRight()));
+        this.moveType.Add(new UnityAction(() => MovementVerticalLoop()));
+        this.moveType.Add(new UnityAction(() => MovementHorizontalLoop()));
+    }
+
+    #endregion 
+    
+    /////////////////////////////////////////////////////////////////////////////////
 }

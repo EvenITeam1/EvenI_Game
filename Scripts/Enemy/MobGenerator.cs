@@ -8,8 +8,9 @@ using Cysharp.Threading.Tasks;
 
 public class MobGenerator : MonoBehaviour {
     public Transform InstantTransform;
+    public Transform DestroyTransform;
+    public Transform VisiableTransform;
     public GameObject AlertObject;
-    public float arrowposition;
 
     public void GenerateMobs(List<MobGenData> _mobGenDatas){
         foreach(MobGenData item in _mobGenDatas){

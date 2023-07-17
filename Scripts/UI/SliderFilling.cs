@@ -8,9 +8,9 @@ namespace TwoDimensions
     {
         public Slider slider;
         public DestinationAchivementChecker destinationAchivementChecker;
-        private void Awake()
-        {
-            destinationAchivementChecker ??= GameObject.Find("Map").GetComponent<DestinationAchivementChecker>();
+        
+        private void Start() {
+            destinationAchivementChecker = GameObject.Find("Map").GetComponent<DestinationAchivementChecker>();
         }
         private void Update()
         {

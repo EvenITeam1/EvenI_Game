@@ -15,7 +15,15 @@ public class RunnerManager : MonoBehaviour {
         }
     }
     
-    public Player           GlobalPlayer;
-    public MobGenerator     GlobalMobGenerator;
-    public GlobalEvent      GlobalEventInstance;
+    [HideInInspector] public Player           GlobalPlayer;
+    [HideInInspector] public MobGenerator     GlobalMobGenerator;
+    [HideInInspector] public GameObject       GlobalMap;
+    [HideInInspector] public GlobalEvent      GlobalEventInstance;
+
+    private void Awake() {
+        GlobalPlayer        = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        GlobalMobGenerator  = GameObject.FindGameObjectWithTag("MobGenerator").GetComponent<MobGenerator>();
+        GlobalMap           = GameObject.FindGameObjectWithTag("Map");
+        GlobalEventInstance = transform.GetChild(0).GetComponent<GlobalEvent>();
+    }
 }

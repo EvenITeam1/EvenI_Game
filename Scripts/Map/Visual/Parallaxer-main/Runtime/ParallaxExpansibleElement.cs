@@ -36,7 +36,7 @@ namespace PixelSpark.Parallaxer
 
         private float _parallaxExitDistance = 1f;
 
-        #endregion
+        #endregion /////////////////////////////////////////////////////////////////////////////////
 
         #region Non-serialized fields
 
@@ -48,19 +48,19 @@ namespace PixelSpark.Parallaxer
 
         private float _cachedForegroundSpeed;
 
-        #endregion
+        #endregion /////////////////////////////////////////////////////////////////////////////////
 
         #region Properties
 
         protected float RelativeSpeed => _relativeSpeed;
 
-        #endregion
+        #endregion /////////////////////////////////////////////////////////////////////////////////
 
         #region Constant fields
 
         private const int CopiesQuantity = 3;
 
-        #endregion
+        #endregion /////////////////////////////////////////////////////////////////////////////////
 
         #region Custom structures
 
@@ -68,11 +68,11 @@ namespace PixelSpark.Parallaxer
         {
             Left = 0, Central = 1, Right = 2
         }
-        #endregion
+        #endregion /////////////////////////////////////////////////////////////////////////////////
 
         #region Unity events
 
-        #endregion
+        #endregion /////////////////////////////////////////////////////////////////////////////////
 
         #region Public methods
         public UnityEvent AfterDrawSubBackgrounds;
@@ -83,7 +83,7 @@ namespace PixelSpark.Parallaxer
             _preventVerticalMovement = vertical;
         }
 
-        #endregion
+        #endregion /////////////////////////////////////////////////////////////////////////////////
 
         #region Internal methods
 
@@ -137,7 +137,7 @@ namespace PixelSpark.Parallaxer
             Transform.position = targetPosition;
         }
 
-        #endregion
+        #endregion /////////////////////////////////////////////////////////////////////////////////
 
         #region Protected methods
 
@@ -151,9 +151,9 @@ namespace PixelSpark.Parallaxer
             CalculateSpeed();
         }
 
-        #endregion
+        #endregion /////////////////////////////////////////////////////////////////////////////////
 
-        #endregion
+        #endregion /////////////////////////////////////////////////////////////////////////////////
 
         #region Private methods
 
@@ -275,6 +275,6 @@ namespace PixelSpark.Parallaxer
             }
         }
 
-        #endregion
+        #endregion /////////////////////////////////////////////////////////////////////////////////
     }
 }
