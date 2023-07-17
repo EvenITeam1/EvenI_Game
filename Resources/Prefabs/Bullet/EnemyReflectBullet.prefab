@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1789428647
-  m_SortingLayer: 4
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -1472942929, guid: f7d4eec0ef13e22479ce6f4c08aae432, type: 3}
   m_Color: {r: 0.87812257, g: 0.514151, b: 1, a: 0.7294118}
@@ -100,14 +100,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eb777121a729f244b94ccf0689613d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerLayer:
+  _enemyLayer:
     serializedVersion: 2
-    m_Bits: 2147483649
-  _setDmg: 7
-  _lastTime: 20
-  _bulletSpeed: 6
-  _maxReflectCount: 5
-  _bulletRigid: {fileID: 3216534354840288044}
+    m_Bits: 1024
+  Index: 3004
+  player: {fileID: 0}
+  bulletData:
+    Index: 3004
+    Bullet_name: "\uC801\uBC18\uC0AC\uD0C4"
+    Bullet_category: 2
+    Bullet_width: 7
+    Bullet_height: 7
+    Bullet_min_dmg: 0
+    Bullet_max_dmg: 0
+    Bullet_set_dmg: 7
+    Bullet_crit_chance: 0
+    Bullet_crit_const: 0
+    Bullet_speed: 6
+    Bullet_time: 0
+    Bullet_reflect_count: 10
+    Bullet_filecode: 
+  bulletVisualData:
+    dmgPrefab: {fileID: 0}
+    critFontSize: 0
+    nonCritFontSize: 0
+    critColor:
+      serializedVersion: 2
+      rgba: 0
+    nonCritColor:
+      serializedVersion: 2
+      rgba: 0
+  _lastTime: 15
+  bulletRigid: {fileID: 3216534354840288044}
 --- !u!58 &9144402727235173464
 CircleCollider2D:
   m_ObjectHideFlags: 0
