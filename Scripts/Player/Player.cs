@@ -191,14 +191,15 @@ public class Player : MonoBehaviour, IDamagable
     #region GetHit
     public bool IsHitedOnce = false;
     public GameObject HitParticle = null;
-    public bool GetDamage(float _amount){
-        if(IsHitedOnce == true) {return false;}
+    public void GetDamage(float _amount){
+        if(IsHitedOnce == true) {return;}
         float currentHp = playerHP.getHP();
         playerHP.setHP(currentHp - _amount);
         Instantiate(HitParticle, transform);
         StartCoroutine(AsyncGetDamage());
-        return true;
     }
+
+    public bool IsHitable(){return true;}
 
     IEnumerator AsyncGetDamage(){
         RunnerManager.Instance.GlobalPlayer.IsHitedOnce = true;

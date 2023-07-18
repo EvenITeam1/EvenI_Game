@@ -27,7 +27,14 @@ public class PlaceableObject : MonoBehaviour, IDamagable
 
     private List<UnityAction> moveType = new List<UnityAction>();
     public float moveTriggerOffset = 5f;
-    public float ObjectHP;
+    private float mObjectHP;
+    public float ObjectHP {
+        get {return mObjectHP;}
+        set {
+            mObjectHP = value;
+            if(mObjectHP <= 0) {gameObject.SetActive(false);}
+        }
+    }
 
     /////////////////////////////////////////////////////////////////////////////////
 
@@ -46,12 +53,13 @@ public class PlaceableObject : MonoBehaviour, IDamagable
     private void OnEnable()
     {
         InitMoveTypes();
-        ObjectHP = objectData.Ob_HP;
+        mObjectHP = objectData.Ob_HP;
         objectCollider.size = new Vector2(objectData.Ob_width, objectData.Ob_height);
     }
 
     private void Start()
     {
+        StartCoroutine(CheckPlayerForMove());
         /*Set ObjectActions*/
 
         //objectMovementActions[1] = new UnityAction<Collider2D>((_Collider2D) => {HandleControl_001(_Collider2D);});
@@ -111,18 +119,14 @@ public class PlaceableObject : MonoBehaviour, IDamagable
     #region GetHit
 
     public GameObject HitParticle = null;
-    public bool GetDamage(float _amount)
+    public void GetDamage(float _amount)
     {
-        if (!objectData.OB_Hitable) { return false; }
         ObjectHP -= _amount;
-        StartCoroutine(AsyncOnHitVisual());
-        if (ObjectHP <= 0)
-        {
-            //Instantiate(DestroyEffect);
-            gameObject.SetActive(false);
-        }
-        return true;
+        Instantiate(HitParticle);
+        //StartCoroutine(AsyncOnHitVisual());
     }
+
+    public bool IsHitable(){return objectData.OB_Hitable;}
 
     IEnumerator AsyncOnHitVisual()
     {
@@ -155,38 +159,38 @@ public class PlaceableObject : MonoBehaviour, IDamagable
 
     public void MovementDown()
     {
-        transform.DOLocalMove((Vector2.one * transform.position) + (Vector2.down * objectData.Ob_move_strength), 1f)
+        transform.DOLocalMove((Vector2.one * transform.position) + (Vector2.down * objectData.Ob_move_strength), 0.25f)
             .SetEase(Ease.Unset);
     }
 
     public void MovementUp()
     {
-        transform.DOLocalMove((Vector2.one * transform.position) + (Vector2.left * objectData.Ob_move_strength), 1f)
+        transform.DOLocalMove((Vector2.one * transform.position) + (Vector2.up * objectData.Ob_move_strength), 0.25f)
             .SetLoops(1, LoopType.Yoyo);
     }
 
     public void MovementLeft()
     {
-        transform.DOLocalMove((Vector2.one * transform.position) + (Vector2.left * objectData.Ob_move_strength), 1f)
+        transform.DOLocalMove((Vector2.one * transform.position) + (Vector2.left * objectData.Ob_move_strength), 0.25f)
             .SetEase(Ease.Unset);
     }
 
     public void MovementRight()
     {
-        transform.DOLocalMove((Vector2.one * transform.position) + (Vector2.right * objectData.Ob_move_strength), 1f)
+        transform.DOLocalMove((Vector2.one * transform.position) + (Vector2.right * objectData.Ob_move_strength), 0.25f)
             .SetEase(Ease.Unset);
     }
 
     public void MovementVerticalLoop()
     {
-        transform.DOLocalMove((Vector2.one * transform.position) + (Vector2.up * objectData.Ob_move_strength), 1f)
+        transform.DOLocalMove((Vector2.one * transform.position) + (Vector2.up * objectData.Ob_move_strength), 0.25f)
             .SetLoops(-1, LoopType.Yoyo)
             .SetEase(Ease.InOutBack);
     }
 
     public void MovementHorizontalLoop()
     {
-        transform.DOLocalMove((Vector2.one * transform.position) + (Vector2.left * objectData.Ob_move_strength), 1f)
+        transform.DOLocalMove((Vector2.one * transform.position) + (Vector2.left * objectData.Ob_move_strength), 0.25f)
             .SetLoops(-1, LoopType.Yoyo)
             .SetEase(Ease.InOutBack);
     }

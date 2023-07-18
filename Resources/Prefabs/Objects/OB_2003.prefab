@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1310387243257477264}
   - component: {fileID: 3937568910038251892}
   - component: {fileID: 5172971096665940192}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: OB_2003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ MonoBehaviour:
     Ob_damage: 0
     Ob_bullet_index: 0
     Ob_movement_index: 0
-    Ob_movement_speed: 0
+    Ob_move_strength: 0
     OB_Hitable: 0
     Ob_HP: 10
     Ob_filecode: 
@@ -69,7 +69,6 @@ MonoBehaviour:
     onHitColor: {r: 0, g: 0, b: 0, a: 0}
   objectCollider: {fileID: 5172971096665940192}
   moveTriggerOffset: 5
-  ObjectHP: 0
   HitParticle: {fileID: 0}
 --- !u!61 &5172971096665940192
 BoxCollider2D:
@@ -108,7 +107,7 @@ GameObject:
   - component: {fileID: 49896029427748311}
   - component: {fileID: 2393503716358272133}
   - component: {fileID: 1659493137920814489}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: model
   m_TagString: Untagged
   m_Icon: {fileID: 0}

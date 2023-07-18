@@ -195,13 +195,13 @@ public class Mob : MonoBehaviour, IDamagable
     #region GetHit
 
     public GameObject HitParticle = null;
-    public bool GetDamage(float _amount)
+    public void GetDamage(float _amount)
     {
         float currentHp = mobHP.getHP();
         mobHP.setHP(currentHp - _amount);
         Instantiate(HitParticle, transform);
-        return true;
     }
+    public bool IsHitable(){return true;}
 
     private void OnDisable()
     {
