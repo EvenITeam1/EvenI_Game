@@ -376,6 +376,8 @@ Transform:
   - {fileID: 909079728981919899}
   - {fileID: 909079727556902187}
   - {fileID: 909079727644979259}
+  - {fileID: 3255717726091074299}
+  - {fileID: 909079728366189085}
   - {fileID: 909079728040901076}
   - {fileID: 909079727222647289}
   m_Father: {fileID: 0}
@@ -416,6 +418,7 @@ MonoBehaviour:
   LaserDataTableDesign: {fileID: 909079728981919896}
   MobDataTableDesign: {fileID: 909079727556902184}
   BossDataTableDesign: {fileID: 909079727644979256}
+  TipDataTableDesign: {fileID: 0}
   GlobalSaveNLoad: {fileID: 909079727222647288}
 --- !u!1 &909079728981919898
 GameObject:
@@ -519,3 +522,51 @@ MonoBehaviour:
     RevivalCount: 0
     prevHP: 0
     prevScore: 0
+--- !u!1 &1053655646358247286
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3255717726091074299}
+  - component: {fileID: 1323016225867969651}
+  m_Layer: 0
+  m_Name: Tip_DataTable
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3255717726091074299
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053655646358247286}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.19710687, y: 0.250803, z: -0.22040462}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 909079728720041145}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1323016225867969651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053655646358247286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5690f251eb4ee24da2b3dfd882d31b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tipDataforms: []
+  emptyData:
+    Index: 9000
+    tipString: 

@@ -3,14 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class LoadingSceneManager : MonoBehaviour
 {
     public static string nextScene;
     [SerializeField] Slider progressBar;
+    [SerializeField] GameObject tipObj;
+    [SerializeField] float timeMultiplier;//0.2f is basic amount
+    [SerializeField] TextMeshProUGUI loadingText;
+    [SerializeField] TipData tipData;
+    [SerializeField] TIP_INDEX finalIndex;
 
     private void Start()
     {
+        progressBar.value = 0f;
+        getRandomTipText();
         StartCoroutine(LoadScene());
     }
 
@@ -40,7 +48,7 @@ public class LoadingSceneManager : MonoBehaviour
             }
             else
             {
-                progressBar.value = Mathf.Lerp(progressBar.value, 1f, timer * 0.2f);
+                progressBar.value = Mathf.Lerp(progressBar.value, 1f, timer * timeMultiplier);
                 if (progressBar.value == 1.0f)
                 {
                     op.allowSceneActivation = true;
@@ -49,5 +57,11 @@ public class LoadingSceneManager : MonoBehaviour
             }
         }
         yield return new WaitUntil(() => {return GameManager.Instance.IsAsyncLoaded;});
+    }
+    void getRandomTipText()
+    {
+        int n = Random.Range((int)TIP_INDEX.TIP_9001, (int)finalIndex + 1);
+        tipData = GameManager.Instance.TipDataTableDesign.GetTipDataByINDEX((TIP_INDEX)n);
+        loadingText.text = "Tip. " + tipData.tipString;
     }
 }

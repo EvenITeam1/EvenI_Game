@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
             LaserDataTableDesign ??= GetComponentInChildren<Game_PL_Laser_DataTable_design>();
             MobDataTableDesign ??= GetComponentInChildren<Game_PL_Mob_DataTable_design>();
             BossDataTableDesign ??= GetComponentInChildren<Game_PL_Boss_DataTable_design>();
+            TipDataTableDesign ??= GetComponentInChildren<Game_PL_Tip_DataTable_design>();
             GlobalSaveNLoad ??= GetComponentInChildren<SaveNLoadManager>();
 
             if (!IsAsyncLoaded)
@@ -48,7 +49,8 @@ public class GameManager : MonoBehaviour
                     BulletDataTableDesign.DownloadItemSO(),
                     LaserDataTableDesign.DownloadItemSO(),
                     MobDataTableDesign.DownloadItemSO(),
-                    BossDataTableDesign.DownloadItemSO()
+                    BossDataTableDesign.DownloadItemSO(),
+                    TipDataTableDesign.DownloadItemSO()
                 );
                 IsAsyncLoaded = true;
             }
@@ -80,5 +82,6 @@ public class GameManager : MonoBehaviour
     public Game_PL_Laser_DataTable_design LaserDataTableDesign;
     public Game_PL_Mob_DataTable_design MobDataTableDesign;
     public Game_PL_Boss_DataTable_design BossDataTableDesign;
+    public Game_PL_Tip_DataTable_design TipDataTableDesign;
     public SaveNLoadManager GlobalSaveNLoad;
 }
