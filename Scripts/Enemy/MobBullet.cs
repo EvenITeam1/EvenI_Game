@@ -21,7 +21,6 @@ public class MobBullet : Bullet
     {
         player = RunnerManager.Instance.GlobalPlayer;
         bulletData.Bullet_time = 0;
-        setDamage((int)Random.Range(bulletData.Bullet_min_dmg, bulletData.Bullet_max_dmg + 1f));
         setDir();
     }
 
@@ -37,8 +36,6 @@ public class MobBullet : Bullet
             float currentHp = player.playerHP.getHP();
             float actualDmg = bulletData.Bullet_set_dmg;
 
-            isCrit(ref actualDmg);
-
             player.GetDamage(actualDmg);
             ObjectPool.instance.ReturnObject(gameObject);
         }
@@ -51,15 +48,5 @@ public class MobBullet : Bullet
     {
         float speed = (player.playerMoveData.speed - bulletData.Bullet_speed) + 5f;
         bulletRigid.velocity = Vector2.left * speed;
-    }
-    //public void lastLimit()
-    //public void isCrit(ref float actualDmg, ref DamageUI dmgScript)
-    public void isCrit(ref float actualDmg)
-    {
-        bool randomFlag = (Random.Range(0.0f, 1.0f) < bulletData.Bullet_crit_chance) ? true : false;
-
-        if (randomFlag) {
-            actualDmg *= bulletData.Bullet_crit_const;
-        }
     }
 }

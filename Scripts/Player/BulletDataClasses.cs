@@ -66,7 +66,7 @@ public class BulletVisualData
     public Color32 critColor;
     public Color32 nonCritColor;
 }
-#endregion
+#endregion /////////////////////////////////////////////////////////////////////////////////
 
 #region Laser
 
@@ -107,4 +107,4 @@ public class LaserData {
     }
 }
 
-#endregion
+#endregion /////////////////////////////////////////////////////////////////////////////////

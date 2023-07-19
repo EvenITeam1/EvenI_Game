@@ -17,7 +17,7 @@ namespace PixelSpark.Parallaxer.Extensions
         {
             if (self == null)
             {
-                Debug.LogError("The target object is null. Check for missing scripts.");
+                //Debug.LogError("The target object is null. Check for missing scripts.");
                 yield break;
             }
 
@@ -48,7 +48,7 @@ namespace PixelSpark.Parallaxer.Extensions
         {
             if (self == null)
             {
-                Debug.LogError("The target object is null. Check for missing scripts.");
+                //Debug.LogError("The target object is null. Check for missing scripts.");
                 yield break;
             }
 
@@ -79,7 +79,7 @@ namespace PixelSpark.Parallaxer.Extensions
         {
             if (self == null)
             {
-                Debug.LogError("The target object is null. Check for missing scripts.");
+                //Debug.LogError("The target object is null. Check for missing scripts.");
                 return null;
             }
 
@@ -93,7 +93,7 @@ namespace PixelSpark.Parallaxer.Extensions
         {
             if (self == null)
             {
-                Debug.LogError("The target object is null. Check for missing scripts.");
+                //Debug.LogError("The target object is null. Check for missing scripts.");
                 return null;
             }
 

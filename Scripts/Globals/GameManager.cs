@@ -63,6 +63,19 @@ public class GameManager : MonoBehaviour
         AfterInitializeEvent.Invoke();
     }
 
+    [ContextMenu("테이블 데이터 모두 가져오기")]
+    public async void LoadDataFromSheet()
+    {
+        await UniTask.WhenAll(
+            CharacterDataTableDesign.DownloadItemSO(),
+            ObjectDataTableDesign.DownloadItemSO(),
+            BulletDataTableDesign.DownloadItemSO(),
+            LaserDataTableDesign.DownloadItemSO(),
+            MobDataTableDesign.DownloadItemSO(),
+            BossDataTableDesign.DownloadItemSO()
+        );
+    }
+
     public Game_PL_Character_DataTable_design CharacterDataTableDesign;
     public Game_PL_Object_DataTable_design ObjectDataTableDesign;
     public Game_PL_Bullet_DataTable_design BulletDataTableDesign;

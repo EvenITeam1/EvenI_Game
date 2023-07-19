@@ -64,7 +64,8 @@ public class PlayerData
 public class PlayerJumpData
 {
     [field: SerializeField]
-    public Transform groundCheckerTransform;
+    public Transform[] groundCheckerTransform;
+    public Transform[] ceilCheckerTransform;
     [field: SerializeField]
     public LayerMask groundLayer;
 

@@ -13,12 +13,15 @@ public class EventMarker : MonoBehaviour
 
     public bool isActivated;
     protected RaycastHit2D[] hits;
+    protected virtual void Awake() {
+        PrintString.AddListener((_string) => Debug.Log(_string));
+    }
     protected virtual void FixedUpdate()
     {
         hits = GetCastedTarget();
         var player = (
             from hit in hits  
-            where (hit.collider.name == GlobalStrings.LAYERS_STRING[(int)PROJECT_LAYERS.Player])  
+            where (hit.collider.tag == GlobalStrings.LAYERS_STRING[(int)PROJECT_LAYERS.Player])  
             select hit
         );
 
@@ -33,6 +36,6 @@ public class EventMarker : MonoBehaviour
     }
     protected virtual RaycastHit2D[] GetCastedTarget()
     {
-        return hits = Physics2D.RaycastAll(transform.position, Vector2.down, float.NegativeInfinity);
+        return hits = Physics2D.RaycastAll(transform.position, Vector2.down, 300f);
     }
 }

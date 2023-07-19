@@ -22,10 +22,10 @@ namespace PixelSpark.Parallaxer
 #endif
         private bool _respawnsWhenOutOfScreen = true;
 
-        #endregion
+        #endregion /////////////////////////////////////////////////////////////////////////////////
 
         #region Non-serialized fields
-        #endregion
+        #endregion /////////////////////////////////////////////////////////////////////////////////
 
         #region Unity events
 
@@ -34,7 +34,7 @@ namespace PixelSpark.Parallaxer
             Respawn();
         }
 
-        #endregion
+        #endregion /////////////////////////////////////////////////////////////////////////////////
 
         #region Internal methods
 
@@ -45,7 +45,7 @@ namespace PixelSpark.Parallaxer
             Transform.position += (Vector3) aggregatedDisplacement;
         }
 
-        #endregion
+        #endregion /////////////////////////////////////////////////////////////////////////////////
 
         #region Protected methods
 
@@ -56,9 +56,9 @@ namespace PixelSpark.Parallaxer
             base.Initialize();
         }
 
-        #endregion
+        #endregion /////////////////////////////////////////////////////////////////////////////////
 
-        #endregion
+        #endregion /////////////////////////////////////////////////////////////////////////////////
 
         #region Private methods
 
@@ -90,6 +90,6 @@ namespace PixelSpark.Parallaxer
             }
         }
 
-        #endregion
+        #endregion /////////////////////////////////////////////////////////////////////////////////
     }
 }

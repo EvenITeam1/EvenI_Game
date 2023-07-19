@@ -6,27 +6,30 @@ using UnityEngine;
 namespace TwoDimensions
 {
     public class AutoRenderOrder : MonoBehaviour {
-        [SerializeField] List<SpriteRenderer> spriteRenderer = new List<SpriteRenderer>();
+        [HideInInspector] List<SpriteRenderer> spriteRenderer = new List<SpriteRenderer>();
 
         public void GetChildSpriteRenderers(){
+            spriteRenderer.Add(transform.GetComponent<SpriteRenderer>());
             foreach(Transform items in transform){
                 spriteRenderer.Add(items.GetComponent<SpriteRenderer>());
             }
-            SetRenderOrder((int)transform.localPosition.z);
         }
 
-        private void Awake() {
+        public void SetRenderOrder(){
+            foreach(SpriteRenderer sr in spriteRenderer){
+                sr.sortingOrder = -(int)transform.localPosition.z;
+            }
         }
 
-        public void SetRenderOrder(int _order){
-            foreach(SpriteRenderer sr in spriteRenderer){
-                sr.sortingOrder = -_order;
-            }
+        private void Start() {
+            GetChildSpriteRenderers();
+            SetRenderOrder();
         }
-        public void AddRenderOrder(int _amount){
-            foreach(SpriteRenderer sr in spriteRenderer){
-                sr.sortingOrder -= _amount;
-            }
+
+        [ContextMenu("순서 정리하기")]
+        public void SetRenderOrderByContexMenu(){
+            GetChildSpriteRenderers();
+            SetRenderOrder();
         }
     }
 }

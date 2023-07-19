@@ -1,6 +1,7 @@
 using UnityEngine;
 
 public class DataTrigger : MonoBehaviour {
+    
     public void InitializeData(){
         GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().prevHP = 100;
         GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().prevScore = 0;

@@ -34,7 +34,7 @@ public class GlobalEvent : MonoBehaviour
 
 #region ScoreCheck
     public ScoreCheck scoreCheck;
-#endregion
+#endregion /////////////////////////////////////////////////////////////////////////////////
 
     /////////////////////////////////////////////////////////////////////////////////
 #region TimeScaleEventHandler
@@ -57,7 +57,7 @@ public class GlobalEvent : MonoBehaviour
             if (value == true) { GameTimeScale = 0; }
             else { GameTimeScale = mCurrentTimeScale; }
             mIsGamePaused = value;
-           //Debug.Log("Time Changed");
+           ////Debug.Log("Time Changed");
         }
     }
 
@@ -67,15 +67,15 @@ public class GlobalEvent : MonoBehaviour
     }
 
     //DotTween 사용해서 증가 커브 설정하기
-#endregion
+#endregion /////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////
 #region DebugEvent
     public void PrintString(string _input){
-       //Debug.Log(_input);
+       ////Debug.Log(_input);
     }
     public UnityEvent OnPlayerDieEvent;
     public void BroadCastPlayerDie(){
         OnPlayerDieEvent.Invoke();
     }
-#endregion
+#endregion /////////////////////////////////////////////////////////////////////////////////
 }

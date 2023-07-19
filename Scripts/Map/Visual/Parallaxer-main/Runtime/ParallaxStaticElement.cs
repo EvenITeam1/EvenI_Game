@@ -14,7 +14,7 @@ namespace PixelSpark.Parallaxer
             Transform.position += (Vector3) displacement;
         }
         
-        #endregion  
+        #endregion /////////////////////////////////////////////////////////////////////////////////  
     }
 
 }

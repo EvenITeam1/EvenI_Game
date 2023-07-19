@@ -11,4 +11,8 @@ public class ScoreCheck : MonoBehaviour {
             ScoreUI.text = $"Score : {(int)mScore}";
         }
     }
+
+    private void Start() {
+        ScoreUI ??= GameObject.Find("ScoreUI").GetComponent<Text>();
+    }
 }

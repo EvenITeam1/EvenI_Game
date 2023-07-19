@@ -87,7 +87,7 @@ public class PlayerBullet : MonoBehaviour, Hit
             _bulletRigid.velocity = _moveDir * _bulletSpeed + playerVector;
         }
         else
-            Debug.Log("PlayerRigid is null. This Log is normal result of Initial Pooling.");
+            throw new System.Exception("PlayerRigid is null. This Log is normal result of Initial Pooling.");
     }
 
     public void lastLimit()

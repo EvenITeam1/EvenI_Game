@@ -174,11 +174,11 @@ namespace PixelSpark.Parallaxer.Extensions
 			return (T[])targetField.GetCustomAttributes(typeof(T), true);
         }
 
-        #endregion
+        #endregion /////////////////////////////////////////////////////////////////////////////////
 
         #region Helper methods
 
-        #endregion
+        #endregion /////////////////////////////////////////////////////////////////////////////////
     }
 }
 #endif

@@ -15,14 +15,14 @@ public class ShootStopMarker : EventMarker
         hits = GetCastedTarget();
         var player = (
             from hit in hits  
-            where (hit.collider.name == GlobalStrings.LAYERS_STRING[(int)PROJECT_LAYERS.Player])  
+            where (hit.collider.tag == GlobalStrings.LAYERS_STRING[(int)PROJECT_LAYERS.Player])  
             select hit
         );
 
         if(player.Count() == 0) {isActivated = false;}
         else if(player.Count() != 0 && !isActivated)
         {
-            Debug.Log("지나침");
+            //Debug.Log("지나침");
             isActivated = true;
             foreach (var item in player)
             {

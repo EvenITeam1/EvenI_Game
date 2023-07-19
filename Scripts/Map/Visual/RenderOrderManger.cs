@@ -14,7 +14,8 @@ namespace TwoDimensions
         
         private void Start() {
             foreach(AutoRenderOrder aro in settingTargets){
-                aro.AddRenderOrder((int)transform.position.z);
+                aro.GetChildSpriteRenderers();
+                aro.SetRenderOrder();
             }
         }
     }
