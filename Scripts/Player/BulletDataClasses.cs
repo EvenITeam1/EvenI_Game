@@ -15,7 +15,7 @@ public class BulletData {
     public float Bullet_crit_chance;
     public float Bullet_crit_const;
     public float Bullet_speed;
-    public float Bullet_time;
+    public float Bullet_last_time;
     public int Bullet_reflect_count;
     public string Bullet_filecode;
 
@@ -32,7 +32,7 @@ public class BulletData {
         this.Bullet_crit_chance     = 0;
         this.Bullet_crit_const      = 0;
         this.Bullet_speed           = 0;
-        this.Bullet_time            = 0;
+        this.Bullet_last_time       = 0;
         this.Bullet_reflect_count   = 0;
         this.Bullet_filecode        = "";
     }
@@ -51,7 +51,7 @@ public class BulletData {
         this.Bullet_crit_chance     = float.Parse(datas[8]);
         this.Bullet_crit_const      = float.Parse(datas[9]);
         this.Bullet_speed           = float.Parse(datas[10]);
-        this.Bullet_time            = float.Parse(datas[11]);
+        this.Bullet_last_time       = float.Parse(datas[11]);
         this.Bullet_reflect_count   = int.Parse(datas[12]);
         this.Bullet_filecode        = datas[13].Replace('_', ' ');
     }
@@ -78,7 +78,7 @@ public class LaserData {
     public LASER_CATEGORY Laser_category;
     public float Laser_height;
     public float Laser_damage;
-    public float Laser_time;
+    public float Laser_last_time;
     public float Laser_movement_speed;
     public string Laser_filecode;
 
@@ -88,7 +88,7 @@ public class LaserData {
         this.Laser_category             = LASER_CATEGORY.DEFAULT;
         this.Laser_height               = 0;
         this.Laser_damage               = 0;
-        this.Laser_time                 = 0;
+        this.Laser_last_time            = 0;
         this.Laser_movement_speed       = 0;
         this.Laser_filecode             = "";
     }
@@ -101,7 +101,7 @@ public class LaserData {
         this.Laser_category             = (LASER_CATEGORY)int.Parse(datas[2]);
         this.Laser_height               = float.Parse(datas[3]);
         this.Laser_damage               = float.Parse(datas[4]);
-        this.Laser_time                 = float.Parse(datas[5]);
+        this.Laser_last_time            = float.Parse(datas[5]);
         this.Laser_movement_speed       = float.Parse(datas[6]);
         this.Laser_filecode             = datas[7].Replace('_', ' ');
     }

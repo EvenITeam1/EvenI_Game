@@ -117,7 +117,7 @@ MonoBehaviour:
     Bullet_crit_chance: 0
     Bullet_crit_const: 0
     Bullet_speed: 6
-    Bullet_time: 0
+    Bullet_last_time: 15
     Bullet_reflect_count: 10
     Bullet_filecode: 
   bulletVisualData:
@@ -130,7 +130,7 @@ MonoBehaviour:
     nonCritColor:
       serializedVersion: 2
       rgba: 0
-  _lastTime: 15
+  time: 0
   bulletRigid: {fileID: 3216534354840288044}
 --- !u!58 &9144402727235173464
 CircleCollider2D:

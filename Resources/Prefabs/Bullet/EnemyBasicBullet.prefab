@@ -154,7 +154,7 @@ MonoBehaviour:
     Bullet_crit_chance: 0
     Bullet_crit_const: 0
     Bullet_speed: 20
-    Bullet_time: 0
+    Bullet_last_time: 5
     Bullet_reflect_count: 0
     Bullet_filecode: 
   bulletVisualData:
@@ -167,7 +167,7 @@ MonoBehaviour:
     nonCritColor:
       serializedVersion: 2
       rgba: 0
-  _lastTime: 7
+  time: 0
   bulletRigid: {fileID: 8620079346850200606}
 --- !u!95 &-7263293138115123928
 Animator:

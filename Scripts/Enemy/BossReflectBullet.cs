@@ -11,7 +11,6 @@ public class BossReflectBullet : Bullet
     //[SerializeField] public BulletData bulletData;
     //[SerializeField] public BulletVisualData bulletVisualData;
     // [SerializeField]  protected Rigidbody2D bulletRigid;
-    // public float _lastTime;
     Vector2 lastDir;
     int reflectCount;
 
@@ -29,7 +28,7 @@ public class BossReflectBullet : Bullet
     void OnEnable()
     {
         player = RunnerManager.Instance.GlobalPlayer;
-        bulletData.Bullet_time = 0;
+        time = 0;
         reflectCount = 0;
         setInitialDir();
     }

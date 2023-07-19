@@ -45,7 +45,6 @@ public class BossPatternManager : MonoBehaviour
     {
         await UniTask.Delay(TimeSpan.FromSeconds(coolTime));
         int n = Random.Range(0, patternN);
-
         switch (n)
         {
             case 0:
