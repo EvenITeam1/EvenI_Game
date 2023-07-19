@@ -107,7 +107,7 @@ MonoBehaviour:
     Mob_bullet_index: 3000
     Mob_tracking: 0
     Mob_movement_index: 0
-    Mob_speed: 0
+    Mob_move_strength: 0
     Mob_filecode: 
   mobMoveData:
     IsInfiniteLifetime: 0
@@ -118,11 +118,11 @@ MonoBehaviour:
     exitEaseTime: 3
     invokeEase: 27
     exitEase: 26
-    movementStrength: 0
   mobHP: {fileID: 433485986516850945}
   mobCollider: {fileID: 433485986516850944}
   mobRigid: {fileID: 433485986516850947}
   bulletShooter: {fileID: 5572308724434334806}
+  bulletEnable: 0
   IsInstantiatedFirst: 0
   HitParticle: {fileID: 7124663019238293431, guid: 301f99a9c0b0643798ca6ef1fad42b44, type: 3}
 --- !u!114 &433485986516850945
@@ -230,7 +230,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1949028549
+  m_SortingLayerID: -301136453
   m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 00b6dfbe404e5e14783f8a31e9eea3b7, type: 3}
