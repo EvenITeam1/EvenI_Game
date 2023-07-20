@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class DamageUI : MonoBehaviour
 {
+    Player player;
     [SerializeField] float _moveSpeed;
     [SerializeField] float _alphaSpeed;
     public TextMeshPro _text;
@@ -15,13 +16,14 @@ public class DamageUI : MonoBehaviour
 
     private void OnEnable()
     {
+        player = RunnerManager.Instance.GlobalPlayer;
         _alpha = _text.color;
         _text.text = _damage.ToString();
         _time = 0;
     }
 
     void Update()
-    {
+    {      
         transform.Translate(new Vector3(0, _moveSpeed * Time.deltaTime, 0)); // 텍스트 위로 올라가도록
 
         _alpha.a = Mathf.Lerp(_alpha.a, 0, Time.deltaTime * _alphaSpeed); // 텍스트 점점 흐려지도록
