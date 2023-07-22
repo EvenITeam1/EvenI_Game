@@ -9,18 +9,23 @@ public class StartSceneManager : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI _text;
     [SerializeField] LoopType _loopType;
+    float time;
 
     void Start()
     {
+        time = 0;
         _text.DOFade(0.0f, 1).SetLoops(-1, _loopType);
     }
     void Update()
     {
-        if(Input.anyKeyDown)
+        time += Time.deltaTime;
+
+        if (time > 2.5f)
         {
-            LoadingSceneManager.LoadScene("LobbyScene");
-        }
+            if (Input.anyKeyDown)
+            {
+                LoadingSceneManager.LoadScene("LobbyScene");
+            }
+        }      
     }
-
-
 }

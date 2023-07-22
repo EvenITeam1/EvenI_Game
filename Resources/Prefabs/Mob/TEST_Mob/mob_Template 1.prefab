@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 433485986516850946}
   - component: {fileID: 433485986516850945}
   m_Layer: 30
-  m_Name: mob_Template
+  m_Name: mob_Template 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -105,9 +105,10 @@ MonoBehaviour:
     Mob_height: 1
     Mob_hp: 100
     Mob_bullet_index: 0
-    Mob_character: 0
-    Mob_movement: 5
+    Mob_tracking: 0
+    Mob_movement_index: 0
     Mob_speed: 0
+    Mob_filecode: 
   mobMoveData:
     IsInfiniteLifetime: 0
     lifeTime: 6
@@ -229,7 +230,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1949028549
+  m_SortingLayerID: -301136453
   m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 00b6dfbe404e5e14783f8a31e9eea3b7, type: 3}

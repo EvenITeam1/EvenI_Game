@@ -73,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1789428647
+  m_SortingLayerID: 846495363
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1c9a4db5d43894620b0e9e81745cb431, type: 3}
@@ -116,7 +116,7 @@ MonoBehaviour:
     Bullet_crit_chance: 0.8
     Bullet_crit_const: 2
     Bullet_speed: 20
-    Bullet_time: 2
+    Bullet_last_time: 2
     Bullet_reflect_count: 0
     Bullet_filecode: 
   bulletVisualData:
@@ -129,7 +129,7 @@ MonoBehaviour:
     nonCritColor:
       serializedVersion: 2
       rgba: 4294967295
-  _lastTime: 2
+  time: 0
   bulletRigid: {fileID: 3834995491968798443}
 --- !u!50 &3834995491968798443
 Rigidbody2D:

@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour, Hit
     [SerializeField] public BulletData bulletData;
     [SerializeField] public BulletVisualData bulletVisualData;
 
-    public float _lastTime;
+    [HideInInspector] public float time;
     [SerializeField] 
     protected Rigidbody2D bulletRigid;
 
@@ -28,7 +28,7 @@ public class Bullet : MonoBehaviour, Hit
     void OnEnable()
     {
         player = RunnerManager.Instance.GlobalPlayer;
-        bulletData.Bullet_time = 0;
+        time = 0;
         setDamage((int)Random.Range(bulletData.Bullet_min_dmg, bulletData.Bullet_max_dmg + 1f)); 
         setDir();
     }
@@ -94,9 +94,9 @@ public class Bullet : MonoBehaviour, Hit
 
     public void lastLimit()
     {
-       bulletData.Bullet_time += Time.deltaTime;
+       time += Time.deltaTime;
 
-        if (bulletData.Bullet_time >= _lastTime)
+        if (time >= bulletData.Bullet_last_time)
         {
             ObjectPool.instance.ReturnObject(gameObject);
         }        

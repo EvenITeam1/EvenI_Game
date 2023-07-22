@@ -3,36 +3,40 @@ using System.Collections.Generic;
 using TwoDimensions;
 using UnityEngine;
 
-public class BossReflectBullet : MonoBehaviour
+public class BossReflectBullet : Bullet
 {
-    public LayerMask _playerLayer;
-    int _damage;
-    public int _setDmg;
-    float _time;
-    public float _lastTime;
-    public float _bulletSpeed;
-    public int _maxReflectCount;
-    public Rigidbody2D _bulletRigid;
-    Vector2 _lastDir;
-    int _reflectCount;
+    //public LayerMask _enemyLayer;
+    //
+    //[HideInInspector] public Player player;
+    //[SerializeField] public BulletData bulletData;
+    //[SerializeField] public BulletVisualData bulletVisualData;
+    // [SerializeField]  protected Rigidbody2D bulletRigid;
+    Vector2 lastDir;
+    int reflectCount;
+
+    protected override void Awake()
+    {
+        bulletRigid = GetComponent<Rigidbody2D>();
+    }
+
     void Update()
     {
         lastLimit();
-        _lastDir = _bulletRigid.velocity;
+        lastDir = bulletRigid.velocity;
     }
 
     void OnEnable()
     {
-        _time = 0;
-        _reflectCount = 0;
-        setDamage(_setDmg);
+        player = RunnerManager.Instance.GlobalPlayer;
+        time = 0;
+        reflectCount = 0;
         setInitialDir();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.GetComponent<PlayerHP>())
-            collision.gameObject.GetComponent<Player>().GetDamage(_damage);
+            collision.gameObject.GetComponent<Player>().GetDamage(bulletData.Bullet_set_dmg);
 
         else if (collision.gameObject.GetComponent<ReflectAxisX>() || collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
             ReflectAxisX();
@@ -40,40 +44,26 @@ public class BossReflectBullet : MonoBehaviour
         else if (collision.gameObject.GetComponent<ReflectAxisY>())
             ReflectAxisY();
 
-        if (_reflectCount == _maxReflectCount)
+        if (reflectCount == bulletData.Bullet_reflect_count)
             ObjectPool.instance.ReturnObject(gameObject);
-    }
-
-    public void setDamage(int dmg)
-    {
-        this._damage = dmg;
-    }
-    public void lastLimit()
-    {
-        _time += Time.deltaTime;
-
-        if (_time >= _lastTime)
-        {
-            ObjectPool.instance.ReturnObject(gameObject);
-        }
     }
 
     public void setInitialDir()
     {
-        _bulletRigid.velocity = transform.right * _bulletSpeed;
+        bulletRigid.velocity = transform.right * bulletData.Bullet_speed;
     }
 
     public void ReflectAxisX()
     {
-        Vector2 reflectedDir = new Vector2(_lastDir.x, -_lastDir.y).normalized;
-        _bulletRigid.velocity = reflectedDir * _bulletSpeed;
-        _reflectCount++;
+        Vector2 reflectedDir = new Vector2(lastDir.x, -lastDir.y).normalized;
+        bulletRigid.velocity = reflectedDir * bulletData.Bullet_speed;
+        reflectCount++;
     }
 
     public void ReflectAxisY()
     {
-        Vector2 reflectedDir = new Vector2(-_lastDir.x, _lastDir.y).normalized;
-        _bulletRigid.velocity = reflectedDir * _bulletSpeed;
-        _reflectCount++;
+        Vector2 reflectedDir = new Vector2(-lastDir.x, lastDir.y).normalized;
+        bulletRigid.velocity = reflectedDir * bulletData.Bullet_speed;
+        reflectCount++;
     }
 }

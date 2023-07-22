@@ -74,9 +74,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1789428647
+  m_SortingLayerID: 846495363
   m_SortingLayer: 4
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: -640121303, guid: bd0ff90622bd0494d8beae63918f1d1e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -140,21 +140,21 @@ MonoBehaviour:
   _enemyLayer:
     serializedVersion: 2
     m_Bits: 1024
-  Index: 3000
+  Index: 3003
   player: {fileID: 0}
   bulletData:
-    Index: 3003
-    Bullet_name: 
+    Index: 3000
+    Bullet_name: "\uBE44\uC5B4\uC788\uC74C"
     Bullet_category: 0
-    Bullet_width: 0
-    Bullet_height: 0
-    Bullet_min_dmg: 10
-    Bullet_max_dmg: 20
+    Bullet_width: 1
+    Bullet_height: 1
+    Bullet_min_dmg: 0
+    Bullet_max_dmg: 0
     Bullet_set_dmg: 15
     Bullet_crit_chance: 0
     Bullet_crit_const: 0
     Bullet_speed: 10
-    Bullet_time: 0
+    Bullet_last_time: 7
     Bullet_reflect_count: 0
     Bullet_filecode: 
   bulletVisualData:
@@ -167,7 +167,7 @@ MonoBehaviour:
     nonCritColor:
       serializedVersion: 2
       rgba: 16777215
-  _lastTime: 7
+  time: 0
   bulletRigid: {fileID: 8620079346850200606}
 --- !u!95 &-7950240550755757705
 Animator:

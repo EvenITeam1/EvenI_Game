@@ -11,7 +11,6 @@ public class MobBullet : Bullet
     //[SerializeField] public BulletData bulletData;
     //[SerializeField] public BulletVisualData bulletVisualData;
     // [SerializeField]  protected Rigidbody2D bulletRigid;
-    // public float _lastTime;
 
     protected override void Awake()
     {
@@ -20,7 +19,7 @@ public class MobBullet : Bullet
     void OnEnable()
     {
         player = RunnerManager.Instance.GlobalPlayer;
-        bulletData.Bullet_time = 0;
+        time = 0;
         setDir();
     }
 

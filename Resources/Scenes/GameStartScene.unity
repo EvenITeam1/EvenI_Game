@@ -1573,11 +1573,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 909079728720041150, guid: 53c5f0b2c4471488993d2169f26e0fdd, type: 3}
       propertyPath: IsAsyncLoaded
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 909079728720041150, guid: 53c5f0b2c4471488993d2169f26e0fdd, type: 3}
+      propertyPath: TipDataTableDesign
+      value: 
+      objectReference: {fileID: 734656108}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 53c5f0b2c4471488993d2169f26e0fdd, type: 3}
+--- !u!114 &734656108 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1323016225867969651, guid: 53c5f0b2c4471488993d2169f26e0fdd, type: 3}
+  m_PrefabInstance: {fileID: 734656107}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5690f251eb4ee24da2b3dfd882d31b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &887857979
 GameObject:
   m_ObjectHideFlags: 0
@@ -2113,7 +2128,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: -1467911795
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &1675594195
