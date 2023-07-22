@@ -1,3 +1,4 @@
 public interface IDamagable {
-    public bool GetDamage(float _amount);
+    public void GetDamage(float _amount);
+    public bool IsHitable();
 }

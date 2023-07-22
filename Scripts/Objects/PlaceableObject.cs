@@ -27,7 +27,17 @@ public class PlaceableObject : MonoBehaviour, IDamagable
 
     private List<UnityAction> moveType = new List<UnityAction>();
     public float moveTriggerOffset = 5f;
-    public float ObjectHP;
+
+    private float mObjectHP;
+    public float ObjectHP
+    {
+        get { return mObjectHP; }
+        set
+        {
+            mObjectHP = value;
+            if (mObjectHP <= 0) { gameObject.SetActive(false); }
+        }
+    }
 
     /////////////////////////////////////////////////////////////////////////////////
 
@@ -46,22 +56,23 @@ public class PlaceableObject : MonoBehaviour, IDamagable
     private void OnEnable()
     {
         InitMoveTypes();
-        ObjectHP = objectData.Ob_HP;
+        mObjectHP = objectData.Ob_HP;
         objectCollider.size = new Vector2(objectData.Ob_width, objectData.Ob_height);
     }
 
     private void Start()
     {
+        StartCoroutine(CheckPlayerForMove());
         /*Set ObjectActions*/
 
         //objectMovementActions[1] = new UnityAction<Collider2D>((_Collider2D) => {HandleControl_001(_Collider2D);});
         //objectData = GameManager.Instance.ObjectDataTableDesign.GetObjectDataByINDEX(this.Index); //외부에서 받는것
     }
 
-    #endregion 
-    
+    #endregion
+
     /////////////////////////////////////////////////////////////////////////////////
-    
+
     #region Trigger
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -104,39 +115,36 @@ public class PlaceableObject : MonoBehaviour, IDamagable
     {
         return;
     }
-    #endregion 
-    
+    #endregion
+
     /////////////////////////////////////////////////////////////////////////////////
-    
+
     #region GetHit
 
     public GameObject HitParticle = null;
-    public bool GetDamage(float _amount)
+    public void GetDamage(float _amount)
     {
-        if (!objectData.OB_Hitable) { return false; }
         ObjectHP -= _amount;
-        StartCoroutine(AsyncOnHitVisual());
-        if (ObjectHP <= 0)
-        {
-            //Instantiate(DestroyEffect);
-            gameObject.SetActive(false);
-        }
-        return true;
+        Instantiate(HitParticle);
+        //StartCoroutine(AsyncOnHitVisual());
     }
+
+    public bool IsHitable() { return objectData.OB_Hitable; }
 
     IEnumerator AsyncOnHitVisual()
     {
         visualData.spriteRenderer.color = visualData.onHitColor;
-        yield return YieldInstructionCache.WaitForSeconds(0.25f);
+        yield return YieldInstructionCache.WaitForSeconds(1f);
         visualData.spriteRenderer.color = visualData.defaultColor;
     }
-    #endregion 
-    
+    #endregion
+
     /////////////////////////////////////////////////////////////////////////////////
-    
+
     #region Movements
 
-    IEnumerator CheckPlayerForMove(){
+    IEnumerator CheckPlayerForMove()
+    {
         RaycastHit2D player;
         Vector2 castPos = Vector2.one * transform.position + Vector2.left * moveTriggerOffset;
         yield return new WaitUntil(
@@ -161,7 +169,7 @@ public class PlaceableObject : MonoBehaviour, IDamagable
 
     public void MovementUp()
     {
-        transform.DOLocalMove((Vector2.one * transform.position) + (Vector2.left * objectData.Ob_move_strength), 1f)
+        transform.DOLocalMove((Vector2.one * transform.position) + (Vector2.up * objectData.Ob_move_strength), 1f)
             .SetLoops(1, LoopType.Yoyo);
     }
 
@@ -201,7 +209,7 @@ public class PlaceableObject : MonoBehaviour, IDamagable
         this.moveType.Add(new UnityAction(() => MovementHorizontalLoop()));
     }
 
-    #endregion 
-    
+    #endregion
+
     /////////////////////////////////////////////////////////////////////////////////
 }
