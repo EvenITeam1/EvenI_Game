@@ -63,7 +63,7 @@ public class Player : MonoBehaviour, IDamagable
     private void Start()
     {
         FlipSprite(1);
-        playerData = GameManager.Instance.CharacterDataTableDesign.GetPlayerDataByINDEX(this.Index); //외부에서 받는것
+        //playerData = GameManager.Instance.CharacterDataTableDesign.GetPlayerDataByINDEX(this.Index); //외부에서 받는것
         /*Set PlayerHP*/
         playerHP.setHP(playerData.Character_hp);
         playerHP._recoverHp = playerData.Character_per_hp_heal;
@@ -220,6 +220,23 @@ public class Player : MonoBehaviour, IDamagable
     }
     
     Coroutine revivalCoroutine = null;
+
+    public void Heal(float _amount){
+        float maxHp = playerHP.getMaxHp();
+        float currentHp = playerHP.getHP();
+        float healAmount = maxHp * _amount;
+        if(healAmount + currentHp >= maxHp) {
+            playerHP.setHP(maxHp);
+        }
+        else {
+            playerHP.setHP(currentHp + healAmount);
+        }
+    }
+
+    public void Barrier(){
+        playerState.ChangeState(PLAYER_STATES.BARRIER_STATE);
+        Invoke("BecomePlayerState", 10f + 0.2f);
+    }
     
     public void Revival(){
         if(revivalCoroutine != null) {StopCoroutine(revivalCoroutine);}

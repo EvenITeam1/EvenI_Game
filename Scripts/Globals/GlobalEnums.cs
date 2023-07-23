@@ -22,6 +22,10 @@
         DEFAULT = 0, TRAP, COIN, PLATFORM, HOLE, ITEM
     }
 
+    public enum OBJECT_ITEM_CATEGORY {
+        DEFAULT = 0, SMALL_HEAL, MID_HEAL, BARRIER
+    }
+
 #endregion 
 
 /////////////////////////////////////////////////////////////////////////////////

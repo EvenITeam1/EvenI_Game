@@ -66,9 +66,12 @@ public class ObjectCoinData {
     }
 }
 
+
 [System.Serializable]
 public class ObjectItemData {
-    string tmp;
+    public OBJECT_ITEM_CATEGORY ITEM_CATEGORY;
+    public ParticleSystem destroyParticle;
+    public ParticleSystem activateParticle;
     public ObjectItemData(){}
 }
 

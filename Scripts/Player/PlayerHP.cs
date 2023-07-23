@@ -38,7 +38,7 @@ public class PlayerHP : MonoBehaviour, HP
 
     public void setHP(float hp)
     {
-       _hp = hp; 
+       _hp = hp;
         if (!isAlive()) {
             die();
         }

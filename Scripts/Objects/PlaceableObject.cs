@@ -26,6 +26,7 @@ public class PlaceableObject : MonoBehaviour, IDamagable
     public Collider2D GetCollider() { return this.objectCollider; }
 
     private List<UnityAction> moveType = new List<UnityAction>();
+    private List<UnityAction> itemType = new List<UnityAction>();
     public float moveTriggerOffset = 5f;
     
     private float mObjectHP;
@@ -53,7 +54,9 @@ public class PlaceableObject : MonoBehaviour, IDamagable
 
     private void OnEnable()
     {
-        InitMoveTypes();
+        if(this.objectData.Ob_category == OBJECT_CATEGORY.TRAP){InitMoveTypes();}
+        if(this.objectData.Ob_category == OBJECT_CATEGORY.ITEM){InitMoveTypes(); InitItemTypes();}
+        
         mObjectHP = objectData.Ob_HP;
         objectCollider.size = new Vector2(objectData.Ob_width, objectData.Ob_height);
     }
@@ -111,6 +114,8 @@ public class PlaceableObject : MonoBehaviour, IDamagable
     }
     public void HandleItem(Collider2D _other)
     {
+        itemType[(int)itemData.ITEM_CATEGORY].Invoke();
+        Destroy(gameObject);
         return;
     }
     #endregion 
@@ -146,7 +151,7 @@ public class PlaceableObject : MonoBehaviour, IDamagable
         Vector2 castPos = Vector2.one * transform.position + Vector2.left * moveTriggerOffset;
         yield return new WaitUntil(
             () => {
-                player = Physics2D.Raycast(castPos, Vector2.up, 6f, LayerMask.GetMask("Player", "Ghost"));
+                player = Physics2D.Raycast(castPos, Vector2.up, 10f, LayerMask.GetMask("Player", "Ghost"));
                 return player;
             }
         );
@@ -210,5 +215,35 @@ public class PlaceableObject : MonoBehaviour, IDamagable
 
     #endregion 
     
+    /////////////////////////////////////////////////////////////////////////////////
+    
+    #region Items
+    public void ItemSmallHeal(){
+        RunnerManager.Instance.GlobalPlayer.Heal(0.3f);
+        Instantiate(itemData.destroyParticle, transform.position, Quaternion.identity);
+        Instantiate(itemData.activateParticle, RunnerManager.Instance.GlobalPlayer.transform);
+    }
+    public void ItemMediumHeal(){
+        RunnerManager.Instance.GlobalPlayer.Heal(0.5f);
+        Instantiate(itemData.destroyParticle, transform.position, Quaternion.identity).transform.localScale *= 1.5f;
+        Instantiate(itemData.activateParticle, RunnerManager.Instance.GlobalPlayer.transform);
+
+    }
+
+    public void ItemBarrier(){
+        RunnerManager.Instance.GlobalPlayer.Barrier();
+        Instantiate(itemData.destroyParticle, transform.position, Quaternion.identity);
+        Instantiate(itemData.activateParticle, RunnerManager.Instance.GlobalPlayer.transform);
+    }
+
+    public void InitItemTypes(){
+        this.itemType.Add(new UnityAction(() => {}));
+        this.itemType.Add(new UnityAction(() => ItemSmallHeal()));
+        this.itemType.Add(new UnityAction(() => ItemMediumHeal()));
+        this.itemType.Add(new UnityAction(() => ItemBarrier()));
+    }
+
+    #endregion
+
     /////////////////////////////////////////////////////////////////////////////////
 }

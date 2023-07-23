@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum PLAYER_STATES
 {
-    PLAYER_STATE = 0, GHOST_STATE
+    PLAYER_STATE = 0, GHOST_STATE, HEAL_STATE, BARRIER_STATE
 }
 
 public class PlayerState : MonoBehaviour
@@ -28,14 +28,26 @@ public class PlayerState : MonoBehaviour
         rend.material = MaterialByState[(int)PLAYER_STATES.GHOST_STATE];
         yield break;
     }
-    
+
+    IEnumerator HEAL_STATE()
+    {
+        rend.material = MaterialByState[(int)PLAYER_STATES.HEAL_STATE];
+        yield break;
+    }
+
+    IEnumerator BARRIER_STATE()
+    {
+        gameObject.layer = LayerMask.NameToLayer(GlobalStrings.LAYERS_STRING[(int)PROJECT_LAYERS.Ghost]);   
+        rend.material = MaterialByState[(int)PLAYER_STATES.BARRIER_STATE];
+        yield break;
+    }
+
     IEnumerator PLAYER_STATE()
     {
         gameObject.layer = LayerMask.NameToLayer(GlobalStrings.LAYERS_STRING[(int)PROJECT_LAYERS.Player]);
         rend.material = MaterialByState[(int)PLAYER_STATES.PLAYER_STATE];
         yield break;
     }
-
 
     public void ChangeState(PLAYER_STATES _state)
     {
