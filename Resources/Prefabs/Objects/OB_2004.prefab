@@ -48,24 +48,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Index: 2004
   objectData:
-    Index: 2002
+    Index: 2004
     Ob_name: "\uC791\uC740 \uCF54\uC778"
-    Ob_category: 2
+    Ob_category: 1
     Ob_width: 1
     Ob_height: 1
-    Ob_damage: 0
+    Ob_damage: 30
     Ob_bullet_index: 0
-    Ob_movement_index: 0
-    Ob_move_strength: 0
-    OB_Hitable: 0
-    Ob_HP: -1
+    Ob_movement_index: 6
+    Ob_move_strength: 3
+    OB_Hitable: 1
+    Ob_HP: 100
     Ob_filecode: "C \uB4DC\uB77C\uC774\uBE0C - \uAC8C\uC784\uD1A4 \uAE30\uD68D\uC11C
       - asset - object"
   coinData:
     ScoreValue: 10
     particle: {fileID: 1233056433216404457, guid: 93f4cb5d088166d428dc02998913d244, type: 3}
   visualData:
-    spriteRenderer: {fileID: 0}
+    spriteRenderer: {fileID: 2393503716358272133}
+    animator: {fileID: 1659493137920814489}
     defaultColor: {r: 0, g: 0, b: 0, a: 0}
     onHitColor: {r: 0, g: 0, b: 0, a: 0}
   objectCollider: {fileID: 5172971096665940192}
@@ -168,7 +169,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 846495363
+  m_SortingLayerID: -1789428647
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -1990366449, guid: efa8056d475414d18a4a99e44183250d, type: 3}

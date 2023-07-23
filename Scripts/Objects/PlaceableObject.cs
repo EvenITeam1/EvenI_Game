@@ -27,6 +27,7 @@ public class PlaceableObject : MonoBehaviour, IDamagable
 
     private List<UnityAction> moveType = new List<UnityAction>();
     public float moveTriggerOffset = 5f;
+    
     private float mObjectHP;
     public float ObjectHP {
         get {return mObjectHP;}
@@ -131,7 +132,7 @@ public class PlaceableObject : MonoBehaviour, IDamagable
     IEnumerator AsyncOnHitVisual()
     {
         visualData.spriteRenderer.color = visualData.onHitColor;
-        yield return YieldInstructionCache.WaitForSeconds(0.25f);
+        yield return YieldInstructionCache.WaitForSeconds(1f);
         visualData.spriteRenderer.color = visualData.defaultColor;
     }
     #endregion 
@@ -159,38 +160,40 @@ public class PlaceableObject : MonoBehaviour, IDamagable
 
     public void MovementDown()
     {
-        transform.DOLocalMove((Vector2.one * transform.position) + (Vector2.down * objectData.Ob_move_strength), 0.25f)
+        transform.DOLocalMove((Vector2.one * transform.position) + (Vector2.down * objectData.Ob_move_strength), 1f)
             .SetEase(Ease.Unset);
     }
 
     public void MovementUp()
     {
-        transform.DOLocalMove((Vector2.one * transform.position) + (Vector2.up * objectData.Ob_move_strength), 0.25f)
+        transform.DOLocalMove((Vector2.one * transform.position) + (Vector2.up * objectData.Ob_move_strength), 1f)
             .SetLoops(1, LoopType.Yoyo);
     }
 
     public void MovementLeft()
     {
-        transform.DOLocalMove((Vector2.one * transform.position) + (Vector2.left * objectData.Ob_move_strength), 0.25f)
+        transform.DOLocalMove((Vector2.one * transform.position) + (Vector2.left * objectData.Ob_move_strength), 1f)
             .SetEase(Ease.Unset);
     }
 
     public void MovementRight()
     {
-        transform.DOLocalMove((Vector2.one * transform.position) + (Vector2.right * objectData.Ob_move_strength), 0.25f)
+        transform.DOLocalMove((Vector2.one * transform.position) + (Vector2.right * objectData.Ob_move_strength), 1f)
             .SetEase(Ease.Unset);
     }
 
     public void MovementVerticalLoop()
     {
-        transform.DOLocalMove((Vector2.one * transform.position) + (Vector2.up * objectData.Ob_move_strength), 0.25f)
+        visualData.animator.SetTrigger("RunTrigger");
+        transform.DOLocalMove((Vector2.one * transform.position) + (Vector2.up * objectData.Ob_move_strength), 1f)
             .SetLoops(-1, LoopType.Yoyo)
             .SetEase(Ease.InOutBack);
     }
 
     public void MovementHorizontalLoop()
     {
-        transform.DOLocalMove((Vector2.one * transform.position) + (Vector2.left * objectData.Ob_move_strength), 0.25f)
+        visualData.animator.SetTrigger("RunTrigger");
+        transform.DOLocalMove((Vector2.one * transform.position) + (Vector2.left * objectData.Ob_move_strength), 1f)
             .SetLoops(-1, LoopType.Yoyo)
             .SetEase(Ease.InOutBack);
     }

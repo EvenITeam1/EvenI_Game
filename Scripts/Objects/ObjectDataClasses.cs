@@ -7,6 +7,7 @@ using UnityEngine.Events;
 [System.Serializable]
 public class ObjectData {
     public static readonly int indexBasis = 2000;
+    
     public OBJECT_INDEX Index;
     public string Ob_name;
     public OBJECT_CATEGORY Ob_category;
@@ -18,6 +19,7 @@ public class ObjectData {
     public float Ob_move_strength;
     public bool  OB_Hitable;
     public float Ob_HP;
+    public int Ob_Score;
     public string Ob_filecode;
 
     public ObjectData()
@@ -32,7 +34,8 @@ public class ObjectData {
         this.Ob_movement_index  = MOVEMENT_INDEX.HOLD;
         this.Ob_move_strength   = 0;
         this.OB_Hitable         = false;
-        this.Ob_HP              = 10;
+        this.Ob_HP              = 1;
+        this.Ob_Score           = 0;
         this.Ob_filecode        = "";
     }
 
@@ -47,10 +50,11 @@ public class ObjectData {
         this.Ob_damage          = int.Parse(datas[5]);
         this.Ob_bullet_index    = int.Parse(datas[6]);
         this.Ob_movement_index  = (MOVEMENT_INDEX)int.Parse(datas[7]);
-        this.Ob_move_strength  = float.Parse(datas[8]);
-        this.OB_Hitable  = int.Parse(datas[9]) == 1 ? true : false;
-        this.Ob_HP  = float.Parse(datas[10]);
-        this.Ob_filecode        = datas[11].Replace('_', ' ');
+        this.Ob_move_strength   = float.Parse(datas[8]);
+        this.OB_Hitable         = int.Parse(datas[9]) == 1 ? true : false;
+        this.Ob_HP              = float.Parse(datas[10]);
+        this.Ob_Score           = int.Parse(datas[11]);
+        this.Ob_filecode        = datas[12].Replace('_', ' ');
     }
 }
 [System.Serializable]
@@ -71,6 +75,7 @@ public class ObjectItemData {
 [System.Serializable]
 public class ObjectVisualData {
     public SpriteRenderer   spriteRenderer;
-    public Color         defaultColor;
-    public Color         onHitColor;
+    public Animator         animator;
+    public Color            defaultColor;
+    public Color            onHitColor;
 }

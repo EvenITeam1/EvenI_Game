@@ -6,6 +6,7 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerData
 {
+
     public static readonly int indexBasis = 1000;
     public DOG_INDEX Index;
     public string Character_korname;

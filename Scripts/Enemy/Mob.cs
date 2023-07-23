@@ -201,6 +201,7 @@ public class Mob : MonoBehaviour, IDamagable
         mobHP.setHP(currentHp - _amount);
         Instantiate(HitParticle, transform);
     }
+    
     public bool IsHitable(){return true;}
 
     private void OnDisable()
