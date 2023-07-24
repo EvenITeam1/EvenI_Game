@@ -127,7 +127,7 @@ public class Player : MonoBehaviour, IDamagable
     /*********************************************************************************/
 
     #region Jump
-    public void RestoreJumpCount() { if (IsGrounded() && !IsJumped()) {playerJumpData.jumpCount = playerJumpData.maxJumpCount;} }
+    public void RestoreJumpCount() { if (IsGrounded() && !IsJumped()) { playerJumpData.jumpCount = playerJumpData.maxJumpCount;} }
 
     private void Jump()
     {
@@ -182,7 +182,7 @@ public class Player : MonoBehaviour, IDamagable
 
     private bool IsJumped()
     {
-        return !GlobalFunction.GetIsFloatEqual(playerRigid.velocity.y, 0.001f);
+        return !GlobalFunction.GetIsFloatEqual(playerRigid.velocity.y, 0.01f);
     }
     #endregion
 

@@ -76,7 +76,7 @@ public class Mob : MonoBehaviour, IDamagable
 
     private void Start()
     {
-        bulletShooter.bullets[0].bulletData = GameManager.Instance.BulletDataTableDesign.GetBulletDataByINDEX(mobData.Mob_bullet_index);
+        //bulletShooter.bullets[0].bulletData = GameManager.Instance.BulletDataTableDesign.GetBulletDataByINDEX(mobData.Mob_bullet_index);
     }
     #endregion
 
