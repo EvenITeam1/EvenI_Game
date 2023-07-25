@@ -63,7 +63,9 @@ public class PlaceableObject : MonoBehaviour, IDamagable
 
     private void Start()
     {
-        StartCoroutine(CheckPlayerForMove());
+        if(objectData.Ob_movement_index != MOVEMENT_INDEX.HOLD) {
+            StartCoroutine(CheckPlayerForMove());
+        }
         /*Set ObjectActions*/
 
         //objectMovementActions[1] = new UnityAction<Collider2D>((_Collider2D) => {HandleControl_001(_Collider2D);});
@@ -148,10 +150,11 @@ public class PlaceableObject : MonoBehaviour, IDamagable
 
     IEnumerator CheckPlayerForMove(){
         RaycastHit2D player;
-        Vector2 castPos = Vector2.one * transform.position + Vector2.left * moveTriggerOffset;
+        Vector2 castPos = (Vector2.one * transform.position) + (Vector2.left * moveTriggerOffset) + (Vector2.down * 10);
+        Debug.DrawRay(castPos, Vector2.up, Color.cyan, 20f);
         yield return new WaitUntil(
             () => {
-                player = Physics2D.Raycast(castPos, Vector2.up, 10f, LayerMask.GetMask("Player", "Ghost"));
+                player = Physics2D.Raycast(castPos, Vector2.up, 20f, LayerMask.GetMask("Player", "Ghost"));
                 return player;
             }
         );
@@ -189,7 +192,7 @@ public class PlaceableObject : MonoBehaviour, IDamagable
 
     public void MovementVerticalLoop()
     {
-        visualData.animator.SetTrigger("RunTrigger");
+        //visualData.animator.SetTrigger("RunTrigger");
         transform.DOLocalMove((Vector2.one * transform.position) + (Vector2.up * objectData.Ob_move_strength), 1f)
             .SetLoops(-1, LoopType.Yoyo)
             .SetEase(Ease.InOutBack);
@@ -197,7 +200,7 @@ public class PlaceableObject : MonoBehaviour, IDamagable
 
     public void MovementHorizontalLoop()
     {
-        visualData.animator.SetTrigger("RunTrigger");
+        //visualData.animator.SetTrigger("RunTrigger");
         transform.DOLocalMove((Vector2.one * transform.position) + (Vector2.left * objectData.Ob_move_strength), 1f)
             .SetLoops(-1, LoopType.Yoyo)
             .SetEase(Ease.InOutBack);
