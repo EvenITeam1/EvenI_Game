@@ -127,7 +127,7 @@ public class Player : MonoBehaviour, IDamagable
     /*********************************************************************************/
 
     #region Jump
-    public void RestoreJumpCount() { if (IsGrounded() && !IsJumped()) {playerJumpData.jumpCount = playerJumpData.maxJumpCount;} }
+    public void RestoreJumpCount() { if (IsGrounded() && !IsJumped()) { playerJumpData.jumpCount = playerJumpData.maxJumpCount;} }
 
     private void Jump()
     {
@@ -182,7 +182,7 @@ public class Player : MonoBehaviour, IDamagable
 
     private bool IsJumped()
     {
-        return !GlobalFunction.GetIsFloatEqual(playerRigid.velocity.y, 0.001f);
+        return !GlobalFunction.GetIsFloatEqual(playerRigid.velocity.y, 0.01f);
     }
     #endregion
 
@@ -191,17 +191,19 @@ public class Player : MonoBehaviour, IDamagable
     #region GetHit
     public bool IsHitedOnce = false;
     public GameObject HitParticle = null;
-    public void GetDamage(float _amount){
-        if(IsHitedOnce == true) {return;}
+    public void GetDamage(float _amount)
+    {
+        if (IsHitedOnce == true) { return; }
         float currentHp = playerHP.getHP();
         playerHP.setHP(currentHp - _amount);
         Instantiate(HitParticle, transform);
         StartCoroutine(AsyncGetDamage());
     }
 
-    public bool IsHitable(){return true;}
+    public bool IsHitable() { return true; }
 
-    IEnumerator AsyncGetDamage(){
+    IEnumerator AsyncGetDamage()
+    {
         RunnerManager.Instance.GlobalPlayer.IsHitedOnce = true;
         playerState.ChangeState(PLAYER_STATES.GHOST_STATE);
         yield return YieldInstructionCache.WaitForSeconds(1f);

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Serialization;
 using UnityEngine;
+using DG.Tweening;
 
 public class CircleSort : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class CircleSort : MonoBehaviour
     {
         SortCircle();
     }
-
+  
     private void Update()
     {
         Rotate();

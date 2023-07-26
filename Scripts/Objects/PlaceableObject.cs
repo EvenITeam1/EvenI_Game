@@ -72,10 +72,10 @@ public class PlaceableObject : MonoBehaviour, IDamagable
         //objectData = GameManager.Instance.ObjectDataTableDesign.GetObjectDataByINDEX(this.Index); //외부에서 받는것
     }
 
-    #endregion 
-    
+    #endregion
+
     /////////////////////////////////////////////////////////////////////////////////
-    
+
     #region Trigger
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -120,10 +120,10 @@ public class PlaceableObject : MonoBehaviour, IDamagable
         Destroy(gameObject);
         return;
     }
-    #endregion 
-    
+    #endregion
+
     /////////////////////////////////////////////////////////////////////////////////
-    
+
     #region GetHit
 
     public GameObject HitParticle = null;
@@ -134,7 +134,7 @@ public class PlaceableObject : MonoBehaviour, IDamagable
         //StartCoroutine(AsyncOnHitVisual());
     }
 
-    public bool IsHitable(){return objectData.OB_Hitable;}
+    public bool IsHitable() { return objectData.OB_Hitable; }
 
     IEnumerator AsyncOnHitVisual()
     {
@@ -142,13 +142,14 @@ public class PlaceableObject : MonoBehaviour, IDamagable
         yield return YieldInstructionCache.WaitForSeconds(1f);
         visualData.spriteRenderer.color = visualData.defaultColor;
     }
-    #endregion 
-    
+    #endregion
+
     /////////////////////////////////////////////////////////////////////////////////
-    
+
     #region Movements
 
-    IEnumerator CheckPlayerForMove(){
+    IEnumerator CheckPlayerForMove()
+    {
         RaycastHit2D player;
         Vector2 castPos = (Vector2.one * transform.position) + (Vector2.left * moveTriggerOffset) + (Vector2.down * 10);
         Debug.DrawRay(castPos, Vector2.up, Color.cyan, 20f);
@@ -216,8 +217,8 @@ public class PlaceableObject : MonoBehaviour, IDamagable
         this.moveType.Add(new UnityAction(() => MovementHorizontalLoop()));
     }
 
-    #endregion 
-    
+    #endregion
+
     /////////////////////////////////////////////////////////////////////////////////
     
     #region Items

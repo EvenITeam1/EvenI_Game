@@ -32,7 +32,7 @@ Transform:
   m_Children:
   - {fileID: 4072091335926351521}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4072091334993394330
 MonoBehaviour:
@@ -65,11 +65,11 @@ MonoBehaviour:
     particle: {fileID: 0}
   visualData:
     spriteRenderer: {fileID: 0}
+    animator: {fileID: 0}
     defaultColor: {r: 0, g: 0, b: 0, a: 0}
     onHitColor: {r: 0, g: 0, b: 0, a: 0}
   objectCollider: {fileID: 4072091334993394331}
   moveTriggerOffset: 5
-  ObjectHP: 0
   HitParticle: {fileID: 0}
 --- !u!61 &4072091334993394331
 BoxCollider2D:
@@ -84,7 +84,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.09988713}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -95,7 +95,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8, y: 0.8}
+  m_Size: {x: 0.22642517, y: 0.21802998}
   m_EdgeRadius: 0
 --- !u!1 &4072091335926351520
 GameObject:

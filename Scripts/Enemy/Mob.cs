@@ -76,7 +76,7 @@ public class Mob : MonoBehaviour, IDamagable
 
     private void Start()
     {
-        bulletShooter.bullets[0].bulletData = GameManager.Instance.BulletDataTableDesign.GetBulletDataByINDEX(mobData.Mob_bullet_index);
+        //bulletShooter.bullets[0].bulletData = GameManager.Instance.BulletDataTableDesign.GetBulletDataByINDEX(mobData.Mob_bullet_index);
     }
     #endregion
 
@@ -204,6 +204,8 @@ public class Mob : MonoBehaviour, IDamagable
     
     public bool IsHitable(){return true;}
 
+    public bool IsHitable() { return true; }
+
     private void OnDisable()
     {
         if (IsInstantiatedFirst)
@@ -215,6 +217,4 @@ public class Mob : MonoBehaviour, IDamagable
     }
 
     #endregion
-
-    /////////////////////////////////////////////////////////////////////////////////
 }

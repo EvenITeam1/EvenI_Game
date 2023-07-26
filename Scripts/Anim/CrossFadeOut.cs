@@ -13,9 +13,9 @@ public class CrossFadeOut : MonoBehaviour {
         AnimStartEvent.RemoveAllListeners();
         AnimStartEvent.AddListener(() => transform.GetChild(0).gameObject.SetActive(true));
         AnimStartEvent.AddListener(() => GameObject.Find("DataTrigger").GetComponent<DataTrigger>().LoadData());
-        
         AnimStopEvents.RemoveAllListeners();
         AnimStopEvents.AddListener(() => player.PlayerEnable());
+
     }
 
     public void OnAnimationStart(){

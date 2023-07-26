@@ -96,6 +96,6 @@ public enum MOVEMENT_INDEX {
 
 public enum TIP_INDEX {
     DEFAULT = 9000,
-    TIP_9001, TIP_9002, TIP_9003
+    TIP_9001, TIP_9002, TIP_9003, TIP_9004
 }
 #endregion

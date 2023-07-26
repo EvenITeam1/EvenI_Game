@@ -78,7 +78,7 @@ public class ObjectItemData {
 [System.Serializable]
 public class ObjectVisualData {
     public SpriteRenderer   spriteRenderer;
-    public Animator         animator;
-    public Color            defaultColor;
-    public Color            onHitColor;
+    public Animator      animator;
+    public Color         defaultColor;
+    public Color         onHitColor;
 }
