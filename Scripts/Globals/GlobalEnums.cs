@@ -22,6 +22,10 @@
         DEFAULT = 0, TRAP, COIN, PLATFORM, HOLE, ITEM
     }
 
+    public enum OBJECT_ITEM_CATEGORY {
+        DEFAULT = 0, SMALL_HEAL, MID_HEAL, BARRIER
+    }
+
 #endregion 
 
 /////////////////////////////////////////////////////////////////////////////////
@@ -29,7 +33,10 @@
 #region Bullets
     public enum BULLET_INDEX {
         DEFAULT = 3000,
-        B_3001, B_3002, B_3003, B_3004
+        B_3001, B_3002, B_3003, B_3004, B_3005, B_3006, B_3007, B_3008, B_3009, B_3010,
+        B_3011, B_3012, B_3013, B_3014, B_3015, B_3016, B_3017, B_3018, B_3019, B_3020,
+        B_3021, B_3022, B_3023, B_3024, B_3025, B_3026, B_3027, B_3028, B_3029, B_3030,
+        B_3031, B_3032, B_3033, B_3034
     }
 
     public enum BULLET_CATEGORY {
@@ -53,7 +60,10 @@
 
     public enum MOB_INDEX {
         DEFAULT = 4000,
-        M_4001, M_4002 ,M_4003 ,M_4004 ,M_4005 , M_4006
+        M_4001, M_4002, M_4003, M_4004, M_4005, M_4006, M_4007, M_4008, M_4009, M_4010,
+        M_4011, M_4012, M_4013, M_4014, M_4015, M_4016, M_4017, M_4018, M_4019, M_4020, 
+        M_4021, M_4022, M_4023, M_4024, M_4025, M_4026, M_4027, M_4028, M_4029, M_4030, 
+        M_4031
     }
 
 #endregion 

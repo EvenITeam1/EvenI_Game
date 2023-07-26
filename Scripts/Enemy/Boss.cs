@@ -18,14 +18,6 @@ public class Boss : MonoBehaviour
         bossHP.setHP(bossData.Boss_hp);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.GetComponent<PlayerHP>())
-        {
-            collision.GetComponent<Player>().GetDamage(35);
-        }
-    }
-
     public void InitializeAfterAsynchronous(){
         bossData = GameManager.Instance.BossDataTableDesign.GetBossDataByINDEX(this.Index);
     }

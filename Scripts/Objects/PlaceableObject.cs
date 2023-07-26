@@ -26,16 +26,15 @@ public class PlaceableObject : MonoBehaviour, IDamagable
     public Collider2D GetCollider() { return this.objectCollider; }
 
     private List<UnityAction> moveType = new List<UnityAction>();
+    private List<UnityAction> itemType = new List<UnityAction>();
     public float moveTriggerOffset = 5f;
-
+    
     private float mObjectHP;
-    public float ObjectHP
-    {
-        get { return mObjectHP; }
-        set
-        {
+    public float ObjectHP {
+        get {return mObjectHP;}
+        set {
             mObjectHP = value;
-            if (mObjectHP <= 0) { gameObject.SetActive(false); }
+            if(mObjectHP <= 0) {gameObject.SetActive(false);}
         }
     }
 
@@ -55,14 +54,18 @@ public class PlaceableObject : MonoBehaviour, IDamagable
 
     private void OnEnable()
     {
-        InitMoveTypes();
+        if(this.objectData.Ob_category == OBJECT_CATEGORY.TRAP){InitMoveTypes();}
+        if(this.objectData.Ob_category == OBJECT_CATEGORY.ITEM){InitMoveTypes(); InitItemTypes();}
+        
         mObjectHP = objectData.Ob_HP;
         objectCollider.size = new Vector2(objectData.Ob_width, objectData.Ob_height);
     }
 
     private void Start()
     {
-        StartCoroutine(CheckPlayerForMove());
+        if(objectData.Ob_movement_index != MOVEMENT_INDEX.HOLD) {
+            StartCoroutine(CheckPlayerForMove());
+        }
         /*Set ObjectActions*/
 
         //objectMovementActions[1] = new UnityAction<Collider2D>((_Collider2D) => {HandleControl_001(_Collider2D);});
@@ -103,8 +106,10 @@ public class PlaceableObject : MonoBehaviour, IDamagable
         if (_other.TryGetComponent(out Player player))
         {
             RunnerManager.Instance.GlobalEventInstance.scoreCheck.Score += this.coinData.ScoreValue;
-            Instantiate(this.coinData.particle, transform.position, Quaternion.identity);
-            Destroy(gameObject);
+            var coinParticle = ObjectPool.instance.GetObject(this.coinData.particle.gameObject);
+            coinParticle.transform.position = transform.position;
+            coinParticle.SetActive(true);
+            gameObject.SetActive(false);
         }
     }
     public void HandlePlatform(Collider2D _other)
@@ -113,6 +118,9 @@ public class PlaceableObject : MonoBehaviour, IDamagable
     }
     public void HandleItem(Collider2D _other)
     {
+        itemType[(int)itemData.ITEM_CATEGORY].Invoke();
+        gameObject.SetActive(false);
+    
         return;
     }
     #endregion
@@ -146,10 +154,11 @@ public class PlaceableObject : MonoBehaviour, IDamagable
     IEnumerator CheckPlayerForMove()
     {
         RaycastHit2D player;
-        Vector2 castPos = Vector2.one * transform.position + Vector2.left * moveTriggerOffset;
+        Vector2 castPos = (Vector2.one * transform.position) + (Vector2.left * moveTriggerOffset) + (Vector2.down * 10);
+        Debug.DrawRay(castPos, Vector2.up, Color.cyan, 20f);
         yield return new WaitUntil(
             () => {
-                player = Physics2D.Raycast(castPos, Vector2.up, 6f, LayerMask.GetMask("Player", "Ghost"));
+                player = Physics2D.Raycast(castPos, Vector2.up, 20f, LayerMask.GetMask("Player", "Ghost"));
                 return player;
             }
         );
@@ -187,6 +196,7 @@ public class PlaceableObject : MonoBehaviour, IDamagable
 
     public void MovementVerticalLoop()
     {
+        //visualData.animator.SetTrigger("RunTrigger");
         transform.DOLocalMove((Vector2.one * transform.position) + (Vector2.up * objectData.Ob_move_strength), 1f)
             .SetLoops(-1, LoopType.Yoyo)
             .SetEase(Ease.InOutBack);
@@ -194,6 +204,7 @@ public class PlaceableObject : MonoBehaviour, IDamagable
 
     public void MovementHorizontalLoop()
     {
+        //visualData.animator.SetTrigger("RunTrigger");
         transform.DOLocalMove((Vector2.one * transform.position) + (Vector2.left * objectData.Ob_move_strength), 1f)
             .SetLoops(-1, LoopType.Yoyo)
             .SetEase(Ease.InOutBack);
@@ -207,6 +218,36 @@ public class PlaceableObject : MonoBehaviour, IDamagable
         this.moveType.Add(new UnityAction(() => MovementRight()));
         this.moveType.Add(new UnityAction(() => MovementVerticalLoop()));
         this.moveType.Add(new UnityAction(() => MovementHorizontalLoop()));
+    }
+
+    #endregion
+
+    /////////////////////////////////////////////////////////////////////////////////
+    
+    #region Items
+    public void ItemSmallHeal(){
+        RunnerManager.Instance.GlobalPlayer.Heal(0.3f);
+        Instantiate(itemData.destroyParticle, transform.position, Quaternion.identity);
+        Instantiate(itemData.activateParticle, RunnerManager.Instance.GlobalPlayer.transform);
+    }
+    public void ItemMediumHeal(){
+        RunnerManager.Instance.GlobalPlayer.Heal(0.5f);
+        Instantiate(itemData.destroyParticle, transform.position, Quaternion.identity).transform.localScale *= 1.5f;
+        Instantiate(itemData.activateParticle, RunnerManager.Instance.GlobalPlayer.transform);
+
+    }
+
+    public void ItemBarrier(){
+        RunnerManager.Instance.GlobalPlayer.Barrier();
+        Instantiate(itemData.destroyParticle, transform.position, Quaternion.identity);
+        Instantiate(itemData.activateParticle, RunnerManager.Instance.GlobalPlayer.transform);
+    }
+
+    public void InitItemTypes(){
+        this.itemType.Add(new UnityAction(() => {}));
+        this.itemType.Add(new UnityAction(() => ItemSmallHeal()));
+        this.itemType.Add(new UnityAction(() => ItemMediumHeal()));
+        this.itemType.Add(new UnityAction(() => ItemBarrier()));
     }
 
     #endregion

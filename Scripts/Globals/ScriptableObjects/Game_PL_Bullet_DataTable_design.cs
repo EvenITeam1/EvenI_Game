@@ -28,9 +28,12 @@ public class Game_PL_Bullet_DataTable_design : GoogleDataTable {
         var txt = (await UnityWebRequest.Get(sheet_URL).SendWebRequest()).downloadHandler.text;
         
         string[] lines = txt.Split('\n');
-        for(int i = 5; i < lines.Length; i++){
-            bulletDataforms.Add( new BulletData(lines[i]));
-            Bullet_Prefebs[i - 5].bulletData = bulletDataforms.Last();
+        // 앞으로 ForEach는 테이블이 아닌 프리펩의 개수만큼 불러온다
+        // 이유는 테이블 상황이 현재 너무 불안정하므로, 프리펩의 수 기준으로 받아오는것이 옳다 판단
+        int lineStart = 5;
+        for(int i = 0; i < Bullet_Prefebs.Count; i++){
+            bulletDataforms.Add( new BulletData(lines[lineStart + i]));
+            Bullet_Prefebs[i].bulletData = bulletDataforms.Last();
         }
     }
 

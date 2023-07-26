@@ -6,7 +6,7 @@ using UnityEngine;
 namespace TwoDimensions
 {
     public class AutoRenderOrder : MonoBehaviour {
-        [HideInInspector] List<SpriteRenderer> spriteRenderer = new List<SpriteRenderer>();
+        [HideInInspector] public List<SpriteRenderer> spriteRenderer = new List<SpriteRenderer>();
 
         public void GetChildSpriteRenderers(){
             spriteRenderer.Add(transform.GetComponent<SpriteRenderer>());
@@ -30,6 +30,15 @@ namespace TwoDimensions
         public void SetRenderOrderByContexMenu(){
             GetChildSpriteRenderers();
             SetRenderOrder();
+        }
+
+        public void ChangeRenderState(bool _activate) {
+            if(_activate){
+                foreach(SpriteRenderer sr in spriteRenderer){sr.enabled = true;}
+            }
+            else {
+                foreach(SpriteRenderer sr in spriteRenderer){sr.enabled = false;}
+            }
         }
     }
 }

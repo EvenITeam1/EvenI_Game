@@ -217,9 +217,10 @@ namespace PixelSpark.Parallaxer
             {
                 _copies[i] = Instantiate(spriteRenderer, transform, false);
                 _copies[i].gameObject.name = $"Element{i}";
-                _copies[i].gameObject.layer = LayerMask.NameToLayer("BackGround");
+                _copies[i].gameObject.layer = gameObject.layer;
                 if(SpecialChildMaterial != null) {_copies[i].material = SpecialChildMaterial;}
             }
+
             AfterDrawSubBackgrounds.Invoke();
 
             Destroy(dummyObject);

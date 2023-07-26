@@ -28,9 +28,14 @@ public class Game_PL_Object_DataTable_design : GoogleDataTable {
         var txt = (await UnityWebRequest.Get(sheet_URL).SendWebRequest()).downloadHandler.text;
         
         string[] lines = txt.Split('\n');
-        for(int i = 5; i < lines.Length; i++){
-            objectDataforms.Add( new ObjectData(lines[i]));
-            Ob_Prefebs[i - 5].objectData = objectDataforms.Last();
+        
+        // 앞으로 ForEach는 테이블이 아닌 프리펩의 개수만큼 불러온다
+        // 이유는 테이블 상황이 현재 너무 불안정하므로, 프리펩의 수 기준으로 받아오는것이 옳다 판단
+        int lineStart = 5;
+        
+        for(int i = 0; i < Ob_Prefebs.Count; i++){
+            objectDataforms.Add( new ObjectData(lines[lineStart + i]));
+            Ob_Prefebs[i].objectData = objectDataforms.Last();
         }
     }
 
