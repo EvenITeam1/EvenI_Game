@@ -20,7 +20,7 @@ public class HandleButtons : MonoBehaviour
             // Application.Quit() does not work in the editor so
             // UnityEditor.EditorApplication.isPlaying need to be set to false to end the game
             // UnityEditor.EditorApplication.isPlaying = false;
-
+            SceneManager.LoadScene("GameOverScene");
         #else
             // Application.Quit();
             SceneManager.LoadScene("GameOverScene");
