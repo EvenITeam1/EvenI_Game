@@ -23,7 +23,7 @@ public class HandleButtons : MonoBehaviour
 
         #else
             // Application.Quit();
-            LoadingSceneManager.LoadScene("GameOverScene");
+            SceneManager.LoadScene("GameOverScene");
         #endif
     }
 }

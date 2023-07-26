@@ -1073,7 +1073,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   isActivated: 0
-  bossHPUI: {fileID: 0}
+  bossHPUI: {fileID: 1807889555}
   bossObj: {fileID: 714697086}
 --- !u!212 &537428233
 SpriteRenderer:
@@ -9583,6 +9583,22 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: e5e591b5dbfcf46528b674bf82f38672, type: 3}
+--- !u!1 &1807889555 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7011600562280580792, guid: e5e591b5dbfcf46528b674bf82f38672, type: 3}
+  m_PrefabInstance: {fileID: 1807889554}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1807889556 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7011600562280580790, guid: e5e591b5dbfcf46528b674bf82f38672, type: 3}
+  m_PrefabInstance: {fileID: 1807889554}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807889555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1851451376
 GameObject:
   m_ObjectHideFlags: 0
@@ -10179,7 +10195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hp: 0
   _setHp: 5000
-  _hpBar: {fileID: 0}
+  _hpBar: {fileID: 1807889556}
 --- !u!95 &8845007726629981041
 Animator:
   serializedVersion: 4
