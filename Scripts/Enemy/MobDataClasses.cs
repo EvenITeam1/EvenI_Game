@@ -6,8 +6,6 @@ using UnityEngine.Events;
 
 [System.Serializable]
 public class MobData {
-    
-    
     public static readonly int indexBasis = 4000;
     public MOB_INDEX  Index;
     public string Mob_name;
