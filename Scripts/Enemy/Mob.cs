@@ -202,8 +202,6 @@ public class Mob : MonoBehaviour, IDamagable
         Instantiate(HitParticle, transform);
     }
     
-    public bool IsHitable(){return true;}
-
     public bool IsHitable() { return true; }
 
     private void OnDisable()
