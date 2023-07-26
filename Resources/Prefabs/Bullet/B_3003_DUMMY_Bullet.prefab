@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1789428647
   m_SortingLayer: 4
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: -1747451453, guid: b30d8ce664440ac41a80bbffc1337c50, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -174,7 +174,7 @@ MonoBehaviour:
     Bullet_crit_chance: 0
     Bullet_crit_const: 0
     Bullet_speed: 0
-    Bullet_time: 0
+    Bullet_last_time: 0
     Bullet_reflect_count: 0
     Bullet_filecode: 
   bulletVisualData:
@@ -187,5 +187,5 @@ MonoBehaviour:
     nonCritColor:
       serializedVersion: 2
       rgba: 0
-  _lastTime: 0
+  time: 0
   bulletRigid: {fileID: 0}

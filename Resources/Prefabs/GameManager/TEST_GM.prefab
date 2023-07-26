@@ -1,5 +1,53 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1087792379
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1087792381}
+  - component: {fileID: 1087792380}
+  m_Layer: 0
+  m_Name: Tip_DataTable
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1087792381
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1087792379}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.19710687, y: 0.250803, z: -0.22040462}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 806037512186828231}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1087792380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1087792379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5690f251eb4ee24da2b3dfd882d31b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tipDataforms: []
+  emptyData:
+    Index: 9000
+    tipString: 
 --- !u!1 &806037511068286036
 GameObject:
   m_ObjectHideFlags: 0
@@ -54,21 +102,41 @@ MonoBehaviour:
     Mob_bullet_index: 0
     Mob_tracking: 0
     Mob_movement_index: 0
-    Mob_speed: 0
+    Mob_move_strength: 0
+    Mob_Score: 0
     Mob_filecode: 
-  - Index: 4001
-    Mob_name: "\uC784\uC2DC\uBAAC\uC2A4\uD130"
-    Mob_category: 2
-    Mob_width: 1
-    Mob_height: 1
-    Mob_hp: 200
-    Mob_bullet_index: 3003
-    Mob_tracking: 1
-    Mob_movement_index: 5
-    Mob_speed: 3
-    Mob_filecode: dummymob.png
   Mob_Prefebs:
   - {fileID: 433485986516850946, guid: b5953ef55e7eb46da9dec5f14b9bdb51, type: 3}
+  - {fileID: 9052115767988883192, guid: e7845c1643f554fcd8b6d8ace94b2792, type: 3}
+  - {fileID: 9030922404158228229, guid: 6c6f185014043472186b3db0799a2208, type: 3}
+  - {fileID: 987144579625772683, guid: 125a7cd7a450f4e679f51a819b1ef8ee, type: 3}
+  - {fileID: 4322238072534184757, guid: c82b0ad21b1e64d31abe64d8b91b35cb, type: 3}
+  - {fileID: 8294175019041606711, guid: 69e1adf2cff2146c8a80e820183af3ae, type: 3}
+  - {fileID: 2721235632289845870, guid: ad0ca7c7d63e649c5b16207a48b73e5c, type: 3}
+  - {fileID: 3133018356306268608, guid: f456e406002904644bcda320bb7f05eb, type: 3}
+  - {fileID: 286530990452807236, guid: b39a27150c4fc476b97dea3d9ace300a, type: 3}
+  - {fileID: 388781164709538311, guid: 55a22cda6bfdd4150adf925a1e9005d0, type: 3}
+  - {fileID: 1559453495512615186, guid: 35259a1e5bc98487ca260eba11ab8dcf, type: 3}
+  - {fileID: 3756500684940430089, guid: cba368dea70454460a1b7bdf9f21ee40, type: 3}
+  - {fileID: 9219070904109644964, guid: a321717091d564423b2e2291ceea592a, type: 3}
+  - {fileID: 1547454585325589879, guid: dd2145da05bd8445a8f40fe7edf1c479, type: 3}
+  - {fileID: 5135271050283224733, guid: 6474c81880a2d4ab88d5212c8bf944ab, type: 3}
+  - {fileID: 1626227775514822508, guid: 65211c02c92934475a44fc24054664de, type: 3}
+  - {fileID: 7350852624801447317, guid: d5e3073a6a7e8414996be38f119b4013, type: 3}
+  - {fileID: 846529011058195055, guid: fa251db6c9fe94caa83dd4e2fa19f07b, type: 3}
+  - {fileID: 7162486612885125947, guid: 4c102601144d147d48d46ad30cd9e814, type: 3}
+  - {fileID: 8423976521229068539, guid: daf0eb5a2df7c47068b4171dfaa412ad, type: 3}
+  - {fileID: 6875759940597199934, guid: a9a21fe6d1d2740bdafd02a78d5c6a1e, type: 3}
+  - {fileID: 6051730487696234767, guid: d76b6eb684c7f4909a307b44c6e3b72e, type: 3}
+  - {fileID: 4366742381621534371, guid: 67d2880cf239c4236a81aa45a7e410b4, type: 3}
+  - {fileID: 8952716734951254529, guid: 0886cca1d44934f53924664dce3e4ea8, type: 3}
+  - {fileID: 2517035185388986465, guid: a8a2978af7c24478ea737d6d41de1582, type: 3}
+  - {fileID: 2681404500039258305, guid: 04a4bd4ea6e5b46caacb764c35eba63a, type: 3}
+  - {fileID: 1045615913828273176, guid: e1c68ef8cf15f41a8953ed35d965168d, type: 3}
+  - {fileID: 935660861638266189, guid: b1e2cb4c52ba840198219dee9dc55014, type: 3}
+  - {fileID: 4144547997641426419, guid: 02458bdf883ab431991d31f9de77ec80, type: 3}
+  - {fileID: 8806213221652463456, guid: dc525b0433d09458d9c4cf2a083225e3, type: 3}
+  - {fileID: 1112894344863674569, guid: c74bb35af1be546db83bce51edee7211, type: 3}
   emptyData:
     Index: 4000
     Mob_name: "\uBE44\uC5B4\uC788\uC74C"
@@ -79,7 +147,8 @@ MonoBehaviour:
     Mob_bullet_index: 0
     Mob_tracking: 0
     Mob_movement_index: 0
-    Mob_speed: 0
+    Mob_move_strength: 0
+    Mob_Score: 0
     Mob_filecode: 
 --- !u!1 &806037511114420548
 GameObject:
@@ -183,6 +252,7 @@ Transform:
   - {fileID: 806037512986102245}
   - {fileID: 806037511068286037}
   - {fileID: 806037511114420549}
+  - {fileID: 1087792381}
   - {fileID: 806037511536748679}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -215,13 +285,14 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
   IsTestMode: 1
-  IsAsyncLoaded: 0
+  IsAsyncLoaded: 1
   CharacterDataTableDesign: {fileID: 806037512606951061}
   ObjectDataTableDesign: {fileID: 806037512569665700}
   BulletDataTableDesign: {fileID: 806037512525714356}
   LaserDataTableDesign: {fileID: 806037512986102246}
   MobDataTableDesign: {fileID: 806037511068286038}
   BossDataTableDesign: {fileID: 806037511114420550}
+  TipDataTableDesign: {fileID: 1087792380}
   GlobalSaveNLoad: {fileID: 806037511536748678}
 --- !u!1 &806037512525714362
 GameObject:
@@ -279,7 +350,7 @@ MonoBehaviour:
     Bullet_crit_chance: 0
     Bullet_crit_const: 0
     Bullet_speed: 0
-    Bullet_time: 0
+    Bullet_last_time: 0
     Bullet_reflect_count: 0
     Bullet_filecode: 
   - Index: 3001
@@ -293,7 +364,7 @@ MonoBehaviour:
     Bullet_crit_chance: 0.2
     Bullet_crit_const: 3
     Bullet_speed: 10
-    Bullet_time: 5
+    Bullet_last_time: 0
     Bullet_reflect_count: 0
     Bullet_filecode: ' '
   - Index: 3002
@@ -307,7 +378,7 @@ MonoBehaviour:
     Bullet_crit_chance: 0.8
     Bullet_crit_const: 2
     Bullet_speed: 20
-    Bullet_time: 2
+    Bullet_last_time: 0
     Bullet_reflect_count: 0
     Bullet_filecode: ' '
   - Index: 3003
@@ -321,9 +392,9 @@ MonoBehaviour:
     Bullet_crit_chance: -1
     Bullet_crit_const: -1
     Bullet_speed: 20
-    Bullet_time: 7
+    Bullet_last_time: 0
     Bullet_reflect_count: 0
-    Bullet_filecode: "1\uD300-asset-\uCD1D\uD0C4\uB9C9 \uBAA8\uC74C-2png"
+    Bullet_filecode: ' '
   - Index: 3004
     Bullet_name: "\uB354\uBBF8\uBCF4\uC2A4 \uBC18\uC0AC\uD0C4"
     Bullet_category: 2
@@ -335,14 +406,469 @@ MonoBehaviour:
     Bullet_crit_chance: -1
     Bullet_crit_const: -1
     Bullet_speed: 6
-    Bullet_time: 20
+    Bullet_last_time: 0
     Bullet_reflect_count: 10
     Bullet_filecode: ' '
+  - Index: 3005
+    Bullet_name: "\uBAAC\uC2A4\uD130 \uAE30\uBCF8\uD0C4(1\uC2A4\uD14C\uC774\uC9C0\uC640
+      2\uC2A4\uD14C\uC774\uC9C0)"
+    Bullet_category: 0
+    Bullet_width: 0
+    Bullet_height: 0
+    Bullet_min_dmg: 0
+    Bullet_max_dmg: 0
+    Bullet_set_dmg: 0
+    Bullet_crit_chance: 0
+    Bullet_crit_const: 0
+    Bullet_speed: 0
+    Bullet_last_time: 0
+    Bullet_reflect_count: 0
+    Bullet_filecode: 
+  - Index: 3006
+    Bullet_name: "\uBAAC\uC2A4\uD130 \uAE30\uBCF8\uD0C4(3\uC2A4\uD14C\uC774\uC9C0\uC640
+      4\uC2A4\uD14C\uC774\uC9C0)"
+    Bullet_category: 0
+    Bullet_width: 0
+    Bullet_height: 0
+    Bullet_min_dmg: 0
+    Bullet_max_dmg: 0
+    Bullet_set_dmg: 0
+    Bullet_crit_chance: 0
+    Bullet_crit_const: 0
+    Bullet_speed: 0
+    Bullet_last_time: 0
+    Bullet_reflect_count: 0
+    Bullet_filecode: 
+  - Index: 3007
+    Bullet_name: "\uBAAC\uC2A4\uD130 \uAE30\uBCF8\uD0C4(5\uC2A4\uD14C\uC774\uC9C0\uC640
+      6\uC2A4\uD14C\uC774\uC9C0)"
+    Bullet_category: 0
+    Bullet_width: 0
+    Bullet_height: 0
+    Bullet_min_dmg: 0
+    Bullet_max_dmg: 0
+    Bullet_set_dmg: 0
+    Bullet_crit_chance: 0
+    Bullet_crit_const: 0
+    Bullet_speed: 0
+    Bullet_last_time: 0
+    Bullet_reflect_count: 0
+    Bullet_filecode: 
+  - Index: 3008
+    Bullet_name: "\uBAAC\uC2A4\uD130 \uAE30\uBCF8\uD0C4(7\uC2A4\uD14C\uC774\uC9C0\uC640
+      8\uC2A4\uD14C\uC774\uC9C0)"
+    Bullet_category: 0
+    Bullet_width: 0
+    Bullet_height: 0
+    Bullet_min_dmg: 0
+    Bullet_max_dmg: 0
+    Bullet_set_dmg: 0
+    Bullet_crit_chance: 0
+    Bullet_crit_const: 0
+    Bullet_speed: 0
+    Bullet_last_time: 0
+    Bullet_reflect_count: 0
+    Bullet_filecode: 
+  - Index: 3009
+    Bullet_name: "\uBAAC\uC2A4\uD130 \uAE30\uBCF8\uD0C4(9\uC2A4\uD14C\uC774\uC9C0\uC640
+      10\uC2A4\uD14C\uC774\uC9C0)"
+    Bullet_category: 0
+    Bullet_width: 0
+    Bullet_height: 0
+    Bullet_min_dmg: 0
+    Bullet_max_dmg: 0
+    Bullet_set_dmg: 0
+    Bullet_crit_chance: 0
+    Bullet_crit_const: 0
+    Bullet_speed: 0
+    Bullet_last_time: 0
+    Bullet_reflect_count: 0
+    Bullet_filecode: 
+  - Index: 3010
+    Bullet_name: "\uC2DC\uBC14 \uC774\uB204 \uAE30\uBCF8\uD0C4"
+    Bullet_category: 0
+    Bullet_width: 0
+    Bullet_height: 0
+    Bullet_min_dmg: 0
+    Bullet_max_dmg: 0
+    Bullet_set_dmg: 0
+    Bullet_crit_chance: 0
+    Bullet_crit_const: 0
+    Bullet_speed: 0
+    Bullet_last_time: 0
+    Bullet_reflect_count: 0
+    Bullet_filecode: 
+  - Index: 3011
+    Bullet_name: "\uC2DC\uBC14 \uC774\uB204 \uCD94\uAC00\uD0C4"
+    Bullet_category: 0
+    Bullet_width: 0
+    Bullet_height: 0
+    Bullet_min_dmg: 0
+    Bullet_max_dmg: 0
+    Bullet_set_dmg: 0
+    Bullet_crit_chance: 0
+    Bullet_crit_const: 0
+    Bullet_speed: 0
+    Bullet_last_time: 0
+    Bullet_reflect_count: 0
+    Bullet_filecode: 
+  - Index: 3012
+    Bullet_name: "\uACE8\uB4E0 \uB9AC\uD2B8\uB9AC\uBC84 \uAE30\uBCF8\uD0C4"
+    Bullet_category: 0
+    Bullet_width: 0
+    Bullet_height: 0
+    Bullet_min_dmg: 0
+    Bullet_max_dmg: 0
+    Bullet_set_dmg: 0
+    Bullet_crit_chance: 0
+    Bullet_crit_const: 0
+    Bullet_speed: 0
+    Bullet_last_time: 0
+    Bullet_reflect_count: 0
+    Bullet_filecode: 
+  - Index: 3013
+    Bullet_name: "\uACE8\uB4E0 \uB9AC\uD2B8\uB9AC\uBC84 \uCD94\uAC00\uD0C4"
+    Bullet_category: 0
+    Bullet_width: 0
+    Bullet_height: 0
+    Bullet_min_dmg: 0
+    Bullet_max_dmg: 0
+    Bullet_set_dmg: 0
+    Bullet_crit_chance: 0
+    Bullet_crit_const: 0
+    Bullet_speed: 0
+    Bullet_last_time: 0
+    Bullet_reflect_count: 0
+    Bullet_filecode: 
+  - Index: 3014
+    Bullet_name: "\uB798\uBE0C\uB77C\uB3C4 \uB9AC\uD2B8\uB9AC\uBC84 \uAE30\uBCF8\uD0C4"
+    Bullet_category: 0
+    Bullet_width: 0
+    Bullet_height: 0
+    Bullet_min_dmg: 0
+    Bullet_max_dmg: 0
+    Bullet_set_dmg: 0
+    Bullet_crit_chance: 0
+    Bullet_crit_const: 0
+    Bullet_speed: 0
+    Bullet_last_time: 0
+    Bullet_reflect_count: 0
+    Bullet_filecode: 
+  - Index: 3015
+    Bullet_name: "\uB798\uBE0C\uB77C\uB3C4 \uB9AC\uD2B8\uB9AC\uBC84 \uCD94\uAC00\uD0C4"
+    Bullet_category: 0
+    Bullet_width: 0
+    Bullet_height: 0
+    Bullet_min_dmg: 0
+    Bullet_max_dmg: 0
+    Bullet_set_dmg: 0
+    Bullet_crit_chance: 0
+    Bullet_crit_const: 0
+    Bullet_speed: 0
+    Bullet_last_time: 0
+    Bullet_reflect_count: 0
+    Bullet_filecode: 
+  - Index: 3016
+    Bullet_name: "\uADF8\uB808\uC774\uD558\uC6B4\uB4DC \uAE30\uBCF8\uD0C4"
+    Bullet_category: 0
+    Bullet_width: 0
+    Bullet_height: 0
+    Bullet_min_dmg: 0
+    Bullet_max_dmg: 0
+    Bullet_set_dmg: 0
+    Bullet_crit_chance: 0
+    Bullet_crit_const: 0
+    Bullet_speed: 0
+    Bullet_last_time: 0
+    Bullet_reflect_count: 0
+    Bullet_filecode: 
+  - Index: 3017
+    Bullet_name: "\uADF8\uB808\uC774\uD558\uC6B4\uB4DC \uCD94\uAC00\uD0C4"
+    Bullet_category: 0
+    Bullet_width: 0
+    Bullet_height: 0
+    Bullet_min_dmg: 0
+    Bullet_max_dmg: 0
+    Bullet_set_dmg: 0
+    Bullet_crit_chance: 0
+    Bullet_crit_const: 0
+    Bullet_speed: 0
+    Bullet_last_time: 0
+    Bullet_reflect_count: 0
+    Bullet_filecode: 
+  - Index: 3018
+    Bullet_name: "\uC800\uBA3C \uC170\uD37C\uB4DC \uAE30\uBCF8\uD0C4"
+    Bullet_category: 0
+    Bullet_width: 0
+    Bullet_height: 0
+    Bullet_min_dmg: 0
+    Bullet_max_dmg: 0
+    Bullet_set_dmg: 0
+    Bullet_crit_chance: 0
+    Bullet_crit_const: 0
+    Bullet_speed: 0
+    Bullet_last_time: 0
+    Bullet_reflect_count: 0
+    Bullet_filecode: 
+  - Index: 3019
+    Bullet_name: "\uC800\uBA3C \uC170\uD37C\uB4DC \uCD94\uAC00\uD0C4"
+    Bullet_category: 0
+    Bullet_width: 0
+    Bullet_height: 0
+    Bullet_min_dmg: 0
+    Bullet_max_dmg: 0
+    Bullet_set_dmg: 0
+    Bullet_crit_chance: 0
+    Bullet_crit_const: 0
+    Bullet_speed: 0
+    Bullet_last_time: 0
+    Bullet_reflect_count: 0
+    Bullet_filecode: 
+  - Index: 3020
+    Bullet_name: "\uD5C8\uC2A4\uD0A4 \uAE30\uBCF8\uD0C4"
+    Bullet_category: 0
+    Bullet_width: 0
+    Bullet_height: 0
+    Bullet_min_dmg: 0
+    Bullet_max_dmg: 0
+    Bullet_set_dmg: 0
+    Bullet_crit_chance: 0
+    Bullet_crit_const: 0
+    Bullet_speed: 0
+    Bullet_last_time: 0
+    Bullet_reflect_count: 0
+    Bullet_filecode: 
+  - Index: 3021
+    Bullet_name: "\uD5C8\uC2A4\uD0A4 \uCD94\uAC00\uD0C4"
+    Bullet_category: 0
+    Bullet_width: 0
+    Bullet_height: 0
+    Bullet_min_dmg: 0
+    Bullet_max_dmg: 0
+    Bullet_set_dmg: 0
+    Bullet_crit_chance: 0
+    Bullet_crit_const: 0
+    Bullet_speed: 0
+    Bullet_last_time: 0
+    Bullet_reflect_count: 0
+    Bullet_filecode: 
+  - Index: 3022
+    Bullet_name: "\uC6B8\uD504 \uAE30\uBCF8\uD0C4"
+    Bullet_category: 0
+    Bullet_width: 0
+    Bullet_height: 0
+    Bullet_min_dmg: 0
+    Bullet_max_dmg: 0
+    Bullet_set_dmg: 0
+    Bullet_crit_chance: 0
+    Bullet_crit_const: 0
+    Bullet_speed: 0
+    Bullet_last_time: 0
+    Bullet_reflect_count: 0
+    Bullet_filecode: 
+  - Index: 3023
+    Bullet_name: "\uC6B8\uD504 \uCD94\uAC00\uD0C4"
+    Bullet_category: 0
+    Bullet_width: 0
+    Bullet_height: 0
+    Bullet_min_dmg: 0
+    Bullet_max_dmg: 0
+    Bullet_set_dmg: 0
+    Bullet_crit_chance: 0
+    Bullet_crit_const: 0
+    Bullet_speed: 0
+    Bullet_last_time: 0
+    Bullet_reflect_count: 0
+    Bullet_filecode: 
+  - Index: 3024
+    Bullet_name: "\uACE8\uB4E0 \uD3EC\uBA54\uB77C\uB2C8\uC548 \uAE30\uBCF8\uD0C4"
+    Bullet_category: 0
+    Bullet_width: 0
+    Bullet_height: 0
+    Bullet_min_dmg: 0
+    Bullet_max_dmg: 0
+    Bullet_set_dmg: 0
+    Bullet_crit_chance: 0
+    Bullet_crit_const: 0
+    Bullet_speed: 0
+    Bullet_last_time: 0
+    Bullet_reflect_count: 0
+    Bullet_filecode: 
+  - Index: 3025
+    Bullet_name: "\uACE8\uB4E0 \uD3EC\uBA54\uB77C\uB2C8\uC548 \uCD94\uAC00\uD0C4"
+    Bullet_category: 0
+    Bullet_width: 0
+    Bullet_height: 0
+    Bullet_min_dmg: 0
+    Bullet_max_dmg: 0
+    Bullet_set_dmg: 0
+    Bullet_crit_chance: 0
+    Bullet_crit_const: 0
+    Bullet_speed: 0
+    Bullet_last_time: 0
+    Bullet_reflect_count: 0
+    Bullet_filecode: 
+  - Index: 3026
+    Bullet_name: "\uD654\uC774\uD2B8 \uD3EC\uBA54\uB77C\uB2C8\uC548 \uAE30\uBCF8\uD0C4"
+    Bullet_category: 0
+    Bullet_width: 0
+    Bullet_height: 0
+    Bullet_min_dmg: 0
+    Bullet_max_dmg: 0
+    Bullet_set_dmg: 0
+    Bullet_crit_chance: 0
+    Bullet_crit_const: 0
+    Bullet_speed: 0
+    Bullet_last_time: 0
+    Bullet_reflect_count: 0
+    Bullet_filecode: 
+  - Index: 3027
+    Bullet_name: "\uD654\uC774\uD2B8 \uD3EC\uBA54\uB77C\uB2C8\uC548 \uCD94\uAC00\uD0C4"
+    Bullet_category: 0
+    Bullet_width: 0
+    Bullet_height: 0
+    Bullet_min_dmg: 0
+    Bullet_max_dmg: 0
+    Bullet_set_dmg: 0
+    Bullet_crit_chance: 0
+    Bullet_crit_const: 0
+    Bullet_speed: 0
+    Bullet_last_time: 0
+    Bullet_reflect_count: 0
+    Bullet_filecode: 
+  - Index: 3028
+    Bullet_name: "\uD37C\uADF8 \uAE30\uBCF8\uD0C4"
+    Bullet_category: 0
+    Bullet_width: 0
+    Bullet_height: 0
+    Bullet_min_dmg: 0
+    Bullet_max_dmg: 0
+    Bullet_set_dmg: 0
+    Bullet_crit_chance: 0
+    Bullet_crit_const: 0
+    Bullet_speed: 0
+    Bullet_last_time: 0
+    Bullet_reflect_count: 0
+    Bullet_filecode: 
+  - Index: 3029
+    Bullet_name: "\uD37C\uADF8 \uCD94\uAC00\uD0C4"
+    Bullet_category: 0
+    Bullet_width: 0
+    Bullet_height: 0
+    Bullet_min_dmg: 0
+    Bullet_max_dmg: 0
+    Bullet_set_dmg: 0
+    Bullet_crit_chance: 0
+    Bullet_crit_const: 0
+    Bullet_speed: 0
+    Bullet_last_time: 0
+    Bullet_reflect_count: 0
+    Bullet_filecode: 
+  - Index: 3030
+    Bullet_name: "\uC2A4\uD14C\uC774\uC9C0 1~2  \uBCF4\uC2A4\uBBF8\uC0AC\uC77C \uBE68\uAC15"
+    Bullet_category: 0
+    Bullet_width: 0
+    Bullet_height: 0
+    Bullet_min_dmg: 0
+    Bullet_max_dmg: 0
+    Bullet_set_dmg: 0
+    Bullet_crit_chance: 0
+    Bullet_crit_const: 0
+    Bullet_speed: 0
+    Bullet_last_time: 0
+    Bullet_reflect_count: 0
+    Bullet_filecode: 
+  - Index: 3031
+    Bullet_name: "\uC2A4\uD14C\uC774\uC9C0 3~4  \uBCF4\uC2A4\uBBF8\uC0AC\uC77C \uC8FC\uD669"
+    Bullet_category: 0
+    Bullet_width: 0
+    Bullet_height: 0
+    Bullet_min_dmg: 0
+    Bullet_max_dmg: 0
+    Bullet_set_dmg: 0
+    Bullet_crit_chance: 0
+    Bullet_crit_const: 0
+    Bullet_speed: 0
+    Bullet_last_time: 0
+    Bullet_reflect_count: 0
+    Bullet_filecode: 
+  - Index: 3032
+    Bullet_name: "\uC2A4\uD14C\uC774\uC9C0 5~6  \uBCF4\uC2A4\uBBF8\uC0AC\uC77C \uB178\uB791"
+    Bullet_category: 0
+    Bullet_width: 0
+    Bullet_height: 0
+    Bullet_min_dmg: 0
+    Bullet_max_dmg: 0
+    Bullet_set_dmg: 0
+    Bullet_crit_chance: 0
+    Bullet_crit_const: 0
+    Bullet_speed: 0
+    Bullet_last_time: 0
+    Bullet_reflect_count: 0
+    Bullet_filecode: 
+  - Index: 3033
+    Bullet_name: "\uC2A4\uD14C\uC774\uC9C0 7~8  \uBCF4\uC2A4\uBBF8\uC0AC\uC77C \uCD08\uB85D"
+    Bullet_category: 0
+    Bullet_width: 0
+    Bullet_height: 0
+    Bullet_min_dmg: 0
+    Bullet_max_dmg: 0
+    Bullet_set_dmg: 0
+    Bullet_crit_chance: 0
+    Bullet_crit_const: 0
+    Bullet_speed: 0
+    Bullet_last_time: 0
+    Bullet_reflect_count: 0
+    Bullet_filecode: 
+  - Index: 3034
+    Bullet_name: "\uC2A4\uD14C\uC774\uC9C0 9~10  \uBCF4\uC2A4\uBBF8\uC0AC\uC77C \uD30C\uB791"
+    Bullet_category: 0
+    Bullet_width: 0
+    Bullet_height: 0
+    Bullet_min_dmg: 0
+    Bullet_max_dmg: 0
+    Bullet_set_dmg: 0
+    Bullet_crit_chance: 0
+    Bullet_crit_const: 0
+    Bullet_speed: 0
+    Bullet_last_time: 0
+    Bullet_reflect_count: 0
+    Bullet_filecode: 
   Bullet_Prefebs:
   - {fileID: 626804335690743037, guid: 674c01e81472647ceab3adc8364dc49f, type: 3}
   - {fileID: 626804335690743037, guid: bda32e45916e54ff19226998c60cd687, type: 3}
-  - {fileID: 626804335690743037, guid: 6ae2f1e2b8116424cb2b56ad6db08f1a, type: 3}
-  - {fileID: 626804335690743037, guid: eb25d175b869c451082f58e5cddfeb82, type: 3}
+  - {fileID: 3112193122054950681, guid: 6ae2f1e2b8116424cb2b56ad6db08f1a, type: 3}
+  - {fileID: 1553458426057371917, guid: eb25d175b869c451082f58e5cddfeb82, type: 3}
+  - {fileID: 5007766833440067449, guid: daea78e7e569643fc8063ed1cb45947b, type: 3}
+  - {fileID: 1835779762976647891, guid: 38d3319383d864ce394ab12af0398a26, type: 3}
+  - {fileID: -8990725532343423369, guid: 27f0ec3ee5783483dbda668923a8600b, type: 3}
+  - {fileID: -3461268119277964106, guid: 71999fe6cf5a0437b8c6197f01ea50a7, type: 3}
+  - {fileID: -5524494140174829782, guid: 820d5e251ba0d473e88a2b68bcf256ae, type: 3}
+  - {fileID: -3052721109777364293, guid: bbe05ef55bd9342babd5425d3407b1f6, type: 3}
+  - {fileID: -3052721109777364293, guid: 9e7dfbafd20564fd895c46cd18726886, type: 3}
+  - {fileID: -3052721109777364293, guid: 53faad25f44c64d7398d2730688439c1, type: 3}
+  - {fileID: -3052721109777364293, guid: d59a5b0637a0f49b7b807eeb487952a6, type: 3}
+  - {fileID: -3052721109777364293, guid: e09ba3a705efe4b27adf8a31504cf931, type: 3}
+  - {fileID: -3052721109777364293, guid: 6ed6a577b0e274f9c9f03f23c9ab6fa1, type: 3}
+  - {fileID: -3052721109777364293, guid: ebe33efdfd03e44799c532574cc705f0, type: 3}
+  - {fileID: -3052721109777364293, guid: c9861d3c6a08b44209af8665b07c1bcd, type: 3}
+  - {fileID: -3052721109777364293, guid: f85b9b3ccfcfe45cf9f1e247bf0b6e52, type: 3}
+  - {fileID: -3052721109777364293, guid: 64ec76f7fed1b468392565e35b66bc27, type: 3}
+  - {fileID: -3052721109777364293, guid: 1aff150443dcc42d5b6da2fc4f4429d0, type: 3}
+  - {fileID: -3052721109777364293, guid: 679e602665965486f9a2ba0cbef7abde, type: 3}
+  - {fileID: -3052721109777364293, guid: a46438f7629d04d23bc612acd133f3b4, type: 3}
+  - {fileID: -3052721109777364293, guid: 2ede56e73f3bd4e1e80bc60599f0e47e, type: 3}
+  - {fileID: -3052721109777364293, guid: a2941613efaeb45d58bc18448248345f, type: 3}
+  - {fileID: -3052721109777364293, guid: 82e53990aad014dc9a9cf5f77519384f, type: 3}
+  - {fileID: -3052721109777364293, guid: 21e357858accb4e43a61e89c14a2adc4, type: 3}
+  - {fileID: -3052721109777364293, guid: 7ee35180ed83c4134843a51c8fe41f61, type: 3}
+  - {fileID: -3052721109777364293, guid: 53b3ffb76bf334cffb631ccca15513f2, type: 3}
+  - {fileID: -3052721109777364293, guid: c20115f77ab48493d9080df150f277b4, type: 3}
+  - {fileID: -5387632461216594772, guid: 07e307a7d609f4c54881585ce12e75e5, type: 3}
+  - {fileID: -168969641766013061, guid: d6e14895004db44deb6d07db7b9c5408, type: 3}
+  - {fileID: 5192616052770971163, guid: f41ee21d6b19c41dd8579f04bec8189b, type: 3}
+  - {fileID: -7831737084160422036, guid: dddd36ca7a20d489fa1ecb4fc2b83313, type: 3}
+  - {fileID: 2998510322885477331, guid: ad1cdcdc59fe84bd38cee9b2d92d7fbf, type: 3}
   emptyData:
     Index: 3000
     Bullet_name: "\uBE44\uC5B4\uC788\uC74C"
@@ -355,7 +881,7 @@ MonoBehaviour:
     Bullet_crit_chance: 0
     Bullet_crit_const: 0
     Bullet_speed: 0
-    Bullet_time: 0
+    Bullet_last_time: 0
     Bullet_reflect_count: 0
     Bullet_filecode: 
 --- !u!1 &806037512569665706
@@ -411,62 +937,11 @@ MonoBehaviour:
     Ob_damage: 0
     Ob_bullet_index: -1
     Ob_movement_index: 0
-    Ob_movement_speed: 0
+    Ob_move_strength: 0
     OB_Hitable: 0
     Ob_HP: 10
+    Ob_Score: 0
     Ob_filecode: 
-  - Index: 2001
-    Ob_name: "\uD5C8\uB4E4"
-    Ob_category: 1
-    Ob_width: 1
-    Ob_height: 1
-    Ob_damage: 10
-    Ob_bullet_index: -1
-    Ob_movement_index: 0
-    Ob_movement_speed: -1
-    OB_Hitable: 0
-    Ob_HP: 0
-    Ob_filecode: "C \uB4DC\uB77C\uC774\uBE0C - \uAC8C\uC784\uD1A4 \uAE30\uD68D\uC11C
-      - asset - object"
-  - Index: 2002
-    Ob_name: "\uC791\uC740\uCF54\uC778"
-    Ob_category: 2
-    Ob_width: 1
-    Ob_height: 1
-    Ob_damage: 0
-    Ob_bullet_index: -1
-    Ob_movement_index: 0
-    Ob_movement_speed: -1
-    OB_Hitable: 0
-    Ob_HP: 0
-    Ob_filecode: "C \uB4DC\uB77C\uC774\uBE0C - \uAC8C\uC784\uD1A4 \uAE30\uD68D\uC11C
-      - asset - object"
-  - Index: 2003
-    Ob_name: "\uC9C4\uB3D7\uAC1C"
-    Ob_category: 1
-    Ob_width: 1.2
-    Ob_height: 1.2
-    Ob_damage: 20
-    Ob_bullet_index: -1
-    Ob_movement_index: 2
-    Ob_movement_speed: 2
-    OB_Hitable: 0
-    Ob_HP: 0
-    Ob_filecode: "C \uB4DC\uB77C\uC774\uBE0C - \uAC8C\uC784\uD1A4 \uAE30\uD68D\uC11C
-      - asset - object"
-  - Index: 2004
-    Ob_name: "\uACE0\uC591\uC774(\uC704)"
-    Ob_category: 1
-    Ob_width: 1.2
-    Ob_height: 1.2
-    Ob_damage: 20
-    Ob_bullet_index: -1
-    Ob_movement_index: 4
-    Ob_movement_speed: 2
-    OB_Hitable: 0
-    Ob_HP: 0
-    Ob_filecode: "C \uB4DC\uB77C\uC774\uBE0C - \uAC8C\uC784\uD1A4 \uAE30\uD68D\uC11C
-      - asset - object"
   Ob_Prefebs:
   - {fileID: 3937568910038251892, guid: c55c0077ebd6744758f06a5010a8bdee, type: 3}
   - {fileID: 3937568910038251892, guid: b838261d51cc1c84f937a4adece52187, type: 3}
@@ -481,9 +956,10 @@ MonoBehaviour:
     Ob_damage: 0
     Ob_bullet_index: -1
     Ob_movement_index: 0
-    Ob_movement_speed: 0
+    Ob_move_strength: 0
     OB_Hitable: 0
     Ob_HP: 10
+    Ob_Score: 0
     Ob_filecode: 
 --- !u!1 &806037512606951067
 GameObject:
@@ -544,157 +1020,6 @@ MonoBehaviour:
     Character_cost: 0
     Character_script: "\uBE44\uC5B4\uC788\uB294 \uB370\uC774\uD130 \uC785\uB2C8\uB2E4."
     Character_filecode: 
-  - Index: 1001
-    Character_korname: "\uC2DC\uBC14 \uC774\uB204"
-    Character_engname: Shiba Inu
-    Character_width: 1
-    Character_height: 1
-    Character_bullet_index_1: 3001
-    Character_bullet_index_2: 3002
-    Character_hp: 100
-    Character_per_hp_heal: 0.5
-    Character_attack_speed: 0.1
-    Character_skill_index: -1
-    Character_cost: -1
-    Character_script: "\uADC0\uC5EC\uC6B4 \uC2DC\uBC14 \uC774\uB204.  \uC0AC\uB78C\uC744
-      \uC88B\uC544\uD55C\uB2E4."
-    Character_filecode: ' '
-  - Index: 1002
-    Character_korname: "\uACE8\uB4E0 \uB9AC\uD2B8\uB9AC\uBC84"
-    Character_engname: Golden Retriever
-    Character_width: 1
-    Character_height: 1
-    Character_bullet_index_1: 3001
-    Character_bullet_index_2: 3002
-    Character_hp: 150
-    Character_per_hp_heal: 0.5
-    Character_attack_speed: 0.1
-    Character_skill_index: -1
-    Character_cost: 0
-    Character_script: "\uBBF8\uC18C \uCC9C\uC0AC \uACE8\uB4E0 \uB9AC\uD2B8\uB9AC\uBC84. 
-      \uC6C3\uB294 \uAC8C \uB9E4\uB825\uC801\uC774\uB2E4."
-    Character_filecode: ' '
-  - Index: 1003
-    Character_korname: "\uB798\uBE0C\uB77C\uB3C4 \uB9AC\uD2B8\uB9AC\uBC84"
-    Character_engname: Labrador Retriever
-    Character_width: 1
-    Character_height: 1
-    Character_bullet_index_1: 3001
-    Character_bullet_index_2: 3002
-    Character_hp: 150
-    Character_per_hp_heal: 0.5
-    Character_attack_speed: 0.1
-    Character_skill_index: -1
-    Character_cost: 0
-    Character_script: "\uBBFF\uC74C\uC9C1\uD55C \uB808\uBE0C\uB77C\uB3C4 \uB9AC\uD2B8\uB9AC\uBC84. 
-      \uBB58 \uB9E1\uACA8\uB3C4 \uC798\uD574\uB0BC \uAC83 \uAC19\uB2E4."
-    Character_filecode: ' '
-  - Index: 1004
-    Character_korname: "\uADF8\uB808\uC774\uD558\uC6B4\uB4DC"
-    Character_engname: Greyhound
-    Character_width: 1
-    Character_height: 1
-    Character_bullet_index_1: 3001
-    Character_bullet_index_2: 3002
-    Character_hp: 130
-    Character_per_hp_heal: 0.6
-    Character_attack_speed: 0.12
-    Character_skill_index: -1
-    Character_cost: 0
-    Character_script: "\uB9D1\uC740 \uB208\uC758 \uADF8\uB808\uC774 \uD558\uC6B4\uB4DC 
-      \uBCF4\uACE0\uB9CC \uC788\uC5B4\uB3C4 \uB208\uC774 \uCC38 \uB9D1\uB2E4"
-    Character_filecode: ' '
-  - Index: 1005
-    Character_korname: "\uC800\uBA3C \uC170\uD37C\uB4DC"
-    Character_engname: German Shepherd
-    Character_width: 1
-    Character_height: 1
-    Character_bullet_index_1: 3001
-    Character_bullet_index_2: 3002
-    Character_hp: 120
-    Character_per_hp_heal: 0.5
-    Character_attack_speed: 0.12
-    Character_skill_index: -1
-    Character_cost: 0
-    Character_script: "\uD478\uADFC\uD55C \uC800\uBA3C \uC170\uD37C\uB4DC  \uC5B4\uB5A4
-      \uB9D0\uC744 \uD574\uB3C4 \uB4E4\uC5B4\uC904 \uAC70 \uAC19\uB2E4"
-    Character_filecode: ' '
-  - Index: 1006
-    Character_korname: "\uD5C8\uC2A4\uD0A4"
-    Character_engname: Husky
-    Character_width: 1
-    Character_height: 1
-    Character_bullet_index_1: 3001
-    Character_bullet_index_2: 3002
-    Character_hp: 130
-    Character_per_hp_heal: 0.6
-    Character_attack_speed: 0.12
-    Character_skill_index: -1
-    Character_cost: 0
-    Character_script: "\uB0A0\uCE74\uB85C\uC6B4 \uD5C8\uC2A4\uD0A4  \uB9D0\uAC78\uBA74
-      \uD654\uB0BC\uC9C0\uB3C4 \uBAA8\uB978\uB2E4"
-    Character_filecode: ' '
-  - Index: 1007
-    Character_korname: "\uC6B8\uD504"
-    Character_engname: Wolf
-    Character_width: 1
-    Character_height: 1
-    Character_bullet_index_1: 3001
-    Character_bullet_index_2: 3002
-    Character_hp: 120
-    Character_per_hp_heal: 0.6
-    Character_attack_speed: 0.1
-    Character_skill_index: -1
-    Character_cost: 0
-    Character_script: "\uC57C\uC131\uC758 \uC6B8\uD504  \uBCF4\uB984\uB2EC\uC774
-      \uB728\uBA74 \uC57C\uC131\uC758 \uBCF8\uB2A5\uC774 \uAE68\uC5B4\uB0A0\uC9C0\uB3C4..?"
-    Character_filecode: ' '
-  - Index: 1008
-    Character_korname: "\uACE8\uB4E0 \uD3EC\uBA54\uB77C\uB2C8\uC548"
-    Character_engname: Golden Pomeranian
-    Character_width: 1
-    Character_height: 1
-    Character_bullet_index_1: 3001
-    Character_bullet_index_2: 3002
-    Character_hp: 110
-    Character_per_hp_heal: 0.7
-    Character_attack_speed: 0.1
-    Character_skill_index: -1
-    Character_cost: 0
-    Character_script: "\uCDA9\uC131\uC2A4\uB7EC\uC6B4 \uACE8\uB4E0 \uD3EC\uBA54\uB77C\uB2C8\uC548 
-      \uC791\uC740 \uBAB8\uC9D3\uC5D0\uC11C \uB098\uC624\uB294 \uCDA9\uC131\uC2EC"
-    Character_filecode: ' '
-  - Index: 1009
-    Character_korname: "\uD654\uC774\uD2B8 \uD3EC\uBA54\uB77C\uB2C8\uC548"
-    Character_engname: White Pomeranian
-    Character_width: 1
-    Character_height: 1
-    Character_bullet_index_1: 3001
-    Character_bullet_index_2: 3002
-    Character_hp: 110
-    Character_per_hp_heal: 0.7
-    Character_attack_speed: 0.1
-    Character_skill_index: -1
-    Character_cost: 0
-    Character_script: "\uC21C\uB465\uD55C \uD654\uC774\uD2B8 \uD3EC\uBA54\uB77C\uB2C8\uC548 
-      \uD558\uC597\uACE0 \uC21C\uB465\uC21C\uB465\uD55C \uB208\uC73C\uB85C \uCCD0\uB2E4\uBCF4\uBA74
-      \uB9C8\uC74C\uC774 \uB179\uB294\uB2E4"
-    Character_filecode: ' '
-  - Index: 1010
-    Character_korname: "\uD37C\uADF8"
-    Character_engname: Pug
-    Character_width: 1
-    Character_height: 1
-    Character_bullet_index_1: 3001
-    Character_bullet_index_2: 3002
-    Character_hp: 100
-    Character_per_hp_heal: 1
-    Character_attack_speed: 0.1
-    Character_skill_index: -1
-    Character_cost: 0
-    Character_script: "\uD654\uAC00 \uB9CE\uC740 \uD37C\uADF8  \uD654\uB294 \uC548\uB0AC\uB294\uB370
-      \uB0AC\uB2E4\uACE0 \uADF8\uB7EC\uB124 :("
-    Character_filecode: ' '
   Player_Prefebs:
   - {fileID: 8893035031487050708, guid: 5a9baa5c6b91a44e7bc521879a13aa63, type: 3}
   - {fileID: 8893035031487050708, guid: e64d8ec253f204d3989ae5ff25db4d68, type: 3}
@@ -819,7 +1144,7 @@ MonoBehaviour:
     Laser_category: 0
     Laser_height: 0
     Laser_damage: 0
-    Laser_time: 0
+    Laser_last_time: 0
     Laser_movement_speed: 0
     Laser_filecode: 
   - Index: 3101
@@ -827,7 +1152,7 @@ MonoBehaviour:
     Laser_category: 1
     Laser_height: 2
     Laser_damage: 10
-    Laser_time: 1.5
+    Laser_last_time: 0
     Laser_movement_speed: 0
     Laser_filecode: ' '
   - Index: 3102
@@ -835,7 +1160,7 @@ MonoBehaviour:
     Laser_category: 2
     Laser_height: 4
     Laser_damage: 10
-    Laser_time: -1
+    Laser_last_time: 0
     Laser_movement_speed: 3
     Laser_filecode: ' '
   emptyData:
@@ -844,6 +1169,6 @@ MonoBehaviour:
     Laser_category: 0
     Laser_height: 0
     Laser_damage: 0
-    Laser_time: 0
+    Laser_last_time: 0
     Laser_movement_speed: 0
     Laser_filecode: 

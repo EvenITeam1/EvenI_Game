@@ -106,8 +106,10 @@ public class PlaceableObject : MonoBehaviour, IDamagable
         if (_other.TryGetComponent(out Player player))
         {
             RunnerManager.Instance.GlobalEventInstance.scoreCheck.Score += this.coinData.ScoreValue;
-            Instantiate(this.coinData.particle, transform.position, Quaternion.identity);
-            Destroy(gameObject);
+            var coinParticle = ObjectPool.instance.GetObject(this.coinData.particle.gameObject);
+            coinParticle.transform.position = transform.position;
+            coinParticle.SetActive(true);
+            gameObject.SetActive(false);
         }
     }
     public void HandlePlatform(Collider2D _other)
@@ -117,7 +119,8 @@ public class PlaceableObject : MonoBehaviour, IDamagable
     public void HandleItem(Collider2D _other)
     {
         itemType[(int)itemData.ITEM_CATEGORY].Invoke();
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+    
         return;
     }
     #endregion
