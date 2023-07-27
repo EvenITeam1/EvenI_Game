@@ -34,7 +34,10 @@ public class PlaceableObject : MonoBehaviour, IDamagable
         get {return mObjectHP;}
         set {
             mObjectHP = value;
-            if(mObjectHP <= 0) {gameObject.SetActive(false);}
+            if(mObjectHP <= 0) {
+                gameObject.SetActive(false);
+                RunnerManager.Instance.GlobalEventInstance.scoreCheck.Score += objectData.Ob_Score;
+            }
         }
     }
 
@@ -70,6 +73,10 @@ public class PlaceableObject : MonoBehaviour, IDamagable
 
         //objectMovementActions[1] = new UnityAction<Collider2D>((_Collider2D) => {HandleControl_001(_Collider2D);});
         //objectData = GameManager.Instance.ObjectDataTableDesign.GetObjectDataByINDEX(this.Index); //외부에서 받는것
+    }
+
+    private void OnDisable() {
+        StopAllCoroutines();    
     }
 
     #endregion
@@ -133,8 +140,12 @@ public class PlaceableObject : MonoBehaviour, IDamagable
     public void GetDamage(float _amount)
     {
         ObjectHP -= _amount;
-        Instantiate(HitParticle);
-        //StartCoroutine(AsyncOnHitVisual());
+        var hitObject = ObjectPool.instance.GetObject(HitParticle.gameObject);
+        hitObject.transform.position = transform.position;
+        hitObject.transform.localScale = (transform.localScale.x >= 3) ? Vector2.one * transform.localScale.x : Vector2.one * 3;
+        hitObject.transform.SetParent(this.transform);
+        hitObject.SetActive(true);
+        StartCoroutine(AsyncOnHitVisual());
     }
 
     public bool IsHitable() { return objectData.OB_Hitable; }
@@ -142,9 +153,10 @@ public class PlaceableObject : MonoBehaviour, IDamagable
     IEnumerator AsyncOnHitVisual()
     {
         visualData.spriteRenderer.color = visualData.onHitColor;
-        yield return YieldInstructionCache.WaitForSeconds(1f);
+        yield return YieldInstructionCache.WaitForSeconds(0.05f);
         visualData.spriteRenderer.color = visualData.defaultColor;
     }
+
     #endregion
 
     /////////////////////////////////////////////////////////////////////////////////
