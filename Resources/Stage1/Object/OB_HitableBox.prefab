@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5172971096665940192}
   - component: {fileID: 2348008906611631211}
   m_Layer: 8
-  m_Name: OB_DEFUALT_HITABLE
+  m_Name: OB_HitableBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60,7 +60,7 @@ MonoBehaviour:
     Ob_move_strength: 2
     OB_Hitable: 1
     Ob_HP: 500
-    Ob_Score: 0
+    Ob_Score: 1000
     Ob_filecode: "C \uB4DC\uB77C\uC774\uBE0C - \uAC8C\uC784\uD1A4 \uAE30\uD68D\uC11C
       - asset - object"
   coinData:
@@ -71,10 +71,10 @@ MonoBehaviour:
     destroyParticle: {fileID: 0}
     activateParticle: {fileID: 0}
   visualData:
-    spriteRenderer: {fileID: 0}
+    spriteRenderer: {fileID: 2393503716358272133}
     animator: {fileID: 0}
-    defaultColor: {r: 0, g: 0, b: 0, a: 0}
-    onHitColor: {r: 0, g: 0, b: 0, a: 0}
+    defaultColor: {r: 1, g: 1, b: 1, a: 1}
+    onHitColor: {r: 1, g: 0, b: 0, a: 1}
   objectCollider: {fileID: 5172971096665940192}
   moveTriggerOffset: 5
   HitParticle: {fileID: 7124663019238293431, guid: 301f99a9c0b0643798ca6ef1fad42b44, type: 3}
@@ -88,7 +88,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -177,7 +177,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 2100000, guid: 9db26d854ac0f4d92a77d75b8e9ab018, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -198,7 +198,7 @@ SpriteRenderer:
   m_SortingLayerID: -1789428647
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 736464387, guid: a1dc5fea0f7ba42e896a3f7c7574fc51, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b883e44ac2fc1423fb593060a7f8b214, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

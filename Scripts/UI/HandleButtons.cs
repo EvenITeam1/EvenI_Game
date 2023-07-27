@@ -21,9 +21,11 @@ public class HandleButtons : MonoBehaviour
             // UnityEditor.EditorApplication.isPlaying need to be set to false to end the game
             // UnityEditor.EditorApplication.isPlaying = false;
             SceneManager.LoadScene("GameOverScene");
+            RunnerManager.Instance.GlobalEventInstance.IsGamePaused = true;
         #else
             // Application.Quit();
             SceneManager.LoadScene("GameOverScene");
+            RunnerManager.Instance.GlobalEventInstance.IsGamePaused = true;
         #endif
     }
 }

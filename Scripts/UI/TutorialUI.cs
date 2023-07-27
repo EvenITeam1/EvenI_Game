@@ -9,10 +9,15 @@ public class TutorialUI : MonoBehaviour
     [HideInInspector]public Animator tutorialAnimator;
     [HideInInspector]public Animator textAnimator;
     
-    private TextMeshProUGUI messageTextMeshPro;
-    public void SetMessageString(string _str){ messageTextMeshPro.text = _str; }
+    public TextMeshProUGUI messageTextMeshPro;
 
-    private void OnEnable() {
-        messageTextMeshPro = GetComponentInChildren<TextMeshProUGUI>();
+    [ContextMenu("TextMeshPro 연결")]
+    private void ConnectTextMeshProUGUIComponent(){
+        messageTextMeshPro = GetComponentInChildren<TextMeshProUGUI>(true);
+    }
+
+    public void SetMessageString(string _str){
+        messageTextMeshPro = GetComponentInChildren<TextMeshProUGUI>(true);
+        messageTextMeshPro.text = _str; 
     }
 }

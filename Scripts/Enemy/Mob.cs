@@ -214,5 +214,10 @@ public class Mob : MonoBehaviour, IDamagable
         }
     }
 
+    private void OnDestroy() {
+        if(mobData.Mob_Score > 0)
+            RunnerManager.Instance.GlobalEventInstance.scoreCheck.Score += mobData.Mob_Score;        
+    }
+
     #endregion
 }
