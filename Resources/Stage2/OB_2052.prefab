@@ -32,7 +32,7 @@ Transform:
   m_Children:
   - {fileID: 49896029427748311}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3937568910038251892
 MonoBehaviour:
@@ -55,21 +55,26 @@ MonoBehaviour:
     Ob_height: 1
     Ob_damage: 50
     Ob_bullet_index: 0
-    Ob_movement_index: 1
+    Ob_movement_index: 0
     Ob_move_strength: 5
     OB_Hitable: 0
     Ob_HP: 10
+    Ob_Score: 0
     Ob_filecode: 
   coinData:
     ScoreValue: 10
     particle: {fileID: 1233056433216404457, guid: 93f4cb5d088166d428dc02998913d244, type: 3}
+  itemData:
+    ITEM_CATEGORY: 0
+    destroyParticle: {fileID: 0}
+    activateParticle: {fileID: 0}
   visualData:
     spriteRenderer: {fileID: 0}
+    animator: {fileID: 0}
     defaultColor: {r: 0, g: 0, b: 0, a: 0}
     onHitColor: {r: 0, g: 0, b: 0, a: 0}
   objectCollider: {fileID: 5172971096665940192}
   moveTriggerOffset: 5
-  ObjectHP: 0
   HitParticle: {fileID: 0}
 --- !u!61 &5172971096665940192
 BoxCollider2D:
@@ -169,7 +174,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -992004325
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 1376132153, guid: f26f8335c0ae42c4990e59dd900e1b70, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

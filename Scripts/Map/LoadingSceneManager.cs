@@ -56,7 +56,7 @@ public class LoadingSceneManager : MonoBehaviour
                 }
             }
         }
-        yield return new WaitUntil(() => {return GameManager.Instance.IsAsyncLoaded;});
+        yield return new WaitUntil(() => { return GameManager.Instance.IsAsyncLoaded; });
     }
     void getRandomTipText()
     {
