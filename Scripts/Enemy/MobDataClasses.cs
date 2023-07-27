@@ -44,7 +44,7 @@ public class MobData {
         this.Mob_category           = int.Parse(datas[2]);
         this.Mob_width              = float.Parse(datas[3]);
         this.Mob_height             = float.Parse(datas[4]);
-        this.Mob_damage             = int.Parse(datas[5]);
+        this.Mob_damage             = float.Parse(datas[5]);
         this.Mob_hp                 = float.Parse(datas[6]);
         this.Mob_bullet_index       = (BULLET_INDEX)int.Parse(datas[7]);
         this.Mob_tracking           = int.Parse(datas[8]) == 1 ? true : false;

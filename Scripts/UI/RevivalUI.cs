@@ -29,6 +29,8 @@ public class RevivalUI : MonoBehaviour
             waitCount--;
             TimmerTMP.text = $"{waitCount}";
         }
+        
+        RunnerManager.Instance.GlobalEventInstance.IsGamePaused = false;
 
         AsyncOperation op = SceneManager.LoadSceneAsync("GameOverScene");
         op.allowSceneActivation = false;
