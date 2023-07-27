@@ -295,7 +295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.9800386, b: 0.73018867, a: 1}
+  m_Color: {r: 1, g: 0.067196205, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -486,6 +486,17 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 44ae9af94448b47a09a05dbc56af4404, type: 3}
+--- !u!114 &1442005845 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4495816857315907765, guid: 44ae9af94448b47a09a05dbc56af4404, type: 3}
+  m_PrefabInstance: {fileID: 1442005844}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bba21831d3a0d44918d86fd518d629cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1618841432
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,8 +533,8 @@ Camera:
   m_GameObject: {fileID: 1618841432}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.99607843, g: 0.89411765, b: 0.654902, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -675,7 +686,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Retry
+  m_Text: "\uB85C\uBE44\uB85C \uC774\uB3D9"
 --- !u!222 &1828062103
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -778,6 +789,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: LobbyScene
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1442005845}
+        m_TargetAssemblyTypeName: DataTrigger, Assembly-CSharp
+        m_MethodName: DataSave
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2104400195
