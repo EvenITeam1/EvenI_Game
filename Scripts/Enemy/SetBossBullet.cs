@@ -44,4 +44,11 @@ public class SetBossBullet
         fireBulletLocal(n, bulletType, enemyObj);
     }
 
+    public static void fireBulletRandomPos(float min, float max, GameObject bulletType, GameObject enemyObj)
+    {
+        float n = Random.Range(min, max + 1);
+
+        fireBulletLocal(n, bulletType, enemyObj);
+    }
+
 }
