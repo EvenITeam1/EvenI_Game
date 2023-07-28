@@ -16,9 +16,7 @@ public class Stage4BossPattern : MonoBehaviour
     [SerializeField] GameObject flag;
     [SerializeField] GameObject slowBasicBullet;
     [SerializeField] GameObject fastBasicBullet;
-    [SerializeField] PolygonCollider2D baseCollider;
     [SerializeField] BoxCollider2D laserPatternCollider;
-    [SerializeField] CircleCollider2D jumpPatternCollider;
 
     Animator animator;
     GameObject player;
@@ -32,7 +30,6 @@ public class Stage4BossPattern : MonoBehaviour
         player = RunnerManager.Instance.GlobalPlayer.gameObject;
         animator = enemy.GetComponent<Animator>();
         laserPatternCollider.enabled = false;
-        // jumpPatternCollider.enabled = false;
     }
     void Update()
     {
@@ -46,8 +43,7 @@ public class Stage4BossPattern : MonoBehaviour
     async UniTaskVoid executeRandomPattern(int patternN)
     {
         await UniTask.Delay(TimeSpan.FromSeconds(coolTime));
-        //int n = Random.Range(0, patternN);
-        int n = 4;
+        int n = Random.Range(0, patternN);
 
         patternActive = true;
         switch (n)
@@ -57,17 +53,14 @@ public class Stage4BossPattern : MonoBehaviour
                 break;
 
             case 1:
-                basicAttack1().Forget();
+                basicAttack().Forget();
                 break;
 
             case 2:
-                basicAttack2().Forget();
+                jumpAttack().Forget();
                 break;
 
             case 3:
-                jumpAttack().Forget();
-                break;
-            case 4:
                 vomit().Forget();
                 break;
         }
@@ -86,7 +79,7 @@ public class Stage4BossPattern : MonoBehaviour
         patternActive = false;
     }
 
-    async UniTaskVoid basicAttack1()
+    async UniTaskVoid basicAttack()
     {
         pattern2_sub1();
         await UniTask.Delay(TimeSpan.FromSeconds(interval2));
@@ -119,22 +112,6 @@ public class Stage4BossPattern : MonoBehaviour
         }
     }
     #endregion
-    async UniTaskVoid basicAttack2()
-    {
-        pattern2_sub2();
-        await UniTask.Delay(TimeSpan.FromSeconds(interval2));
-        pattern2_sub1();
-        await UniTask.Delay(TimeSpan.FromSeconds(interval2));
-        pattern2_sub2();
-        await UniTask.Delay(TimeSpan.FromSeconds(interval2));
-        pattern2_sub1();
-        await UniTask.Delay(TimeSpan.FromSeconds(interval2));
-        pattern2_sub2();
-        await UniTask.Delay(TimeSpan.FromSeconds(interval2));
-        pattern2_sub1();
-        await UniTask.Delay(TimeSpan.FromSeconds(2));
-        patternActive = false;
-    }
     async UniTaskVoid jumpAttack()
     {
         int n = Random.Range(0, 6);
