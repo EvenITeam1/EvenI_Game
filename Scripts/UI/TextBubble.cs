@@ -66,7 +66,7 @@ public class TextBubble : MonoBehaviour
                 textList = pugText;
                 break;
             default:
-                Debug.Log("ÁöÁ¤µÈ Ä³¸¯ÅÍ ÀÎµ¦½º°¡ ¿Ã¹Ù¸£Áö ¾ÊÀ½");
+                Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¹Ù¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
                 break;
         }
         selectedText = textList[Random.Range(0, textList.Count)];
@@ -81,6 +81,4 @@ public class TextBubble : MonoBehaviour
         await UniTask.Delay(TimeSpan.FromSeconds(1));
         gameObject.SetActive(false);
     }
-
-
 }

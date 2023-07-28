@@ -21,15 +21,4 @@ public class PauseMenu : MonoBehaviour
         menuQueue.Dequeue();
         RunnerManager.Instance.GlobalEventInstance.IsGamePaused = false;
     }
-
-    private void Update() {
-        if(Input.GetKeyDown(KeyCode.Escape)){
-            if(menuQueue.Count == 0){
-                OpenMenu(); 
-            }
-            else if(menuQueue.Count == 1){ 
-                CloseMenu();
-            }
-        }
-    }
 }
