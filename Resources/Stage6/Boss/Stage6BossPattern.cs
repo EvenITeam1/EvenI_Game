@@ -47,6 +47,7 @@ public class Stage6BossPattern : MonoBehaviour
     {
         await UniTask.Delay(TimeSpan.FromSeconds(coolTime));
         int n = Random.Range(0, patternN);
+       
         patternActive = true;
         switch (n)
         {
@@ -93,6 +94,7 @@ public class Stage6BossPattern : MonoBehaviour
         SetBossLaser.executeLaser(laserObj[3]);
         await UniTask.Delay(TimeSpan.FromSeconds(2));
         SetBossLaser.executeLaser(laserObj[4]);
+        await UniTask.Delay(TimeSpan.FromSeconds(1));
         patternActive = false;
     }
 
