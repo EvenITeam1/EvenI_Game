@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class CharacterUI : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class CharacterUI : MonoBehaviour
     public PlayerData playerData;
     public bool isUnlocked;
     SpriteRenderer spriteRenderer;
+    [SerializeField] TextMeshProUGUI tmpro;
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -22,8 +24,12 @@ public class CharacterUI : MonoBehaviour
 
         else
             spriteRenderer.color = Color.black;
-        
+           
+    }
 
-        
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("asdf");
+        tmpro.text = "<" + playerData.Character_engname + ">";
     }
 }
