@@ -139,13 +139,13 @@ public class PlaceableObject : MonoBehaviour, IDamagable
     public GameObject HitParticle = null;
     public void GetDamage(float _amount)
     {
-        ObjectHP -= _amount;
         var hitObject = ObjectPool.instance.GetObject(HitParticle.gameObject);
         hitObject.transform.position = transform.position;
         hitObject.transform.localScale = (transform.localScale.x >= 3) ? Vector2.one * transform.localScale.x : Vector2.one * 3;
         hitObject.transform.SetParent(this.transform);
-        hitObject.SetActive(true);
         StartCoroutine(AsyncOnHitVisual());
+        hitObject.SetActive(true);
+        ObjectHP -= _amount;
     }
 
     public bool IsHitable() { return objectData.OB_Hitable; }

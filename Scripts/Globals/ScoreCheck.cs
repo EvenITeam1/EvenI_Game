@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 public class ScoreCheck : MonoBehaviour {
     private float mScore = 0;
-    public Text ScoreUI;
+    public TextMeshProUGUI ScoreUI;
     public float Score{
         get {return mScore;}
         set {
@@ -13,6 +13,6 @@ public class ScoreCheck : MonoBehaviour {
     }
 
     private void Start() {
-        ScoreUI ??= GameObject.Find("ScoreUI").GetComponent<Text>();
+        ScoreUI ??= GameObject.Find("ScoreUI").GetComponent<TextMeshProUGUI>();
     }
 }

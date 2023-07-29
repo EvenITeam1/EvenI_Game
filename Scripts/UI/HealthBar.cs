@@ -15,7 +15,7 @@ namespace TwoDimensions
         public Image fill;
         public Gradient gradient;
 
-        public Text text;
+        public TextMeshProUGUI text;
 
         private void Awake()
         {

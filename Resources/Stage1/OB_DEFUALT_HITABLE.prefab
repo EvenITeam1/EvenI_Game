@@ -71,10 +71,10 @@ MonoBehaviour:
     destroyParticle: {fileID: 0}
     activateParticle: {fileID: 0}
   visualData:
-    spriteRenderer: {fileID: 0}
+    spriteRenderer: {fileID: 2393503716358272133}
     animator: {fileID: 0}
-    defaultColor: {r: 0, g: 0, b: 0, a: 0}
-    onHitColor: {r: 0, g: 0, b: 0, a: 0}
+    defaultColor: {r: 1, g: 1, b: 1, a: 1}
+    onHitColor: {r: 1, g: 0, b: 0, a: 1}
   objectCollider: {fileID: 5172971096665940192}
   moveTriggerOffset: 5
   HitParticle: {fileID: 7124663019238293431, guid: 301f99a9c0b0643798ca6ef1fad42b44, type: 3}
@@ -88,7 +88,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -177,7 +177,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 2100000, guid: e8682a38d262f4c478ec42dc77d6592e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -195,9 +195,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 846495363
+  m_SortingLayerID: -1789428647
   m_SortingLayer: 4
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 736464387, guid: a1dc5fea0f7ba42e896a3f7c7574fc51, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

@@ -32,6 +32,7 @@
 
 #region Bullets
     public enum BULLET_INDEX {
+        B_TEST = 2999,
         DEFAULT = 3000,
         B_3001, B_3002, B_3003, B_3004, B_3005, B_3006, B_3007, B_3008, B_3009, B_3010,
         B_3011, B_3012, B_3013, B_3014, B_3015, B_3016, B_3017, B_3018, B_3019, B_3020,

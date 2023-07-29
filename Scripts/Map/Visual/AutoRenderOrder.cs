@@ -9,6 +9,7 @@ namespace TwoDimensions
         [HideInInspector] public List<SpriteRenderer> spriteRenderer = new List<SpriteRenderer>();
 
         public void GetChildSpriteRenderers(){
+            spriteRenderer.Clear();
             spriteRenderer.Add(transform.GetComponent<SpriteRenderer>());
             foreach(Transform items in transform){
                 spriteRenderer.Add(items.GetComponent<SpriteRenderer>());

@@ -4,83 +4,157 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Networking;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using Cysharp.Threading.Tasks;
+
+[System.Serializable]
+public class CutSceneTextData {
+    public int CST_stageNumber;
+    public int CST_phase;
+    public string CST_talkingOwner;
+    public string CST_text;
+    public Color CST_contentColor;
+    public int CST_alignmentType; // -1, 0 ,1 왼, 중, 오
+
+    public CutSceneTextData() {
+        this.CST_stageNumber    = -1;
+        this.CST_phase          = -1;
+        this.CST_talkingOwner      = "이름";
+        this.CST_text           = "내용";
+    }
+
+    public CutSceneTextData(string _parsedLine) 
+    {
+        string[] datas = _parsedLine.Trim().Split('\t');
+        // this.CST_Index       = (TEXT_INDEX)int.Parse(dats[0]); //굳이 인덱스 필요할까?
+        this.CST_stageNumber    = int.Parse(datas[1]);
+        this.CST_phase          = int.Parse(datas[2]);
+        this.CST_talkingOwner      = datas[3].Replace('_', ' ');
+        this.CST_text           = datas[4].Replace('_', ' ');
+        ColorUtility.TryParseHtmlString(datas[5], out this.CST_contentColor);
+    }
+}
 
 public class CutSceneManager : MonoBehaviour, IPointer​Click​Handler
 {
-    [TextArea]
-    public List<string> cutSceneTextList = new List<string>();
+    [Tooltip("1 = 주인공 2 = 요정")]
+    public List<CutSceneTextData> cutSceneTextDatas = new List<CutSceneTextData>();
     
-    [Tooltip("1 _개행문자_ 실제텍스트 입력하자 , 1 = 주인공 2 = 요정")]
-    public TextMeshProUGUI[] talkTextMeshProGUI;
-    public int count = 0;
-    private bool  isClickable = true;
-    private void ReActivateClick(){isClickable = true;}
+    public TextMeshProUGUI nameTextMeshProGUI;
+    public TextMeshProUGUI contentTextMeshProGUI;
+
+    public GameObject      clickAlertUI;
 
     public string LoadSceneString;
+    public int count = 0;
+
+    const string sheet_URL = "";
+    private bool isClickable =false;
+    public void ActivateClick(){
+        isClickable = true;
+        clickAlertUI.SetActive(true);
+    }
+    public void DeactivateClick(){
+        isClickable = false;
+        clickAlertUI.SetActive(false);
+    }
+ 
 
     private void Start() {
-        StartCoroutine(LoadLevel(LoadSceneString));
-        if(cutSceneTextList.Count >= 1)HandleTalk(cutSceneTextList[count++]);
+        StartCoroutine(LoadScene(LoadSceneString));
+        Invoke("ActivateClick", 1f);
+        if(cutSceneTextDatas.Count >= 1) HandleTalk(cutSceneTextDatas[count++]);
     }
+    
 
-    void HandleTalk(string _str)
+    void HandleTalk(CutSceneTextData _cutSceneTextData)
     {
-        string[] lines = _str.Split('\n');
-        if (lines.Length <= 1) { throw new System.Exception("형식이 안맞는 대회임"); }
-        string showTextStr = "";
-        
-        for (int i = 1; i < lines.Length; i++)
-        {
-            showTextStr += $"{lines[i]}\n";
-        }
+        nameTextMeshProGUI.text = "";
+        contentTextMeshProGUI.text = "";
+        // SetName
+        nameTextMeshProGUI.text     = _cutSceneTextData.CST_talkingOwner;
 
-        switch (int.Parse(lines[0]))
-        {
-            case 1:
-                {
-                    talkTextMeshProGUI[0].text = $"나 : {showTextStr}\n";
-                    break;
-                }
-            case 2:
-                {
-                    talkTextMeshProGUI[1].text = $"OOO : <#FF7B81>{showTextStr}</color>\n";
-                    break;
-                }
-            default:
-                {
-                    throw new System.Exception("숫자가 잘못된듯 1 or 2로 ㄱㄱ");
-                }
+        // SetContent
+        contentTextMeshProGUI.text  = _cutSceneTextData.CST_text;
+
+        // SetColor
+        contentTextMeshProGUI.color = _cutSceneTextData.CST_contentColor;
+
+        // SetAlignmentOptions
+        switch (_cutSceneTextData.CST_alignmentType) {
+            case -1: {
+                nameTextMeshProGUI.alignment = TextAlignmentOptions.TopLeft; 
+                contentTextMeshProGUI.alignment = TextAlignmentOptions.TopLeft;
+                break;
+            }
+            case 0 : {
+                nameTextMeshProGUI.alignment = TextAlignmentOptions.Top;
+                contentTextMeshProGUI.alignment = TextAlignmentOptions.Top;
+                break;
+            }
+            case 1 : {
+                nameTextMeshProGUI.alignment = TextAlignmentOptions.TopRight;
+                contentTextMeshProGUI.alignment = TextAlignmentOptions.TopRight;
+                break;
+            }
+            default : 
+                throw new System.Exception("-1, 0, 1 중 하나로 불러와주세요");
         }
     }
     public void OnPointerClick(PointerEventData pointerEventData)
     {
         if(isClickable != true) {return;}
-        isClickable = false; Invoke("ReActivateClick", 0.3f);
+        DeactivateClick(); Invoke("ActivateClick", 0.3f);
 
-        if (count >= cutSceneTextList.Count)
+        if (count >= cutSceneTextDatas.Count)
         {
             count++;
             return;
         }
         else
         {
-            HandleTalk(cutSceneTextList[count++]);
+            HandleTalk(cutSceneTextDatas[count++]);
         }
     }
-
-    IEnumerator LoadLevel(string _scene)
+     IEnumerator LoadScene(string _scene)
     {
+        yield return null;
         AsyncOperation op = SceneManager.LoadSceneAsync(_scene);
         op.allowSceneActivation = false;
+
         while (!op.isDone)
         {
-            yield return null;
-            if(op.progress >= 0.9f && count >= cutSceneTextList.Count + 1) {
-                op.allowSceneActivation = true;
-                yield break;
+            Debug.Log(op.progress);
+            if(op.progress >= 0.9f)
+            {
+                Debug.Log("End");
+                break;
             }
+            yield return null;
+        }
+        yield return new WaitUntil(() => {return count >= cutSceneTextDatas.Count+1;});
+        op.allowSceneActivation = true;
+    }
+
+    [ContextMenu("컷씬 스크립트 수동으로 불러오기")]
+    public async void LoadDataFromSheet()
+    {
+        await DownloadItemSO();
+    }
+
+    public async UniTask DownloadItemSO()
+    {
+        var txt = (await UnityWebRequest.Get(sheet_URL).SendWebRequest()).downloadHandler.text;
+        string[] lines = txt.Split('\n');
+        int lineStart = 5;
+
+        cutSceneTextDatas.Clear();
+
+        for (int i = lineStart; i < lines.Length; i++)
+        {
+            cutSceneTextDatas.Add(new CutSceneTextData(lines[i]));
         }
     }
 }

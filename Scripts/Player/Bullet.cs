@@ -44,6 +44,7 @@ public class Bullet : MonoBehaviour, Hit
         if (other.tag == "Player") return;
         if (other.TryGetComponent(out IDamagable damagable))
         {
+            //Debug.Log("IDamagable");
             if (!damagable.IsHitable()) { return; }
             float actualDmg = bulletData.Bullet_set_dmg;
             var dmgPrefab = ObjectPool.instance.GetObject(bulletVisualData.dmgPrefab);

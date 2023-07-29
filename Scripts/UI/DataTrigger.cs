@@ -8,7 +8,7 @@ public class DataTrigger : MonoBehaviour {
         GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().RevivalCount = 10;
     }
     public void DataSave(){
-        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().prevHP = RunnerManager.Instance.GlobalPlayer.playerHP.getHP();
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().prevHP    = RunnerManager.Instance.GlobalPlayer.playerHP.getHP();
         GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().prevScore = RunnerManager.Instance.GlobalEventInstance.scoreCheck.Score;
     }
 
