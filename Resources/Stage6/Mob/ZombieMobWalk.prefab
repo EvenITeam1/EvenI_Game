@@ -85,12 +85,17 @@ MonoBehaviour:
     Ob_bullet_index: -1
     Ob_movement_index: 3
     Ob_move_strength: 2
-    OB_Hitable: 1
+    OB_Hitable: 0
     Ob_HP: 100
+    Ob_Score: 0
     Ob_filecode: 
   coinData:
     ScoreValue: 0
     particle: {fileID: 0}
+  itemData:
+    ITEM_CATEGORY: 0
+    destroyParticle: {fileID: 0}
+    activateParticle: {fileID: 0}
   visualData:
     spriteRenderer: {fileID: 6144468770459404697}
     animator: {fileID: 0}
@@ -219,7 +224,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 1eb038b6cdc364551938ac6e620c7678, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
