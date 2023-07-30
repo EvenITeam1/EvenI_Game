@@ -15,7 +15,7 @@ public class CutSceneTextData {
     public int CST_phase;
     public string CST_talkingOwner;
     public string CST_text;
-    public Color CST_contentColor;
+    public Color CST_contentColor; //HexColor 값으로 넣기
     public int CST_alignmentType; // -1, 0 ,1 왼, 중, 오
 
     public CutSceneTextData() {
@@ -35,13 +35,17 @@ public class CutSceneTextData {
         this.CST_text           = datas[4].Replace('_', ' ');
         ColorUtility.TryParseHtmlString(datas[5], out this.CST_contentColor);
     }
+
+    public override string ToString() {
+        return $"{CST_stageNumber} {CST_phase} {CST_talkingOwner} {CST_text.Replace(' ', '_')} {CST_contentColor} {CST_alignmentType}";
+    }
 }
 
 public class CutSceneManager : MonoBehaviour, IPointer​Click​Handler
 {
     [Tooltip("1 = 주인공 2 = 요정")]
     public List<CutSceneTextData> cutSceneTextDatas = new List<CutSceneTextData>();
-    
+
     public TextMeshProUGUI nameTextMeshProGUI;
     public TextMeshProUGUI contentTextMeshProGUI;
 
@@ -50,7 +54,7 @@ public class CutSceneManager : MonoBehaviour, IPointer​Click​Handler
     public string LoadSceneString;
     public int count = 0;
 
-    const string sheet_URL = "";
+    const string sheet_URL = "https://docs.google.com/spreadsheets/d/1yO2F-VKl9_f7EDcuLi8hvxDhdEv3qewkVDISBV5OYmE/edit?usp=sharing/export?format=tsv";
     private bool isClickable =false;
     public void ActivateClick(){
         isClickable = true;
@@ -142,6 +146,13 @@ public class CutSceneManager : MonoBehaviour, IPointer​Click​Handler
     public async void LoadDataFromSheet()
     {
         await DownloadItemSO();
+    }
+
+    [ContextMenu("Print CST리스트 ToString")]
+    public void PrintCTSs(){
+        string retString = "";
+        cutSceneTextDatas.ForEach(E => {retString += E.ToString() + '\n';});
+        Debug.Log(retString);
     }
 
     public async UniTask DownloadItemSO()

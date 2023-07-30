@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class BulletShooter : MonoBehaviour
 {
-    [SerializeField] public Bullet[] bullets;
+    [SerializeField] public Bullet[] bullets =  new Bullet[2];
     float _time = 0;
     [SerializeField] float _coolTime;
 
     public bool IsFireable;
+
+    public void InitializeBullets(PlayerData playerData){
+        bullets =  new Bullet[2];
+        bullets[0] = GameManager.Instance.BulletDataTableDesign.GetBulletByINDEX(playerData.Character_bullet_index_1);
+        bullets[1] = GameManager.Instance.BulletDataTableDesign.GetBulletByINDEX(playerData.Character_bullet_index_2);
+    }
 
     public void FireBullet()
     {
