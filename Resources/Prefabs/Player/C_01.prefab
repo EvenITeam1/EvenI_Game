@@ -71,10 +71,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 448995691
+  m_SortingLayerID: -462672221
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 266603163, guid: 51b6bdac05688a14dafff204460be397, type: 3}
+  m_Sprite: {fileID: -199874336, guid: a91aea5920cdee24d80992676d5751f4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -176,7 +176,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2061923363
-  m_SortingLayer: 8
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Color: {r: 0.011263967, g: 1, b: 0, a: 1}
@@ -260,7 +260,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2061923363
-  m_SortingLayer: 8
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Color: {r: 0.010703921, g: 1, b: 0, a: 1}
@@ -344,7 +344,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2061923363
-  m_SortingLayer: 8
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -477,7 +477,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2061923363
-  m_SortingLayer: 8
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -506,7 +506,7 @@ GameObject:
   - component: {fileID: 8893035031487050734}
   - component: {fileID: 8893035031487050735}
   m_Layer: 10
-  m_Name: C_004_Player_Greyhound
+  m_Name: C_01
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -602,22 +602,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 017f5ea1f62a34590a2e83c2fd4740e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Index: 1004
+  Index: 1001
   playerData:
-    Index: 1004
-    Character_korname: "\uADF8\uB808\uC774\uD558\uC6B4\uB4DC"
-    Character_engname: Greyhound
+    Index: 1001
+    Character_korname: "\uC2DC\uBC14 \uC774\uB204"
+    Character_engname: Shiba Inu
     Character_width: 1
     Character_height: 1
     Character_bullet_index_1: 3001
     Character_bullet_index_2: 3002
-    Character_hp: 130
-    Character_per_hp_heal: 0.6
-    Character_attack_speed: 0.12
+    Character_hp: 100
+    Character_per_hp_heal: 0.5
+    Character_attack_speed: 0.1
     Character_skill_index: -1
-    Character_cost: 0
-    Character_script: "\uB9D1\uC740 \uB208\uC758 \uADF8\uB808\uC774 \uD558\uC6B4\uB4DC 
-      \uBCF4\uACE0\uB9CC \uC788\uC5B4\uB3C4 \uB208\uC774 \uCC38 \uB9D1\uB2E4"
+    Character_cost: -1
+    Character_script: "\uADC0\uC5EC\uC6B4 \uC2DC\uBC14 \uC774\uB204.  \uC0AC\uB78C\uC744
+      \uC88B\uC544\uD55C\uB2E4."
     Character_filecode: ' '
   playerMoveData:
     horizontal: 1
@@ -676,9 +676,9 @@ MonoBehaviour:
   OnHitEvent:
     m_PersistentCalls:
       m_Calls: []
-  _hp: 0
+  _hp: 100
   _setHp: 100
-  _recoverHp: 0
+  _recoverHp: 0.5
   _recoverInterval: 1
 --- !u!114 &8893035031487050735
 MonoBehaviour:
