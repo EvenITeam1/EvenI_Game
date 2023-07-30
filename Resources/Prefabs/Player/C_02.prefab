@@ -71,10 +71,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 448995691
-  m_SortingLayer: 0
+  m_SortingLayerID: -1789428647
+  m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: -309169296, guid: 2473da4294d503147b2c7210586c37ab, type: 3}
+  m_Sprite: {fileID: -300292710, guid: d42837f9619a43445a6852ca954064b4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -95,7 +95,7 @@ Animator:
   m_GameObject: {fileID: 4051240422337465676}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 99aebd36c40134a6ba2292ab36eff560, type: 2}
+  m_Controller: {fileID: 9100000, guid: d40661e6e84594cd2baa862e658819e9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -506,7 +506,7 @@ GameObject:
   - component: {fileID: 8893035031487050734}
   - component: {fileID: 8893035031487050735}
   m_Layer: 10
-  m_Name: C_007_Player_Wolf
+  m_Name: C_02
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -602,22 +602,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 017f5ea1f62a34590a2e83c2fd4740e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Index: 1007
+  Index: 1002
   playerData:
-    Index: 1007
-    Character_korname: "\uC6B8\uD504"
-    Character_engname: Wolf
+    Index: 1002
+    Character_korname: "\uACE8\uB4E0 \uB9AC\uD2B8\uB9AC\uBC84"
+    Character_engname: Golden Retriever
     Character_width: 1
     Character_height: 1
     Character_bullet_index_1: 3001
     Character_bullet_index_2: 3002
-    Character_hp: 120
-    Character_per_hp_heal: 0.6
+    Character_hp: 150
+    Character_per_hp_heal: 0.5
     Character_attack_speed: 0.1
     Character_skill_index: -1
     Character_cost: 0
-    Character_script: "\uC57C\uC131\uC758 \uC6B8\uD504  \uBCF4\uB984\uB2EC\uC774
-      \uB728\uBA74 \uC57C\uC131\uC758 \uBCF8\uB2A5\uC774 \uAE68\uC5B4\uB0A0\uC9C0\uB3C4..?"
+    Character_script: "\uBBF8\uC18C \uCC9C\uC0AC \uACE8\uB4E0 \uB9AC\uD2B8\uB9AC\uBC84. 
+      \uC6C3\uB294 \uAC8C \uB9E4\uB825\uC801\uC774\uB2E4."
     Character_filecode: ' '
   playerMoveData:
     horizontal: 1
@@ -647,7 +647,7 @@ MonoBehaviour:
     jumpBufferCounter: 0
   playerVisualData:
     spriteRenderer: {fileID: 4051240422337465665}
-    animator: {fileID: 4051240422337465666}
+    playerAnimator: {fileID: 4051240422337465666}
   playerState: {fileID: 8893035031487050735}
   playerHP: {fileID: 8893035031487050734}
   inputHandler: {fileID: 8893035031487050710}

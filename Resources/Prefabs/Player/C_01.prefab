@@ -71,10 +71,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 448995691
-  m_SortingLayer: 0
+  m_SortingLayerID: -462672221
+  m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1616912194, guid: 43bdc4203e935c64fa4c704e90eb41b5, type: 3}
+  m_Sprite: {fileID: -199874336, guid: a91aea5920cdee24d80992676d5751f4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -298,7 +298,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4051240423206156444}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.75, y: -0.53999996, z: 0}
+  m_LocalPosition: {x: -0.75, y: -0.75, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -431,7 +431,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4051240423478055255}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.75, y: -1.04, z: 0}
+  m_LocalPosition: {x: 0.75, y: -1.25, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -506,7 +506,7 @@ GameObject:
   - component: {fileID: 8893035031487050734}
   - component: {fileID: 8893035031487050735}
   m_Layer: 10
-  m_Name: C_009_Player_WhitePomeranian
+  m_Name: C_01
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -602,23 +602,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 017f5ea1f62a34590a2e83c2fd4740e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Index: 1009
+  Index: 1001
   playerData:
-    Index: 1009
-    Character_korname: "\uD654\uC774\uD2B8 \uD3EC\uBA54\uB77C\uB2C8\uC548"
-    Character_engname: White Pomeranian
+    Index: 1001
+    Character_korname: "\uC2DC\uBC14 \uC774\uB204"
+    Character_engname: Shiba Inu
     Character_width: 1
     Character_height: 1
     Character_bullet_index_1: 3001
     Character_bullet_index_2: 3002
-    Character_hp: 110
-    Character_per_hp_heal: 0.7
+    Character_hp: 100
+    Character_per_hp_heal: 0.5
     Character_attack_speed: 0.1
     Character_skill_index: -1
-    Character_cost: 0
-    Character_script: "\uC21C\uB465\uD55C \uD654\uC774\uD2B8 \uD3EC\uBA54\uB77C\uB2C8\uC548 
-      \uD558\uC597\uACE0 \uC21C\uB465\uC21C\uB465\uD55C \uB208\uC73C\uB85C \uCCD0\uB2E4\uBCF4\uBA74
-      \uB9C8\uC74C\uC774 \uB179\uB294\uB2E4"
+    Character_cost: -1
+    Character_script: "\uADC0\uC5EC\uC6B4 \uC2DC\uBC14 \uC774\uB204.  \uC0AC\uB78C\uC744
+      \uC88B\uC544\uD55C\uB2E4."
     Character_filecode: ' '
   playerMoveData:
     horizontal: 1
@@ -677,9 +676,9 @@ MonoBehaviour:
   OnHitEvent:
     m_PersistentCalls:
       m_Calls: []
-  _hp: 0
+  _hp: 100
   _setHp: 100
-  _recoverHp: 0
+  _recoverHp: 0.5
   _recoverInterval: 1
 --- !u!114 &8893035031487050735
 MonoBehaviour:

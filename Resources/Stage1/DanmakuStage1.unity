@@ -131,6 +131,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1371965365554282008, guid: 72f665887dd2146cebc566c8dcce7a73, type: 3}
+      propertyPath: m_Value
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1371965365554282008, guid: 72f665887dd2146cebc566c8dcce7a73, type: 3}
+      propertyPath: m_MaxValue
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1371965365554282008, guid: 72f665887dd2146cebc566c8dcce7a73, type: 3}
+      propertyPath: m_MinValue
+      value: -27.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1797044182385535158, guid: 72f665887dd2146cebc566c8dcce7a73, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -403,9 +415,21 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5249561447194194175, guid: 72f665887dd2146cebc566c8dcce7a73, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 4.499998
+      objectReference: {fileID: 0}
+    - target: {fileID: 5249561447194194175, guid: 72f665887dd2146cebc566c8dcce7a73, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 28.050003
+      objectReference: {fileID: 0}
     - target: {fileID: 5599358850611729516, guid: 72f665887dd2146cebc566c8dcce7a73, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6734170533532136053, guid: 72f665887dd2146cebc566c8dcce7a73, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6740203435578461097, guid: 72f665887dd2146cebc566c8dcce7a73, type: 3}
       propertyPath: m_AnchorMax.x
@@ -427,8 +451,16 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8427959609698548335, guid: 72f665887dd2146cebc566c8dcce7a73, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8627307447823808088, guid: 72f665887dd2146cebc566c8dcce7a73, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8966783481933781337, guid: 72f665887dd2146cebc566c8dcce7a73, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1292,13 +1324,17 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 806037511536748678, guid: 3678f3d27fd4d4093a1dcbb451c31a86, type: 3}
+      propertyPath: saveData.prevHP
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 806037512186828230, guid: 3678f3d27fd4d4093a1dcbb451c31a86, type: 3}
       propertyPath: m_Name
       value: TEST_GM
       objectReference: {fileID: 0}
     - target: {fileID: 806037512186828230, guid: 3678f3d27fd4d4093a1dcbb451c31a86, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 806037512186828231, guid: 3678f3d27fd4d4093a1dcbb451c31a86, type: 3}
       propertyPath: m_RootOrder

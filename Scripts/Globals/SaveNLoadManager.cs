@@ -12,7 +12,7 @@ public class SaveData{
         prevHP = -1;
         prevScore = 0;
     }
-    public PlayerData layerData;
+    public PlayerData receivedPlayerData;
 }
 
 public class SaveNLoadManager : MonoBehaviour {
