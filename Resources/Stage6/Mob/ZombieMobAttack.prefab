@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0070f910c50c451298bf3cd74e6e41d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Index: 0
+  Index: 2000
   objectData:
     Index: 2000
     Ob_name: Zombie
@@ -84,7 +84,7 @@ MonoBehaviour:
     Ob_damage: 30
     Ob_bullet_index: -1
     Ob_movement_index: 0
-    Ob_move_strength: 2
+    Ob_move_strength: 0
     OB_Hitable: 0
     Ob_HP: 1000
     Ob_Score: 0
@@ -99,10 +99,10 @@ MonoBehaviour:
   visualData:
     spriteRenderer: {fileID: 4866375728624784943}
     animator: {fileID: 0}
-    defaultColor: {r: 0, g: 0, b: 0, a: 0}
-    onHitColor: {r: 0, g: 0, b: 0, a: 0}
+    defaultColor: {r: 1, g: 1, b: 1, a: 0}
+    onHitColor: {r: 1, g: 0, b: 0, a: 0}
   objectCollider: {fileID: 1132459411153044622}
-  moveTriggerOffset: 5
+  moveTriggerOffset: 10
   HitParticle: {fileID: 7124663019238293431, guid: 301f99a9c0b0643798ca6ef1fad42b44, type: 3}
 --- !u!95 &7105880652023438257
 Animator:
@@ -224,7 +224,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1eb038b6cdc364551938ac6e620c7678, type: 2}
+  - {fileID: 2100000, guid: 9db26d854ac0f4d92a77d75b8e9ab018, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
