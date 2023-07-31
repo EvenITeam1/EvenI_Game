@@ -25,15 +25,14 @@ public class CutSceneTextData {
         this.CST_text           = "내용";
     }
 
-    public CutSceneTextData(string _parsedLine) 
+    public CutSceneTextData(string[] _parsedDatas) 
     {
-        string[] datas = _parsedLine.Trim().Split('\t');
         // this.CST_Index       = (TEXT_INDEX)int.Parse(dats[0]); //굳이 인덱스 필요할까?
-        this.CST_stageNumber    = int.Parse(datas[1]);
-        this.CST_phase          = int.Parse(datas[2]);
-        this.CST_talkingOwner      = datas[3].Replace('_', ' ');
-        this.CST_text           = datas[4].Replace('_', ' ');
-        ColorUtility.TryParseHtmlString(datas[5], out this.CST_contentColor);
+        this.CST_stageNumber    = int.Parse(_parsedDatas[0]);
+        this.CST_phase          = int.Parse(_parsedDatas[1]);
+        this.CST_talkingOwner      = _parsedDatas[2].Replace('_', ' ');
+        this.CST_text           = _parsedDatas[3].Replace('_', ' ');
+        ColorUtility.TryParseHtmlString(_parsedDatas[4], out this.CST_contentColor);
     }
 
     public override string ToString() {
@@ -43,9 +42,11 @@ public class CutSceneTextData {
 
 public class CutSceneManager : MonoBehaviour, IPointer​Click​Handler
 {
+    public int currentStage;
+    public int currentPhase;
+    
     [Tooltip("1 = 주인공 2 = 요정")]
-    public List<CutSceneTextData> cutSceneTextDatas = new List<CutSceneTextData>();
-
+    public List<CutSceneTextData> cutSceneTextDatas;
     public TextMeshProUGUI nameTextMeshProGUI;
     public TextMeshProUGUI contentTextMeshProGUI;
 
@@ -54,7 +55,7 @@ public class CutSceneManager : MonoBehaviour, IPointer​Click​Handler
     public string LoadSceneString;
     public int count = 0;
 
-    const string sheet_URL = "https://docs.google.com/spreadsheets/d/1yO2F-VKl9_f7EDcuLi8hvxDhdEv3qewkVDISBV5OYmE/edit?usp=sharing/export?format=tsv";
+    const string sheet_URL = "https://docs.google.com/spreadsheets/d/1yO2F-VKl9_f7EDcuLi8hvxDhdEv3qewkVDISBV5OYmE/export?format=tsv";
     private bool isClickable =false;
     public void ActivateClick(){
         isClickable = true;
@@ -165,7 +166,11 @@ public class CutSceneManager : MonoBehaviour, IPointer​Click​Handler
 
         for (int i = lineStart; i < lines.Length; i++)
         {
-            cutSceneTextDatas.Add(new CutSceneTextData(lines[i]));
+            string[] parsedDatas = lines[i].Trim().Split('\t');
+            if(parsedDatas.Length == 0) {continue;}
+            if(currentStage == int.Parse(parsedDatas[0])) {
+                cutSceneTextDatas.Add(new CutSceneTextData(parsedDatas));
+            }
         }
     }
 }

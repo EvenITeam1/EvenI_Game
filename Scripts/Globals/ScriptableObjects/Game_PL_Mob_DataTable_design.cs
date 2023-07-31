@@ -37,7 +37,14 @@ public class Game_PL_Mob_DataTable_design : GoogleDataTable {
         }
     }
 
-    public MobData GetMobDataByINDEX(MOB_INDEX _index) {
-        return mobDataforms[(int)((int)_index - MobData.indexBasis)];
+    public override void AfterDownloadItemSO()
+    {
+        foreach(Mob E in Mob_Prefebs){
+            E.bulletShooter.InitializeBulletsByMobData(E.mobData);
+        }
+    }
+
+    public Mob GetMobByINDEX(MOB_INDEX _index) {
+        return Mob_Prefebs[(int)((int)_index - MobData.indexBasis) -1];
     }
 }

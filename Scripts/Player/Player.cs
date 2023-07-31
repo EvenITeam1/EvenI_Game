@@ -246,7 +246,7 @@ public class Player : MonoBehaviour, IDamagable
     
     public void Revival(){
         if(revivalCoroutine != null) {StopCoroutine(revivalCoroutine);}
-        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().RevivalCount--;
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.RevivalCount--;
         transform.position = GetRevivalPosition();
         revivalCoroutine = StartCoroutine(AsyncRevival());
     }

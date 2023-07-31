@@ -44,10 +44,8 @@ public class Stage1BossPattern : MonoBehaviour, IDamagable {
             BossBasicBullet refBullet = bullets[Random.Range(0, bulletsCount)];
             var instantBossBullet = Instantiate(refBullet, transform.position, Quaternion.identity);
             Rigidbody2D bulletRigid = instantBossBullet.GetComponent<Rigidbody2D>();
-            bulletRigid.velocity *= new Vector2(
-                Random.Range(-1f, -2f), 
-                Random.Range(0.5f, 4f)
-            );
+            bulletRigid.velocity *= Random.Range(-1f, -2f);
+            bulletRigid.velocity += 10* Vector2.up * Random.Range(0.5f, 1f);
             Debug.Log(bulletRigid.velocity);
         }
     }

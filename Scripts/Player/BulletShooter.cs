@@ -10,10 +10,16 @@ public class BulletShooter : MonoBehaviour
 
     public bool IsFireable;
 
-    public void InitializeBullets(PlayerData playerData){
+    public void InitializeBulletsByPlayerData(PlayerData playerData){
         bullets =  new Bullet[2];
         bullets[0] = GameManager.Instance.BulletDataTableDesign.GetBulletByINDEX(playerData.Character_bullet_index_1);
         bullets[1] = GameManager.Instance.BulletDataTableDesign.GetBulletByINDEX(playerData.Character_bullet_index_2);
+    }
+
+    public void InitializeBulletsByMobData(MobData mobData){
+        if(!IsFireable) {return;}
+        bullets =  new Bullet[1];
+        bullets[0] = GameManager.Instance.BulletDataTableDesign.GetBulletByINDEX(mobData.Mob_bullet_index);
     }
 
     public void FireBullet()
