@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using UnityEngine.UI;
 using TMPro;
+using Newtonsoft.Json;
 
 public class SatietyManage : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class SatietyManage : MonoBehaviour
     [SerializeField] Color fillColor;
     [SerializeField] TextMeshProUGUI guageCountText;
     [SerializeField] TextMeshProUGUI leftTimeText;
+    [SerializeField] TextAsset JsonFile;
+    static bool isFirstAccess = true;
     public static int chargeCount;
     public float initialChargeTimeBySec;
     float chargeTimeBySec;
@@ -18,6 +21,15 @@ public class SatietyManage : MonoBehaviour
     float timeLeft;
     static float passedTimeInLobby;
     public static DateTime prevTime = DateTime.MaxValue;
+
+    private void Awake()
+    {
+        if(isFirstAccess)
+        {
+            prevTime = JsonConvert.DeserializeObject<DateTime>(JsonFile.text);
+            isFirstAccess = false;
+        }    
+    }
     private void Start()
     {
         CalculateCountOutside();
@@ -30,8 +42,6 @@ public class SatietyManage : MonoBehaviour
     {
        CalculateCountInside();
     }
-
-    
     public static void RecordLobbyOutTime()//for Outside
     {
         prevTime = DateTime.Now;
@@ -67,8 +77,6 @@ public class SatietyManage : MonoBehaviour
         {
             TimeSpan dt = DateTime.Now - prevTime;
             if(dt.TotalHours < 0) {return;}
-            Debug.Log(dt.TotalSeconds);
-            Debug.Log(passedTimeInLobby);
             int plusCount = (int)(dt.TotalSeconds + passedTimeInLobby) / (int)initialChargeTimeBySec;
             timeLeft = (int)(dt.TotalSeconds + passedTimeInLobby) % (int)initialChargeTimeBySec;
             chargeCount += plusCount;
