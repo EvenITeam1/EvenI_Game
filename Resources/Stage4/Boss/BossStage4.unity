@@ -652,9 +652,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 332905961}
-  - component: {fileID: 332905964}
   - component: {fileID: 332905963}
-  - component: {fileID: 332905962}
   m_Layer: 6
   m_Name: BackGround3_ColumnsFloor
   m_TagString: Untagged
@@ -677,19 +675,6 @@ Transform:
   m_Father: {fileID: 1910072106}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &332905962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 332905960}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 714bbc0c410f947599bf1f723702d3bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteRenderer: []
 --- !u!212 &332905963
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -742,40 +727,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &332905964
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 332905960}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4cb613fa7f8eff4b8b22a8126121240, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _preventMovingBelowInitialPosition: 1
-  _plane: 0
-  _relativeSpeed: 0.2
-  _cacheSpeed: 0
-  _preventHorizontalMovement: 0
-  _preventVerticalMovement: 1
-  AfterDrawSubBackgrounds:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 332905962}
-        m_TargetAssemblyTypeName: TwoDimensions.AutoRenderOrder, Assembly-CSharp
-        m_MethodName: GetChildSpriteRenderers
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  SpecialChildMaterial: {fileID: 2100000, guid: 1eb038b6cdc364551938ac6e620c7678, type: 2}
 --- !u!1 &379130260
 GameObject:
   m_ObjectHideFlags: 0
@@ -9159,9 +9110,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1459457179}
-  - component: {fileID: 1459457182}
   - component: {fileID: 1459457181}
-  - component: {fileID: 1459457180}
   m_Layer: 6
   m_Name: Background2_Wires
   m_TagString: Untagged
@@ -9184,19 +9133,6 @@ Transform:
   m_Father: {fileID: 1910072106}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1459457180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1459457178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 714bbc0c410f947599bf1f723702d3bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteRenderer: []
 --- !u!212 &1459457181
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9249,40 +9185,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1459457182
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1459457178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4cb613fa7f8eff4b8b22a8126121240, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _preventMovingBelowInitialPosition: 1
-  _plane: 0
-  _relativeSpeed: 0.4
-  _cacheSpeed: 0
-  _preventHorizontalMovement: 0
-  _preventVerticalMovement: 1
-  AfterDrawSubBackgrounds:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1459457180}
-        m_TargetAssemblyTypeName: TwoDimensions.AutoRenderOrder, Assembly-CSharp
-        m_MethodName: GetChildSpriteRenderers
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  SpecialChildMaterial: {fileID: 2100000, guid: 1eb038b6cdc364551938ac6e620c7678, type: 2}
 --- !u!1 &1851451376
 GameObject:
   m_ObjectHideFlags: 0
@@ -9569,9 +9471,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1988722506}
-  - component: {fileID: 1988722509}
   - component: {fileID: 1988722508}
-  - component: {fileID: 1988722507}
   m_Layer: 6
   m_Name: Background4_far
   m_TagString: Untagged
@@ -9594,19 +9494,6 @@ Transform:
   m_Father: {fileID: 1910072106}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1988722507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1988722505}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 714bbc0c410f947599bf1f723702d3bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteRenderer: []
 --- !u!212 &1988722508
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9659,20 +9546,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1988722509
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1988722505}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a523ebea77e15284d894ec561482f425, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _preventMovingBelowInitialPosition: 1
-  _plane: 0
 --- !u!1 &2005786855 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1797044182982345259, guid: 2056d526443fc41afb43d68a9b174a22, type: 3}
