@@ -37,7 +37,11 @@ public class Game_PL_Bullet_DataTable_design : GoogleDataTable {
         }
     }
 
-    public BulletData GetBulletDataByINDEX(BULLET_INDEX _index) {
-        return bulletDataforms[(int)((int)_index - BulletData.indexBasis)];
+    public override void AfterDownloadItemSO(){
+        return;
+    }
+    
+    public Bullet GetBulletByINDEX(BULLET_INDEX _index) {
+        return Bullet_Prefebs[(int)((int)_index - BulletData.indexBasis) -1];
     }
 }

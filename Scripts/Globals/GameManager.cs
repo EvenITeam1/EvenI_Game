@@ -53,6 +53,8 @@ public class GameManager : MonoBehaviour
                     TipDataTableDesign.DownloadItemSO()
                 );
                 IsAsyncLoaded = true;
+
+                
             }
         }
         // 이렇게 하면 다음 scene으로 넘어가도 오브젝트가 사라지지 않습니다.
