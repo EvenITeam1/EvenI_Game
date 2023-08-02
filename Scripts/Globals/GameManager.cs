@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
             BossDataTableDesign ??= GetComponentInChildren<Game_PL_Boss_DataTable_design>();
             TipDataTableDesign ??= GetComponentInChildren<Game_PL_Tip_DataTable_design>();
             GlobalSaveNLoad ??= GetComponentInChildren<SaveNLoadManager>();
+            GlobalSoundManager ??= GetComponentInChildren<SoundManager>();
 
             if (!IsAsyncLoaded)
             {
@@ -86,4 +87,5 @@ public class GameManager : MonoBehaviour
     public Game_PL_Boss_DataTable_design BossDataTableDesign;
     public Game_PL_Tip_DataTable_design TipDataTableDesign;
     public SaveNLoadManager GlobalSaveNLoad;
+    public SoundManager GlobalSoundManager;
 }

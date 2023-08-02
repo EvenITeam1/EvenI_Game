@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 [System.Serializable]
 public class PlayerData
@@ -107,4 +108,13 @@ public class PlayerVisualData
     public Animator playerAnimator;
     //public Animator runningVFXAnimator;
     public PlayerVisualData() { }
+}
+
+[System.Serializable]
+public class PlayerSoundData 
+{
+    public AudioClip JumpActive;
+    public AudioClip GetDamaged;
+    public AudioClip Revival;
+    public PlayerSoundData() { }
 }
