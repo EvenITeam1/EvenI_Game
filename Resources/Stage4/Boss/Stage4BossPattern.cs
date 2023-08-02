@@ -92,7 +92,6 @@ public class Stage4BossPattern : MonoBehaviour
         pattern2_sub1();
         await UniTask.Delay(TimeSpan.FromSeconds(interval2));
         pattern2_sub2();
-        await UniTask.Delay(TimeSpan.FromSeconds(2));
         patternActive = false;
     }
     #region basicAttack_sub_Func
@@ -114,13 +113,13 @@ public class Stage4BossPattern : MonoBehaviour
     #endregion
     async UniTaskVoid jumpAttack()
     {
-        int n = Random.Range(0, 6);
+        int n = Random.Range(3, 6);
         for (int i = 0; i < n; i++)
         {
             animator.SetTrigger("Jump");
             await UniTask.Delay(TimeSpan.FromSeconds(1));
             jump_shot();
-            await UniTask.Delay(TimeSpan.FromSeconds(1));
+            await UniTask.Delay(TimeSpan.FromSeconds(0.15f));
         }
 
         patternActive = false;

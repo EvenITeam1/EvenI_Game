@@ -84,4 +84,27 @@ OS에 맞는 설정을 구글에 꼭 찾아보길!
 [(알아두면 개발팀장가능) GitFlow vs Trunk-based 협업방식](https://www.youtube.com/watch?v=EV3FZ3cWBp8)
 
 
+<<<<<<< HEAD
 ---
+=======
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> slhun22_20230802_BeforeMergeOrigin

@@ -13,8 +13,11 @@ public class Stage5BossPattern : MonoBehaviour
     [SerializeField] float moveSpeed;
     [SerializeField] GameObject[] laserObj;
     [SerializeField] GameObject enemy;
+    [SerializeField] GameObject enemy2;
     [SerializeField] GameObject flag;
     [SerializeField] GameObject basicBullet;
+    [SerializeField] GameObject basicBulletslow;
+    [SerializeField] GameObject basicBulletshockwave;
     [SerializeField] GameObject reflectBullet;
     Animator animator;
     GameObject player;
@@ -39,15 +42,14 @@ public class Stage5BossPattern : MonoBehaviour
         if (!ready)
         {
             ready = true;
-            executeRandomPattern(6).Forget();
+            executeRandomPattern(4).Forget();
         }
     }
 
     async UniTaskVoid executeRandomPattern(int patternN)
     {
         await UniTask.Delay(TimeSpan.FromSeconds(coolTime));
-        //int n = Random.Range(0, patternN);
-        int n = 2;
+        int n = Random.Range(0, patternN);
         patternActive = true;
         switch (n)
         {
@@ -60,18 +62,10 @@ public class Stage5BossPattern : MonoBehaviour
                 break;
 
             case 2:
-                pattern3();
-                break;
-
-            case 3:
                 pattern4();
                 break;
 
-            case 4:
-                pattern5();
-                break;
-
-            case 5:
+            case 3:
                 pattern6();
                 break;
         }
@@ -86,14 +80,14 @@ public class Stage5BossPattern : MonoBehaviour
 
     async UniTaskVoid pattern1_shot()
     {
-        for (int i = 0; i < 3; i++)
+        animator.SetTrigger("Attack3");
+        await UniTask.Delay(TimeSpan.FromSeconds(1));
+        for (int i = 0; i < 2; i++)
         {
+            await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
             SetBossLaser.executeLaser(laserObj[i]);
-            await UniTask.Delay(TimeSpan.FromSeconds(interval1));
+            await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
         }
-        SetBossLaser.executeLaser(laserObj[3]);
-        await UniTask.Delay(TimeSpan.FromSeconds(2));
-        SetBossLaser.executeLaser(laserObj[4]);
         patternActive = false;
     }
 
@@ -104,74 +98,23 @@ public class Stage5BossPattern : MonoBehaviour
 
     async UniTaskVoid pattern2_shot()
     {
-        pattern2_sub1();
-        await UniTask.Delay(TimeSpan.FromSeconds(interval2));
-        pattern2_sub2();
-        await UniTask.Delay(TimeSpan.FromSeconds(interval2));
-        pattern2_sub3();
-        await UniTask.Delay(TimeSpan.FromSeconds(interval2));
-        pattern2_sub4();
-        await UniTask.Delay(TimeSpan.FromSeconds(interval2));
-        pattern2_sub5();
-        await UniTask.Delay(TimeSpan.FromSeconds(interval2));
-        pattern2_sub6();
+        int n = Random.Range(2,4);
+        animator.SetTrigger("Attack2");
+        await UniTask.Delay(TimeSpan.FromSeconds(2));
+        for (int i = 0; i < n; i++)
+        {
+            pattern2_sub1();
+            await UniTask.Delay(TimeSpan.FromSeconds(1.25f));
+        }
         patternActive = false;
     }
     #region ����2 �����Լ� 
     void pattern2_sub1()
     {
-        SetBossBullet.fireBullet(new Vector2(7, 4), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(7, 3), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(7, 2), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(7, 1), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(7, 0), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(7, -1), basicBullet, enemy);
+        SetBossBullet.fireBulletLocal(0, basicBulletshockwave, enemy2);
     }
 
-    void pattern2_sub2()
-    {
-        SetBossBullet.fireBullet(new Vector2(7, 4), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(7, 2), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(7, 0), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(7, -2), basicBullet, enemy);
-    }
 
-    void pattern2_sub3()
-    {
-        SetBossBullet.fireBullet(new Vector2(7, 1.25f), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(7, 0.75f), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(7, 0.25f), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(7, -0.25f), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(7, -0.75f), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(7, -1.25f), basicBullet, enemy);
-    }
-    void pattern2_sub4()
-    {
-        SetBossBullet.fireBullet(new Vector2(7, 3), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(7, 1), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(7, -1), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(7, -3), basicBullet, enemy);
-    }
-
-    void pattern2_sub5()
-    {
-        SetBossBullet.fireBullet(new Vector2(7, 2), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(7, 1), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(7, 0), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(7, -1), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(7, -2), basicBullet, enemy);
-    }
-
-    void pattern2_sub6()
-    {
-        SetBossBullet.fireBullet(new Vector2(7, 1), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(7, 0.5f), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(7, 0), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(7, -0.5f), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(7, -1), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(7, -1.5f), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(7, -2), basicBullet, enemy);
-    }
     #endregion
     /*void pattern3()
     {
@@ -188,93 +131,146 @@ public class Stage5BossPattern : MonoBehaviour
         }
         patternActive = false;
     }*/
-    void pattern3()
-    {
-        pattern3_shot().Forget();
-    }
 
-    async UniTaskVoid pattern3_shot()
-    {
-        pattern3_sub1();
-        await UniTask.Delay(TimeSpan.FromSeconds(interval2));
-        pattern3_sub2();
-        await UniTask.Delay(TimeSpan.FromSeconds(interval2));
-        pattern3_sub3();
-        await UniTask.Delay(TimeSpan.FromSeconds(interval2));
-        pattern3_sub4();
-        await UniTask.Delay(TimeSpan.FromSeconds(5));
-        patternActive = false;
-    }
-    void pattern3_sub1()
-    {
-        SetBossBullet.fireBullet(new Vector2(8, 4), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(8, 3), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(8, 2), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(8, 1), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(8, 0), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(8, -1), basicBullet, enemy);
-    }
-    void pattern3_sub2()
-    {
-        SetBossBullet.fireBullet(new Vector2(8, 3.5f), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(8, 2.5f), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(8, 1.5f), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(8, 0.5f), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(8, -0.5f), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(8, -1.5f), basicBullet, enemy);
-    }
-    void pattern3_sub3()
-    {
-        SetBossBullet.fireBullet(new Vector2(8, 4), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(8, 3), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(8, 2), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(8, 1), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(8, 0), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(8, -1), basicBullet, enemy);
-    }
-    void pattern3_sub4()
-    {
-        SetBossBullet.fireBullet(new Vector2(8, 3.5f), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(8, 2.5f), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(8, 1.5f), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(8, 0.5f), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(8, -0.5f), basicBullet, enemy);
-        SetBossBullet.fireBullet(new Vector2(8, -1.5f), basicBullet, enemy);
-    }
-    
         void pattern4()
     {
         pattern4_shot().Forget();
     }
-
     async UniTaskVoid pattern4_shot()
     {
-        for (int i = 0; i < 10; i++)
-        {
-            SetBossBullet.fireBullet(player.transform.position, basicBullet, enemy);
-            await UniTask.Delay(TimeSpan.FromSeconds(interval4));
-        }
+        animator.SetTrigger("Attack1");
+        await UniTask.Delay(TimeSpan.FromSeconds(1.9f));
+        pattern4_sub1();
+        await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
+        pattern4_sub2();
+        await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
+        pattern4_sub1();
+        await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
+        pattern4_sub2();
+        await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
+        pattern4_sub3();
+        await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
+        pattern4_sub4();
+        await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
+        pattern4_sub3();
+        await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
+        pattern4_sub4();
+        await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
+        pattern4_sub1();
+        await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
+        pattern4_sub2();
         patternActive = false;
     }
-
-
-    void pattern5()
+    void pattern4_sub1()
     {
-        pattern5_shot().Forget();
+        SetBossBullet.fireBullet(new Vector2(8, 10), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 9.5f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 9), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 8.5f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 8), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 7.5f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 7), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 6.5f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 6), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 5.5f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 5), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 4.5f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 4), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 3.5f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 3), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 2.5f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 2), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 1.5f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 1), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 0.5f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 0), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, -0.5f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, -1), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, -1.5f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 2), basicBullet, enemy);
     }
-
-    async UniTaskVoid pattern5_shot()
+    void pattern4_sub2()
     {
-        for (int i = 0; i < 7; i++)
-        {
-            SetBossBullet.fireBullet(player.transform.position, basicBullet, enemy);
-            SetBossBullet.fireBullet(player.transform.position + new Vector3(0, 2, 0), basicBullet, enemy);
-            SetBossBullet.fireBullet(player.transform.position + new Vector3(0, 1, 0), basicBullet, enemy);
-            SetBossBullet.fireBullet(player.transform.position + new Vector3(0, -1, 0), basicBullet, enemy);
-            SetBossBullet.fireBullet(player.transform.position + new Vector3(0, -2, 0), basicBullet, enemy);
-            await UniTask.Delay(TimeSpan.FromSeconds(interval5));
-        }
-        patternActive = false;
+        SetBossBullet.fireBullet(new Vector2(8, 9.5f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 9), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 8.5f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 8), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 7.5f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 7), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 6.5f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 6), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 5.5f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 5), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 4.5f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 4), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 3.5f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 3), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 2.5f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 2), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 1.5f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 1), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 0.5f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 0), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, -0.5f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, -1), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, -1.5f), basicBullet, enemy);
+
+    }
+    void pattern4_sub3()
+    {
+        SetBossBullet.fireBullet(new Vector2(8, 10.25f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 9.75f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 9.25f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 8.75f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 8.25f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 7.75f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 7.25f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 6.75f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 6.25f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 5.75f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 5.25f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 4.75f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 4.25f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 3.75f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 3.25f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 2.75f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 2.25f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 1.75f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 1.25f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 0.75f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 0.25f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, -0.25f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, -0.75f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, -1.25f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, -1.75f), basicBullet, enemy);
+    }
+    void pattern4_sub4()
+    {
+        SetBossBullet.fireBullet(new Vector2(8, 10.25f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 9.75f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 9.25f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 8.75f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 8.25f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 7.75f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 7.25f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 6.75f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 6.25f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 5.75f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 5.25f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 4.75f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 4.25f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 3.75f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 3.25f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 2.75f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 2.25f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 1.75f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 1.25f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 0.75f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, 0.25f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, -0.25f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, -0.75f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, -1.25f), basicBullet, enemy);
+        SetBossBullet.fireBullet(new Vector2(8, -1.75f), basicBullet, enemy);
     }
 
     void pattern6()
@@ -284,12 +280,12 @@ public class Stage5BossPattern : MonoBehaviour
 
     async UniTaskVoid pattern6_move()
     {
-        animator.SetBool("isWalking", true);
-        float n1 = SetBossMove.goLeft(21, moveSpeed, enemy, flag);
+        animator.SetTrigger("Walk");
+        await UniTask.Delay(TimeSpan.FromSeconds(1.75f));
+        float n1 = SetBossMove.goLeft(22, moveSpeed, enemy, flag);
         await UniTask.Delay(TimeSpan.FromSeconds(n1));
-        float n2 = SetBossMove.goRight(21, moveSpeed, enemy, flag);
+        float n2 = SetBossMove.goRight(22, moveSpeed, enemy, flag);
         await UniTask.Delay(TimeSpan.FromSeconds(n2));
-        animator.SetBool("isWalking", false);
         patternActive = false;
     }
 }
