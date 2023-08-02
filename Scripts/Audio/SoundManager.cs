@@ -51,14 +51,14 @@ public class SoundManager : MonoBehaviour
 	        AudioSources[(int)SOUND_TYPE.BGM].clip = audioClip;
 	        AudioSources[(int)SOUND_TYPE.BGM].Play();                
         }
-        else {throw new System.Exception("audioName과 일치하는 캐싱된 BGM이 없음, GameManager -> SoundManager에 BGM 캐싱되었는지 확인.");}
+        else {}//throw new System.Exception("audioName과 일치하는 캐싱된 BGM이 없음, GameManager -> SoundManager에 BGM 캐싱되었는지 확인.");}
     }
 
     public void PlaySFXyString(string audioName){
         if(CachedSFXClips.TryGetValue(audioName, out AudioClip audioClip)) {
 		    AudioSources[(int)SOUND_TYPE.SFX].PlayOneShot(audioClip);
         }
-        else {throw new System.Exception("audioName과 일치하는 캐싱된 SFX가 없음, GameManager -> SoundManager에 SFX 캐싱되었는지 확인.");}
+        else {}//throw new System.Exception("audioName과 일치하는 캐싱된 SFX가 없음, GameManager -> SoundManager에 SFX 캐싱되었는지 확인.");}
     }
 
     public void PlayByClip(AudioClip audioClip, SOUND_TYPE type)
