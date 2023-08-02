@@ -104,6 +104,7 @@ public class PlayerVisualData
     public SpriteRenderer spriteRenderer;
     
     [field: SerializeField] 
-    public Animator animator;
+    public Animator playerAnimator;
+    //public Animator runningVFXAnimator;
     public PlayerVisualData() { }
 }

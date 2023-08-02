@@ -70,8 +70,7 @@ public class Mob : MonoBehaviour, IDamagable
         DestroyPos = mobMoveData.exitPosition +  Vector2.one * RunnerManager.Instance.GlobalMobGenerator.DestroyTransform.localPosition + Vector2.left * 25f;
         InitMoveTypes();
         mobHP.setHP(mobData.Mob_hp);
-        if (!mobMoveData.IsInfiniteLifetime) { mobLifeCycleCoroutine = StartCoroutine(InstantiateMobByAlert()); }
-        else { InstantiateMob(); }
+        mobLifeCycleCoroutine = StartCoroutine(InstantiateMobByAlert());
     }
 
     private void Start()
@@ -93,16 +92,12 @@ public class Mob : MonoBehaviour, IDamagable
         mobCollider.enabled = true;
         bulletEnable = true;
         mobMoveData.moveType[(int)mobData.Mob_movement_index].Invoke();
+        if(mobMoveData.IsInfiniteLifetime){yield break;}
         yield return YieldInstructionCache.WaitForSeconds(mobMoveData.lifeTime);
         transform.DOKill();
         RunnerManager.Instance.GlobalMobGenerator.GenerateAlertObject(Vector2.one * transform.localPosition + Vector2.left * 1.5f);
         yield return YieldInstructionCache.WaitForSeconds(1f);
         ExitMovement();
-    }
-
-    public void InstantiateMob()
-    {
-        InvokeMovement();
     }
     #endregion
 

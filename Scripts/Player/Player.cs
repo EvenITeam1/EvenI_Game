@@ -53,12 +53,14 @@ public class Player : MonoBehaviour, IDamagable
         if (playerJumpData.groundCheckerTransform == null) { throw new System.Exception("자식 오브젝트에 있는 GroundCheck GameObject 가저올것"); }
 
         /*Set playerVisualData*/
-        playerVisualData.spriteRenderer ??= GetComponent<SpriteRenderer>();
-        playerVisualData.animator ??= GetComponent<Animator>();
-
+        playerVisualData.spriteRenderer     ??= GetComponent<SpriteRenderer>();
+        playerVisualData.playerAnimator     ??= GetComponent<Animator>();
+        //playerVisualData.runningVFXAnimator ??= transform.Find("VFX_RunDust").GetComponent<Animator>();
     }
 
-    private void OnEnable() {    }
+    private void OnEnable() {
+        
+    }
 
     private void Start()
     {
@@ -103,10 +105,12 @@ public class Player : MonoBehaviour, IDamagable
         else if (0 < _horizontal) { playerVisualData.spriteRenderer.flipX = true; }
     }
     private void AnimationTick(){
-        if(IsCeilHited()){playerVisualData.animator.SetBool("HitCeil",true);}
-        else {playerVisualData.animator.SetBool("HitCeil",false);}
-        playerVisualData.animator.SetFloat("FallingForce", playerRigid.velocity.y);
-        playerVisualData.animator.SetFloat("MoveSpeed", Mathf.Abs(playerRigid.velocity.x));
+        if(IsCeilHited()){playerVisualData.playerAnimator.SetBool("HitCeil",true);}
+        else {playerVisualData.playerAnimator.SetBool("HitCeil",false);}
+        playerVisualData.playerAnimator.SetFloat("FallingForce", playerRigid.velocity.y);
+        playerVisualData.playerAnimator.SetFloat("MoveSpeed", Mathf.Abs(playerRigid.velocity.x));
+        //playerVisualData.runningVFXAnimator.SetFloat("RunSpeed", Mathf.Abs(playerRigid.velocity.x));
+        //playerVisualData.runningVFXAnimator.SetBool("IsGround", IsGrounded() && !IsJumped());
     }
     #endregion
 
@@ -143,7 +147,7 @@ public class Player : MonoBehaviour, IDamagable
                 playerJumpData.jumpCount--;
                 playerJumpData.IsActivatedOnce = true;
                 bulletShooter.FireJumpBullet();
-                if(!IsCeilHited())playerVisualData.animator.SetTrigger("Jump");
+                if(!IsCeilHited())playerVisualData.playerAnimator.SetTrigger("Jump");
             }
         }
     }
@@ -152,7 +156,7 @@ public class Player : MonoBehaviour, IDamagable
         if (!inputHandler.CheckHoldInput() || playerJumpData.isAirHoldPrevented) { 
             playerRigid.gravityScale = OriginGravityScale; 
             playerJumpData.isAiring = false; 
-            playerVisualData.animator.SetBool("IsHolding", false);
+            playerVisualData.playerAnimator.SetBool("IsHolding", false);
         } // 홀드버튼 떼면 다시 하강
         else if (inputHandler.CheckHoldInput())
         {
@@ -161,7 +165,7 @@ public class Player : MonoBehaviour, IDamagable
             playerRigid.gravityScale = 0;
             playerJumpData.isAiring = true;
             playerRigid.velocity = Vector2.right * playerRigid.velocity.x;
-            playerVisualData.animator.SetBool("IsHolding", true);
+            playerVisualData.playerAnimator.SetBool("IsHolding", true);
         }
     }
 
@@ -242,7 +246,7 @@ public class Player : MonoBehaviour, IDamagable
     
     public void Revival(){
         if(revivalCoroutine != null) {StopCoroutine(revivalCoroutine);}
-        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().RevivalCount--;
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.RevivalCount--;
         transform.position = GetRevivalPosition();
         revivalCoroutine = StartCoroutine(AsyncRevival());
     }

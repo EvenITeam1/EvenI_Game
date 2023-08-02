@@ -108,6 +108,7 @@ public class PlaceableObject : MonoBehaviour, IDamagable
             player.GetDamage(objectData.Ob_damage);
         }
     }
+    
     public void HandleCoin(Collider2D _other)
     {
         if (_other.TryGetComponent(out Player player))
@@ -119,6 +120,7 @@ public class PlaceableObject : MonoBehaviour, IDamagable
             gameObject.SetActive(false);
         }
     }
+
     public void HandlePlatform(Collider2D _other)
     {
         return;

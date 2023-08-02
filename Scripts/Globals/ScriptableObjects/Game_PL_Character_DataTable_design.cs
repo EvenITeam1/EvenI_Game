@@ -36,8 +36,16 @@ public class Game_PL_Character_DataTable_design : GoogleDataTable {
             Player_Prefebs[i].playerData = playerDataforms.Last();
         }
     }
-
-    public PlayerData GetPlayerDataByINDEX(DOG_INDEX _index) {
-        return playerDataforms[(int)((int)_index - PlayerData.indexBasis)];
+    
+    public override void AfterDownloadItemSO(){
+        foreach(Player E in Player_Prefebs){
+            E.bulletShooter.InitializeBulletsByPlayerData(E.playerData);
+        }
     }
+
+    public Player GetPlayerByINDEX(DOG_INDEX _index) {
+        return Player_Prefebs[(int)((int)_index - PlayerData.indexBasis) -1];
+    }
+
+    
 }
