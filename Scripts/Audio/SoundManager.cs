@@ -63,7 +63,7 @@ public class SoundManager : MonoBehaviour
 
     public void PlayByClip(AudioClip audioClip, SOUND_TYPE type)
 	{
-        if (audioClip == null) {throw new System.Exception("audioClip에 Null을 넘겨 버림");}
+        if (audioClip == null) {}//throw new System.Exception("audioClip에 Null을 넘겨 버림");}
 
         AudioSource targetSource;
         switch (type) 

@@ -208,8 +208,8 @@ public class Player : MonoBehaviour, IDamagable
         hitObject.transform.position = transform.position;
         hitObject.transform.SetParent(this.transform);
         hitObject.SetActive(true);
-        GameManager.Instance.GlobalSoundManager.PlayByClip(playerSoundData.GetDamaged, SOUND_TYPE.SFX);
         StartCoroutine(AsyncGetDamage());
+        GameManager.Instance.GlobalSoundManager.PlayByClip(playerSoundData.GetDamaged, SOUND_TYPE.SFX);
     }
 
     public bool IsHitable() { return true; }
