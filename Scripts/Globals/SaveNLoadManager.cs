@@ -39,7 +39,7 @@ public class OutgameSaveData
         
         public int AccountLevel;
         public int CollectedExp;
-        public PlayerData SelectedPlayerData;
+        public DOG_INDEX SelectedPlayerINDEX;
     
     #endregion
 
@@ -57,7 +57,6 @@ public class OutgameSaveData
     [SerializeField]
     public OutgameSaveData()
     {
-        SelectedPlayerData = new PlayerData();
     }
 }
 

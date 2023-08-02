@@ -25,7 +25,7 @@ public class DataTrigger : MonoBehaviour {
     [ContextMenu("LoadData")]
     public void LoadData(){
         SaveData loadedData = GameManager.Instance.GlobalSaveNLoad.saveData;
-        Player coverPlayer = GameManager.Instance.CharacterDataTableDesign.GetPlayerByINDEX(loadedData.outgameSaveData.SelectedPlayerData.Index);
+        Player coverPlayer = GameManager.Instance.CharacterDataTableDesign.GetPlayerByINDEX(loadedData.outgameSaveData.SelectedPlayerINDEX);
         RunnerManager.Instance.GlobalPlayer.playerVisualData.spriteRenderer.sprite = coverPlayer.playerVisualData.spriteRenderer.sprite;
         RunnerManager.Instance.GlobalPlayer.playerVisualData.playerAnimator.runtimeAnimatorController = coverPlayer.playerVisualData.playerAnimator.runtimeAnimatorController;
         RunnerManager.Instance.GlobalPlayer.playerHP.setHP(GameManager.Instance.GlobalSaveNLoad.saveData.ingameSaveData.PrevHP);
@@ -62,7 +62,7 @@ public class DataTrigger : MonoBehaviour {
             = GameManager.Instance.GlobalSaveNLoad.saveData.ingameSaveData.CollectedScore;
     }
     public void LoadOutToInGame(){
-        Player coverPlayer = GameManager.Instance.CharacterDataTableDesign.GetPlayerByINDEX(GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SelectedPlayerData.Index);
+        Player coverPlayer = GameManager.Instance.CharacterDataTableDesign.GetPlayerByINDEX(GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SelectedPlayerINDEX);
         RunnerManager.Instance.GlobalPlayer.playerVisualData.spriteRenderer.sprite = coverPlayer.playerVisualData.spriteRenderer.sprite;
         RunnerManager.Instance.GlobalPlayer.playerVisualData.playerAnimator.runtimeAnimatorController = coverPlayer.playerVisualData.playerAnimator.runtimeAnimatorController;
         RunnerManager.Instance.GlobalPlayer.playerData = coverPlayer.playerData;
