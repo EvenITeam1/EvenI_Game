@@ -216,11 +216,11 @@ public class Player : MonoBehaviour, IDamagable
 
     IEnumerator AsyncGetDamage()
     {
-        RunnerManager.Instance.GlobalPlayer.IsHitedOnce = true;
+        IsHitedOnce = true;
         playerState.ChangeState(PLAYER_STATES.GHOST_STATE);
         yield return YieldInstructionCache.WaitForSeconds(1f);
         playerState.ChangeState(PLAYER_STATES.PLAYER_STATE);
-        RunnerManager.Instance.GlobalPlayer.IsHitedOnce = false;
+        IsHitedOnce = false;
     }
 
     #endregion

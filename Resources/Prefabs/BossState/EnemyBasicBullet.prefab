@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1789428647
   m_SortingLayer: 4
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
   m_Color: {r: 0.764151, g: 0.15560597, b: 0, a: 1}
   m_FlipX: 0
@@ -136,11 +136,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74f652cad92295441b2d7908d7616493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerLayer:
+  _enemyLayer:
     serializedVersion: 2
-    m_Bits: 2147483656
-  _damage: 0
-  _setDmg: 20
-  _lastTime: 7
-  _bulletSpeed: 20
-  _bulletRigid: {fileID: 8620079346850200606}
+    m_Bits: 0
+  Index: 0
+  player: {fileID: 0}
+  bulletData:
+    Index: 3000
+    Bullet_name: "\uBE44\uC5B4\uC788\uC74C"
+    Bullet_category: 0
+    Bullet_width: 0
+    Bullet_height: 0
+    Bullet_min_dmg: 0
+    Bullet_max_dmg: 0
+    Bullet_set_dmg: 0
+    Bullet_crit_chance: 0
+    Bullet_crit_const: 0
+    Bullet_speed: 0
+    Bullet_last_time: 0
+    Bullet_reflect_count: 0
+    Bullet_filecode: 
+  bulletVisualData:
+    dmgPrefab: {fileID: 0}
+    critFontSize: 0
+    nonCritFontSize: 0
+    critColor:
+      serializedVersion: 2
+      rgba: 0
+    nonCritColor:
+      serializedVersion: 2
+      rgba: 0
+  bulletSoundData:
+    Shoot: {fileID: 0}
+  time: 0
+  bulletRigid: {fileID: 0}

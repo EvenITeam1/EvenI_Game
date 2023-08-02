@@ -48,10 +48,10 @@ public class CharacterUI : MonoBehaviour
         {
             selectButton.interactable = false;
             infoNameText.text = "???";
-            infoeScriptText.text = "º¸À¯ÇÏÁö ¾ÊÀº Ä³¸¯ÅÍÀÔ´Ï´Ù.";
-            infoHpText.text = "»óÁ¡¿¡¼­";
-            infoHpRecoverText.text = "Ä³¸¯ÅÍ¸¦";
-            infoBasicAttText.text = "¸¸³ªº¸¼¼¿ä";
+            infoeScriptText.text = "ë³´ìœ í•˜ì§€ ì•Šì€ ìºë¦­í„°ì…ë‹ˆë‹¤.";
+            infoHpText.text = "ìƒì ì—ì„œ";
+            infoHpRecoverText.text = "ìºë¦­í„°ë¥¼";
+            infoBasicAttText.text = "ë§Œë‚˜ë³´ì„¸ìš”";
             infoJumpAttText.text = "!!!!";         
         }
 
@@ -60,12 +60,12 @@ public class CharacterUI : MonoBehaviour
             selectButton.interactable = true;
             infoNameText.text = playerData.Character_korname;
             infoeScriptText.text = playerData.Character_script;
-            infoHpText.text = $"Ã¼·Â : {playerData.Character_hp}";
+            infoHpText.text = $"ì²´ë ¥ : {playerData.Character_hp}";
             var basicBulletData = GameManager.Instance.BulletDataTableDesign.GetBulletDataByINDEX(playerData.Character_bullet_index_1);
             var jumpBulletData = GameManager.Instance.BulletDataTableDesign.GetBulletDataByINDEX(playerData.Character_bullet_index_2);
-            infoHpRecoverText.text = $"È¸º¹¼Óµµ : {playerData.Character_per_hp_heal}/s";
-            infoBasicAttText.text = $"ÀÏ¹İ°ø°İ·Â : {basicBulletData.Bullet_min_dmg} ~ {basicBulletData.Bullet_max_dmg}";
-            infoJumpAttText.text = $"Á¡ÇÁ°ø°İ·Â : {jumpBulletData.Bullet_min_dmg} ~ {jumpBulletData.Bullet_max_dmg}";        
+            infoHpRecoverText.text = $"íšŒë³µì†ë„ : {playerData.Character_per_hp_heal}/s";
+            infoBasicAttText.text = $"ì¼ë°˜ê³µê²©ë ¥ : {basicBulletData.Bullet_min_dmg} ~ {basicBulletData.Bullet_max_dmg}";
+            infoJumpAttText.text = $"ì í”„ê³µê²©ë ¥ : {jumpBulletData.Bullet_min_dmg} ~ {jumpBulletData.Bullet_max_dmg}";        
         }    
     }
 }
