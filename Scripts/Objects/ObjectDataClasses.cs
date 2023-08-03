@@ -82,3 +82,9 @@ public class ObjectVisualData {
     public Color         defaultColor;
     public Color         onHitColor;
 }
+
+[System.Serializable]
+public class ObjectSoundData {
+    public AudioClip GetDamaged;
+    public AudioClip OnDisable;
+}

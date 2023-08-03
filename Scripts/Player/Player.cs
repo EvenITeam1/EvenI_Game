@@ -22,6 +22,9 @@ public class Player : MonoBehaviour, IDamagable
     [SerializeField]
     public PlayerVisualData playerVisualData = new PlayerVisualData();
 
+    [SerializeField] 
+    public PlayerSoundData  playerSoundData = new PlayerSoundData();
+    
     [SerializeField] public PlayerState playerState;
     [SerializeField] public PlayerHP playerHP;
 
@@ -147,6 +150,7 @@ public class Player : MonoBehaviour, IDamagable
                 playerJumpData.jumpCount--;
                 playerJumpData.IsActivatedOnce = true;
                 bulletShooter.FireJumpBullet();
+                GameManager.Instance.GlobalSoundManager.PlayByClip(playerSoundData.JumpActive, SOUND_TYPE.SFX);
                 if(!IsCeilHited())playerVisualData.playerAnimator.SetTrigger("Jump");
             }
         }
@@ -200,19 +204,23 @@ public class Player : MonoBehaviour, IDamagable
         if (IsHitedOnce == true) { return; }
         float currentHp = playerHP.getHP();
         playerHP.setHP(currentHp - _amount);
-        Instantiate(HitParticle, transform);
+        var hitObject = ObjectPool.instance.GetObject(HitParticle.gameObject);
+        hitObject.transform.position = transform.position;
+        hitObject.transform.SetParent(this.transform);
+        hitObject.SetActive(true);
         StartCoroutine(AsyncGetDamage());
+        GameManager.Instance.GlobalSoundManager.PlayByClip(playerSoundData.GetDamaged, SOUND_TYPE.SFX);
     }
 
     public bool IsHitable() { return true; }
 
     IEnumerator AsyncGetDamage()
     {
-        RunnerManager.Instance.GlobalPlayer.IsHitedOnce = true;
+        IsHitedOnce = true;
         playerState.ChangeState(PLAYER_STATES.GHOST_STATE);
         yield return YieldInstructionCache.WaitForSeconds(1f);
         playerState.ChangeState(PLAYER_STATES.PLAYER_STATE);
-        RunnerManager.Instance.GlobalPlayer.IsHitedOnce = false;
+        IsHitedOnce = false;
     }
 
     #endregion

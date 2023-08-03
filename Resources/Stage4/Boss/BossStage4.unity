@@ -1154,10 +1154,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ReviveCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 2391074956952298010, guid: b79ae5ab5da4d415788a69880b05632d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2391074956952298014, guid: b79ae5ab5da4d415788a69880b05632d, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1371,10 +1367,6 @@ PrefabInstance:
     - target: {fileID: 806037512186828230, guid: 3678f3d27fd4d4093a1dcbb451c31a86, type: 3}
       propertyPath: m_Name
       value: TEST_GM
-      objectReference: {fileID: 0}
-    - target: {fileID: 806037512186828230, guid: 3678f3d27fd4d4093a1dcbb451c31a86, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 806037512186828231, guid: 3678f3d27fd4d4093a1dcbb451c31a86, type: 3}
       propertyPath: m_RootOrder
@@ -9398,7 +9390,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8893035031487050705, guid: 5a9baa5c6b91a44e7bc521879a13aa63, type: 3}
       propertyPath: m_Name
-      value: C_001_Player_ShibaInu
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8893035031487050707, guid: 5a9baa5c6b91a44e7bc521879a13aa63, type: 3}
       propertyPath: m_RootOrder
@@ -9744,6 +9736,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4974768885162020469, guid: 72f665887dd2146cebc566c8dcce7a73, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5599358850611729516, guid: 72f665887dd2146cebc566c8dcce7a73, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6740203435578461097, guid: 72f665887dd2146cebc566c8dcce7a73, type: 3}
@@ -9768,7 +9764,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8627307447823808088, guid: 72f665887dd2146cebc566c8dcce7a73, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects:
@@ -9818,11 +9814,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 258527282525522679, guid: 45857f0436a236742af66209c3cb7eb9, type: 3}
       propertyPath: m_SortingLayer
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 258527282525522679, guid: 45857f0436a236742af66209c3cb7eb9, type: 3}
       propertyPath: m_SortingLayerID
-      value: -964238765
+      value: 846495363
       objectReference: {fileID: 0}
     - target: {fileID: 258527282536694745, guid: 45857f0436a236742af66209c3cb7eb9, type: 3}
       propertyPath: _width
@@ -9834,7 +9830,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 258527282536694745, guid: 45857f0436a236742af66209c3cb7eb9, type: 3}
       propertyPath: _shotPoint.x
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 258527282536694745, guid: 45857f0436a236742af66209c3cb7eb9, type: 3}
       propertyPath: _shotPoint.y
@@ -9870,6 +9866,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 258527282536694746, guid: 45857f0436a236742af66209c3cb7eb9, type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 258527282536694746, guid: 45857f0436a236742af66209c3cb7eb9, type: 3}
+      propertyPath: m_SortingLayer
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 258527282536694746, guid: 45857f0436a236742af66209c3cb7eb9, type: 3}
@@ -9930,7 +9930,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 258527282938035540, guid: 45857f0436a236742af66209c3cb7eb9, type: 3}
       propertyPath: m_SortingLayer
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 258527282938035540, guid: 45857f0436a236742af66209c3cb7eb9, type: 3}
       propertyPath: m_SortingLayerID

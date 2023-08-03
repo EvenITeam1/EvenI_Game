@@ -52,7 +52,7 @@ MonoBehaviour:
     Ob_name: "\uAC00\uC2DC\uD310\uC815\uD0C0\uC77C"
     Ob_category: 1
     Ob_width: 1
-    Ob_height: 2
+    Ob_height: 1
     Ob_damage: 20
     Ob_bullet_index: 0
     Ob_movement_index: 0
@@ -73,6 +73,9 @@ MonoBehaviour:
     animator: {fileID: 0}
     defaultColor: {r: 0, g: 0, b: 0, a: 0}
     onHitColor: {r: 0, g: 0, b: 0, a: 0}
+  soundData:
+    GetDamaged: {fileID: 0}
+    OnDisable: {fileID: 0}
   objectCollider: {fileID: 4072091334993394331}
   moveTriggerOffset: 5
   HitParticle: {fileID: 0}
@@ -89,7 +92,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.09988713}
+  m_Offset: {x: -0.0017135143, y: -0.0005787909}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -100,7 +103,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.22642517, y: 0.21802998}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!1 &4072091335926351520
 GameObject:

@@ -86,3 +86,9 @@ public class MobGenData {
     [SerializeField] public MobMoveData[] mobMoveData;
     public float gap;
 }
+
+[System.Serializable]
+public class MobSoundData {
+    AudioClip GetDamaged;
+    AudioClip OnDestroy;
+}

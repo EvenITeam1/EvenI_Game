@@ -49,7 +49,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.1739502, y: -0.02485025}
+  m_Offset: {x: -0.002067566, y: -0.0008932352}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -60,7 +60,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2684937, y: 1.8451023}
+  m_Size: {x: 1.3802032, y: 1.6281502}
   m_EdgeRadius: 0
 --- !u!114 &7162585018384856078
 MonoBehaviour:
@@ -101,6 +101,9 @@ MonoBehaviour:
     animator: {fileID: 0}
     defaultColor: {r: 1, g: 1, b: 1, a: 0}
     onHitColor: {r: 1, g: 0, b: 0, a: 0}
+  soundData:
+    GetDamaged: {fileID: 0}
+    OnDisable: {fileID: 0}
   objectCollider: {fileID: 1132459411153044622}
   moveTriggerOffset: 10
   HitParticle: {fileID: 7124663019238293431, guid: 301f99a9c0b0643798ca6ef1fad42b44, type: 3}

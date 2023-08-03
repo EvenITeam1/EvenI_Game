@@ -32,7 +32,7 @@ Transform:
   m_Children:
   - {fileID: 49896029427748311}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3937568910038251892
 MonoBehaviour:
@@ -73,6 +73,9 @@ MonoBehaviour:
     animator: {fileID: 1659493137920814489}
     defaultColor: {r: 1, g: 1, b: 1, a: 1}
     onHitColor: {r: 1, g: 0, b: 0, a: 1}
+  soundData:
+    GetDamaged: {fileID: 0}
+    OnDisable: {fileID: 0}
   objectCollider: {fileID: 5172971096665940192}
   moveTriggerOffset: 5
   HitParticle: {fileID: 0}

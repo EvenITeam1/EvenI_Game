@@ -172,27 +172,5 @@ public class CutSceneManager : MonoBehaviour, IPointer​Click​Handler
                 cutSceneTextDatas.Add(new CutSceneTextData(parsedDatas));
             }
         }
-        yield return new WaitUntil(() => {return count >= cutSceneTextDatas.Count+1;});
-        op.allowSceneActivation = true;
-    }
-
-    [ContextMenu("컷씬 스크립트 수동으로 불러오기")]
-    public async void LoadDataFromSheet()
-    {
-        await DownloadItemSO();
-    }
-
-    public async UniTask DownloadItemSO()
-    {
-        var txt = (await UnityWebRequest.Get(sheet_URL).SendWebRequest()).downloadHandler.text;
-        string[] lines = txt.Split('\n');
-        int lineStart = 5;
-
-        cutSceneTextDatas.Clear();
-
-        for (int i = lineStart; i < lines.Length; i++)
-        {
-            cutSceneTextDatas.Add(new CutSceneTextData(lines[i]));
-        }
     }
 }

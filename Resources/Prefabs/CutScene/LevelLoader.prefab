@@ -212,36 +212,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5d4629395b89450085c15e45cf0938f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimStartEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8413801227354021723}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  AnimStopEvents:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: PlayerEnable
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &8413801227354021723
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,7 +281,7 @@ Transform:
   m_Children:
   - {fileID: 8413801226829791866}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3182051928126793993
 MonoBehaviour:
@@ -326,7 +296,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Transition: {fileID: 8413801226829791862}
+  scene: 
   TransitionTime: 1.5
+  StageBGM: 
+  InvokeLevelEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  ExitLevelEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8413801227442761738
 GameObject:
   m_ObjectHideFlags: 0

@@ -66,6 +66,14 @@ public class BulletVisualData
     public Color32 critColor;
     public Color32 nonCritColor;
 }
+
+[System.Serializable]
+public class BulletSoundData 
+{
+    public AudioClip Shoot;
+    public BulletSoundData() { }
+}
+
 #endregion /////////////////////////////////////////////////////////////////////////////////
 
 #region Laser

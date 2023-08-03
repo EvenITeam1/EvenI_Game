@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
             BossDataTableDesign ??= GetComponentInChildren<Game_PL_Boss_DataTable_design>();
             TipDataTableDesign ??= GetComponentInChildren<Game_PL_Tip_DataTable_design>();
             GlobalSaveNLoad ??= GetComponentInChildren<SaveNLoadManager>();
+            GlobalSoundManager ??= GetComponentInChildren<SoundManager>();
 
             if (!IsAsyncLoaded)
             {
@@ -53,8 +54,6 @@ public class GameManager : MonoBehaviour
                     TipDataTableDesign.DownloadItemSO()
                 );
                 IsAsyncLoaded = true;
-
-                
             }
         }
         // 이렇게 하면 다음 scene으로 넘어가도 오브젝트가 사라지지 않습니다.
@@ -86,4 +85,5 @@ public class GameManager : MonoBehaviour
     public Game_PL_Boss_DataTable_design BossDataTableDesign;
     public Game_PL_Tip_DataTable_design TipDataTableDesign;
     public SaveNLoadManager GlobalSaveNLoad;
+    public SoundManager GlobalSoundManager;
 }

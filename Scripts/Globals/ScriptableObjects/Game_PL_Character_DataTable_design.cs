@@ -43,9 +43,11 @@ public class Game_PL_Character_DataTable_design : GoogleDataTable {
         }
     }
 
+    public PlayerData GetPlayerDataByINDEX(DOG_INDEX _index) {
+        return playerDataforms[(int)((int)_index - PlayerData.indexBasis)];
+    }
+
     public Player GetPlayerByINDEX(DOG_INDEX _index) {
         return Player_Prefebs[(int)((int)_index - PlayerData.indexBasis) -1];
     }
-
-    
 }

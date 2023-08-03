@@ -21,6 +21,7 @@ public class PlaceableObject : MonoBehaviour, IDamagable
 
     [SerializeField]
     public ObjectVisualData visualData = new ObjectVisualData();
+    public ObjectSoundData soundData = new ObjectSoundData();
 
     [SerializeField] private BoxCollider2D objectCollider;
     public Collider2D GetCollider() { return this.objectCollider; }
@@ -76,7 +77,8 @@ public class PlaceableObject : MonoBehaviour, IDamagable
     }
 
     private void OnDisable() {
-        StopAllCoroutines();    
+        GameManager.Instance.GlobalSoundManager.PlayByClip(soundData.OnDisable, SOUND_TYPE.SFX);
+        StopAllCoroutines();
     }
 
     #endregion
@@ -143,11 +145,12 @@ public class PlaceableObject : MonoBehaviour, IDamagable
     {
         var hitObject = ObjectPool.instance.GetObject(HitParticle.gameObject);
         hitObject.transform.position = transform.position;
-        hitObject.transform.localScale = (transform.localScale.x >= 3) ? Vector2.one * transform.localScale.x : Vector2.one * 3;
         hitObject.transform.SetParent(this.transform);
+        hitObject.transform.localScale = (transform.localScale.x >= 3) ? Vector2.one * transform.localScale.x : Vector2.one * 3;
         StartCoroutine(AsyncOnHitVisual());
         hitObject.SetActive(true);
         ObjectHP -= _amount;
+        GameManager.Instance.GlobalSoundManager.PlayByClip(soundData.GetDamaged, SOUND_TYPE.SFX);
     }
 
     public bool IsHitable() { return objectData.OB_Hitable; }

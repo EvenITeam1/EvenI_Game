@@ -156,8 +156,8 @@ MonoBehaviour:
     Index: 2000
     Ob_name: "\uB098\uBB34"
     Ob_category: 1
-    Ob_width: 1
-    Ob_height: 2
+    Ob_width: 1.3
+    Ob_height: 3
     Ob_damage: 50
     Ob_bullet_index: 0
     Ob_movement_index: 0
@@ -178,6 +178,9 @@ MonoBehaviour:
     animator: {fileID: 0}
     defaultColor: {r: 0, g: 0, b: 0, a: 0}
     onHitColor: {r: 0, g: 0, b: 0, a: 0}
+  soundData:
+    GetDamaged: {fileID: 0}
+    OnDisable: {fileID: 0}
   objectCollider: {fileID: 2184592237887317944}
   moveTriggerOffset: 5
   HitParticle: {fileID: 0}
@@ -205,5 +208,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.280474, y: 3.0190742}
+  m_Size: {x: 1.3, y: 3}
   m_EdgeRadius: 0
