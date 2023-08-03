@@ -181,8 +181,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
-      propertyPath: LoadSceneString
-      value: RunnerStage1
+      propertyPath: currentStage
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.size
@@ -195,11 +195,7 @@ PrefabInstance:
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.data[1].CST_text
       value: "\uD2B9\uC774\uD558\uAC8C \uC0DD\uACBC\uB124\u2026 \uC9D1\uC774 \uC0DD\uAC01\uBCF4\uB2E4
-        \uB113\uC740 \uAC78\u2026? "
-      objectReference: {fileID: 0}
-    - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
-      propertyPath: cutSceneTextDatas.Array.data[0].CST_phase
-      value: 0
+        \uB113\uC740 \uAC78\u2026?"
       objectReference: {fileID: 0}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.data[0].CST_stageNumber
@@ -211,19 +207,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.data[0].CST_talkingOwner
-      value: OOO
+      value: "\uCD1D\uCD1D\uCD1D"
       objectReference: {fileID: 0}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.data[1].CST_talkingOwner
       value: "\uB098"
-      objectReference: {fileID: 0}
-    - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
-      propertyPath: cutSceneTextDatas.Array.data[0].CST_alignmentType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
-      propertyPath: cutSceneTextDatas.Array.data[1].CST_alignmentType
-      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.data[0].CST_contentColor.a
@@ -231,19 +219,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.data[0].CST_contentColor.b
-      value: 0.5411765
+      value: 0.63529414
       objectReference: {fileID: 0}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.data[0].CST_contentColor.g
-      value: 0.41960785
+      value: 0.94509804
       objectReference: {fileID: 0}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.data[0].CST_contentColor.r
-      value: 0.91764706
+      value: 0.99607843
       objectReference: {fileID: 0}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.data[1].CST_contentColor.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
+      propertyPath: cutSceneTextDatas.Array.data[1].CST_contentColor.b
+      value: 0.9490196
+      objectReference: {fileID: 0}
+    - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
+      propertyPath: cutSceneTextDatas.Array.data[1].CST_contentColor.g
+      value: 0.9372549
+      objectReference: {fileID: 0}
+    - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
+      propertyPath: cutSceneTextDatas.Array.data[1].CST_contentColor.r
+      value: 0.81960785
       objectReference: {fileID: 0}
     - target: {fileID: 302866959479806140, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: m_Name
@@ -291,10 +291,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 302866959479806141, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 302866959507481899, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 302866959943610894, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}

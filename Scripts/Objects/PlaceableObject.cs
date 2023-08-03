@@ -182,6 +182,11 @@ public class PlaceableObject : MonoBehaviour, IDamagable
         moveType[(int)objectData.Ob_movement_index].Invoke();
     }
 
+    [ContextMenu("Test Movement")]
+    public void TestMovement(){
+        moveType[(int)objectData.Ob_movement_index].Invoke();
+    }
+
     public void MovementHold()
     {
         return;

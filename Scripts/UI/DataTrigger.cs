@@ -21,8 +21,8 @@ public class DataTrigger : MonoBehaviour {
     }
 
     
-    [System.Obsolete("세부로 확장되었으므로 다른 스크립트로 교체하길 바람.")]
     [ContextMenu("LoadData")]
+    [System.Obsolete("세부로 확장되었으므로 다른 스크립트로 교체하길 바람.")]
     public void LoadData(){
         SaveData loadedData = GameManager.Instance.GlobalSaveNLoad.saveData;
         Player coverPlayer = GameManager.Instance.CharacterDataTableDesign.GetPlayerByINDEX(loadedData.outgameSaveData.SelectedPlayerINDEX);
