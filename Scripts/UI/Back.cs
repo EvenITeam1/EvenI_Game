@@ -29,15 +29,14 @@ public class Back : MonoBehaviour
 
     public void QuitGame()
     {
-        saveQuitTimeToJson();
+        saveSatietyDataToJson();
         Application.Quit();
     }
-
-    void saveQuitTimeToJson()
+    void saveSatietyDataToJson()
     {
-        quitTime = DateTime.Now;
-        var result = JsonConvert.SerializeObject(quitTime);
-        FileStream fileStream = new FileStream(string.Format("{0}/{1}.txt", Application.dataPath, "QuitDateTime"), FileMode.Create);
+        SatietyJsonData satieTyJsonData = new SatietyJsonData(DateTime.Now, SatietyManage.GetChargeCount());
+        var result = JsonConvert.SerializeObject(satieTyJsonData);
+        FileStream fileStream = new FileStream(string.Format("{0}/{1}.json", Application.dataPath, "QuitDateTime"), FileMode.Create);
         byte[] data = Encoding.UTF8.GetBytes(result);
         fileStream.Write(data, 0, data.Length);
         fileStream.Close();

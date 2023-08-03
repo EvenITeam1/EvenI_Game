@@ -14,19 +14,24 @@ public class SatietyManage : MonoBehaviour
     [SerializeField] TextMeshProUGUI leftTimeText;
     [SerializeField] TextAsset JsonFile;
     static bool isFirstAccess = true;
-    public static int chargeCount;
+    private static int chargeCount;
     public float initialChargeTimeBySec;
     float chargeTimeBySec;
     public float remainTime;
     float timeLeft;
     static float passedTimeInLobby;
     public static DateTime prevTime = DateTime.MaxValue;
+    private SatietyJsonData satietyJsonData;
 
     private void Awake()
     {
         if(isFirstAccess)
         {
-            prevTime = JsonConvert.DeserializeObject<DateTime>(JsonFile.text);
+            satietyJsonData = JsonConvert.DeserializeObject<SatietyJsonData>(JsonFile.text);
+            prevTime = satietyJsonData.quitTime;
+            chargeCount = satietyJsonData.chargeCount;
+            refreshGuageColor();
+            refreshCountText();
             isFirstAccess = false;
         }    
     }
@@ -109,5 +114,9 @@ public class SatietyManage : MonoBehaviour
         else
             return false;
     }
-
+    
+    public static int GetChargeCount()
+    {
+        return chargeCount;
+    }
 }
