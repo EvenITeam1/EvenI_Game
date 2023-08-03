@@ -33,11 +33,11 @@ public class ResultHandler : MonoBehaviour
         bool IsClearState = true;
         if (SceneManager.GetActiveScene().name == "GameOverScene") { IsClearState = false; }
         float Score = GameManager.Instance.GlobalSaveNLoad.saveData.ingameSaveData.CollectedScore;
-            
+        if((int)Score == -1) {Score = 0;} 
         textRoulettes[(int)RESULT_INDEX.SCORE].CountingNumber = (int)Score;
 
         textRoulettes[(int)RESULT_INDEX.EXP].CountingNumber
-            = (int)((IsClearState) ? (WinExpRatio * Score) : (LoseExpRatio * Score));
+           = (int)((IsClearState) ? (WinExpRatio * Score) : (LoseExpRatio * Score));
 
         textRoulettes[(int)RESULT_INDEX.COIN].CountingNumber
             = (int)((IsClearState) ? (WinCoinRatio * Score) : (LoseCoinRatio * Score));

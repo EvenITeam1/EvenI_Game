@@ -7,37 +7,64 @@ using UnityEngine.SceneManagement;
 public class LevelLoadScript : MonoBehaviour
 {
     public Animator Transition;
-    public string   scene;
+    public string scene;
     public float TransitionTime;
 
+    // 바로아래 Crossfade의 자식으로 들어가 있는 Plane의 SetActive(true)
+    // 러너
+    //DataTrigger.cs LoadOutToInGame 연결 되어있느지
+    // 보스
+    //DataTrigger.cs LoadRunnerToBossGame 연결이 되어 있는지
     public UnityEvent InvokeLevelEvent;
+
+    //
     public UnityEvent ExitLevelEvent;
 
-    private void Awake() {
+    private void Awake()
+    {
+
+    }
+    private void OnEnable()
+    {
         InitializeCurrentLevel();
     }
-    IEnumerator InvokeLevel() {
+    IEnumerator InvokeLevel()
+    {
         InvokeLevelEvent.Invoke();
         yield break;
     }
 
     [ContextMenu("InitializeCurrentLevel")]
-    public void InitializeCurrentLevel(){
+    public void InitializeCurrentLevel()
+    {
+        InvokeLevelEvent.AddListener(() => { GameManager.Instance.GlobalSoundManager.FadeInBGM(1); });
+        ExitLevelEvent.AddListener(() => { GameManager.Instance.GlobalSoundManager.FadeOutBGM(1); });
+    }
+
+    private void Start()
+    {
         StartCoroutine(InvokeLevel());
     }
 
-    IEnumerator ExitLevel(){
+    IEnumerator ExitLevel()
+    {
         ExitLevelEvent.Invoke();
         Transition.SetTrigger("Start");
         yield return YieldInstructionCache.WaitForSeconds(TransitionTime);
     }
 
     [ContextMenu("LoadNextLevel")]
-    public void LoadNextLevel(){
+    public void LoadNextLevel()
+    {
         StartCoroutine(LoadLevel(scene));
     }
+    public void LoadNextLevelForce()
+    {
+        SceneManager.LoadScene(scene);
+    }
 
-    IEnumerator LoadLevel(string _scene){
+    IEnumerator LoadLevel(string _scene)
+    {
         yield return StartCoroutine(ExitLevel());
 
         AsyncOperation op = SceneManager.LoadSceneAsync(_scene);
@@ -47,7 +74,8 @@ public class LevelLoadScript : MonoBehaviour
         {
             yield return null;
             timer += Time.deltaTime;
-            if(op.progress >= 0.9f) {
+            if (op.progress >= 0.9f)
+            {
                 op.allowSceneActivation = true;
                 yield break;
             }

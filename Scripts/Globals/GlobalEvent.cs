@@ -13,7 +13,8 @@ using UnityEngine.Events;
 /// <param name="input"></param>
 /// <typeparam name="T"></typeparam>
 
-public enum EVENT_FLAG {
+public enum EVENT_FLAG
+{
     BOOL, FLOAT, STRING
 }
 
@@ -24,28 +25,28 @@ public class GlobalEvent : MonoBehaviour
     {
         scoreCheck ??= GetComponent<ScoreCheck>();
     }
-    private void Start(){}
+    private void Start() { }
     void Update()
     {
         Time.timeScale = GameTimeScale;
     }
-    
+
     /////////////////////////////////////////////////////////////////////////////////
 
-#region ScoreCheck
+    #region ScoreCheck
     public ScoreCheck scoreCheck;
-#endregion 
+    #endregion
     /////////////////////////////////////////////////////////////////////////////////
 
     /////////////////////////////////////////////////////////////////////////////////
-#region TimeScaleEventHandler
+    #region TimeScaleEventHandler
 
-    public UnityEvent       PausedEvent;
+    public UnityEvent PausedEvent;
     [Range(0, 1)]
-    public float            GameTimeScale = 1f;
-    float                   mCurrentTimeScale = 1f;
-    bool                    mIsGamePaused = false;
-    bool                    mIsSlowed = false;
+    public float GameTimeScale = 1f;
+    float mCurrentTimeScale = 1f;
+    bool mIsGamePaused = false;
+    bool mIsSlowed = false;
 
     public bool IsGamePaused
     {
@@ -58,7 +59,7 @@ public class GlobalEvent : MonoBehaviour
             if (value == true) { GameTimeScale = 0; }
             else { GameTimeScale = mCurrentTimeScale; }
             mIsGamePaused = value;
-           ////Debug.Log("Time Changed");
+            ////Debug.Log("Time Changed");
         }
     }
 
@@ -68,18 +69,29 @@ public class GlobalEvent : MonoBehaviour
     }
 
     //DotTween 사용해서 증가 커브 설정하기
-#endregion  
+    #endregion
     /////////////////////////////////////////////////////////////////////////////////
 
     /////////////////////////////////////////////////////////////////////////////////
-#region DebugEvent
-    public void PrintString(string _input){
-       ////Debug.Log(_input);
+    #region DebugEvent
+    public void PrintString(string _input)
+    {
+        ////Debug.Log(_input);
     }
+    //플레이어가 죽었을때, RevivalCanvas의 DieEventHandler함수를 바인딩 시키자
     public UnityEvent OnPlayerDieEvent;
-    public void BroadCastPlayerDie(){
+
+    //DataTrigger.cs SaveStageClear
+    //LevelLoadScript.cs LoadNextLevel
+    public UnityEvent OnBossDieEvent;
+    public void BroadCastPlayerDie()
+    {
         OnPlayerDieEvent.Invoke();
     }
-#endregion 
+    public void BroadCastBossDie()
+    {
+        OnBossDieEvent.Invoke();
+    }
+    #endregion
     /////////////////////////////////////////////////////////////////////////////////
 }

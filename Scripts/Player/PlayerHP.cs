@@ -18,7 +18,6 @@ public class PlayerHP : MonoBehaviour, HP
     float _time;
 
     void Start() {
-        setHP(_setHp);
         _time = 0;
     }
 

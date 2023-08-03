@@ -22,7 +22,7 @@ public class BossHP : MonoBehaviour, HP
         if (!isAlive())
             die();
     }
-    public float getMaxHp(){return this._setHp;}
+    public float getMaxHp() { return this._setHp; }
     public float getHP() { return this._hp; }
 
     public bool isAlive()
@@ -32,12 +32,12 @@ public class BossHP : MonoBehaviour, HP
         else
             return false;
     }
-    
+
     public void die()
     {
         _hp = 0;
         gameObject.SetActive(false);
-        SceneManager.LoadScene("StageClearScene");
+        RunnerManager.Instance.GlobalEventInstance.BroadCastBossDie();
     }
 
     public void updateHpBar()
