@@ -1,27 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!244 &-8927523025863759713
-AudioMixerEffectController:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_EffectID: f80dd1b6b8fa24b13b08542ae21a0bc3
-  m_EffectName: Compressor
-  m_MixLevel: f16d734bc8f6a453bb2edda3ba1d6b53
-  m_Parameters:
-  - m_ParameterName: Threshold
-    m_GUID: be129023c5a2344dea9b275c11536d5f
-  - m_ParameterName: Attack
-    m_GUID: 2c1e68cb514c844a2a8b4f8686627b16
-  - m_ParameterName: Release
-    m_GUID: 8e80eb0077a3340b49821f8601a0cfc8
-  - m_ParameterName: Make up gain
-    m_GUID: 2fa00baf7fbf343018434bbebea44f7b
-  m_SendTarget: {fileID: 0}
-  m_EnableWetMix: 0
-  m_Bypass: 0
 --- !u!244 &-8865232331826525501
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -218,13 +196,18 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 4ddfa27cf5f2a4e188df0f12c97f3b8c
   m_FloatValues:
-    332b2be20cec64dcb9dd8eb3af1798e2: -0.16685188
-    be129023c5a2344dea9b275c11536d5f: -19.6
-    50ce95d60a73b4dc0b336897700056a8: -55
-    4c779a0781aa340daaea04935e03e351: -80
+    8e80eb0077a3340b49821f8601a0cfc8: 73
+    0e4e8571e0c884a35b1beadd7f9a6cdd: 20
+    332b2be20cec64dcb9dd8eb3af1798e2: 0
+    be129023c5a2344dea9b275c11536d5f: 0
+    94f6d5e36d81d45d1bd333ed1b3d2891: 0.1
+    50ce95d60a73b4dc0b336897700056a8: -54.8
+    4c779a0781aa340daaea04935e03e351: 0
     654a74f79ac9d4f198e2e08a3a30674f: -0.02577656
-    c5bc85dc4442743bcb22ff37d1fe088b: 1.3
-    2fa00baf7fbf343018434bbebea44f7b: 3.8
+    35f21138b1036473a9497d71368374db: 0.371
+    d4860998edd61476b86a095efb0fd6d3: 5000
+    c5bc85dc4442743bcb22ff37d1fe088b: 2.12
+    2fa00baf7fbf343018434bbebea44f7b: 4.3
   m_TransitionOverrides: {}
 --- !u!243 &1692269852575890227
 AudioMixerGroupController:
@@ -291,7 +274,6 @@ AudioMixerGroupController:
   - {fileID: 4004137367305191833}
   - {fileID: -866004156607171660}
   - {fileID: 8357308334773141694}
-  - {fileID: -8927523025863759713}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0

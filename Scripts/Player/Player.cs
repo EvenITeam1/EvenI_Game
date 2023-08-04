@@ -70,11 +70,10 @@ public class Player : MonoBehaviour, IDamagable
         FlipSprite(1);
         //playerData = GameManager.Instance.CharacterDataTableDesign.GetPlayerDataByINDEX(this.Index); //외부에서 받는것
         /*Set PlayerHP*/
-        playerHP.setHP(playerData.Character_hp);
-        playerHP._recoverHp = playerData.Character_per_hp_heal;
+        //playerHP.setHP(playerData.Character_hp);
+        //playerHP._recoverHp = playerData.Character_per_hp_heal;
         //bulletShooter.bullets[0].bulletData = GameManager.Instance.BulletDataTableDesign.GetBulletDataByINDEX(playerData.Character_bullet_index_1);
         //bulletShooter.bullets[1].bulletData = GameManager.Instance.BulletDataTableDesign.GetBulletDataByINDEX(playerData.Character_bullet_index_2);
-
     }
 
     public void InitializeAfterAsynchronous(){   
@@ -207,6 +206,7 @@ public class Player : MonoBehaviour, IDamagable
         var hitObject = ObjectPool.instance.GetObject(HitParticle.gameObject);
         hitObject.transform.position = transform.position;
         hitObject.transform.SetParent(this.transform);
+        hitObject.transform.localScale = hitObject.transform.parent.localScale * Vector2.one;
         hitObject.SetActive(true);
         StartCoroutine(AsyncGetDamage());
         GameManager.Instance.GlobalSoundManager.PlayByClip(playerSoundData.GetDamaged, SOUND_TYPE.SFX);

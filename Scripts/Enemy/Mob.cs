@@ -18,6 +18,8 @@ public class Mob : MonoBehaviour, IDamagable
 
     [HideInInspector]
     public MobMoveData mobMoveData;
+    public MobVisualData visualData;
+    public MobSoundData soundData;
 
     [SerializeField] public MobHP mobHP;
 
@@ -194,10 +196,24 @@ public class Mob : MonoBehaviour, IDamagable
     {
         float currentHp = mobHP.getHP();
         mobHP.setHP(currentHp - _amount);
-        Instantiate(HitParticle, transform);
+        var hitObject = ObjectPool.instance.GetObject(HitParticle.gameObject);
+        hitObject.transform.position = transform.position;
+        hitObject.transform.SetParent(this.transform);
+        hitObject.transform.localScale = hitObject.transform.parent.localScale * Vector2.one;
+        hitObject.SetActive(true);
+        StartCoroutine(AsyncOnHitVisual());
+        GameManager.Instance.GlobalSoundManager.PlayByClip(soundData.GetDamaged, SOUND_TYPE.SFX);
+    }
+
+    public bool IsHitable() { return true; }
+
+    IEnumerator AsyncOnHitVisual()
+    {
+        visualData.spriteRenderer.color = visualData.onHitColor;
+        yield return YieldInstructionCache.WaitForSeconds(0.05f);
+        visualData.spriteRenderer.color = visualData.defaultColor;
     }
     
-    public bool IsHitable() { return true; }
 
     private void OnDisable()
     {

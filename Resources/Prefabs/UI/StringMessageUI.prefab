@@ -117,7 +117,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5530727644230837892
 RectTransform:
   m_ObjectHideFlags: 0
@@ -134,7 +134,7 @@ RectTransform:
   - {fileID: 5854719990189925955}
   - {fileID: 8461797513125273498}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -160,8 +160,8 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: -327802893
-  m_SortingOrder: 1
+  m_SortingLayerID: -2061923363
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!114 &5530727644230837890
 MonoBehaviour:
@@ -273,6 +273,8 @@ PlayableDirector:
   - key: {fileID: -2666700877159422753, guid: ea89af9d752994683847495557c79535, type: 2}
     value: {fileID: 8461797513125273499}
   - key: {fileID: -8061485927962019394, guid: ea89af9d752994683847495557c79535, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -8963154591129551095, guid: ea89af9d752994683847495557c79535, type: 2}
     value: {fileID: 0}
   m_ExposedReferences:
     m_References:
@@ -465,7 +467,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: TEXT
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d74ca8e342e921f4999d2d165f2d38bc, type: 2}
   m_sharedMaterial: {fileID: 2384728880335398813, guid: d74ca8e342e921f4999d2d165f2d38bc, type: 2}
@@ -492,8 +494,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

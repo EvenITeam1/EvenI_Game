@@ -26,6 +26,7 @@ public class ResultHandler : MonoBehaviour
     마치 DataTrigger과 같지만, 데이터 트리거는 RunnerManager에 의존한다.
     따라서 이건 오직 SaveNLoadManager을 통해서 데이터 교환이 일어나겠다.
     */
+    
     public List<TextRoulette> textRoulettes;
 
     private void Start()
@@ -33,7 +34,7 @@ public class ResultHandler : MonoBehaviour
         bool IsClearState = true;
         if (SceneManager.GetActiveScene().name == "GameOverScene") { IsClearState = false; }
         float Score = GameManager.Instance.GlobalSaveNLoad.saveData.ingameSaveData.CollectedScore;
-            
+        if((int)Score == -1) {Score = 0;} 
         textRoulettes[(int)RESULT_INDEX.SCORE].CountingNumber = (int)Score;
 
         textRoulettes[(int)RESULT_INDEX.EXP].CountingNumber

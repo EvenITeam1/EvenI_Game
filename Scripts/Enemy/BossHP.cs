@@ -37,7 +37,7 @@ public class BossHP : MonoBehaviour, HP
     {
         _hp = 0;
         gameObject.SetActive(false);
-        SceneManager.LoadScene("StageClearScene");
+        RunnerManager.Instance.GlobalEventInstance.BroadCastBossDie();
     }
 
     public void updateHpBar()

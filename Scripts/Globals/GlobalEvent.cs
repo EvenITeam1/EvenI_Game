@@ -76,9 +76,17 @@ public class GlobalEvent : MonoBehaviour
     public void PrintString(string _input){
        ////Debug.Log(_input);
     }
+    //플레이어가 죽었을때, RevivalCanvas의 DieEventHandler함수를 바인딩 시키자
     public UnityEvent OnPlayerDieEvent;
+    
+    //DataTrigger.cs SaveStageClear
+    //LevelLoadScript.cs LoadNextLevel
+    public UnityEvent OnBossDieEvent;
     public void BroadCastPlayerDie(){
         OnPlayerDieEvent.Invoke();
+    }
+    public void BroadCastBossDie(){
+        OnBossDieEvent.Invoke();
     }
 #endregion 
     /////////////////////////////////////////////////////////////////////////////////

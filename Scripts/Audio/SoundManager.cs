@@ -40,7 +40,13 @@ public class SoundManager : MonoBehaviour
 
     [ContextMenu("SFX 뮤트")]
     public void MuteSFX(){ Mixer.SetFloat(SFX_MuteParam, MUTE_VALUE); AudioSources[(int)SOUND_TYPE.SFX].mute = true;}
-
+        public void FadeOutSFX(float _duration) {
+        DOVirtual.Float(1, 0, _duration, (E) => {AudioSources[(int)SOUND_TYPE.SFX].volume = E;});
+    }
+    public void FadeInSFX(float _duration) {
+        AudioSources[(int)SOUND_TYPE.SFX].volume = -1;
+        DOVirtual.Float(0, 1, _duration, (E) => {AudioSources[(int)SOUND_TYPE.SFX].volume = E;});
+    }
     [ContextMenu("SFX 언뮤트")]
     public void UnmuteSFX(){ Mixer.SetFloat(SFX_MuteParam, UNMUTE_VALUE); AudioSources[(int)SOUND_TYPE.SFX].mute = false;}
 
@@ -53,8 +59,15 @@ public class SoundManager : MonoBehaviour
         }
         else {return;}//throw new System.Exception("audioName과 일치하는 캐싱된 BGM이 없음, GameManager -> SoundManager에 BGM 캐싱되었는지 확인.");}
     }
+    
+    public void StopBGM(){
+        if(AudioSources[(int)SOUND_TYPE.BGM].isPlaying) {
+            AudioSources[(int)SOUND_TYPE.BGM].Stop();
+            AudioSources[(int)SOUND_TYPE.BGM].clip = null;
+        }
+    }
 
-    public void PlaySFXyString(string audioName){
+    public void PlaySFXByString(string audioName){
         if(CachedSFXClips.TryGetValue(audioName, out AudioClip audioClip)) {
 		    AudioSources[(int)SOUND_TYPE.SFX].PlayOneShot(audioClip);
         }

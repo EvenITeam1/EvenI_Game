@@ -147,9 +147,9 @@ public class PlaceableObject : MonoBehaviour, IDamagable
         hitObject.transform.position = transform.position;
         hitObject.transform.SetParent(this.transform);
         hitObject.transform.localScale = (transform.localScale.x >= 3) ? Vector2.one * transform.localScale.x : Vector2.one * 3;
-        StartCoroutine(AsyncOnHitVisual());
         hitObject.SetActive(true);
         ObjectHP -= _amount;
+        StartCoroutine(AsyncOnHitVisual());
         GameManager.Instance.GlobalSoundManager.PlayByClip(soundData.GetDamaged, SOUND_TYPE.SFX);
     }
 
