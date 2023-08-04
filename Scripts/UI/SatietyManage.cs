@@ -119,4 +119,14 @@ public class SatietyManage : MonoBehaviour
     {
         return chargeCount;
     }
+
+    public static void UseChargeCount(int n)
+    {
+        if(chargeCount < n)
+        {
+            Debug.Log("행동력 부족");//it will be additional popupcanvas later
+            return;
+        }
+        chargeCount -= n;
+    }
 }
