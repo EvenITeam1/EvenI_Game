@@ -6365,6 +6365,7 @@ GameObject:
   - component: {fileID: 1028380878}
   - component: {fileID: 1028380882}
   - component: {fileID: 1028380883}
+  - component: {fileID: 1028380884}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -6488,6 +6489,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneName: asdf
   quitPopUpCanvas: {fileID: 0}
+--- !u!114 &1028380884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028380877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3c01b082df43ee4fb2f151c04d3645e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goldAmount: {fileID: 291491514}
+  expAmount: {fileID: 0}
 --- !u!1 &1040433850
 GameObject:
   m_ObjectHideFlags: 0

@@ -41,5 +41,10 @@ public class ResultHandler : MonoBehaviour
 
         textRoulettes[(int)RESULT_INDEX.COIN].CountingNumber
             = (int)((IsClearState) ? (WinCoinRatio * Score) : (LoseCoinRatio * Score));
+
+        //Plus Data to OutGame
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedCoin += (int)((IsClearState) ? (WinCoinRatio * Score) : (LoseCoinRatio * Score));
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedExp += (int)((IsClearState) ? (WinExpRatio * Score) : (LoseExpRatio * Score));
+        //it will be sent to OutGameSaveJsonFile when user quit this game, but I didn't start yet;
     }
 }

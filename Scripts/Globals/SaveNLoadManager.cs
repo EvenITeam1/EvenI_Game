@@ -40,6 +40,7 @@ public class OutgameSaveData
         public int AccountLevel;
         public int CollectedExp;
         public DOG_INDEX SelectedPlayerINDEX;
+        public int SelectedIconINDEX;
     
     #endregion
 
@@ -51,6 +52,7 @@ public class OutgameSaveData
     #region  AchievementData
     
         public List<bool> StageClearData;
+        public List<bool> CharacterUnlockData;
     
     #endregion
 

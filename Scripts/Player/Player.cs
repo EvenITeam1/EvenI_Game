@@ -263,7 +263,7 @@ public class Player : MonoBehaviour, IDamagable
         transform.position = GetRevivalPosition();
         playerRigid.gravityScale = 0;
         playerRigid.velocity = Vector2.right * playerRigid.velocity;
-        playerHP.setHP(100f);
+        playerHP.setHP(playerHP.getMaxHp());
         playerState.ChangeState(PLAYER_STATES.GHOST_STATE);
         Invoke("BecomePlayerState", 3f + 0.2f);
         float passedTime = 0;

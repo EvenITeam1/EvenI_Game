@@ -42,6 +42,11 @@ public class PlayerHP : MonoBehaviour, HP
             die();
         }
     }
+
+    public void SetMaxHP(float maxHP)
+    {
+        this._setHp = maxHP;
+    }
     public float getHP() { return this._hp; }
     public float getMaxHp() {return this._setHp;}
     public bool isAlive()

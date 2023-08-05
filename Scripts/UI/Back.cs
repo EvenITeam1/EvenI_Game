@@ -14,7 +14,7 @@ public class Back : MonoBehaviour
     DateTime quitTime;
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetKey(KeyCode.Escape))
         {
             switch(sceneName)
             {
@@ -29,8 +29,8 @@ public class Back : MonoBehaviour
 
     public void QuitGame()
     {
-        saveSatietyDataToJson();
         Application.Quit();
+        saveSatietyDataToJson();
     }
     void saveSatietyDataToJson()
     {
