@@ -5,7 +5,7 @@ using UnityEngine;
 public class SatietyUse : MonoBehaviour
 {
    public void UseSatietyInStoryMode()
-   {
+   {   
         SatietyManage.UseChargeCount(1);
    }
 

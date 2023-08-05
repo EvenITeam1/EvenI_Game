@@ -11,24 +11,17 @@ public class NickName : MonoBehaviour
 {
     public static string Nickname { get; private set; }
     public static bool isFirstLogin { get; private set; }
-    static bool isFirstAccess = true;
     [SerializeField] TextMeshProUGUI input;
     [SerializeField] GameObject nickNameCanvas;
     [SerializeField] GameObject panel;
     [SerializeField] GameObject checkPopUpCanvas;
-    [SerializeField] TextAsset JsonFile;
     [SerializeField] TextMeshProUGUI secondPopUpText;
     void Awake()
     {
-        if(isFirstAccess)
-        {
-            LoadNickNameDataFromJson();
-        }
-
-        if (isFirstLogin == true && isFirstAccess == true)
+        LoadNickNameDataFromJson();
+        if (isFirstLogin)
         {
             nickNameCanvas.SetActive(true);
-            isFirstAccess = false; 
         }
            
     }
@@ -65,7 +58,7 @@ public class NickName : MonoBehaviour
         isFirstLogin = false;
         NickNameJsonData nickNameJsonData = new NickNameJsonData(isFirstLogin, Nickname);
         var result = JsonConvert.SerializeObject(nickNameJsonData);
-        FileStream fileStream = new FileStream(string.Format("{0}/{1}.json", Application.dataPath, "NickNameJsonData"), FileMode.Create);
+        FileStream fileStream = new FileStream(string.Format("{0}/{1}.json", Application.persistentDataPath, "NickNameJsonData"), FileMode.Create);
         byte[] data = Encoding.UTF8.GetBytes(result);
         fileStream.Write(data, 0, data.Length);
         fileStream.Close();
@@ -73,8 +66,18 @@ public class NickName : MonoBehaviour
 
     void LoadNickNameDataFromJson()
     {
-        NickNameJsonData data = JsonConvert.DeserializeObject<NickNameJsonData>(JsonFile.text);
-        Nickname = data.nickName;
-        isFirstLogin = data.isFirstLogin;
+        if (!File.Exists(string.Format("{0}/{1}.json", Application.persistentDataPath, "NickNameJsonData")))
+        {
+            Debug.Log("앱 최초실행 : 닉네임 스크립트");
+            isFirstLogin = true;
+        }
+         
+        else
+        {
+            string JsonFileText = File.ReadAllText(string.Format("{0}/{1}.json", Application.persistentDataPath, "NickNameJsonData"));
+            NickNameJsonData data = JsonConvert.DeserializeObject<NickNameJsonData>(JsonFileText);
+            Nickname = data.nickName;
+            isFirstLogin = data.isFirstLogin;
+        }      
     }
 }

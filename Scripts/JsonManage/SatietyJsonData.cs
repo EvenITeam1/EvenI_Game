@@ -7,9 +7,12 @@ public class SatietyJsonData
     public DateTime quitTime { get; }
     public int chargeCount { get; }
 
-    public SatietyJsonData(DateTime quitTime, int chargeCount)
+    public float passedTimeInLobby { get; }
+
+    public SatietyJsonData(DateTime quitTime, int chargeCount, float passedTimeInLobby)
     {
         this.quitTime = quitTime;
         this.chargeCount = chargeCount;
+        this.passedTimeInLobby = passedTimeInLobby;
     }
 }
