@@ -135,6 +135,7 @@ public class OutgameSaveData
         { 
             string JsonFileText = File.ReadAllText(string.Format("{0}/{1}.json", Application.persistentDataPath, "OutgameData"));
             OutgameSaveData OutgameData = JsonConvert.DeserializeObject<OutgameSaveData>(JsonFileText);
+            AdditionalRevivalCount = OutgameData.AdditionalRevivalCount;
             AccountLevel = OutgameData.AccountLevel;
             CollectedExp = OutgameData.CollectedExp;
             SelectedPlayerINDEX = OutgameData.SelectedPlayerINDEX;

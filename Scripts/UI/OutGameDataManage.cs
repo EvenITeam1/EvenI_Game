@@ -8,6 +8,7 @@ public class OutGameDataManage : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI goldAmount;
     [SerializeField] TextMeshProUGUI expAmount;
+    [SerializeField] TextMeshProUGUI additionalReviveAmount;
     [SerializeField] List<CharacterUI> characterUIList;//use only in MyDogScene
     [SerializeField] List<Button> stageEnterButtonList; //use only in StageSelectScene
 
@@ -26,6 +27,7 @@ public class OutGameDataManage : MonoBehaviour
     {
         if (goldAmount != null) { goldAmount.text = GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedCoin.ToString(); }
         if (expAmount != null) { expAmount.text = "EXP " + GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedExp.ToString() + "/1000"; }
+        if (additionalReviveAmount != null) { additionalReviveAmount.text = "+" + GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.AdditionalRevivalCount.ToString(); }
 
         if(characterUIList[0] != null)
         {
