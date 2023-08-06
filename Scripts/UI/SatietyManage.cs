@@ -81,23 +81,33 @@ public class SatietyManage : MonoBehaviour
 
     public void refreshGuageColor()
     {
-        for (int i = 0; i < chargeCount; i++)        
-            guage[i].color = fillColor;
-
-        for (int i = chargeCount; i <10; i++)
+        if(chargeCount < 10)
         {
-            guage[i].color = Color.white;
+            for (int i = 0; i < chargeCount; i++)
+                guage[i].color = fillColor;
+
+            for (int i = chargeCount; i < 10; i++)
+            {
+                guage[i].color = Color.white;
+            }
         }
+
+        else
+        {
+            for (int i = 0; i < 10; i++)
+                guage[i].color = fillColor;
+        }   
     }
 
     public void refreshCountText()
     {
+        Debug.Log("chargeCount : " +chargeCount);
         guageCountText.text = chargeCount + "/10";
     }
 
     public bool isFull()
     {
-        if (chargeCount == 10)
+        if (chargeCount >= 10)
             return true;
 
         else
@@ -137,15 +147,14 @@ public class SatietyManage : MonoBehaviour
         return chargeCount;
     }
 
-    public static void UseChargeCount(int n)
+    public static float GetPassedTimeInLobby()
     {
-        if(chargeCount < n)
-        {
-            Debug.Log("행동력 부족");//it will be additional popupcanvas later
-            return;
-        }
+        return passedTimeInLobby;
+    }
 
-        SatietyJsonData satieTyJsonData = new SatietyJsonData(DateTime.Now, chargeCount - n, passedTimeInLobby);
+    public static void GainChargeCount(int n)
+    {
+        SatietyJsonData satieTyJsonData = new SatietyJsonData(DateTime.Now, chargeCount += n, passedTimeInLobby);
         var result = JsonConvert.SerializeObject(satieTyJsonData);
         FileStream fileStream = new FileStream(string.Format("{0}/{1}.json", Application.persistentDataPath, "QuitTimeData"), FileMode.Create);
         byte[] data = Encoding.UTF8.GetBytes(result);

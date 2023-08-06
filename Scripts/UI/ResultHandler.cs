@@ -18,6 +18,7 @@ public class ResultHandler : MonoBehaviour
     public float WinCoinRatio = 1f;
     public float LoseExpRatio = 0.0025f;
     public float LoseCoinRatio = 0.05f;
+    public static int EnteredStageIndex;
 
     /*
     내부 데이터를 가져오고 외부 데이터로 내보낸다.
@@ -42,9 +43,24 @@ public class ResultHandler : MonoBehaviour
         textRoulettes[(int)RESULT_INDEX.COIN].CountingNumber
             = (int)((IsClearState) ? (WinCoinRatio * Score) : (LoseCoinRatio * Score));
 
-        //Plus Data to OutGame
+        int usedReviveCount = GameManager.Instance.GlobalSaveNLoad.saveData.outgameSaveData.AdditionalRevivalCount + 3 - GameManager.Instance.GlobalSaveNLoad.saveData.ingameSaveData.RevivalCount;
+
+        if(usedReviveCount > 3)
+        {
+            GameManager.Instance.GlobalSaveNLoad.saveData.outgameSaveData.AdditionalRevivalCount -= usedReviveCount - 3;
+        }
+
         GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedCoin += (int)((IsClearState) ? (WinCoinRatio * Score) : (LoseCoinRatio * Score));
         GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedExp += (int)((IsClearState) ? (WinExpRatio * Score) : (LoseExpRatio * Score));
-        //it will be sent to OutGameSaveJsonFile when user quit this game, but I didn't start yet;
+        if (GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.HightestStageUnlocked == EnteredStageIndex && IsClearState)
+            GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.HightestStageUnlocked++;
+
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SaveOutgameDataToJson();
     }
+
+    public static void SendEnterStageData(int num)//used in StageSelectScene
+    {
+        EnteredStageIndex = num;
+    }
+
 }

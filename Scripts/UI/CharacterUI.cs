@@ -75,5 +75,6 @@ public class CharacterUI : MonoBehaviour
     public void ApplySelectCharacter()
     {
         GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SelectedPlayerINDEX = OnSelect;
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SaveOutgameDataToJson();
     }
 }

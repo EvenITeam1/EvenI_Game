@@ -69,7 +69,26 @@ public class ShopManage : MonoBehaviour
         else
         {
             GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedCoin -= 55000;
-            GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CharacterUnlockData[selectedDogIndex] = true;
+
+            switch (selectedDogIndex)
+            {
+                case 1: GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isGoldenRetrieverUnlocked = true;
+                    break;
+                case 2: GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isLabradorRetrieverUnlocked = true;
+                    break;
+                case 3: GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isGreyHoundUnlocked = true;
+                    break;
+                case 4: GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isGermanShepherdUnlocked = true;
+                    break;
+                case 7: GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isGoldenPomeranianUnlocked = true;
+                    break;
+                case 8: GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isWhitePomeranianUnlocked = true;
+                    break;
+                case 9: GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isPugUnlocked = true;
+                    break;
+            }
+           
+            GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SaveOutgameDataToJson();
             SuccessCanvas.SetActive(true);
         }
     }
@@ -86,7 +105,8 @@ public class ShopManage : MonoBehaviour
         else
         {
             GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedCoin -= 2500;
-            //실제 내용
+            GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SaveOutgameDataToJson();
+            SatietyManage.GainChargeCount(1);
             SuccessCanvas.SetActive(true);
         }
     }
@@ -103,7 +123,8 @@ public class ShopManage : MonoBehaviour
         else
         {
             GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedCoin -= 5000;
-            //실제 내용
+            GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.AdditionalRevivalCount++;
+            GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SaveOutgameDataToJson();
             SuccessCanvas.SetActive(true);
         }
     }
