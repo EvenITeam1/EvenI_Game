@@ -20,17 +20,21 @@ public class LevelLoadScript : MonoBehaviour
 
     public UnityEvent ExitLevelEvent;
 
+    private int currentStageNumber;
+
     private void Awake() {
-        
+        currentStageNumber = GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.CurrentStageNumber;
     }
+
     private void OnEnable() {
         InitializeCurrentLevel();
     }
+
     [ContextMenu("InitializeCurrentLevel")]
     public void InitializeCurrentLevel(){
         InvokeLevelEvent.AddListener(() => {GameManager.Instance.GlobalSoundManager.FadeInBGM(1);});
         InvokeLevelEvent.AddListener(() => {GameManager.Instance.GlobalSoundManager.FadeInSFX(1);});
-        InvokeLevelEvent.AddListener(() => {GameManager.Instance.GlobalSoundManager.PlayBGMByString("BGM_Stage1");});
+        InvokeLevelEvent.AddListener(() => {GameManager.Instance.GlobalSoundManager.PlayBGMByString("BGM_Stage" + currentStageNumber.ToString());});
         ExitLevelEvent.AddListener(() => {GameManager.Instance.GlobalSoundManager.FadeOutBGM(1);});
         ExitLevelEvent.AddListener(() => {GameManager.Instance.GlobalSoundManager.FadeOutSFX(1);});
     }

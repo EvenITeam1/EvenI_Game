@@ -303,12 +303,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 302866960919224283}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
+      propertyPath: currentPhase
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: currentStage
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: LoadSceneString
-      value: RunnerStage3
+      value: RunnerStage6
       objectReference: {fileID: 0}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: nameTextMeshProGUI
@@ -320,48 +324,52 @@ PrefabInstance:
       objectReference: {fileID: 302866960919224284}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.data[0].CST_text
-      value: "\uC0C8\uB4E4\uC5D0\uAC8C \uC7AC\uC561\uC744 \uC2EC\uB294 \uC6D0\uD749\uC774
-        \uC788\uB294\uAC70 \uAC19\uC544\uC694!"
+      value: "\uC232\uC744 \uBC97\uC5B4\uB0AC\uB354\uB2C8 \uAC11\uC790\uAE30 \uB208\uC774
+        \uB0B4\uB9AC\uB294 \uACF3\uC5D0 \uB3C4\uCC29\uD588\uB124\uC694."
       objectReference: {fileID: 0}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.data[1].CST_text
-      value: "\uB204\uAD70\uAC00\uAC00 \uC0C8\uB4E4\uC744 \uC774\uB807\uAC8C \uBC14\uAFB8\uB294
-        \uAC70\uB77C\uACE0?"
+      value: "\uB208..? \uB098 \uCC98\uC74C\uBD10!"
       objectReference: {fileID: 0}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.data[2].CST_text
-      value: "\uADF8 \uC6D0\uD749\uC758 \uD798\uC774 \uC800\uAE30 \uC804\uBD07\uB300
-        \uC704\uC5D0\uC11C \uAC15\uD558\uAC8C \uB290\uAEF4\uC838\uC694! \uC62C\uB77C\uAC00\uC138\uC694!"
+      value: "\uB354\uC6B4 \uACF3\uC5D0\uC11C \uC0B4\uC558\uC5B4\uC694?"
       objectReference: {fileID: 0}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.data[3].CST_text
-      value: "\uC774 \uBAA8\uC2B5\uC73C\uB85C \uC5B4\uB5BB\uAC8C \uC800 \uB192\uC740
-        \uACF3\uC73C\uB85C-\uC62C\uB77C\uAC00\uB77C\uB294 \uAC70\uC57C?!"
+      value: "\uC544\uB2C8~? \uB0B4\uAC00 \uC0B4\uB358 \uACF3\uC740 \uC6D0\uB798
+        \uC5C6\uC5C8\uC5B4!"
       objectReference: {fileID: 0}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.data[4].CST_text
-      value: "\uC800 \uB3C5\uC218\uB9AC\uC774\uC57C!"
+      value: "\uC5B4? \uC800 \uBA40\uB9AC\uC11C \uC0AC\uB78C\uC774 \uAC78\uC5B4\uC624\uB294\uB370?"
       objectReference: {fileID: 0}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.data[5].CST_text
-      value: "\uC800 \uB140\uC11D\uC774 \uC7AC\uC561\uC744 \uC2EC\uACE0 \uC788\uC796\uC544!"
+      value: "\uC7AC\uC561\uC774 \uC0AC\uB78C\uC2DC\uCCB4\uC18D\uC5D0\uC11C\uB3C4
+        \uB4E4\uC5B4\uAC14\uB098\uBD10.."
       objectReference: {fileID: 0}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.data[6].CST_text
-      value: "\uBE68\uB9AC \uC7A1\uC544\uC57C \uD574!"
+      value: "\uC5EC\uAE30\uC11C\uB294 \uC880\uBE44\uB77C\uACE0 \uBD88\uB7EC\uC694.."
       objectReference: {fileID: 0}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.data[7].CST_text
-      value: "\uD5C9.. \uD5C9... \uC810\uC810 \uAC15\uD574\uC9C0\uACE0 \uC788\uB294\uAC70
-        \uAC19\uC740\uB370..!"
+      value: "\uADF8\uB7EC\uBA74 \uC800\uAE30 \uD070 \uC0AC\uB78C\uC740 \uBB50\uB77C\uACE0
+        \uBD88\uB7EC?"
       objectReference: {fileID: 0}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
-      propertyPath: cutSceneTextDatas.Array.data[4].CST_phase
-      value: 1
+      propertyPath: cutSceneTextDatas.Array.data[8].CST_text
+      value: "\uD5C9\uD5C9.. \uADF8\uB798\uC11C.. \uC6B0\uB9AC\uAC00 \uBB3C\uB9AC\uCE5C
+        \uC774\uAC74 \uBB50\uB77C\uACE0?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
+      propertyPath: cutSceneTextDatas.Array.data[9].CST_text
+      value: "\uB300.\uC655.\uD574.\uACE8.."
       objectReference: {fileID: 0}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.data[5].CST_phase
@@ -373,39 +381,55 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.data[7].CST_phase
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
+      propertyPath: cutSceneTextDatas.Array.data[8].CST_phase
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
+      propertyPath: cutSceneTextDatas.Array.data[9].CST_phase
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.data[0].CST_stageNumber
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.data[1].CST_stageNumber
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.data[2].CST_stageNumber
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.data[3].CST_stageNumber
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.data[4].CST_stageNumber
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.data[5].CST_stageNumber
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.data[6].CST_stageNumber
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.data[7].CST_stageNumber
-      value: 3
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
+      propertyPath: cutSceneTextDatas.Array.data[8].CST_stageNumber
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
+      propertyPath: cutSceneTextDatas.Array.data[9].CST_stageNumber
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.data[0].CST_talkingOwner
@@ -425,7 +449,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.data[4].CST_talkingOwner
-      value: "\uCD1D\uCD1D\uCD1D"
+      value: "\uB098"
       objectReference: {fileID: 0}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.data[5].CST_talkingOwner
@@ -438,6 +462,14 @@ PrefabInstance:
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.data[7].CST_talkingOwner
       value: "\uB098"
+      objectReference: {fileID: 0}
+    - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
+      propertyPath: cutSceneTextDatas.Array.data[8].CST_talkingOwner
+      value: "\uB098"
+      objectReference: {fileID: 0}
+    - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
+      propertyPath: cutSceneTextDatas.Array.data[9].CST_talkingOwner
+      value: "\uCD1D\uCD1D\uCD1D"
       objectReference: {fileID: 0}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.data[0].CST_alignmentType
@@ -517,15 +549,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.data[4].CST_contentColor.b
-      value: 0.63529414
+      value: 0.9490196
       objectReference: {fileID: 0}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.data[4].CST_contentColor.g
-      value: 0.94509804
+      value: 0.9372549
       objectReference: {fileID: 0}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.data[4].CST_contentColor.r
-      value: 0.99607843
+      value: 0.81960785
       objectReference: {fileID: 0}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.data[5].CST_contentColor.a
@@ -574,6 +606,38 @@ PrefabInstance:
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.data[7].CST_contentColor.r
       value: 0.81960785
+      objectReference: {fileID: 0}
+    - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
+      propertyPath: cutSceneTextDatas.Array.data[8].CST_contentColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
+      propertyPath: cutSceneTextDatas.Array.data[8].CST_contentColor.b
+      value: 0.9490196
+      objectReference: {fileID: 0}
+    - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
+      propertyPath: cutSceneTextDatas.Array.data[8].CST_contentColor.g
+      value: 0.9372549
+      objectReference: {fileID: 0}
+    - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
+      propertyPath: cutSceneTextDatas.Array.data[8].CST_contentColor.r
+      value: 0.81960785
+      objectReference: {fileID: 0}
+    - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
+      propertyPath: cutSceneTextDatas.Array.data[9].CST_contentColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
+      propertyPath: cutSceneTextDatas.Array.data[9].CST_contentColor.b
+      value: 0.63529414
+      objectReference: {fileID: 0}
+    - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
+      propertyPath: cutSceneTextDatas.Array.data[9].CST_contentColor.g
+      value: 0.94509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
+      propertyPath: cutSceneTextDatas.Array.data[9].CST_contentColor.r
+      value: 0.99607843
       objectReference: {fileID: 0}
     - target: {fileID: 302866959479806140, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: m_Name

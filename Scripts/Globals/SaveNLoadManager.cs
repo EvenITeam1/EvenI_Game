@@ -12,19 +12,37 @@ using System.IO;
 [System.Serializable]
 public class IngameSaveData
 {
-    public float PrevHP;
+    public bool IsIngameStart;
+    public int CurrentStageNumber;
+    public int CurrentPhaseNumber;
     /// <summary>
     /// 보스 클리어와 동일하다 생각됨..
     /// </summary>
     public bool IsStageClear;
+    
+    public bool IsDoubleScore;
+    public bool IsRevivalChecked;
+    
+    public float PrevHP;
     public int CollectedScore;
     public int RevivalCount;
+    
     public IngameSaveData()
     {
         PrevHP = -1;
         IsStageClear = false;
         CollectedScore = -1;
         RevivalCount = -1;
+    }
+
+    //입장 버튼
+    public void ClearIngameData(){
+        IsIngameStart = false;
+        CurrentStageNumber = -1;
+        CurrentPhaseNumber = -1;
+        IsStageClear = false;
+        PrevHP = -1;
+        CollectedScore = 0;
     }
 }
 #endregion

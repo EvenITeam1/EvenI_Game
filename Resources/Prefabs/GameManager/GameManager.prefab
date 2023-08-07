@@ -1638,7 +1638,7 @@ Transform:
   - {fileID: 909079727222647289}
   - {fileID: 4942539238862084448}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &909079728720041150
 MonoBehaviour:
@@ -1882,16 +1882,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   saveData:
     ingameSaveData:
-      PrevHP: -1
+      IsIngameStart: 0
+      CurrentStageNumber: 0
+      CurrentPhaseNumber: 0
       IsStageClear: 0
+      IsDoubleScore: 0
+      IsRevivalChecked: 0
+      PrevHP: -1
       CollectedScore: -1
       RevivalCount: -1
     outgameSaveData:
+      AdditionalRevivalCount: 0
       AccountLevel: 0
       CollectedExp: 0
       SelectedPlayerINDEX: 0
+      SelectedIconINDEX: 0
       CollectedCoin: 0
-      StageClearData: 
+      CollectedBone: 0
+      HightestStageUnlocked: 0
+      isShibaUnlocked: 0
+      isGoldenRetrieverUnlocked: 0
+      isLabradorRetrieverUnlocked: 0
+      isGreyHoundUnlocked: 0
+      isGermanShepherdUnlocked: 0
+      isHuskyUnlocked: 0
+      isWolfUnlocked: 0
+      isGoldenPomeranianUnlocked: 0
+      isWhitePomeranianUnlocked: 0
+      isPugUnlocked: 0
 --- !u!1 &1053655646358247286
 GameObject:
   m_ObjectHideFlags: 0
@@ -2262,23 +2280,23 @@ MonoBehaviour:
       Value: {fileID: 8300000, guid: b12ea4b050e5d4885b9c138a2fa20ae8, type: 3}
   CachedSFXClips:
     _serializedList:
-    - Key: Enemy_Explode
+    - Key: SFX_Enemy_Explode
       Value: {fileID: 8300000, guid: 840ac1529cced473793b902d880799d1, type: 3}
-    - Key: Enemy_Laser
+    - Key: SFX_Enemy_Laser
       Value: {fileID: 8300000, guid: ecdce32e809b04bc2b6b0ba17626ee96, type: 3}
-    - Key: GetHit
+    - Key: SFX_GetHit
       Value: {fileID: 8300000, guid: e7a61e3de852f49dfb3c1ef9ccd3a9a7, type: 3}
-    - Key: GetHit_1
+    - Key: SFX_GetHit_1
       Value: {fileID: 8300000, guid: 88b7bfbe202394156af36c8009be21b1, type: 3}
-    - Key: Item_Coin
+    - Key: SFX_Item_Coin
       Value: {fileID: 8300000, guid: 6d0a54285c0854b158cb7da23870fb32, type: 3}
-    - Key: Player_Bullet
+    - Key: SFX_Player_Bullet
       Value: {fileID: 8300000, guid: a83304bc5ebae46e781867ec7869506c, type: 3}
-    - Key: Player_Jump
+    - Key: SFX_Player_Jump
       Value: {fileID: 8300000, guid: 318797a01612148abbd56670d3cc34e9, type: 3}
-    - Key: Scene_GameOver
+    - Key: SFX_Scene_GameOver
       Value: {fileID: 8300000, guid: ab63efae4ead64f789b99a14a56180f0, type: 3}
-    - Key: Scene_StageClear
+    - Key: SFX_Scene_StageClear
       Value: {fileID: 8300000, guid: fa22e3b69aa794ab59c9c6aa2dbfa45a, type: 3}
-    - Key: UI_Button_Click
+    - Key: SFX_UI_Button_Click
       Value: {fileID: 8300000, guid: 0d310d25e4c4d49289e0bf99079f9eac, type: 3}

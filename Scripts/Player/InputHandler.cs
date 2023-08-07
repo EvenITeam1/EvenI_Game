@@ -8,6 +8,8 @@ using UnityEngine.InputSystem;
 
 public class InputHandler : MonoBehaviour
 {
+    private EventTrigger JumpButtonUI;
+    private EventTrigger HoldButtonUI;
     public float Horizontal;
     public bool IsJumpPressd;
     public bool IsJumpUnHold;
@@ -25,6 +27,9 @@ public class InputHandler : MonoBehaviour
 
     private void OnEnable()
     {
+        JumpButtonUI = GameObject.Find("JumpButtonUI").GetComponent<EventTrigger>();
+        HoldButtonUI = GameObject.Find("HoldButtonUI").GetComponent<EventTrigger>();
+        
         if (inputActions == null)
         {
             inputActions = new PlayerControll();
@@ -63,6 +68,31 @@ public class InputHandler : MonoBehaviour
             };
         }
         inputActions.Enable();
+
+        EventTrigger.Entry jumpentry_PointerDown = new EventTrigger.Entry();
+        EventTrigger.Entry jumpentry_PointerUp = new EventTrigger.Entry();
+        jumpentry_PointerDown.eventID = EventTriggerType.PointerDown;
+        jumpentry_PointerUp.eventID = EventTriggerType.PointerUp;
+        
+        jumpentry_PointerDown.callback.AddListener((data) => {JumpInputMobile(true);});
+        jumpentry_PointerDown.callback.AddListener((data) => {JumpUnHoldMobild(false);});
+
+
+        jumpentry_PointerUp.callback.AddListener((data) => {JumpInputMobile(false);});
+        jumpentry_PointerUp.callback.AddListener((data) => {JumpUnHoldMobild(true);});
+
+        JumpButtonUI.triggers.Add(jumpentry_PointerDown);
+        JumpButtonUI.triggers.Add(jumpentry_PointerUp);
+
+        EventTrigger.Entry holdentry_PointerDown = new EventTrigger.Entry();
+        EventTrigger.Entry holdentry_PointerUp = new EventTrigger.Entry();
+        holdentry_PointerDown.eventID = EventTriggerType.PointerDown;
+        holdentry_PointerUp.eventID = EventTriggerType.PointerUp;
+        holdentry_PointerDown.callback.AddListener((data) => {HoldInputMobile(true);});
+        holdentry_PointerUp.callback.AddListener((data) => {HoldInputMobile(false);});
+
+        HoldButtonUI.triggers.Add(holdentry_PointerDown);
+        HoldButtonUI.triggers.Add(holdentry_PointerUp);
     }
 
 

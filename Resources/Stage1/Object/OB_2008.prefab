@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3937568910038251892}
   - component: {fileID: 5172971096665940192}
   m_Layer: 8
-  m_Name: DEFAULT_OB State BIg 3
+  m_Name: OB_2008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Children:
   - {fileID: 49896029427748311}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3937568910038251892
 MonoBehaviour:
@@ -49,17 +49,17 @@ MonoBehaviour:
   Index: 2000
   objectData:
     Index: 2000
-    Ob_name: "\uB808\uACE0"
+    Ob_name: "\uAC70\uBBF8"
     Ob_category: 1
-    Ob_width: 3
-    Ob_height: 3
-    Ob_damage: 10
+    Ob_width: 1
+    Ob_height: 1
+    Ob_damage: 20
     Ob_bullet_index: 0
-    Ob_movement_index: 0
-    Ob_move_strength: 0
-    OB_Hitable: 0
-    Ob_HP: 300
-    Ob_Score: 0
+    Ob_movement_index: 5
+    Ob_move_strength: -4
+    OB_Hitable: 1
+    Ob_HP: 20
+    Ob_Score: 20
     Ob_filecode: 
   coinData:
     ScoreValue: 10
@@ -74,11 +74,11 @@ MonoBehaviour:
     defaultColor: {r: 1, g: 1, b: 1, a: 1}
     onHitColor: {r: 1, g: 0, b: 0, a: 1}
   soundData:
-    GetDamaged: {fileID: 0}
-    OnDisable: {fileID: 0}
+    GetDamaged: {fileID: 8300000, guid: 88b7bfbe202394156af36c8009be21b1, type: 3}
+    OnDisable: {fileID: 8300000, guid: 840ac1529cced473793b902d880799d1, type: 3}
   objectCollider: {fileID: 5172971096665940192}
-  moveTriggerOffset: 5
-  HitParticle: {fileID: 0}
+  moveTriggerOffset: 10
+  HitParticle: {fileID: 7124663019238293431, guid: 301f99a9c0b0643798ca6ef1fad42b44, type: 3}
 --- !u!61 &5172971096665940192
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -92,7 +92,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.09}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -116,6 +116,7 @@ GameObject:
   - component: {fileID: 49896029427748311}
   - component: {fileID: 2393503716358272133}
   - component: {fileID: 1659493137920814489}
+  - component: {fileID: 1884749360}
   m_Layer: 8
   m_Name: model
   m_TagString: Untagged
@@ -130,14 +131,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5617314729169556013}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.39, z: 0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1310387243257477264}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!212 &2393503716358272133
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -179,12 +180,12 @@ SpriteRenderer:
   m_SortingLayerID: -1789428647
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1d9b9febcb7ec471d8c150d1e2573175, type: 3}
+  m_Sprite: {fileID: -1786090052, guid: a97715ee4c2ab48b9b795a704054121e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.625, y: 1.71875}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -198,9 +199,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5617314729169556013}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9c7def316383b43689cea726b154ca09, type: 2}
+  m_Controller: {fileID: 9100000, guid: d86879f9d2f6841e89ec9d36cda9339f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -210,3 +211,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1884749360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5617314729169556013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 4
+  sorting_order: 0
+  renderer_type: 3
+  canvas: {fileID: 0}
+  particle: {fileID: 0}
+  sprite: {fileID: 2393503716358272133}
+  tilemap: {fileID: 0}

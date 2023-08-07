@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 433485986516850947}
   - component: {fileID: 433485986516850946}
   - component: {fileID: 433485986516850945}
+  - component: {fileID: -8948981099796079745}
   m_Layer: 30
   m_Name: mob_Template
   m_TagString: Untagged
@@ -103,11 +104,13 @@ MonoBehaviour:
     Mob_category: 0
     Mob_width: 1
     Mob_height: 1
+    Mob_damage: 0
     Mob_hp: 100
     Mob_bullet_index: 0
     Mob_tracking: 0
     Mob_movement_index: 0
-    Mob_speed: 0
+    Mob_move_strength: 0
+    Mob_Score: 0
     Mob_filecode: 
   mobMoveData:
     IsInfiniteLifetime: 0
@@ -118,11 +121,14 @@ MonoBehaviour:
     exitEaseTime: 3
     invokeEase: 27
     exitEase: 26
-    movementStrength: 0
+  soundData:
+    GetDamaged: {fileID: 0}
+    OnDestroy: {fileID: 0}
   mobHP: {fileID: 433485986516850945}
   mobCollider: {fileID: 433485986516850944}
   mobRigid: {fileID: 433485986516850947}
   bulletShooter: {fileID: 5572308724434334806}
+  bulletEnable: 0
   IsInstantiatedFirst: 0
   HitParticle: {fileID: 7124663019238293431, guid: 301f99a9c0b0643798ca6ef1fad42b44, type: 3}
 --- !u!114 &433485986516850945
@@ -139,6 +145,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hp: 0
   _setHp: 100
+--- !u!114 &-8948981099796079745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433485986516850950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 5
+  sorting_order: 0
+  renderer_type: 0
+  canvas: {fileID: 0}
+  particle: {fileID: 0}
+  sprite: {fileID: 0}
 --- !u!1 &433485986660834036
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,7 +255,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -301136453
-  m_SortingLayer: 5
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 13e7e6fe43a8aa049bcd610bbc1f5ff8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

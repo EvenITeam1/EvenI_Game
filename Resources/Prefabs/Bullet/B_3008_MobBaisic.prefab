@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7239013096102837100}
   - component: {fileID: 7239013096102837103}
   - component: {fileID: -3461268119277964106}
+  - component: {fileID: -2505644528036141992}
   m_Layer: 29
   m_Name: B_3008_MobBaisic
   m_TagString: Untagged
@@ -142,20 +143,21 @@ MonoBehaviour:
   Index: 3008
   player: {fileID: 0}
   bulletData:
-    Index: 3000
-    Bullet_name: "\uBE44\uC5B4\uC788\uC74C"
-    Bullet_category: 0
-    Bullet_width: 0
-    Bullet_height: 0
-    Bullet_min_dmg: 0
-    Bullet_max_dmg: 0
-    Bullet_set_dmg: 0
-    Bullet_crit_chance: 0
-    Bullet_crit_const: 0
-    Bullet_speed: 0
-    Bullet_last_time: 0
+    Index: 3008
+    Bullet_name: "\uBAAC\uC2A4\uD130 \uAE30\uBCF8\uD0C4(7\uC2A4\uD14C\uC774\uC9C0\uC640
+      8\uC2A4\uD14C\uC774\uC9C0)"
+    Bullet_category: 1
+    Bullet_width: 0.5
+    Bullet_height: 0.5
+    Bullet_min_dmg: -1
+    Bullet_max_dmg: -1
+    Bullet_set_dmg: 20
+    Bullet_crit_chance: -1
+    Bullet_crit_const: -1
+    Bullet_speed: 8
+    Bullet_last_time: 5
     Bullet_reflect_count: 0
-    Bullet_filecode: 
+    Bullet_filecode: ' '
   bulletVisualData:
     dmgPrefab: {fileID: 0}
     critFontSize: 0
@@ -166,5 +168,25 @@ MonoBehaviour:
     nonCritColor:
       serializedVersion: 2
       rgba: 0
+  bulletSoundData:
+    Shoot: {fileID: 0}
   time: 0
   bulletRigid: {fileID: 0}
+--- !u!114 &-2505644528036141992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7239013096102837009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 4
+  sorting_order: 3
+  renderer_type: 3
+  canvas: {fileID: 0}
+  particle: {fileID: 0}
+  sprite: {fileID: 7239013096102837101}

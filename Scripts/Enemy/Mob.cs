@@ -58,6 +58,9 @@ public class Mob : MonoBehaviour, IDamagable
 
         /*Set MobHP*/
         gameObject.SetActive(false);
+
+        visualData.defaultColor = Color.white;
+        visualData.onHitColor = Color.red;
     }
 
     private void Update()
@@ -222,6 +225,7 @@ public class Mob : MonoBehaviour, IDamagable
             transform.DOKill();
             mobCollider.enabled = false;
             if (mobLifeCycleCoroutine != null) StopCoroutine(mobLifeCycleCoroutine);
+            GameManager.Instance.GlobalSoundManager.PlayByClip(soundData.OnDestroy, SOUND_TYPE.SFX);
         }
     }
 

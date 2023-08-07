@@ -33,7 +33,7 @@ public class ResultHandler : MonoBehaviour
     {
         bool IsClearState = true;
         if (SceneManager.GetActiveScene().name == "GameOverScene") { IsClearState = false; }
-        float Score = GameManager.Instance.GlobalSaveNLoad.saveData.ingameSaveData.CollectedScore;
+        float Score = GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.CollectedScore;
         if((int)Score == -1) {Score = 0;} 
         textRoulettes[(int)RESULT_INDEX.SCORE].CountingNumber = (int)Score;
 
@@ -43,11 +43,11 @@ public class ResultHandler : MonoBehaviour
         textRoulettes[(int)RESULT_INDEX.COIN].CountingNumber
             = (int)((IsClearState) ? (WinCoinRatio * Score) : (LoseCoinRatio * Score));
 
-        int usedReviveCount = GameManager.Instance.GlobalSaveNLoad.saveData.outgameSaveData.AdditionalRevivalCount + 3 - GameManager.Instance.GlobalSaveNLoad.saveData.ingameSaveData.RevivalCount;
+        int usedReviveCount = GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.AdditionalRevivalCount + 3 - GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.RevivalCount;
 
         if(usedReviveCount > 3)
         {
-            GameManager.Instance.GlobalSaveNLoad.saveData.outgameSaveData.AdditionalRevivalCount -= usedReviveCount - 3;
+            GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.AdditionalRevivalCount -= usedReviveCount - 3;
         }
 
         GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedCoin += (int)((IsClearState) ? (WinCoinRatio * Score) : (LoseCoinRatio * Score));

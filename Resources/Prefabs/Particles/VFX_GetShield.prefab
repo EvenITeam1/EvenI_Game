@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5126023236782931871}
   - component: {fileID: 3366236210515902753}
   - component: {fileID: 373530356589659957}
+  - component: {fileID: 7265706639257822686}
   m_Layer: 0
   m_Name: VFX_GetShield
   m_TagString: Untagged
@@ -31,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!198 &3366236210515902753
 ParticleSystem:
@@ -4872,3 +4873,22 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &7265706639257822686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5126023236782931868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 7
+  sorting_order: 0
+  renderer_type: 2
+  canvas: {fileID: 0}
+  particle: {fileID: 373530356589659957}
+  sprite: {fileID: 0}
+  tilemap: {fileID: 0}

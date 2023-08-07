@@ -29,7 +29,7 @@ public class Stage1BossPattern : MonoBehaviour, IDamagable {
         //(HitParticle, transform);
         var hitObject = ObjectPool.instance.GetObject(HitParticle);
         hitObject.transform.position = particleInstantPosition.position;
-        hitObject.transform.localScale = Vector2.one * 15f;
+        hitObject.transform.localScale = Vector2.one * 8f;
         hitObject.SetActive(true);
         StartCoroutine(AsyncOnHitVisual());
         bossHP.setHP(currentHp - _amount);

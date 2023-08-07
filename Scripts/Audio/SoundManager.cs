@@ -20,7 +20,10 @@ public class SoundManager : MonoBehaviour
     const string BGM_VolumeParam    = "BGM_VolumeParam";
     const string SFX_MuteParam      = "SFX_MuteParam";
     const string SFX_VolumeParam    = "SFX_VolumeParam";
-
+    private void Awake() {
+        AudioSources[0].pitch = 1f;
+        AudioSources[1].pitch = 1f;
+    }
     Sequence sequence;
 
     [ContextMenu("BGM 뮤트")]
@@ -55,7 +58,8 @@ public class SoundManager : MonoBehaviour
         {
 	        if (AudioSources[(int)SOUND_TYPE.BGM].isPlaying) AudioSources[(int)SOUND_TYPE.BGM].Stop();
 	        AudioSources[(int)SOUND_TYPE.BGM].clip = audioClip;
-	        AudioSources[(int)SOUND_TYPE.BGM].Play();                
+	        
+            AudioSources[(int)SOUND_TYPE.BGM].Play();                
         }
         else {return;}//throw new System.Exception("audioName과 일치하는 캐싱된 BGM이 없음, GameManager -> SoundManager에 BGM 캐싱되었는지 확인.");}
     }
@@ -88,7 +92,8 @@ public class SoundManager : MonoBehaviour
 			    	targetSource.Stop();
 
 			    targetSource.clip = audioClip;
-			    targetSource.Play();                
+			    
+                targetSource.Play();                
                 break;
             }
 

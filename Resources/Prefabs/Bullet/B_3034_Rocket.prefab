@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7239013096102837100}
   - component: {fileID: 7239013096102837103}
   - component: {fileID: 2998510322885477331}
+  - component: {fileID: -4903765620626815561}
   m_Layer: 29
   m_Name: B_3034_Rocket
   m_TagString: Untagged
@@ -166,5 +167,25 @@ MonoBehaviour:
     nonCritColor:
       serializedVersion: 2
       rgba: 0
+  bulletSoundData:
+    Shoot: {fileID: 0}
   time: 0
   bulletRigid: {fileID: 0}
+--- !u!114 &-4903765620626815561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7239013096102837009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 4
+  sorting_order: 3
+  renderer_type: 3
+  canvas: {fileID: 0}
+  particle: {fileID: 0}
+  sprite: {fileID: 7239013096102837101}

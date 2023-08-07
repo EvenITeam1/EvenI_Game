@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8620079346850200606}
   - component: {fileID: -7263293138115123928}
   - component: {fileID: 8012460547716211841}
+  - component: {fileID: -1542621118185245180}
   m_Layer: 29
   m_Name: Stage9MobBullet
   m_TagString: Untagged
@@ -74,9 +75,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 846495363
-  m_SortingLayer: 4
-  m_SortingOrder: 3
+  m_SortingLayerID: -1949028549
+  m_SortingLayer: 5
+  m_SortingOrder: 0
   m_Sprite: {fileID: -1088862918, guid: 5b3db689f76c7ee46bfd6adbcb36d0d2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -191,3 +192,21 @@ MonoBehaviour:
     Shoot: {fileID: 0}
   time: 0
   bulletRigid: {fileID: 8620079346850200606}
+--- !u!114 &-1542621118185245180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8620079346850200605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 5
+  sorting_order: 0
+  renderer_type: 3
+  canvas: {fileID: 0}
+  particle: {fileID: 0}
+  sprite: {fileID: 8620079346850200608}

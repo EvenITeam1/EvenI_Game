@@ -8,14 +8,8 @@ public class CrossFadeOut : MonoBehaviour {
     public UnityEvent AnimStopEvents = new UnityEvent();
     public AudioClip TransitionStartSound;
     private void Awake() {
-        //if(transform.GetChild(0).name != "Plain") {throw new System.Exception("자식 오브젝트가 잘못 연결됨");}
-        
-        //AnimStartEvent.RemoveAllListeners();
-        //AnimStartEvent.AddListener(() => transform.GetChild(0).gameObject.SetActive(true));
-        //AnimStartEvent.AddListener(() => GameObject.Find("DataTrigger").GetComponent<DataTrigger>().LoadData());
-
-        //AnimStopEvents.RemoveAllListeners();
-        //AnimStopEvents.AddListener(() => player.PlayerEnable());
+        GameManager.Instance.GlobalSoundManager.MuteBGM();
+        GameManager.Instance.GlobalSoundManager.MuteSFX();
     }
 
     public void OnAnimationStart()
@@ -27,5 +21,7 @@ public class CrossFadeOut : MonoBehaviour {
     {
         AnimStopEvents.Invoke();
         GameManager.Instance.GlobalSoundManager.PlayByClip(TransitionStartSound, SOUND_TYPE.SFX);
+        GameManager.Instance.GlobalSoundManager.UnmuteBGM();
+        GameManager.Instance.GlobalSoundManager.UnmuteSFX();
     }
 }

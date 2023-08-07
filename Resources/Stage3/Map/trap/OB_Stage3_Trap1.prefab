@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5447632960148357998}
   - component: {fileID: 7647054507271567932}
   - component: {fileID: 6642546990642357024}
+  - component: {fileID: 1580672476}
   m_Layer: 8
   m_Name: model
   m_TagString: Untagged
@@ -71,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 846495363
+  m_SortingLayerID: -1789428647
   m_SortingLayer: 4
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 709f807d82d313b498650aaa2e9e283e, type: 3}
@@ -105,6 +106,25 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1580672476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494288234774043796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 4
+  sorting_order: 0
+  renderer_type: 3
+  canvas: {fileID: 0}
+  particle: {fileID: 0}
+  sprite: {fileID: 7647054507271567932}
+  tilemap: {fileID: 0}
 --- !u!1 &6415319658902369844
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,7 +157,7 @@ Transform:
   m_Children:
   - {fileID: 5447632960148357998}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 50
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9047075740701931469
 MonoBehaviour:

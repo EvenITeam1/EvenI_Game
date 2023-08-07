@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1233056433216404457}
   - component: {fileID: 1233056433216404454}
   - component: {fileID: 4170327664119999621}
+  - component: {fileID: 4526305813496892733}
   m_Layer: 0
   m_Name: VFX_CoinDestroy
   m_TagString: Untagged
@@ -32,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &1233056433216404457
 ParticleSystem:
@@ -4894,3 +4895,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f4d6c4c4b2e440e1b457296e4ff1757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4526305813496892733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233056433216404455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 7
+  sorting_order: 0
+  renderer_type: 2
+  canvas: {fileID: 0}
+  particle: {fileID: 1233056433216404454}
+  sprite: {fileID: 0}
+  tilemap: {fileID: 0}

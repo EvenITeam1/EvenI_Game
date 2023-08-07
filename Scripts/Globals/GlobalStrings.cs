@@ -7,6 +7,10 @@ Zone = 11, NONE_12, NONE_13, NONE_14, NONE_15,NONE_16,NONE_17,NONE_18,NONE_19,NO
 NONE_21, NONE_22, NONE_23, NONE_24, SlowDown = 25, EnemyCenter, Flag, Mirror, Bullet, Enemy
 }
 
+public enum SORTING_LAYERS {
+    Default = 0, BackGrounds ,Map ,Player ,Objects ,Mob ,FowardGrounds ,DamageUI ,UI ,ScreenCover
+}
+
 public static class GlobalStrings {
     public static readonly string[] LAYERS_STRING = {
         "Default", 

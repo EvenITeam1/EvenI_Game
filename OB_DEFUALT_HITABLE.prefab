@@ -32,7 +32,7 @@ Transform:
   m_Children:
   - {fileID: 49896029427748311}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 46
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3937568910038251892
 MonoBehaviour:
@@ -59,15 +59,24 @@ MonoBehaviour:
     Ob_move_strength: 2
     OB_Hitable: 1
     Ob_HP: 30
+    Ob_Score: 0
     Ob_filecode: "C \uB4DC\uB77C\uC774\uBE0C - \uAC8C\uC784\uD1A4 \uAE30\uD68D\uC11C
       - asset - object"
   coinData:
     ScoreValue: 10
     particle: {fileID: 1233056433216404457, guid: 93f4cb5d088166d428dc02998913d244, type: 3}
+  itemData:
+    ITEM_CATEGORY: 0
+    destroyParticle: {fileID: 0}
+    activateParticle: {fileID: 0}
   visualData:
     spriteRenderer: {fileID: 0}
+    animator: {fileID: 0}
     defaultColor: {r: 0, g: 0, b: 0, a: 0}
     onHitColor: {r: 0, g: 0, b: 0, a: 0}
+  soundData:
+    GetDamaged: {fileID: 0}
+    OnDisable: {fileID: 0}
   objectCollider: {fileID: 5172971096665940192}
   moveTriggerOffset: 5
   HitParticle: {fileID: 7124663019238293431, guid: 301f99a9c0b0643798ca6ef1fad42b44, type: 3}
@@ -107,6 +116,7 @@ GameObject:
   m_Component:
   - component: {fileID: 49896029427748311}
   - component: {fileID: 2393503716358272133}
+  - component: {fileID: 2010789186}
   m_Layer: 8
   m_Name: model
   m_TagString: Untagged
@@ -181,3 +191,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2010789186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5617314729169556013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 4
+  sorting_order: 0
+  renderer_type: 3
+  canvas: {fileID: 0}
+  particle: {fileID: 0}
+  sprite: {fileID: 2393503716358272133}
+  tilemap: {fileID: 0}

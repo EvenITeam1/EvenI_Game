@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3324267422197205337}
   - component: {fileID: 3324267422197205336}
   - component: {fileID: 3324267422197205339}
+  - component: {fileID: 1717799859802601547}
   m_Layer: 0
   m_Name: VFX_WarningArrow
   m_TagString: Untagged
@@ -32,7 +33,7 @@ Transform:
   m_Children:
   - {fileID: 3324267422803267995}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!198 &3324267422197205336
 ParticleSystem:
@@ -4873,6 +4874,25 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &1717799859802601547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3324267422197205338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 7
+  sorting_order: 0
+  renderer_type: 2
+  canvas: {fileID: 0}
+  particle: {fileID: 3324267422197205339}
+  sprite: {fileID: 0}
+  tilemap: {fileID: 0}
 --- !u!1 &3324267422803267996
 GameObject:
   m_ObjectHideFlags: 0
