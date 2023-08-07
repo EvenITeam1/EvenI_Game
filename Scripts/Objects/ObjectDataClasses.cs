@@ -79,13 +79,8 @@ public class ObjectItemData {
 public class ObjectVisualData {
     public SpriteRenderer   spriteRenderer;
     public Animator      animator;
-<<<<<<< HEAD
     public Color         defaultColor = Color.white;
     public Color         onHitColor = Color.red;
-=======
-    public Color         defaultColor;
-    public Color         onHitColor;
->>>>>>> slhun22
 }
 
 [System.Serializable]

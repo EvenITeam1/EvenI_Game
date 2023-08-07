@@ -71,13 +71,10 @@ public class CharacterUI : MonoBehaviour
             infoJumpAttText.text = $"점프공격력 : {jumpBulletData.Bullet_min_dmg} ~ {jumpBulletData.Bullet_max_dmg}";        
         }    
     }
-<<<<<<< HEAD
-=======
 
     public void ApplySelectCharacter()
     {
         GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SelectedPlayerINDEX = OnSelect;
         GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SaveOutgameDataToJson();
     }
->>>>>>> slhun22
 }
