@@ -8,8 +8,9 @@ public class OutGameDataManage : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI goldAmount;
     [SerializeField] TextMeshProUGUI expAmount;
+    [SerializeField] TextMeshProUGUI boneAmount;
     [SerializeField] TextMeshProUGUI additionalReviveAmount;
-    [SerializeField] Image Icon; 
+    [SerializeField] TextMeshProUGUI coin15Amount; 
     [SerializeField] List<CharacterUI> characterUIList;//use only in MyDogScene
     [SerializeField] List<Button> stageEnterButtonList; //use only in StageSelectScene
 
@@ -27,10 +28,12 @@ public class OutGameDataManage : MonoBehaviour
     private void FixedUpdate()
     {
         if (goldAmount != null) { goldAmount.text = GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedCoin.ToString(); }
+        if (boneAmount != null) { boneAmount.text = GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedBone.ToString(); }
         if (expAmount != null) { expAmount.text = "EXP " + GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedExp.ToString() + "/1000"; }
         if (additionalReviveAmount != null) { additionalReviveAmount.text = "+" + GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.AdditionalRevivalCount.ToString(); }
+        if (coin15Amount != null) { coin15Amount.text = "+" + GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.Coin15Count.ToString(); }
 
-        if(characterUIList[0] != null)
+        if (characterUIList[0] != null)
         {
             characterUIList[0].isUnlocked = GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isShibaUnlocked;
             characterUIList[1].isUnlocked = GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isGoldenRetrieverUnlocked;

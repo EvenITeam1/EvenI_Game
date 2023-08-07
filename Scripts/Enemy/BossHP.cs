@@ -9,6 +9,7 @@ public class BossHP : MonoBehaviour, HP
     [SerializeField] float _hp;
     [SerializeField] float _setHp;
     [SerializeField] Slider _hpBar;
+    [SerializeField] int bossScore;
     void Start()
     {
         setHP(_setHp);
@@ -36,6 +37,7 @@ public class BossHP : MonoBehaviour, HP
     public void die()
     {
         _hp = 0;
+        RunnerManager.Instance.GlobalEventInstance.scoreCheck.Score += bossScore;
         gameObject.SetActive(false);
         RunnerManager.Instance.GlobalEventInstance.BroadCastBossDie();
     }

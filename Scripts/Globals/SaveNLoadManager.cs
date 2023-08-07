@@ -17,14 +17,16 @@ public class IngameSaveData
     /// 보스 클리어와 동일하다 생각됨..
     /// </summary>
     public bool IsStageClear;
+    public bool isCoinBoostOn;
     public int CollectedScore;
-    public int RevivalCount;
+    public int RevivalCount; 
     public IngameSaveData()
     {
         PrevHP = -1;
         IsStageClear = false;
+        isCoinBoostOn = false;
         CollectedScore = -1;
-        RevivalCount = -1;
+        RevivalCount = -1;       
     }
 }
 #endregion
@@ -37,6 +39,7 @@ public class IngameSaveData
 public class OutgameSaveData
 {
     public int AdditionalRevivalCount;
+    public int Coin15Count;
 
     #region AccountData
 
@@ -76,9 +79,10 @@ public class OutgameSaveData
     #endregion
 
     [SerializeField]
-    public OutgameSaveData(int reviveCount, int level, int CollectedExp, DOG_INDEX selectedPlayerIndex, int selectedIconIndex, int coin, int bone, int hightestUnlockedStage, bool one, bool two, bool three, bool four, bool five, bool six, bool seven, bool eight, bool nine, bool ten)
+    public OutgameSaveData(int reviveCount, int coin15Count, int level, int CollectedExp, DOG_INDEX selectedPlayerIndex, int selectedIconIndex, int coin, int bone, int hightestUnlockedStage, bool one, bool two, bool three, bool four, bool five, bool six, bool seven, bool eight, bool nine, bool ten)
     {
         this.AdditionalRevivalCount = reviveCount;
+        this.Coin15Count = coin15Count; 
         this.AccountLevel = level;
         this.CollectedExp = CollectedExp;
         this.SelectedPlayerINDEX = selectedPlayerIndex;
@@ -100,7 +104,7 @@ public class OutgameSaveData
 
     public void SaveOutgameDataToJson()
     {
-        OutgameSaveData outgameSaveData = new OutgameSaveData(AdditionalRevivalCount, AccountLevel, CollectedExp, SelectedPlayerINDEX, SelectedIconINDEX, CollectedCoin, CollectedBone, HightestStageUnlocked,
+        OutgameSaveData outgameSaveData = new OutgameSaveData(AdditionalRevivalCount, Coin15Count, AccountLevel, CollectedExp, SelectedPlayerINDEX, SelectedIconINDEX, CollectedCoin, CollectedBone, HightestStageUnlocked,
             isShibaUnlocked, isGoldenRetrieverUnlocked, isLabradorRetrieverUnlocked, isGreyHoundUnlocked, isGermanShepherdUnlocked, isHuskyUnlocked, isWolfUnlocked, isGoldenPomeranianUnlocked, isWhitePomeranianUnlocked, isPugUnlocked);
         var result = JsonConvert.SerializeObject(outgameSaveData);
         FileStream fileStream = new FileStream(string.Format("{0}/{1}.json", Application.persistentDataPath, "OutgameData"), FileMode.Create);
@@ -114,6 +118,7 @@ public class OutgameSaveData
         {
             Debug.Log("앱 최초실행 : 아웃게임 스크립트");
             AdditionalRevivalCount = 0;
+            Coin15Count = 0;
             AccountLevel = 1;
             CollectedExp = 0;
             SelectedPlayerINDEX = DOG_INDEX.C_01;
@@ -138,6 +143,7 @@ public class OutgameSaveData
             string JsonFileText = File.ReadAllText(string.Format("{0}/{1}.json", Application.persistentDataPath, "OutgameData"));
             OutgameSaveData OutgameData = JsonConvert.DeserializeObject<OutgameSaveData>(JsonFileText);
             AdditionalRevivalCount = OutgameData.AdditionalRevivalCount;
+            Coin15Count = OutgameData.Coin15Count;
             AccountLevel = OutgameData.AccountLevel;
             CollectedExp = OutgameData.CollectedExp;
             SelectedPlayerINDEX = OutgameData.SelectedPlayerINDEX;

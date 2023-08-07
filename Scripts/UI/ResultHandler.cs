@@ -18,6 +18,7 @@ public class ResultHandler : MonoBehaviour
     public float WinCoinRatio = 1f;
     public float LoseExpRatio = 0.0025f;
     public float LoseCoinRatio = 0.05f;
+    public float CoinBoostRatio = 1f;
     public static int EnteredStageIndex;
 
     /*
@@ -32,7 +33,10 @@ public class ResultHandler : MonoBehaviour
     private void Start()
     {
         bool IsClearState = true;
+        bool IsCoinBoostOn = GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.isCoinBoostOn;
+        if(IsCoinBoostOn) { GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.Coin15Count--; }
         if (SceneManager.GetActiveScene().name == "GameOverScene") { IsClearState = false; }
+        CoinBoostRatio = IsCoinBoostOn ? 1.5f : 1f;
         float Score = GameManager.Instance.GlobalSaveNLoad.saveData.ingameSaveData.CollectedScore;
         if((int)Score == -1) {Score = 0;} 
         textRoulettes[(int)RESULT_INDEX.SCORE].CountingNumber = (int)Score;
@@ -41,7 +45,7 @@ public class ResultHandler : MonoBehaviour
            = (int)((IsClearState) ? (WinExpRatio * Score) : (LoseExpRatio * Score));
 
         textRoulettes[(int)RESULT_INDEX.COIN].CountingNumber
-            = (int)((IsClearState) ? (WinCoinRatio * Score) : (LoseCoinRatio * Score));
+            = (int)((IsClearState) ? (WinCoinRatio * Score * CoinBoostRatio) : (LoseCoinRatio * Score * CoinBoostRatio));
 
         int usedReviveCount = GameManager.Instance.GlobalSaveNLoad.saveData.outgameSaveData.AdditionalRevivalCount + 3 - GameManager.Instance.GlobalSaveNLoad.saveData.ingameSaveData.RevivalCount;
 
@@ -50,7 +54,7 @@ public class ResultHandler : MonoBehaviour
             GameManager.Instance.GlobalSaveNLoad.saveData.outgameSaveData.AdditionalRevivalCount -= usedReviveCount - 3;
         }
 
-        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedCoin += (int)((IsClearState) ? (WinCoinRatio * Score) : (LoseCoinRatio * Score));
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedCoin += (int)((IsClearState) ? (WinCoinRatio * Score * CoinBoostRatio) : (LoseCoinRatio * Score * CoinBoostRatio));
         GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedExp += (int)((IsClearState) ? (WinExpRatio * Score) : (LoseExpRatio * Score));
         if (GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.HightestStageUnlocked == EnteredStageIndex && IsClearState)
             GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.HightestStageUnlocked++;
