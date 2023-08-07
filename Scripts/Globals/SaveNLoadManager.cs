@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Newtonsoft.Json;
+using System.Text;
+using System.IO;
 
 
 /*********************************************************************************/
@@ -33,30 +36,123 @@ public class IngameSaveData
 [System.Serializable]
 public class OutgameSaveData
 {
-    // public int RevivalCount; ??
+    public int AdditionalRevivalCount;
 
     #region AccountData
-        
-        public int AccountLevel;
-        public int CollectedExp;
-        public DOG_INDEX SelectedPlayerINDEX;
-    
+
+    public int AccountLevel;
+    public int CollectedExp;
+    public DOG_INDEX SelectedPlayerINDEX;
+    public int SelectedIconINDEX;
+
     #endregion
 
     #region ShopData
-        public int CollectedCoin;   // 로비에서 코인이 될듯.
+    public int CollectedCoin;   // 로비에서 코인이 될듯.
+    public int CollectedBone;
 
     #endregion
 
     #region  AchievementData
-    
-        public List<bool> StageClearData;
-    
+
+    public int HightestStageUnlocked;
+
+    #endregion
+
+
+    #region CharacterUnlockData
+
+    public bool isShibaUnlocked;
+    public bool isGoldenRetrieverUnlocked;
+    public bool isLabradorRetrieverUnlocked;
+    public bool isGreyHoundUnlocked;
+    public bool isGermanShepherdUnlocked;
+    public bool isHuskyUnlocked;
+    public bool isWolfUnlocked;
+    public bool isGoldenPomeranianUnlocked;
+    public bool isWhitePomeranianUnlocked;
+    public bool isPugUnlocked;
+
     #endregion
 
     [SerializeField]
-    public OutgameSaveData()
+    public OutgameSaveData(int reviveCount, int level, int CollectedExp, DOG_INDEX selectedPlayerIndex, int coin, int bone, int hightestUnlockedStage, bool one, bool two, bool three, bool four, bool five, bool six, bool seven, bool eight, bool nine, bool ten)
     {
+        this.AdditionalRevivalCount = reviveCount;
+        this.AccountLevel = level;
+        this.CollectedExp = CollectedExp;
+        this.SelectedPlayerINDEX = selectedPlayerIndex;
+        this.CollectedCoin = coin;
+        this.CollectedBone = bone;
+        this.HightestStageUnlocked = hightestUnlockedStage;
+        this.isShibaUnlocked = one;
+        this.isGoldenRetrieverUnlocked = two;
+        this.isLabradorRetrieverUnlocked = three;
+        this.isGreyHoundUnlocked = four;
+        this.isGermanShepherdUnlocked = five;
+        this.isHuskyUnlocked = six;
+        this.isWolfUnlocked = seven;
+        this.isGoldenPomeranianUnlocked = eight;
+        this.isWhitePomeranianUnlocked = nine;
+        this.isPugUnlocked = ten;
+    }
+
+    public void SaveOutgameDataToJson()
+    {
+        OutgameSaveData outgameSaveData = new OutgameSaveData(AdditionalRevivalCount, AccountLevel, CollectedExp, SelectedPlayerINDEX, CollectedCoin, CollectedBone, HightestStageUnlocked,
+            isShibaUnlocked, isGoldenRetrieverUnlocked, isLabradorRetrieverUnlocked, isGreyHoundUnlocked, isGermanShepherdUnlocked, isHuskyUnlocked, isWolfUnlocked, isGoldenPomeranianUnlocked, isWhitePomeranianUnlocked, isPugUnlocked);
+        var result = JsonConvert.SerializeObject(outgameSaveData);
+        FileStream fileStream = new FileStream(string.Format("{0}/{1}.json", Application.persistentDataPath, "OutgameData"), FileMode.Create);
+        byte[] data = Encoding.UTF8.GetBytes(result);
+        fileStream.Write(data, 0, data.Length);
+        fileStream.Close();
+    }
+    public void LoadSatietyDataFromJson()
+    {
+        if (!File.Exists(string.Format("{0}/{1}.json", Application.persistentDataPath, "OutgameData")))
+        {
+            Debug.Log("앱 최초실행 : 아웃게임 스크립트");
+            AdditionalRevivalCount = 0;
+            AccountLevel = 1;
+            CollectedExp = 0;
+            SelectedPlayerINDEX = DOG_INDEX.C_01;
+            CollectedCoin = 0;
+            CollectedBone = 0;
+            HightestStageUnlocked = 0;
+            isShibaUnlocked = true;
+            isGoldenRetrieverUnlocked = false;
+            isLabradorRetrieverUnlocked = false;
+            isGreyHoundUnlocked = false;
+            isGermanShepherdUnlocked = false;
+            isHuskyUnlocked = false;
+            isWolfUnlocked = false;
+            isGoldenPomeranianUnlocked = false;
+            isWhitePomeranianUnlocked = false;
+            isPugUnlocked = false;
+        }
+
+        else
+        { 
+            string JsonFileText = File.ReadAllText(string.Format("{0}/{1}.json", Application.persistentDataPath, "OutgameData"));
+            OutgameSaveData OutgameData = JsonConvert.DeserializeObject<OutgameSaveData>(JsonFileText);
+            AdditionalRevivalCount = OutgameData.AdditionalRevivalCount;
+            AccountLevel = OutgameData.AccountLevel;
+            CollectedExp = OutgameData.CollectedExp;
+            SelectedPlayerINDEX = OutgameData.SelectedPlayerINDEX;
+            CollectedCoin = OutgameData.CollectedCoin;
+            CollectedBone = OutgameData.CollectedBone;
+            HightestStageUnlocked = OutgameData.HightestStageUnlocked;
+            isShibaUnlocked = OutgameData.isShibaUnlocked;
+            isGoldenRetrieverUnlocked = OutgameData.isGoldenRetrieverUnlocked;
+            isLabradorRetrieverUnlocked = OutgameData.isLabradorRetrieverUnlocked;
+            isGreyHoundUnlocked = OutgameData.isGreyHoundUnlocked;
+            isGermanShepherdUnlocked = OutgameData.isGermanShepherdUnlocked;
+            isHuskyUnlocked = OutgameData.isHuskyUnlocked;
+            isWolfUnlocked = OutgameData.isWolfUnlocked;
+            isGoldenPomeranianUnlocked = OutgameData.isGoldenPomeranianUnlocked;
+            isWhitePomeranianUnlocked = OutgameData.isWhitePomeranianUnlocked;
+            isPugUnlocked = OutgameData.isPugUnlocked;
+        }
     }
 }
 
@@ -94,3 +190,4 @@ public class SaveNLoadManager : MonoBehaviour
         return ref this.saveData;
     }
 }
+

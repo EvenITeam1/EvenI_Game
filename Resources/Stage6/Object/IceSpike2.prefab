@@ -51,9 +51,9 @@ MonoBehaviour:
     Index: 2000
     Ob_name: "\uAC00\uC2DC\uD310\uC815\uD0C0\uC77C"
     Ob_category: 1
-    Ob_width: 1
-    Ob_height: 2
-    Ob_damage: 20
+    Ob_width: 0.2264252
+    Ob_height: 0.21803
+    Ob_damage: 35
     Ob_bullet_index: 0
     Ob_movement_index: 0
     Ob_move_strength: 0
@@ -73,6 +73,9 @@ MonoBehaviour:
     animator: {fileID: 0}
     defaultColor: {r: 0, g: 0, b: 0, a: 0}
     onHitColor: {r: 0, g: 0, b: 0, a: 0}
+  soundData:
+    GetDamaged: {fileID: 0}
+    OnDisable: {fileID: 0}
   objectCollider: {fileID: 4072091334993394331}
   moveTriggerOffset: 5
   HitParticle: {fileID: 0}

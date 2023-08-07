@@ -4,13 +4,15 @@ using UnityEngine;
 /// <summary>
 /// 인게임에서 사용되는 데이터 접근
 /// </summary>
-public class DataTrigger : MonoBehaviour {
-    
-    [System.Obsolete("세부로 확장되었으므로 다른 스크립트로 교체하길 바람.")]
-    public void InitializeData(){
+public class DataTrigger : MonoBehaviour
+{
+
+    //[System.Obsolete("세부로 확장되었으므로 다른 스크립트로 교체하길 바람.")]
+    public void InitializeData()
+    {
         GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.PrevHP = 100;
         GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.CollectedScore = 0;
-        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.RevivalCount = 10;
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.RevivalCount = GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.AdditionalRevivalCount + 3;
     }
     [System.Obsolete("세부로 확장되었으므로 다른 스크립트로 교체하길 바람.")]
     public void DataSave(){
@@ -39,13 +41,14 @@ public class DataTrigger : MonoBehaviour {
     public void SaveRunnerGame(){
         GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.PrevHP    
             = RunnerManager.Instance.GlobalPlayer.playerHP.getHP();
-        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.CollectedScore 
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.CollectedScore
             = (int)RunnerManager.Instance.GlobalEventInstance.scoreCheck.Score;
     }
 
     //보스 
-        //StageClear은 무조건 보스가 클리어 된 상황밖에 없다.
-    public void SaveStageClear(){
+    //StageClear은 무조건 보스가 클리어 된 상황밖에 없다.
+    public void SaveStageClear()
+    {
         GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.CollectedScore   
             = (int)RunnerManager.Instance.GlobalEventInstance.scoreCheck.Score;
         GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.IsStageClear

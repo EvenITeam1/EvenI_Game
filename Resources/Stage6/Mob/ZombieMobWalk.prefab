@@ -84,7 +84,7 @@ MonoBehaviour:
     Ob_damage: 30
     Ob_bullet_index: -1
     Ob_movement_index: 3
-    Ob_move_strength: 5
+    Ob_move_strength: 3
     OB_Hitable: 0
     Ob_HP: 100
     Ob_Score: 0
@@ -101,6 +101,9 @@ MonoBehaviour:
     animator: {fileID: 0}
     defaultColor: {r: 1, g: 1, b: 1, a: 0}
     onHitColor: {r: 1, g: 0, b: 0, a: 0}
+  soundData:
+    GetDamaged: {fileID: 0}
+    OnDisable: {fileID: 0}
   objectCollider: {fileID: 1835800611663567672}
   moveTriggerOffset: 10
   HitParticle: {fileID: 7124663019238293431, guid: 301f99a9c0b0643798ca6ef1fad42b44, type: 3}
@@ -114,7 +117,7 @@ Animator:
   m_GameObject: {fileID: 1697375171588258029}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 91ffe05e649849d4a9f332ab18e9ddd4, type: 2}
+  m_Controller: {fileID: 9100000, guid: e73fae359c9ba39499497dcaa310c95a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

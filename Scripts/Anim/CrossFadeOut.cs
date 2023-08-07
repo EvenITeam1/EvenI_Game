@@ -18,11 +18,13 @@ public class CrossFadeOut : MonoBehaviour {
         //AnimStopEvents.AddListener(() => player.PlayerEnable());
     }
 
-    public void OnAnimationStart(){
+    public void OnAnimationStart()
+    {
         AnimStartEvent.Invoke();
         GameManager.Instance.GlobalSoundManager.PlayByClip(TransitionStartSound, SOUND_TYPE.SFX);
     }
-    public void OnAnimationStop(){
+    public void OnAnimationStop()
+    {
         AnimStopEvents.Invoke();
         GameManager.Instance.GlobalSoundManager.PlayByClip(TransitionStartSound, SOUND_TYPE.SFX);
     }

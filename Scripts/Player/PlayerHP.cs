@@ -17,7 +17,9 @@ public class PlayerHP : MonoBehaviour, HP
 
     float _time;
 
-    void Start() {_time = 0;}
+    void Start() {
+        _time = 0;
+    }
 
     private void Update()
     {

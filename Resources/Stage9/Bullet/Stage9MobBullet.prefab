@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 8620079346850200608}
   - component: {fileID: 8620079346850200607}
   - component: {fileID: 8620079346850200606}
-  - component: {fileID: 316302827860076584}
   - component: {fileID: -7263293138115123928}
+  - component: {fileID: 8012460547716211841}
   m_Layer: 29
   m_Name: Stage9MobBullet
   m_TagString: Untagged
@@ -56,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 2100000, guid: e8682a38d262f4c478ec42dc77d6592e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1789428647
+  m_SortingLayerID: 846495363
   m_SortingLayer: 4
   m_SortingOrder: 3
   m_Sprite: {fileID: -1088862918, guid: 5b3db689f76c7ee46bfd6adbcb36d0d2, type: 3}
@@ -125,52 +125,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &316302827860076584
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8620079346850200605}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74f652cad92295441b2d7908d7616493, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _enemyLayer:
-    serializedVersion: 2
-    m_Bits: 1024
-  Index: 3003
-  player: {fileID: 0}
-  bulletData:
-    Index: 3003
-    Bullet_name: "\uC801\uAE30\uBCF8\uD0C4"
-    Bullet_category: 1
-    Bullet_width: 1
-    Bullet_height: 1
-    Bullet_min_dmg: 0
-    Bullet_max_dmg: 0
-    Bullet_set_dmg: 20
-    Bullet_crit_chance: 0
-    Bullet_crit_const: 0
-    Bullet_speed: 20
-    Bullet_last_time: 5
-    Bullet_reflect_count: 0
-    Bullet_filecode: 
-  bulletVisualData:
-    dmgPrefab: {fileID: 0}
-    critFontSize: 0
-    nonCritFontSize: 0
-    critColor:
-      serializedVersion: 2
-      rgba: 0
-    nonCritColor:
-      serializedVersion: 2
-      rgba: 0
-  bulletSoundData:
-    Shoot: {fileID: 0}
-  time: 0
-  bulletRigid: {fileID: 8620079346850200606}
 --- !u!95 &-7263293138115123928
 Animator:
   serializedVersion: 4
@@ -191,3 +145,49 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8012460547716211841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8620079346850200605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd1291648ee9d4ea8a27b15d7e695e82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  Index: 3000
+  player: {fileID: 0}
+  bulletData:
+    Index: 3000
+    Bullet_name: Stage9MobBullet
+    Bullet_category: 0
+    Bullet_width: 1
+    Bullet_height: 1
+    Bullet_min_dmg: -1
+    Bullet_max_dmg: -1
+    Bullet_set_dmg: 20
+    Bullet_crit_chance: -1
+    Bullet_crit_const: -1
+    Bullet_speed: 10
+    Bullet_last_time: 5
+    Bullet_reflect_count: 0
+    Bullet_filecode: 
+  bulletVisualData:
+    dmgPrefab: {fileID: 0}
+    critFontSize: 0
+    nonCritFontSize: 0
+    critColor:
+      serializedVersion: 2
+      rgba: 0
+    nonCritColor:
+      serializedVersion: 2
+      rgba: 0
+  bulletSoundData:
+    Shoot: {fileID: 0}
+  time: 0
+  bulletRigid: {fileID: 8620079346850200606}

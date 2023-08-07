@@ -5,6 +5,8 @@ using System;
 using UnityEngine.UI;
 using TMPro;
 using Newtonsoft.Json;
+using System.IO;
+using System.Text;
 
 public class SatietyManage : MonoBehaviour
 {
@@ -12,23 +14,19 @@ public class SatietyManage : MonoBehaviour
     [SerializeField] Color fillColor;
     [SerializeField] TextMeshProUGUI guageCountText;
     [SerializeField] TextMeshProUGUI leftTimeText;
-    [SerializeField] TextAsset JsonFile;
-    static bool isFirstAccess = true;
-    public static int chargeCount;
+    private static int chargeCount;
     public float initialChargeTimeBySec;
     float chargeTimeBySec;
     public float remainTime;
     float timeLeft;
-    static float passedTimeInLobby;
+    private static float passedTimeInLobby;
     public static DateTime prevTime = DateTime.MaxValue;
 
     private void Awake()
     {
-        if(isFirstAccess)
-        {
-            prevTime = JsonConvert.DeserializeObject<DateTime>(JsonFile.text);
-            isFirstAccess = false;
-        }    
+        LoadSatietyDataFromJson();
+        refreshGuageColor();
+        refreshCountText();
     }
     private void Start()
     {
@@ -41,10 +39,6 @@ public class SatietyManage : MonoBehaviour
     private void Update()
     {
        CalculateCountInside();
-    }
-    public static void RecordLobbyOutTime()//for Outside
-    {
-        prevTime = DateTime.Now;
     }
 
     public void CalculateCountInside()
@@ -87,27 +81,84 @@ public class SatietyManage : MonoBehaviour
 
     public void refreshGuageColor()
     {
-        for (int i = 0; i < chargeCount; i++)        
-            guage[i].color = fillColor;
-
-        for (int i = chargeCount; i <10; i++)
+        if(chargeCount < 10)
         {
-            guage[i].color = Color.white;
+            for (int i = 0; i < chargeCount; i++)
+                guage[i].color = fillColor;
+
+            for (int i = chargeCount; i < 10; i++)
+            {
+                guage[i].color = Color.white;
+            }
         }
+
+        else
+        {
+            for (int i = 0; i < 10; i++)
+                guage[i].color = fillColor;
+        }   
     }
 
     public void refreshCountText()
     {
+        Debug.Log("chargeCount : " +chargeCount);
         guageCountText.text = chargeCount + "/10";
     }
 
     public bool isFull()
     {
-        if (chargeCount == 10)
+        if (chargeCount >= 10)
             return true;
 
         else
             return false;
     }
 
+    public static void SaveSatietyDataToJson()
+    {
+        SatietyJsonData satieTyJsonData = new SatietyJsonData(DateTime.Now, chargeCount, passedTimeInLobby);
+        var result = JsonConvert.SerializeObject(satieTyJsonData);
+        FileStream fileStream = new FileStream(string.Format("{0}/{1}.json", Application.persistentDataPath, "QuitTimeData"), FileMode.Create);
+        byte[] data = Encoding.UTF8.GetBytes(result);
+        fileStream.Write(data, 0, data.Length);
+        fileStream.Close();
+    }
+
+    void LoadSatietyDataFromJson()
+    {
+        if (!File.Exists(string.Format("{0}/{1}.json", Application.persistentDataPath, "QuitTimeData")))
+        {
+            Debug.Log("앱 최초실행 : 행동력 스크립트");
+            chargeCount = 10;
+        }
+
+        else
+        {
+            string JsonFileText = File.ReadAllText(string.Format("{0}/{1}.json", Application.persistentDataPath, "QuitTimeData"));
+            SatietyJsonData satietyJsonData = JsonConvert.DeserializeObject<SatietyJsonData>(JsonFileText);
+            prevTime = satietyJsonData.quitTime;
+            chargeCount = satietyJsonData.chargeCount;
+            passedTimeInLobby = satietyJsonData.passedTimeInLobby;
+        }   
+    }
+
+    public static int GetChargeCount()
+    {
+        return chargeCount;
+    }
+
+    public static float GetPassedTimeInLobby()
+    {
+        return passedTimeInLobby;
+    }
+
+    public static void GainChargeCount(int n)
+    {
+        SatietyJsonData satieTyJsonData = new SatietyJsonData(DateTime.Now, chargeCount += n, passedTimeInLobby);
+        var result = JsonConvert.SerializeObject(satieTyJsonData);
+        FileStream fileStream = new FileStream(string.Format("{0}/{1}.json", Application.persistentDataPath, "QuitTimeData"), FileMode.Create);
+        byte[] data = Encoding.UTF8.GetBytes(result);
+        fileStream.Write(data, 0, data.Length);
+        fileStream.Close();
+    }
 }
