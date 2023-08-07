@@ -21,6 +21,7 @@ public class CharacterUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI infoJumpAttText;
 
     public static DOG_INDEX OnSelect;
+
     private void Update()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
