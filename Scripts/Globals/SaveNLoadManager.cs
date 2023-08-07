@@ -76,12 +76,13 @@ public class OutgameSaveData
     #endregion
 
     [SerializeField]
-    public OutgameSaveData(int reviveCount, int level, int CollectedExp, DOG_INDEX selectedPlayerIndex, int coin, int bone, int hightestUnlockedStage, bool one, bool two, bool three, bool four, bool five, bool six, bool seven, bool eight, bool nine, bool ten)
+    public OutgameSaveData(int reviveCount, int level, int CollectedExp, DOG_INDEX selectedPlayerIndex, int selectedIconIndex, int coin, int bone, int hightestUnlockedStage, bool one, bool two, bool three, bool four, bool five, bool six, bool seven, bool eight, bool nine, bool ten)
     {
         this.AdditionalRevivalCount = reviveCount;
         this.AccountLevel = level;
         this.CollectedExp = CollectedExp;
         this.SelectedPlayerINDEX = selectedPlayerIndex;
+        this.SelectedIconINDEX = selectedIconIndex;
         this.CollectedCoin = coin;
         this.CollectedBone = bone;
         this.HightestStageUnlocked = hightestUnlockedStage;
@@ -99,7 +100,7 @@ public class OutgameSaveData
 
     public void SaveOutgameDataToJson()
     {
-        OutgameSaveData outgameSaveData = new OutgameSaveData(AdditionalRevivalCount, AccountLevel, CollectedExp, SelectedPlayerINDEX, CollectedCoin, CollectedBone, HightestStageUnlocked,
+        OutgameSaveData outgameSaveData = new OutgameSaveData(AdditionalRevivalCount, AccountLevel, CollectedExp, SelectedPlayerINDEX, SelectedIconINDEX, CollectedCoin, CollectedBone, HightestStageUnlocked,
             isShibaUnlocked, isGoldenRetrieverUnlocked, isLabradorRetrieverUnlocked, isGreyHoundUnlocked, isGermanShepherdUnlocked, isHuskyUnlocked, isWolfUnlocked, isGoldenPomeranianUnlocked, isWhitePomeranianUnlocked, isPugUnlocked);
         var result = JsonConvert.SerializeObject(outgameSaveData);
         FileStream fileStream = new FileStream(string.Format("{0}/{1}.json", Application.persistentDataPath, "OutgameData"), FileMode.Create);
@@ -116,6 +117,7 @@ public class OutgameSaveData
             AccountLevel = 1;
             CollectedExp = 0;
             SelectedPlayerINDEX = DOG_INDEX.C_01;
+            SelectedIconINDEX = 0;
             CollectedCoin = 0;
             CollectedBone = 0;
             HightestStageUnlocked = 0;
@@ -139,6 +141,7 @@ public class OutgameSaveData
             AccountLevel = OutgameData.AccountLevel;
             CollectedExp = OutgameData.CollectedExp;
             SelectedPlayerINDEX = OutgameData.SelectedPlayerINDEX;
+            SelectedIconINDEX = OutgameData.SelectedIconINDEX;
             CollectedCoin = OutgameData.CollectedCoin;
             CollectedBone = OutgameData.CollectedBone;
             HightestStageUnlocked = OutgameData.HightestStageUnlocked;

@@ -9,6 +9,7 @@ public class OutGameDataManage : MonoBehaviour
     [SerializeField] TextMeshProUGUI goldAmount;
     [SerializeField] TextMeshProUGUI expAmount;
     [SerializeField] TextMeshProUGUI additionalReviveAmount;
+    [SerializeField] Image Icon; 
     [SerializeField] List<CharacterUI> characterUIList;//use only in MyDogScene
     [SerializeField] List<Button> stageEnterButtonList; //use only in StageSelectScene
 
