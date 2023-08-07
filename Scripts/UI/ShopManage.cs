@@ -7,6 +7,7 @@ public class ShopManage : MonoBehaviour
     [SerializeField] List<GameObject> PopUpCanvasList;
     [SerializeField] List<GameObject> ButtonList;
     [SerializeField] GameObject WarningCanvas;
+    [SerializeField] GameObject AlreadyCanvas;
     [SerializeField] GameObject SuccessCanvas;
 
     public static int selectedDogIndex;
@@ -68,6 +69,41 @@ public class ShopManage : MonoBehaviour
 
         else
         {
+            switch (selectedDogIndex)
+            {
+                case 1:
+                    if (GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isGoldenRetrieverUnlocked)
+                        AlreadyCanvas.SetActive(true);
+                    return;
+                case 2:
+                    if (GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isLabradorRetrieverUnlocked)
+                        AlreadyCanvas.SetActive(true);
+                    return;
+                case 3:
+                    if(GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isGreyHoundUnlocked)
+                        AlreadyCanvas.SetActive(true);
+                    return;
+                case 4:
+                    if(GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isGermanShepherdUnlocked)
+                        AlreadyCanvas.SetActive(true);
+                    return;
+                case 7:
+                    if(GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isGoldenPomeranianUnlocked)
+                        AlreadyCanvas.SetActive(true);
+                    return;
+                case 8:
+                    if(GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isWhitePomeranianUnlocked)
+                        AlreadyCanvas.SetActive(true);
+                    return;
+                case 9:
+                    if(GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isPugUnlocked)
+                        AlreadyCanvas.SetActive(true);
+                    return;
+            }
+
+
+
+
             GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedCoin -= 55000;
 
             switch (selectedDogIndex)

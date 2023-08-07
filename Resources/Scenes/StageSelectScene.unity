@@ -1117,14 +1117,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 611513614}
+      - m_Target: {fileID: 1497892445}
         m_TargetAssemblyTypeName: IconApply, Assembly-CSharp
         m_MethodName: ApplyIcon
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 10
+          m_IntArgument: 9
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2262,14 +2262,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 611513614}
+      - m_Target: {fileID: 1497892445}
         m_TargetAssemblyTypeName: IconApply, Assembly-CSharp
         m_MethodName: ApplyIcon
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -5578,7 +5578,6 @@ GameObject:
   - component: {fileID: 611513617}
   - component: {fileID: 611513616}
   - component: {fileID: 611513615}
-  - component: {fileID: 611513614}
   m_Layer: 5
   m_Name: IconChangeCanvas
   m_TagString: Untagged
@@ -5586,32 +5585,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &611513614
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 611513613}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24c23a173e7c68b4f97fb14259479bd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconList:
-  - {fileID: 1626476636}
-  - {fileID: 1164439336}
-  - {fileID: 1711651867}
-  - {fileID: 252976131}
-  - {fileID: 1615376143}
-  - {fileID: 879949421}
-  - {fileID: 1198903731}
-  - {fileID: 1435980953}
-  - {fileID: 1982093661}
-  - {fileID: 119336299}
-  userIcons:
-  - {fileID: 1123522362}
-  - {fileID: 0}
 --- !u!114 &611513615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7511,8 +7484,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goldAmount: {fileID: 0}
   expAmount: {fileID: 1742805708}
-  characterUIList: []
-  stageEnterButtonList: []
+  additionalReviveAmount: {fileID: 0}
+  Icon: {fileID: 0}
+  characterUIList:
+  - {fileID: 0}
+  stageEnterButtonList:
+  - {fileID: 0}
 --- !u!114 &825686118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8155,14 +8132,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 611513614}
+      - m_Target: {fileID: 1497892445}
         m_TargetAssemblyTypeName: IconApply, Assembly-CSharp
         m_MethodName: ApplyIcon
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 6
+          m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -11520,14 +11497,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 611513614}
+      - m_Target: {fileID: 1497892445}
         m_TargetAssemblyTypeName: IconApply, Assembly-CSharp
         m_MethodName: ApplyIcon
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -12488,14 +12465,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 611513614}
+      - m_Target: {fileID: 1497892445}
         m_TargetAssemblyTypeName: IconApply, Assembly-CSharp
         m_MethodName: ApplyIcon
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 7
+          m_IntArgument: 6
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -15358,14 +15335,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 611513614}
+      - m_Target: {fileID: 1497892445}
         m_TargetAssemblyTypeName: IconApply, Assembly-CSharp
         m_MethodName: ApplyIcon
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 8
+          m_IntArgument: 7
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -16300,6 +16277,7 @@ GameObject:
   - component: {fileID: 1497892442}
   - component: {fileID: 1497892443}
   - component: {fileID: 1497892444}
+  - component: {fileID: 1497892445}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -16472,6 +16450,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goldAmount: {fileID: 1231552326}
   expAmount: {fileID: 1754167722}
+  additionalReviveAmount: {fileID: 0}
+  Icon: {fileID: 0}
   characterUIList:
   - {fileID: 0}
   stageEnterButtonList:
@@ -16485,6 +16465,32 @@ MonoBehaviour:
   - {fileID: 552063935}
   - {fileID: 245831496}
   - {fileID: 1733754759}
+--- !u!114 &1497892445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1497892435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24c23a173e7c68b4f97fb14259479bd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IconList:
+  - {fileID: 1626476636}
+  - {fileID: 1164439336}
+  - {fileID: 1711651867}
+  - {fileID: 252976131}
+  - {fileID: 1615376143}
+  - {fileID: 879949421}
+  - {fileID: 1198903731}
+  - {fileID: 1435980953}
+  - {fileID: 1982093661}
+  - {fileID: 119336299}
+  userIcons:
+  - {fileID: 1769599386}
+  - {fileID: 1123522362}
 --- !u!1 &1499670757
 GameObject:
   m_ObjectHideFlags: 0
@@ -17640,14 +17646,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 611513614}
+      - m_Target: {fileID: 1497892445}
         m_TargetAssemblyTypeName: IconApply, Assembly-CSharp
         m_MethodName: ApplyIcon
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 5
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -17924,14 +17930,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 611513614}
+      - m_Target: {fileID: 1497892445}
         m_TargetAssemblyTypeName: IconApply, Assembly-CSharp
         m_MethodName: ApplyIcon
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -18839,14 +18845,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 611513614}
+      - m_Target: {fileID: 1497892445}
         m_TargetAssemblyTypeName: IconApply, Assembly-CSharp
         m_MethodName: ApplyIcon
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -22343,14 +22349,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 611513614}
+      - m_Target: {fileID: 1497892445}
         m_TargetAssemblyTypeName: IconApply, Assembly-CSharp
         m_MethodName: ApplyIcon
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 9
+          m_IntArgument: 8
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
