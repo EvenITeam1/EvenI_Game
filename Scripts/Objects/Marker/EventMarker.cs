@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class EventMarker : MonoBehaviour
 {
     [SerializeField] private string inputString;
-    [SerializeField]  UnityEvent<string> PrintString;
+    [SerializeField] UnityEvent<string> PrintString;
     
     [SerializeField] UnityEvent OnTriggerEvents;
 

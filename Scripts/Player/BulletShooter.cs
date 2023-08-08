@@ -12,7 +12,7 @@ public class BulletShooter : MonoBehaviour
     public bool IsFireable;
 
     private void Start() {
-        transform.DOLocalMove(Vector2.up, 1f)
+        transform.DOLocalMove(Vector2.up * 0.5f, 1f)
             .SetLoops(-1, LoopType.Yoyo)
             .SetEase(Ease.InOutSine);
     }

@@ -19,14 +19,14 @@ public class IngameSaveData
     /// 보스 클리어와 동일하다 생각됨..
     /// </summary>
     public bool IsStageClear;
-    
+
     public bool IsDoubleScore;
     public bool IsRevivalChecked;
-    
+
     public float PrevHP;
     public int CollectedScore;
     public int RevivalCount;
-    
+
     public IngameSaveData()
     {
         PrevHP = -1;
@@ -36,7 +36,8 @@ public class IngameSaveData
     }
 
     //입장 버튼
-    public void ClearIngameData(){
+    public void ClearIngameData()
+    {
         IsIngameStart = false;
         CurrentStageNumber = -1;
         CurrentPhaseNumber = -1;
@@ -90,11 +91,21 @@ public class OutgameSaveData
     public bool isGoldenPomeranianUnlocked;
     public bool isWhitePomeranianUnlocked;
     public bool isPugUnlocked;
+    #endregion
 
+    #region SoundData
+    public float BGMAmount;
+    public float SFXAmount;
     #endregion
 
     [SerializeField]
-    public OutgameSaveData(int reviveCount, int level, int CollectedExp, DOG_INDEX selectedPlayerIndex, int selectedIconIndex, int coin, int bone, int hightestUnlockedStage, bool one, bool two, bool three, bool four, bool five, bool six, bool seven, bool eight, bool nine, bool ten)
+    public OutgameSaveData(
+        int reviveCount, int level, int CollectedExp, DOG_INDEX selectedPlayerIndex, int selectedIconIndex,
+        int coin, int bone,
+        int hightestUnlockedStage,
+        bool one, bool two, bool three, bool four, bool five, bool six, bool seven, bool eight, bool nine, bool ten,
+        float BGM, float SFX
+    )
     {
         this.AdditionalRevivalCount = reviveCount;
         this.AccountLevel = level;
@@ -114,12 +125,20 @@ public class OutgameSaveData
         this.isGoldenPomeranianUnlocked = eight;
         this.isWhitePomeranianUnlocked = nine;
         this.isPugUnlocked = ten;
+        this.BGMAmount = BGM;
+        this.SFXAmount = SFX;
     }
 
     public void SaveOutgameDataToJson()
     {
-        OutgameSaveData outgameSaveData = new OutgameSaveData(AdditionalRevivalCount, AccountLevel, CollectedExp, SelectedPlayerINDEX, SelectedIconINDEX, CollectedCoin, CollectedBone, HightestStageUnlocked,
-            isShibaUnlocked, isGoldenRetrieverUnlocked, isLabradorRetrieverUnlocked, isGreyHoundUnlocked, isGermanShepherdUnlocked, isHuskyUnlocked, isWolfUnlocked, isGoldenPomeranianUnlocked, isWhitePomeranianUnlocked, isPugUnlocked);
+        OutgameSaveData outgameSaveData = new OutgameSaveData(
+            AdditionalRevivalCount, AccountLevel, CollectedExp, SelectedPlayerINDEX,
+            SelectedIconINDEX,
+            CollectedCoin, CollectedBone,
+            HightestStageUnlocked,
+            isShibaUnlocked, isGoldenRetrieverUnlocked, isLabradorRetrieverUnlocked, isGreyHoundUnlocked, isGermanShepherdUnlocked, isHuskyUnlocked, isWolfUnlocked, isGoldenPomeranianUnlocked, isWhitePomeranianUnlocked, isPugUnlocked,
+            BGMAmount, SFXAmount
+        );
         var result = JsonConvert.SerializeObject(outgameSaveData);
         FileStream fileStream = new FileStream(string.Format("{0}/{1}.json", Application.persistentDataPath, "OutgameData"), FileMode.Create);
         byte[] data = Encoding.UTF8.GetBytes(result);
@@ -149,10 +168,11 @@ public class OutgameSaveData
             isGoldenPomeranianUnlocked = false;
             isWhitePomeranianUnlocked = false;
             isPugUnlocked = false;
+            BGMAmount = SFXAmount = 1f;
         }
 
         else
-        { 
+        {
             string JsonFileText = File.ReadAllText(string.Format("{0}/{1}.json", Application.persistentDataPath, "OutgameData"));
             OutgameSaveData OutgameData = JsonConvert.DeserializeObject<OutgameSaveData>(JsonFileText);
             AdditionalRevivalCount = OutgameData.AdditionalRevivalCount;
@@ -173,6 +193,8 @@ public class OutgameSaveData
             isGoldenPomeranianUnlocked = OutgameData.isGoldenPomeranianUnlocked;
             isWhitePomeranianUnlocked = OutgameData.isWhitePomeranianUnlocked;
             isPugUnlocked = OutgameData.isPugUnlocked;
+            BGMAmount = OutgameData.BGMAmount;
+            SFXAmount = OutgameData.SFXAmount;
         }
     }
 }
@@ -211,4 +233,3 @@ public class SaveNLoadManager : MonoBehaviour
         return ref this.saveData;
     }
 }
-

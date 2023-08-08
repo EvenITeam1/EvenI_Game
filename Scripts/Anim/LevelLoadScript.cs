@@ -34,7 +34,13 @@ public class LevelLoadScript : MonoBehaviour
     public void InitializeCurrentLevel(){
         InvokeLevelEvent.AddListener(() => {GameManager.Instance.GlobalSoundManager.FadeInBGM(1);});
         InvokeLevelEvent.AddListener(() => {GameManager.Instance.GlobalSoundManager.FadeInSFX(1);});
-        InvokeLevelEvent.AddListener(() => {GameManager.Instance.GlobalSoundManager.PlayBGMByString("BGM_Stage" + currentStageNumber.ToString());});
+        if(SceneManager.GetActiveScene().name.Contains("BossStage")){
+            InvokeLevelEvent.AddListener(() => {GameManager.Instance.GlobalSoundManager.PlayBGMByString("BGM_Boss");});
+        }
+        else 
+        {
+            InvokeLevelEvent.AddListener(() => {GameManager.Instance.GlobalSoundManager.PlayBGMByString("BGM_Stage" + currentStageNumber.ToString());});
+        }
         ExitLevelEvent.AddListener(() => {GameManager.Instance.GlobalSoundManager.FadeOutBGM(1);});
         ExitLevelEvent.AddListener(() => {GameManager.Instance.GlobalSoundManager.FadeOutSFX(1);});
     }
@@ -78,5 +84,6 @@ public class LevelLoadScript : MonoBehaviour
                 yield break;
             }
         }
+        op.allowSceneActivation = true;
     }
 }

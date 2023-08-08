@@ -5,6 +5,14 @@ using UnityEngine.UI;
 
 public class HandleAudioSlide : MonoBehaviour
 {
+
+    const float MUTE_VALUE = -80f;
+    const float UNMUTE_VALUE = 0f;
+    const string BGM_MuteParam = "BGM_MuteParam";
+    const string BGM_VolumeParam = "BGM_VolumeParam";
+    const string SFX_MuteParam = "SFX_MuteParam";
+    const string SFX_VolumeParam = "SFX_VolumeParam";
+    
     public Button BgmMute;
     public bool BgmMutePressed = false;
     public Button SfxMute;
@@ -13,8 +21,10 @@ public class HandleAudioSlide : MonoBehaviour
     public Slider SfxSlider;
 
     private void OnEnable() {
-        BgmSlider.value = GameManager.Instance.GlobalSoundManager.AudioSources[(int)SOUND_TYPE.BGM].volume * BgmSlider.maxValue;
-        SfxSlider.value = GameManager.Instance.GlobalSoundManager.AudioSources[(int)SOUND_TYPE.SFX].volume * SfxSlider.maxValue;
+        float loadedBGMVolume = GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.BGMAmount;
+        float loadedSFXVolume = GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SFXAmount;
+        GameManager.Instance.GlobalSoundManager.SetBGMVolume(loadedBGMVolume);
+        GameManager.Instance.GlobalSoundManager.SetSFXVolume(loadedSFXVolume);
     }
 
     public void HandleBGMMute()
@@ -46,9 +56,11 @@ public class HandleAudioSlide : MonoBehaviour
     }
 
     public void HandleBgmSliderChange(){
-        GameManager.Instance.GlobalSoundManager.AudioSources[(int)SOUND_TYPE.BGM].volume = BgmSlider.value / BgmSlider.maxValue;
+        GameManager.Instance.GlobalSoundManager.SetBGMVolume((BgmSlider.value / BgmSlider.maxValue));
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.BGMAmount = GameManager.Instance.GlobalSoundManager.GetBGMVolume();
     }
     public void HandleSfxSliderChange(){
-        GameManager.Instance.GlobalSoundManager.AudioSources[(int)SOUND_TYPE.SFX].volume = SfxSlider.value / SfxSlider.maxValue;
+        GameManager.Instance.GlobalSoundManager.SetSFXVolume((SfxSlider.value / SfxSlider.maxValue));
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SFXAmount = GameManager.Instance.GlobalSoundManager.GetSFXVolume();
     }
 }

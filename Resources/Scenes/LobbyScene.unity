@@ -3890,6 +3890,7 @@ GameObject:
   - component: {fileID: 395166507}
   - component: {fileID: 395166506}
   - component: {fileID: 395166505}
+  - component: {fileID: 395166509}
   m_Layer: 5
   m_Name: QuitCanvas
   m_TagString: Untagged
@@ -3981,6 +3982,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 800, y: 389.18918}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &395166509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395166504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 8
+  sorting_order: 0
+  renderer_type: 1
+  canvas: {fileID: 395166507}
+  particle: {fileID: 0}
+  sprite: {fileID: 0}
+  tilemap: {fileID: 0}
 --- !u!1 &395642919
 GameObject:
   m_ObjectHideFlags: 0
@@ -4412,6 +4432,7 @@ GameObject:
   - component: {fileID: 488489059}
   - component: {fileID: 488489058}
   - component: {fileID: 488489057}
+  - component: {fileID: 488489061}
   m_Layer: 5
   m_Name: NickNameCheckPopUpCanvas
   m_TagString: Untagged
@@ -4478,7 +4499,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: -342883927
+  m_SortingLayerID: -2061923363
   m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &488489060
@@ -4503,6 +4524,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &488489061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488489056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 8
+  sorting_order: 0
+  renderer_type: 1
+  canvas: {fileID: 488489059}
+  particle: {fileID: 0}
+  sprite: {fileID: 0}
+  tilemap: {fileID: 0}
 --- !u!1 &497126251
 GameObject:
   m_ObjectHideFlags: 0
@@ -5960,6 +6000,7 @@ GameObject:
   - component: {fileID: 618095628}
   - component: {fileID: 618095627}
   - component: {fileID: 618095626}
+  - component: {fileID: 618095630}
   m_Layer: 5
   m_Name: NickNameCanvas
   m_TagString: Untagged
@@ -6026,7 +6067,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: -342883927
+  m_SortingLayerID: -2061923363
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &618095629
@@ -6051,6 +6092,70 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &618095630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618095625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 8
+  sorting_order: 0
+  renderer_type: 1
+  canvas: {fileID: 618095628}
+  particle: {fileID: 0}
+  sprite: {fileID: 0}
+  tilemap: {fileID: 0}
+--- !u!1 &619138560
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 619138562}
+  - component: {fileID: 619138561}
+  m_Layer: 0
+  m_Name: LobbySoundPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &619138561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619138560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cef3e42493bf14e4596829fd4ce5775f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: ea8f769212da849f0abf4d94ae42e6fc, type: 3}
+--- !u!4 &619138562
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619138560}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &623341339
 GameObject:
   m_ObjectHideFlags: 0
@@ -7855,6 +7960,7 @@ GameObject:
   - component: {fileID: 898000337}
   - component: {fileID: 898000339}
   - component: {fileID: 898000338}
+  - component: {fileID: 898000340}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -9958,6 +10064,25 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &898000340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898000336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 0
+  sorting_order: 0
+  renderer_type: 4
+  canvas: {fileID: 0}
+  particle: {fileID: 0}
+  sprite: {fileID: 0}
+  tilemap: {fileID: 898000338}
 --- !u!1 &900047810
 GameObject:
   m_ObjectHideFlags: 0
@@ -10636,6 +10761,7 @@ GameObject:
   - component: {fileID: 959168159}
   - component: {fileID: 959168160}
   - component: {fileID: 959168161}
+  - component: {fileID: 959168162}
   m_Layer: 5
   m_Name: Character
   m_TagString: Untagged
@@ -10651,7 +10777,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 959168155}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -4860}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 54, y: 54, z: 54}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10662,7 +10788,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 196.56}
+  m_AnchoredPosition: {x: 0, y: 160}
   m_SizeDelta: {x: 250, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &959168158
@@ -10731,8 +10857,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1467911795
-  m_SortingLayer: 0
+  m_SortingLayerID: -462672221
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -199874336, guid: a91aea5920cdee24d80992676d5751f4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -10770,6 +10896,25 @@ MonoBehaviour:
   - Golden Pomeranian
   - White Pomeranian
   - Pug
+--- !u!114 &959168162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959168155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 3
+  sorting_order: 0
+  renderer_type: 3
+  canvas: {fileID: 0}
+  particle: {fileID: 0}
+  sprite: {fileID: 959168160}
+  tilemap: {fileID: 0}
 --- !u!1 &971578505
 GameObject:
   m_ObjectHideFlags: 0
@@ -11337,6 +11482,7 @@ GameObject:
   - component: {fileID: 996074446}
   - component: {fileID: 996074445}
   - component: {fileID: 996074449}
+  - component: {fileID: 996074450}
   m_Layer: 5
   m_Name: UserUIPopUpCanvas
   m_TagString: Untagged
@@ -11448,6 +11594,25 @@ MonoBehaviour:
   - {fileID: 0}
   stageEnterButtonList:
   - {fileID: 0}
+--- !u!114 &996074450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996074444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 8
+  sorting_order: 0
+  renderer_type: 1
+  canvas: {fileID: 996074447}
+  particle: {fileID: 0}
+  sprite: {fileID: 0}
+  tilemap: {fileID: 0}
 --- !u!1 &996722395
 GameObject:
   m_ObjectHideFlags: 0
@@ -15091,6 +15256,7 @@ GameObject:
   - component: {fileID: 1290418577}
   - component: {fileID: 1290418576}
   - component: {fileID: 1290418575}
+  - component: {fileID: 1290418579}
   m_Layer: 5
   m_Name: IconChangeCanvas
   m_TagString: Untagged
@@ -15182,6 +15348,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1125.6823, y: 540}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1290418579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1290418574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 8
+  sorting_order: 0
+  renderer_type: 1
+  canvas: {fileID: 1290418577}
+  particle: {fileID: 0}
+  sprite: {fileID: 0}
+  tilemap: {fileID: 0}
 --- !u!1 &1313058737
 GameObject:
   m_ObjectHideFlags: 0
@@ -17395,6 +17580,7 @@ GameObject:
   - component: {fileID: 1497892443}
   - component: {fileID: 1497892444}
   - component: {fileID: 1497892445}
+  - component: {fileID: 1497892446}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -17453,7 +17639,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 737494754}
-  m_PlaneDistance: 1
+  m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -17592,6 +17778,25 @@ MonoBehaviour:
   userIcons:
   - {fileID: 775614311}
   - {fileID: 548618345}
+--- !u!114 &1497892446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1497892435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 8
+  sorting_order: 0
+  renderer_type: 1
+  canvas: {fileID: 1497892438}
+  particle: {fileID: 0}
+  sprite: {fileID: 0}
+  tilemap: {fileID: 0}
 --- !u!1 &1517954991
 GameObject:
   m_ObjectHideFlags: 0
@@ -20345,6 +20550,7 @@ GameObject:
   - component: {fileID: 1888087489}
   - component: {fileID: 1888087488}
   - component: {fileID: 1888087487}
+  - component: {fileID: 1888087491}
   m_Layer: 5
   m_Name: GameModePopUpCanvas
   m_TagString: Untagged
@@ -20436,6 +20642,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1080, y: 540}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1888087491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888087486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 8
+  sorting_order: 0
+  renderer_type: 1
+  canvas: {fileID: 1888087489}
+  particle: {fileID: 0}
+  sprite: {fileID: 0}
+  tilemap: {fileID: 0}
 --- !u!1 &1894979389
 GameObject:
   m_ObjectHideFlags: 0

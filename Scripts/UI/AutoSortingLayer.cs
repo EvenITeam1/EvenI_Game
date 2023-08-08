@@ -37,6 +37,7 @@ public class AutoSortingLayer : MonoBehaviour {
     }
 
     private void OnEnable() {
+        Debug.Log("Sorted");
         ChangeSortingLayerByPublic();
     }
     

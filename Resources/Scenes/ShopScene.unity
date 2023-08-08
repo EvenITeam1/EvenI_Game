@@ -4172,6 +4172,7 @@ GameObject:
   - component: {fileID: 170759991}
   - component: {fileID: 170759990}
   - component: {fileID: 170759989}
+  - component: {fileID: 170759993}
   m_Layer: 5
   m_Name: WarningCanvas
   m_TagString: Untagged
@@ -4238,7 +4239,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: -342883927
+  m_SortingLayerID: -2061923363
   m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &170759992
@@ -4263,6 +4264,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &170759993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170759988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 8
+  sorting_order: 0
+  renderer_type: 1
+  canvas: {fileID: 170759991}
+  particle: {fileID: 0}
+  sprite: {fileID: 0}
+  tilemap: {fileID: 0}
 --- !u!1 &173656657
 GameObject:
   m_ObjectHideFlags: 0
@@ -22012,6 +22032,7 @@ GameObject:
   - component: {fileID: 723112675}
   - component: {fileID: 723112674}
   - component: {fileID: 723112673}
+  - component: {fileID: 723112677}
   m_Layer: 5
   m_Name: AlreadyCanvas
   m_TagString: Untagged
@@ -22078,7 +22099,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: -342883927
+  m_SortingLayerID: -2061923363
   m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &723112676
@@ -22103,6 +22124,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &723112677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723112672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 8
+  sorting_order: 0
+  renderer_type: 1
+  canvas: {fileID: 723112675}
+  particle: {fileID: 0}
+  sprite: {fileID: 0}
+  tilemap: {fileID: 0}
 --- !u!1 &724517719
 GameObject:
   m_ObjectHideFlags: 0
@@ -30047,6 +30087,7 @@ GameObject:
   - component: {fileID: 1028380882}
   - component: {fileID: 1028380883}
   - component: {fileID: 1028380884}
+  - component: {fileID: 1028380885}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -30113,7 +30154,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: -1467911795
+  m_SortingLayerID: -2061923363
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &1028380881
@@ -30190,6 +30231,25 @@ MonoBehaviour:
   - {fileID: 0}
   stageEnterButtonList:
   - {fileID: 0}
+--- !u!114 &1028380885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028380877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 8
+  sorting_order: 0
+  renderer_type: 1
+  canvas: {fileID: 1028380880}
+  particle: {fileID: 0}
+  sprite: {fileID: 0}
+  tilemap: {fileID: 0}
 --- !u!1 &1032222873
 GameObject:
   m_ObjectHideFlags: 0
@@ -41332,6 +41392,7 @@ GameObject:
   - component: {fileID: 1437075572}
   - component: {fileID: 1437075571}
   - component: {fileID: 1437075575}
+  - component: {fileID: 1437075576}
   m_Layer: 5
   m_Name: PopUpCanvas
   m_TagString: Untagged
@@ -41398,7 +41459,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: -342883927
+  m_SortingLayerID: -2061923363
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &1437075574
@@ -41464,6 +41525,25 @@ MonoBehaviour:
   WarningCanvas: {fileID: 170759988}
   AlreadyCanvas: {fileID: 723112672}
   SuccessCanvas: {fileID: 1749930222}
+--- !u!114 &1437075576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437075570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 8
+  sorting_order: 0
+  renderer_type: 1
+  canvas: {fileID: 1437075573}
+  particle: {fileID: 0}
+  sprite: {fileID: 0}
+  tilemap: {fileID: 0}
 --- !u!1 &1438354868
 GameObject:
   m_ObjectHideFlags: 0
@@ -42191,6 +42271,7 @@ GameObject:
   - component: {fileID: 1460739013}
   - component: {fileID: 1460739012}
   - component: {fileID: 1460739011}
+  - component: {fileID: 1460739015}
   m_Layer: 5
   m_Name: ToggleCanvas
   m_TagString: Untagged
@@ -42257,7 +42338,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: -342883927
+  m_SortingLayerID: -2061923363
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &1460739014
@@ -42281,6 +42362,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1460739015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1460739010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 8
+  sorting_order: 0
+  renderer_type: 1
+  canvas: {fileID: 1460739013}
+  particle: {fileID: 0}
+  sprite: {fileID: 0}
+  tilemap: {fileID: 0}
 --- !u!1 &1473083162
 GameObject:
   m_ObjectHideFlags: 0
@@ -50650,6 +50750,7 @@ GameObject:
   - component: {fileID: 1749930225}
   - component: {fileID: 1749930224}
   - component: {fileID: 1749930223}
+  - component: {fileID: 1749930227}
   m_Layer: 5
   m_Name: SuccessCanvas
   m_TagString: Untagged
@@ -50716,7 +50817,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: -342883927
+  m_SortingLayerID: -2061923363
   m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &1749930226
@@ -50741,6 +50842,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1749930227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1749930222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 8
+  sorting_order: 0
+  renderer_type: 1
+  canvas: {fileID: 1749930225}
+  particle: {fileID: 0}
+  sprite: {fileID: 0}
+  tilemap: {fileID: 0}
 --- !u!1 &1756814990
 GameObject:
   m_ObjectHideFlags: 0

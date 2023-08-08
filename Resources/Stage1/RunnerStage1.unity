@@ -3027,6 +3027,7 @@ GameObject:
   - component: {fileID: 258595016}
   - component: {fileID: 258595015}
   - component: {fileID: 258595014}
+  - component: {fileID: 258595017}
   m_Layer: 6
   m_Name: Background 1
   m_TagString: Untagged
@@ -3148,6 +3149,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: []
+--- !u!114 &258595017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 258595012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 1
+  sorting_order: 0
+  renderer_type: 3
+  canvas: {fileID: 0}
+  particle: {fileID: 0}
+  sprite: {fileID: 258595015}
+  tilemap: {fileID: 0}
 --- !u!1001 &264753295
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3746,6 +3766,7 @@ GameObject:
   - component: {fileID: 306688948}
   - component: {fileID: 306688951}
   - component: {fileID: 306688947}
+  - component: {fileID: 306688952}
   m_Layer: 4
   m_Name: Background 2
   m_TagString: Untagged
@@ -3888,6 +3909,25 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   SpecialChildMaterial: {fileID: 0}
+--- !u!114 &306688952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306688945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 6
+  sorting_order: 0
+  renderer_type: 3
+  canvas: {fileID: 0}
+  particle: {fileID: 0}
+  sprite: {fileID: 306688948}
+  tilemap: {fileID: 0}
 --- !u!1001 &309490014
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9297,6 +9337,7 @@ GameObject:
   - component: {fileID: 623224765}
   - component: {fileID: 623224767}
   - component: {fileID: 623224764}
+  - component: {fileID: 623224768}
   m_Layer: 4
   m_Name: Background 1
   m_TagString: Untagged
@@ -9421,6 +9462,25 @@ MonoBehaviour:
   _movementSpeed: 3
   _movementDirection: {x: -1, y: 0}
   _respawnsWhenOutOfScreen: 1
+--- !u!114 &623224768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 623224762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 6
+  sorting_order: 0
+  renderer_type: 3
+  canvas: {fileID: 0}
+  particle: {fileID: 0}
+  sprite: {fileID: 623224765}
+  tilemap: {fileID: 0}
 --- !u!1001 &623226037
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12516,6 +12576,7 @@ GameObject:
   - component: {fileID: 855711134}
   - component: {fileID: 855711133}
   - component: {fileID: 855711132}
+  - component: {fileID: 855711135}
   m_Layer: 6
   m_Name: Background 2
   m_TagString: Untagged
@@ -12637,6 +12698,25 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   SpecialChildMaterial: {fileID: 0}
+--- !u!114 &855711135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855711130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 1
+  sorting_order: 0
+  renderer_type: 3
+  canvas: {fileID: 0}
+  particle: {fileID: 0}
+  sprite: {fileID: 855711132}
+  tilemap: {fileID: 0}
 --- !u!1001 &856483714
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31687,6 +31767,7 @@ GameObject:
   - component: {fileID: 1513513978}
   - component: {fileID: 1513513977}
   - component: {fileID: 1513513976}
+  - component: {fileID: 1513513979}
   m_Layer: 6
   m_Name: Background 3
   m_TagString: Untagged
@@ -31808,6 +31889,25 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   SpecialChildMaterial: {fileID: 0}
+--- !u!114 &1513513979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513513974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 1
+  sorting_order: 0
+  renderer_type: 3
+  canvas: {fileID: 0}
+  particle: {fileID: 0}
+  sprite: {fileID: 1513513976}
+  tilemap: {fileID: 0}
 --- !u!1001 &1515367314
 PrefabInstance:
   m_ObjectHideFlags: 0

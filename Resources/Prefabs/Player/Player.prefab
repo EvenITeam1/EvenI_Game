@@ -111,7 +111,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 706766940741397801}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.28, z: 0}
+  m_LocalPosition: {x: 0, y: -0.14, z: 0}
   m_LocalScale: {x: 1.25, y: 1.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -796,6 +796,7 @@ MonoBehaviour:
   playerVisualData:
     spriteRenderer: {fileID: 706766940741397796}
     playerAnimator: {fileID: 706766940741397799}
+    runningVFXAnimator: {fileID: 5203767243050677707}
   playerSoundData:
     JumpActive: {fileID: 8300000, guid: 318797a01612148abbd56670d3cc34e9, type: 3}
     GetDamaged: {fileID: 8300000, guid: 41814780235984ed6a55222c377a6f89, type: 3}
@@ -5756,5 +5757,10 @@ PrefabInstance:
 --- !u!4 &5203767243050677705 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8773412047865339451, guid: a8ea1e2881c414416974609f32154129, type: 3}
+  m_PrefabInstance: {fileID: 3600088568996572146}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &5203767243050677707 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8773412047865339449, guid: a8ea1e2881c414416974609f32154129, type: 3}
   m_PrefabInstance: {fileID: 3600088568996572146}
   m_PrefabAsset: {fileID: 0}

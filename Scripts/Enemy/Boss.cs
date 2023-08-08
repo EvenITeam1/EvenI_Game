@@ -31,4 +31,5 @@ public class Boss : MonoBehaviour
             collision.GetComponent<Player>().GetDamage(collisionDmg);
         }
     }
+    
 }

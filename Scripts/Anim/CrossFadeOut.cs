@@ -25,7 +25,5 @@ public class CrossFadeOut : MonoBehaviour {
     {
         AnimStopEvent.Invoke();
         GameManager.Instance.GlobalSoundManager.PlayByClip(TransitionStartSound, SOUND_TYPE.SFX);
-        GameManager.Instance.GlobalSoundManager.UnmuteBGM();
-        GameManager.Instance.GlobalSoundManager.UnmuteSFX();
     }
 }

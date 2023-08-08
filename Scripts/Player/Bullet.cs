@@ -74,7 +74,7 @@ public class Bullet : MonoBehaviour, Hit
             dmgScript._damage = actualDmg;
             dmgPrefab.transform.position = transform.position;
             dmgPrefab.SetActive(true);
-
+            boss.GetDamaged();
             boss.setHP(currentHp - actualDmg);
             boss.updateHpBar();
             ObjectPool.instance.ReturnObject(gameObject);

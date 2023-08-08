@@ -349,17 +349,6 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 44ae9af94448b47a09a05dbc56af4404, type: 3}
---- !u!114 &1642056995 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4495816857315907765, guid: 44ae9af94448b47a09a05dbc56af4404, type: 3}
-  m_PrefabInstance: {fileID: 1642056994}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bba21831d3a0d44918d86fd518d629cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &302866959314718912
 GameObject:
   m_ObjectHideFlags: 0
@@ -679,41 +668,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87084071386e147f4b06f657fa035962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FirstEntranceEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1642056995}
-        m_TargetAssemblyTypeName: DataTrigger, Assembly-CSharp
-        m_MethodName: ClearIngameData
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  textDataGroup:
-    entranceTextDatas:
-    - CST_stageNumber: 1
-      CST_phase: 0
-      CST_talkingOwner: "\uCD1D\uCD1D\uCD1D"
-      CST_text: "\uC6B0\uC120, \uC774 \uC9D1 \uBC16\uC73C\uB85C \uB098\uAC00\uC57C
-        \uD574\uC694\u2026!"
-      CST_contentColor: {r: 0.99607843, g: 0.94509804, b: 0.63529414, a: 1}
-      CST_alignmentType: 0
-    - CST_stageNumber: 1
-      CST_phase: 0
-      CST_talkingOwner: "\uB098"
-      CST_text: "\uD2B9\uC774\uD558\uAC8C \uC0DD\uACBC\uB124\u2026 \uC9D1\uC774 \uC0DD\uAC01\uBCF4\uB2E4
-        \uB113\uC740 \uAC78\u2026?"
-      CST_contentColor: {r: 0.81960785, g: 0.9372549, b: 0.9490196, a: 1}
-      CST_alignmentType: 0
-    beforeBossTextDatas: []
-    clearBossTextDatas: []
   currentStage: 1
   currentPhase: 0
+  cutSceneTextDatas: []
   nameTextMeshProGUI: {fileID: 302866960597173937}
   contentTextMeshProGUI: {fileID: 302866960992865984}
   clickAlertUI: {fileID: 302866960189735852}
@@ -2288,7 +2245,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1769881539632376365
 Transform:
   m_ObjectHideFlags: 0
@@ -2530,6 +2487,8 @@ MonoBehaviour:
       isGoldenPomeranianUnlocked: 0
       isWhitePomeranianUnlocked: 0
       isPugUnlocked: 0
+      BGMAmount: 0
+      SFXAmount: 0
 --- !u!4 &1769881540618065773
 Transform:
   m_ObjectHideFlags: 0

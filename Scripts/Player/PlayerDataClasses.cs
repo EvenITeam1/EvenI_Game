@@ -106,7 +106,8 @@ public class PlayerVisualData
     
     [field: SerializeField] 
     public Animator playerAnimator;
-    //public Animator runningVFXAnimator;
+    [field: SerializeField] 
+    public Animator runningVFXAnimator;
     public PlayerVisualData() { }
 }
 

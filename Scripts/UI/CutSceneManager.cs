@@ -65,9 +65,14 @@ public class CutSceneManager : MonoBehaviour, IPointer​Click​Handler
         isClickable = false;
         clickAlertUI.SetActive(false);
     }
- 
+    private void OnEnable() {
+        GameManager.Instance.GlobalSoundManager.ClearAudioSetting();
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.CurrentStageNumber = currentStage;
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.CurrentPhaseNumber = currentPhase;
+    }
 
-    private void Start() {
+    private async void Start() {
+        await DownloadItemSO();
         StartCoroutine(LoadScene(LoadSceneString));
         Invoke("ActivateClick", 1f);
         if(cutSceneTextDatas.Count >= 1) HandleTalk(cutSceneTextDatas[count++]);
