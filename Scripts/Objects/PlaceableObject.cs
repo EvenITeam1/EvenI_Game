@@ -79,8 +79,8 @@ public class PlaceableObject : MonoBehaviour, IDamagable
     }
 
     private void OnDisable() {
-        GameManager.Instance.GlobalSoundManager.PlayByClip(soundData.OnDisable, SOUND_TYPE.SFX);
         StopAllCoroutines();
+        GameManager.Instance.GlobalSoundManager.PlayByClip(soundData.OnDisable, SOUND_TYPE.SFX);
     }
 
     #endregion
@@ -142,15 +142,15 @@ public class PlaceableObject : MonoBehaviour, IDamagable
 
     #region GetHit
 
-    public GameObject HitParticle = null;
+    public  GameObject HitParticle = null;
     public void GetDamage(float _amount)
     {
+        ObjectHP -= _amount;
         var hitObject = ObjectPool.instance.GetObject(HitParticle.gameObject);
         hitObject.transform.position = transform.position;
         hitObject.transform.SetParent(this.transform);
         hitObject.transform.localScale = objectData.Ob_width > 3 ? (Vector3.one * (objectData.Ob_width / 2)) : (Vector3.one * (objectData.Ob_width) * 1.5f);
         hitObject.SetActive(true);
-        ObjectHP -= _amount;
         StartCoroutine(AsyncOnHitVisual());
         
         GameManager.Instance.GlobalSoundManager.PlayByClip(soundData.GetDamaged, SOUND_TYPE.SFX);

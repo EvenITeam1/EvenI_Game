@@ -31,6 +31,7 @@ public class ResultHandler : MonoBehaviour
 
     private void Start()
     {
+        GameManager.Instance.GlobalSoundManager.ClearAudioSetting();
         bool IsClearState = true;
         if (SceneManager.GetActiveScene().name == "GameOverScene") { IsClearState = false; }
         float Score = GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.CollectedScore;

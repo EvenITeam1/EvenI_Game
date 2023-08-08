@@ -99,12 +99,14 @@ public class ObjectPool : MonoBehaviour
     {
         if (_pooledObjects.ContainsKey(returnObject.name))//������ ������Ʈ�� dictionary�� ������
         {
+            returnObject.transform.SetParent(_parent);
             returnObject.SetActive(false);
             _pooledObjects[returnObject.name].Enqueue(returnObject);//�����ֱ�
         }
-        else//������(�̷����ɼ� ���� ����)
+        else
         {
             //Debug.LogWarning(returnObject + "��(��) ������ƮǮ�� ��� �߰� �� Ǯ���մϴ�");
+            returnObject.transform.SetParent(_parent);
             returnObject.SetActive(false);
             Queue<GameObject> newQueue = new Queue<GameObject>();
             _pooledObjects.Add(returnObject.name, newQueue);//dictionary�� �߰��ϰ�

@@ -61,9 +61,17 @@ MonoBehaviour:
     - Key: BGM_Stage4
       Value: {fileID: 8300000, guid: ff13de3ae3c2742e08fff1457dea167a, type: 3}
     - Key: BGM_Stage5
-      Value: {fileID: 0}
+      Value: {fileID: 8300000, guid: 2c9df2aff001f47edb9ae73d51611514, type: 3}
     - Key: BGM_Stage6
       Value: {fileID: 8300000, guid: b12ea4b050e5d4885b9c138a2fa20ae8, type: 3}
+    - Key: BGM_Stage7
+      Value: {fileID: 8300000, guid: 4dc17d1e39ab742f3b9071fa11cdf0b9, type: 3}
+    - Key: BGM_Stage8
+      Value: {fileID: 8300000, guid: dd78ce4f7994b4af69ebed2d1843f878, type: 3}
+    - Key: BGM_Stage9
+      Value: {fileID: 8300000, guid: cc6a72fca842a436fb30e9d5a78e3268, type: 3}
+    - Key: BGM_Stage10
+      Value: {fileID: 8300000, guid: 5ff8a928b40d74a65b9be856890fa790, type: 3}
   CachedSFXClips:
     _serializedList:
     - Key: SFX_Enemy_Explode
@@ -184,7 +192,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 60
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -600,7 +608,7 @@ Transform:
   - {fileID: 806037511536748679}
   - {fileID: 48583116}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &806037512186828224
 MonoBehaviour:
@@ -1439,19 +1447,19 @@ MonoBehaviour:
   saveData:
     ingameSaveData:
       IsIngameStart: 0
-      CurrentStageNumber: 0
+      CurrentStageNumber: 3
       CurrentPhaseNumber: 0
       IsStageClear: 0
       IsDoubleScore: 0
       IsRevivalChecked: 0
-      PrevHP: 100
+      PrevHP: 0
       CollectedScore: 0
-      RevivalCount: 10
+      RevivalCount: 5
     outgameSaveData:
       AdditionalRevivalCount: 0
       AccountLevel: 0
       CollectedExp: 0
-      SelectedPlayerINDEX: 1005
+      SelectedPlayerINDEX: 1002
       SelectedIconINDEX: 0
       CollectedCoin: 0
       CollectedBone: 0

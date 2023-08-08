@@ -65,6 +65,7 @@ public class RevivalUI : MonoBehaviour
                 break;
             }
         }
+        op.allowSceneActivation = true;
     }
 
     public void HandleContinue(){

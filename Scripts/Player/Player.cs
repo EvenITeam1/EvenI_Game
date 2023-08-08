@@ -257,6 +257,7 @@ public class Player : MonoBehaviour, IDamagable
         GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.RevivalCount--;
         transform.position = GetRevivalPosition();
         revivalCoroutine = StartCoroutine(AsyncRevival());
+        GameManager.Instance.GlobalSoundManager.PlayByClip(playerSoundData.Revival, SOUND_TYPE.SFX);
     }
 
     IEnumerator AsyncRevival(){

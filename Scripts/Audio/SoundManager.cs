@@ -21,6 +21,12 @@ public class SoundManager : MonoBehaviour
     const string SFX_MuteParam      = "SFX_MuteParam";
     const string SFX_VolumeParam    = "SFX_VolumeParam";
     private void Awake() {
+    }
+    public void ClearAudioSetting(){
+        AudioSources[0].Stop();
+        AudioSources[0].clip =null;
+        AudioSources[1].Stop();
+        AudioSources[1].clip =null;
         AudioSources[0].pitch = 1f;
         AudioSources[1].pitch = 1f;
     }

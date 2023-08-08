@@ -87,6 +87,7 @@ public class MobGenData {
     public float gap;
 }
 
+[System.Serializable]
 public class MobVisualData {
     public SpriteRenderer   spriteRenderer;
     public Animator      animator;

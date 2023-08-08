@@ -35,7 +35,7 @@ Transform:
   - {fileID: 433485986660834037}
   - {fileID: 2489134053883128028}
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &433485986516850944
 BoxCollider2D:
@@ -120,9 +120,14 @@ MonoBehaviour:
     exitEaseTime: 3
     invokeEase: 27
     exitEase: 26
+  visualData:
+    spriteRenderer: {fileID: 433485986660834034}
+    animator: {fileID: 3585553583902592131}
+    defaultColor: {r: 1, g: 1, b: 1, a: 1}
+    onHitColor: {r: 1, g: 0, b: 0, a: 1}
   soundData:
-    GetDamaged: {fileID: 0}
-    OnDestroy: {fileID: 0}
+    GetDamaged: {fileID: 8300000, guid: 88b7bfbe202394156af36c8009be21b1, type: 3}
+    OnDestroy: {fileID: 8300000, guid: 840ac1529cced473793b902d880799d1, type: 3}
   mobHP: {fileID: 433485986516850945}
   mobCollider: {fileID: 433485986516850944}
   mobRigid: {fileID: 433485986516850947}

@@ -199,6 +199,7 @@ public class Mob : MonoBehaviour, IDamagable
     {
         float currentHp = mobHP.getHP();
         mobHP.setHP(currentHp - _amount);
+        if(mobHP.getHP() <= 0){DestroyedByPlayer = true; return;}
         var hitObject = ObjectPool.instance.GetObject(HitParticle.gameObject);
         hitObject.transform.position = transform.position;
         hitObject.transform.SetParent(this.transform);
@@ -216,8 +217,8 @@ public class Mob : MonoBehaviour, IDamagable
         yield return YieldInstructionCache.WaitForSeconds(0.05f);
         visualData.spriteRenderer.color = visualData.defaultColor;
     }
-    
 
+    bool DestroyedByPlayer = false;
     private void OnDisable()
     {
         if (IsInstantiatedFirst)
@@ -225,13 +226,18 @@ public class Mob : MonoBehaviour, IDamagable
             transform.DOKill();
             mobCollider.enabled = false;
             if (mobLifeCycleCoroutine != null) StopCoroutine(mobLifeCycleCoroutine);
-            GameManager.Instance.GlobalSoundManager.PlayByClip(soundData.OnDestroy, SOUND_TYPE.SFX);
+
+            if(DestroyedByPlayer && mobData.Mob_Score > 0){
+                RunnerManager.Instance.GlobalEventInstance.scoreCheck.Score += mobData.Mob_Score;
+                GameManager.Instance.GlobalSoundManager.PlayByClip(soundData.OnDestroy, SOUND_TYPE.SFX);
+            }
         }
     }
 
     private void OnDestroy() {
-        if(mobData.Mob_Score > 0)
-            RunnerManager.Instance.GlobalEventInstance.scoreCheck.Score += mobData.Mob_Score;        
+        transform.DOKill();
+        mobCollider.enabled = false;
+        if (mobLifeCycleCoroutine != null) StopCoroutine(mobLifeCycleCoroutine);        
     }
 
     #endregion
