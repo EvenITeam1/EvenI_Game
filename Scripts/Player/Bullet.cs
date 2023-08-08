@@ -75,6 +75,9 @@ public class Bullet : MonoBehaviour, Hit
             dmgPrefab.transform.position = transform.position;
             dmgPrefab.SetActive(true);
             boss.GetDamaged();
+
+            if (boss.isBossRaid)
+                RunnerManager.Instance.GlobalEventInstance.scoreCheck.Score += actualDmg;
             boss.setHP(currentHp - actualDmg);
             boss.updateHpBar();
             ObjectPool.instance.ReturnObject(gameObject);

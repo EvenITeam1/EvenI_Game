@@ -3,17 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Cysharp.Threading.Tasks;
+using System;
 
-public class BossHP : MonoBehaviour, HP
+public class BossHP : MonoBehaviour
 {
     [SerializeField] float _hp;
     [SerializeField] float _setHp;
     [SerializeField] Slider _hpBar;
-
+    [SerializeField] int bossScore;
+    public bool isBossRaid;
+    public int stageIndex;
+    [SerializeField] List<GameObject> bossGroups;
+    [SerializeField] List<GameObject> bossPatternManagerList;
     private SpriteRenderer spriteRenderer;
     private void Awake() {
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
+
     void Start()
     {
         setHP(_setHp);
@@ -25,9 +32,9 @@ public class BossHP : MonoBehaviour, HP
         _hp = hp;
 
         if (!isAlive())
-            die();
+            die().Forget();
     }
-    public float getMaxHp(){return this._setHp;}
+    public float getMaxHp() { return this._setHp; }
     public float getHP() { return this._hp; }
 
     public bool isAlive()
@@ -37,15 +44,34 @@ public class BossHP : MonoBehaviour, HP
         else
             return false;
     }
-    
-    public void die()
+
+    async UniTaskVoid die()
     {
-        _hp = 0;
-        gameObject.SetActive(false);
-        RunnerManager.Instance.GlobalEventInstance.BroadCastBossDie();
+        if (isBossRaid)
+        {
+            _hp = 0;
+            if(stageIndex == 5)
+                RunnerManager.Instance.GlobalEventInstance.BroadCastBossDie();
+            else
+            {
+                bossPatternManagerList[stageIndex].SetActive(false);
+                bossGroups[stageIndex].SetActive(false);
+                RunnerManager.Instance.GlobalPlayer.Heal(0.5f);
+                await UniTask.Delay(TimeSpan.FromSeconds(4));
+                bossGroups[stageIndex + 1].SetActive(true);
+            }      
+        }
+
+        else
+        {
+            _hp = 0;
+            RunnerManager.Instance.GlobalEventInstance.scoreCheck.Score += bossScore;
+            gameObject.SetActive(false);
+            RunnerManager.Instance.GlobalEventInstance.BroadCastBossDie();
+        }      
     }
 
-    public void updateHpBar()
+    public void updateHpBar() 
     {
         _hpBar.value = _hp / _setHp;
     }

@@ -14,6 +14,11 @@ public class SetBossMove
         enemyRigid.velocity = (Vector2)localDest.normalized * speed;   
     }
 
+    public static void teleport(Vector2 dest, GameObject enemy)
+    {
+        enemy.transform.position = dest;
+    }
+
     public static float goUp(float y, float speed, GameObject enemy, GameObject flag)
     {
         move(0, y, speed, enemy, flag);

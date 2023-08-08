@@ -1407,6 +1407,7 @@ GameObject:
   - component: {fileID: 209575239}
   - component: {fileID: 209575238}
   - component: {fileID: 209575237}
+  - component: {fileID: 209575241}
   m_Layer: 5
   m_Name: UserUIPopUpCanvas
   m_TagString: Untagged
@@ -1450,12 +1451,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goldAmount: {fileID: 0}
   expAmount: {fileID: 1211819414}
+  levelCount: {fileID: 580328171}
+  RequireExpAmounts: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  expBar: {fileID: 1696081644}
+  boneAmount: {fileID: 0}
   additionalReviveAmount: {fileID: 0}
-  Icon: {fileID: 0}
+  coin15Amount: {fileID: 0}
   characterUIList:
   - {fileID: 0}
   stageEnterButtonList:
   - {fileID: 0}
+  currentLevel: 1
 --- !u!114 &209575238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1518,6 +1524,20 @@ Canvas:
   m_SortingLayerID: -342883927
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &209575241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 209575235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4786f80bbe4114f9adf171dcf9098d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterCount: {fileID: 235909012}
+  stageClearCount: {fileID: 1738750086}
 --- !u!1 &214751962
 GameObject:
   m_ObjectHideFlags: 0
@@ -4418,7 +4438,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "  \uBAA8\uC740 \uB204\uC801 \uCF54\uC778 : 0\uAC1C"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d74ca8e342e921f4999d2d165f2d38bc, type: 2}
   m_sharedMaterial: {fileID: 2384728880335398813, guid: d74ca8e342e921f4999d2d165f2d38bc, type: 2}
@@ -7598,18 +7618,19 @@ MonoBehaviour:
   index: 1001
   playerData:
     Index: 1000
-    Character_korname: "\uBE44\uC5B4\uC788\uC74C"
+    Character_korname: "\uC2DC\uBC14 \uC774\uB204"
     Character_engname: Shiba
     Character_width: 0
     Character_height: 0
-    Character_bullet_index_1: 3000
-    Character_bullet_index_2: 3000
-    Character_hp: 0
-    Character_per_hp_heal: 0
+    Character_bullet_index_1: 3001
+    Character_bullet_index_2: 3002
+    Character_hp: 100
+    Character_per_hp_heal: 0.5
     Character_attack_speed: 0
     Character_skill_index: 0
     Character_cost: 0
-    Character_script: "\uBE44\uC5B4\uC788\uB294 \uB370\uC774\uD130 \uC785\uB2C8\uB2E4."
+    Character_script: "\uADC0\uC5EC\uC6B4 \uC2DC\uBC14 \uC774\uB204. \uC0AC\uB78C\uC744
+      \uC88B\uC544\uD55C\uB2E4."
     Character_filecode: 
   isUnlocked: 1
   selectButton: {fileID: 1142424045}
@@ -11030,8 +11051,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goldAmount: {fileID: 649178420}
   expAmount: {fileID: 1988503193}
+  levelCount: {fileID: 1605895737}
+  RequireExpAmounts: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  expBar: {fileID: 801646504}
+  boneAmount: {fileID: 158070645}
   additionalReviveAmount: {fileID: 0}
-  Icon: {fileID: 0}
+  coin15Amount: {fileID: 0}
   characterUIList:
   - {fileID: 1104991291}
   - {fileID: 495588862}
@@ -11045,6 +11070,7 @@ MonoBehaviour:
   - {fileID: 1033953772}
   stageEnterButtonList:
   - {fileID: 0}
+  currentLevel: 1
 --- !u!114 &1608754235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14883,7 +14909,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "  \uB2EC\uB9B0 \uAC70\uB9AC : 1500m"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d74ca8e342e921f4999d2d165f2d38bc, type: 2}
   m_sharedMaterial: {fileID: 2384728880335398813, guid: d74ca8e342e921f4999d2d165f2d38bc, type: 2}
