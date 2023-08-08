@@ -12,7 +12,6 @@ public class SatietyUse : MonoBehaviour
     [SerializeField] GameObject EnterCanvas;
     [SerializeField] List<GameObject> EnterMessageCanvas;
 
-
     #region stageEnterFunction
     public void Stage1ChargeCountCheckInStoryMode()
     {
@@ -160,6 +159,19 @@ public class SatietyUse : MonoBehaviour
             EnterCanvas.SetActive(true);
             EnterMessageCanvas[9].SetActive(true);
             ResultHandler.SendEnterStageData(9);
+        }
+    }
+
+    public void ChargeCountCheckInBossMode()
+    {
+        if (SatietyManage.GetChargeCount() < 3)
+        {
+            EnterFailedCanvas.SetActive(true);
+        }
+
+        else
+        {
+            EnterCanvas.SetActive(true);
         }
     }
 

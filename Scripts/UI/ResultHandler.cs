@@ -20,6 +20,7 @@ public class ResultHandler : MonoBehaviour
     public float LoseCoinRatio = 0.05f;
     public float CoinBoostRatio = 1f;
     public static int EnteredStageIndex;
+    [SerializeField] List<int> RequireExpAmounts;
 
     /*
     내부 데이터를 가져오고 외부 데이터로 내보낸다.
@@ -58,6 +59,8 @@ public class ResultHandler : MonoBehaviour
         GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedExp += (int)((IsClearState) ? (WinExpRatio * Score) : (LoseExpRatio * Score));
         if (GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.HightestStageUnlocked == EnteredStageIndex && IsClearState)
             GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.HightestStageUnlocked++;
+        SetExpRequiredAmount();
+        calculateLevel();
 
         GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SaveOutgameDataToJson();
     }
@@ -67,4 +70,50 @@ public class ResultHandler : MonoBehaviour
         EnteredStageIndex = num;
     }
 
+    public void calculateLevel()
+    {
+        while(true)
+        {
+            int currentLevel = GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.AccountLevel;
+            int currentExp = GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedExp;
+            int requireExpAmountToNextLevel = RequireExpAmounts[currentLevel - 1];
+
+            if (currentLevel == 21)
+                break;
+
+            else if (currentExp > requireExpAmountToNextLevel)
+            {
+                GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.AccountLevel++;
+                GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedExp -= requireExpAmountToNextLevel;
+            }
+
+            else
+            {
+                break;
+            }
+        }
+    }
+    public void SetExpRequiredAmount()
+    {
+        RequireExpAmounts[0] = 30;
+        RequireExpAmounts[1] = 45;
+        RequireExpAmounts[2] = 60;
+        RequireExpAmounts[3] = 75;
+        RequireExpAmounts[4] = 90;
+        RequireExpAmounts[5] = 105;
+        RequireExpAmounts[6] = 120;
+        RequireExpAmounts[7] = 135;
+        RequireExpAmounts[8] = 150;
+        RequireExpAmounts[9] = 165;
+        RequireExpAmounts[10] = 180;
+        RequireExpAmounts[11] = 195;
+        RequireExpAmounts[12] = 210;
+        RequireExpAmounts[13] = 225;
+        RequireExpAmounts[14] = 240;
+        RequireExpAmounts[15] = 255;
+        RequireExpAmounts[16] = 270;
+        RequireExpAmounts[17] = 285;
+        RequireExpAmounts[18] = 300;
+        RequireExpAmounts[19] = 315;
+    }
 }

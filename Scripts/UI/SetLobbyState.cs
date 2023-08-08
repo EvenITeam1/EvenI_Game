@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SetLobbyState : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class SetLobbyState : MonoBehaviour
     [SerializeField] Camera mainCamera;
     [SerializeField] Color normalColor;
     [SerializeField] Color bossRaidColor;
+    [SerializeField] Button BossRaidModeButton;
+    [SerializeField] GameObject Cover;
 
     private void Awake()
     {
@@ -24,6 +27,10 @@ public class SetLobbyState : MonoBehaviour
             mainCamera.backgroundColor = normalColor;
         }          
     }
+    private void Start()
+    {
+        SetBossModeButton();
+    }
 
     public void SetLobbyNormalState()
     {
@@ -35,4 +42,18 @@ public class SetLobbyState : MonoBehaviour
         isBossRaidMode = true;
     }
 
+    void SetBossModeButton()
+    {
+        if (GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.HightestStageUnlocked == 10)
+        {
+            BossRaidModeButton.interactable = true;
+            Cover.SetActive(false);
+        }            
+
+        else
+        {
+            BossRaidModeButton.interactable = false;
+            Cover.SetActive(true);
+        }       
+    }
 }

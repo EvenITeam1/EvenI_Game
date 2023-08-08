@@ -8,11 +8,16 @@ public class OutGameDataManage : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI goldAmount;
     [SerializeField] TextMeshProUGUI expAmount;
+    [SerializeField] TextMeshProUGUI levelCount;
+    [SerializeField] List<int> RequireExpAmounts;
+    [SerializeField] Slider expBar;
     [SerializeField] TextMeshProUGUI boneAmount;
     [SerializeField] TextMeshProUGUI additionalReviveAmount;
     [SerializeField] TextMeshProUGUI coin15Amount; 
     [SerializeField] List<CharacterUI> characterUIList;//use only in MyDogScene
     [SerializeField] List<Button> stageEnterButtonList; //use only in StageSelectScene
+    public int currentLevel = 1;
+
 
     private static bool isFirstAccess = true;
 
@@ -22,14 +27,18 @@ public class OutGameDataManage : MonoBehaviour
         {
             GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.LoadSatietyDataFromJson();
             isFirstAccess = false;
-        }        
+        }
+        currentLevel = GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.AccountLevel;
+        SetExpRequiredAmount();
     }
 
     private void FixedUpdate()
     {
         if (goldAmount != null) { goldAmount.text = GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedCoin.ToString(); }
         if (boneAmount != null) { boneAmount.text = GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedBone.ToString(); }
-        if (expAmount != null) { expAmount.text = "EXP " + GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedExp.ToString() + "/1000"; }
+        if (expAmount != null) { expAmount.text = "EXP " + GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedExp.ToString() + "/" + RequireExpAmounts[currentLevel - 1].ToString(); }
+        if(expBar != null) { expBar.value = GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedExp / RequireExpAmounts[currentLevel - 1]; }
+        if(levelCount != null) { levelCount.text = "Level " + currentLevel; }
         if (additionalReviveAmount != null) { additionalReviveAmount.text = "+" + GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.AdditionalRevivalCount.ToString(); }
         if (coin15Amount != null) { coin15Amount.text = "+" + GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.Coin15Count.ToString(); }
 
@@ -67,5 +76,29 @@ public class OutGameDataManage : MonoBehaviour
                 }
             }              
         }
+    }
+
+    public void SetExpRequiredAmount()
+    {
+        RequireExpAmounts[0] = 30;
+        RequireExpAmounts[1] = 45;
+        RequireExpAmounts[2] = 60;
+        RequireExpAmounts[3] = 75;
+        RequireExpAmounts[4] = 90;
+        RequireExpAmounts[5] = 105;
+        RequireExpAmounts[6] = 120;
+        RequireExpAmounts[7] = 135;
+        RequireExpAmounts[8] = 150;
+        RequireExpAmounts[9] = 165;
+        RequireExpAmounts[10] = 180;
+        RequireExpAmounts[11] = 195;
+        RequireExpAmounts[12] = 210;
+        RequireExpAmounts[13] = 225;
+        RequireExpAmounts[14] = 240;
+        RequireExpAmounts[15] = 255;
+        RequireExpAmounts[16] = 270;
+        RequireExpAmounts[17] = 285;
+        RequireExpAmounts[18] = 300;
+        RequireExpAmounts[19] = 315;
     }
 }
