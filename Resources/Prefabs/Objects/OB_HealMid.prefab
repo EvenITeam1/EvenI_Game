@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9060090218653277405}
   - component: {fileID: 6646682837912331663}
   - component: {fileID: 7641790629757353107}
+  - component: {fileID: 279237410}
   m_Layer: 9
   m_Name: model
   m_TagString: Untagged
@@ -105,6 +106,25 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &279237410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3530287583908528935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 4
+  sorting_order: 0
+  renderer_type: 3
+  canvas: {fileID: 0}
+  particle: {fileID: 0}
+  sprite: {fileID: 6646682837912331663}
+  tilemap: {fileID: 0}
 --- !u!1 &8009021233259555207
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,7 +157,7 @@ Transform:
   m_Children:
   - {fileID: 9060090218653277405}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 47
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5453755993548400766
 MonoBehaviour:
@@ -178,6 +198,9 @@ MonoBehaviour:
     animator: {fileID: 7641790629757353107}
     defaultColor: {r: 0, g: 0, b: 0, a: 0}
     onHitColor: {r: 0, g: 0, b: 0, a: 0}
+  soundData:
+    GetDamaged: {fileID: 0}
+    OnDisable: {fileID: 0}
   objectCollider: {fileID: 4233588088096256490}
   moveTriggerOffset: 5
   HitParticle: {fileID: 0}

@@ -70,11 +70,10 @@ public class Player : MonoBehaviour, IDamagable
         FlipSprite(1);
         //playerData = GameManager.Instance.CharacterDataTableDesign.GetPlayerDataByINDEX(this.Index); //외부에서 받는것
         /*Set PlayerHP*/
-        playerHP.setHP(playerData.Character_hp);
-        playerHP._recoverHp = playerData.Character_per_hp_heal;
+        //playerHP.setHP(playerData.Character_hp);
+        //playerHP._recoverHp = playerData.Character_per_hp_heal;
         //bulletShooter.bullets[0].bulletData = GameManager.Instance.BulletDataTableDesign.GetBulletDataByINDEX(playerData.Character_bullet_index_1);
         //bulletShooter.bullets[1].bulletData = GameManager.Instance.BulletDataTableDesign.GetBulletDataByINDEX(playerData.Character_bullet_index_2);
-
     }
 
     public void InitializeAfterAsynchronous(){   
@@ -207,6 +206,7 @@ public class Player : MonoBehaviour, IDamagable
         var hitObject = ObjectPool.instance.GetObject(HitParticle.gameObject);
         hitObject.transform.position = transform.position;
         hitObject.transform.SetParent(this.transform);
+        hitObject.transform.localScale = hitObject.transform.parent.localScale * Vector2.one;
         hitObject.SetActive(true);
         StartCoroutine(AsyncGetDamage());
         GameManager.Instance.GlobalSoundManager.PlayByClip(playerSoundData.GetDamaged, SOUND_TYPE.SFX);
@@ -235,6 +235,7 @@ public class Player : MonoBehaviour, IDamagable
     
     Coroutine revivalCoroutine = null;
 
+    public GameObject HealParticle = null;
     public void Heal(float _amount){
         float maxHp = playerHP.getMaxHp();
         float currentHp = playerHP.getHP();
@@ -245,6 +246,10 @@ public class Player : MonoBehaviour, IDamagable
         else {
             playerHP.setHP(currentHp + healAmount);
         }
+        var healObject = ObjectPool.instance.GetObject(HealParticle);
+        healObject.transform.position = transform.position;
+        healObject.transform.SetParent(this.transform);
+        healObject.SetActive(true);
     }
 
     public void Barrier(){
@@ -257,13 +262,14 @@ public class Player : MonoBehaviour, IDamagable
         GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.RevivalCount--;
         transform.position = GetRevivalPosition();
         revivalCoroutine = StartCoroutine(AsyncRevival());
+        GameManager.Instance.GlobalSoundManager.PlayByClip(playerSoundData.Revival, SOUND_TYPE.SFX);
     }
 
     IEnumerator AsyncRevival(){
         transform.position = GetRevivalPosition();
         playerRigid.gravityScale = 0;
         playerRigid.velocity = Vector2.right * playerRigid.velocity;
-        playerHP.setHP(100f);
+        playerHP.setHP(playerHP.getMaxHp());
         playerState.ChangeState(PLAYER_STATES.GHOST_STATE);
         Invoke("BecomePlayerState", 3f + 0.2f);
         float passedTime = 0;

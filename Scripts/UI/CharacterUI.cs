@@ -19,7 +19,10 @@ public class CharacterUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI infoHpRecoverText;
     [SerializeField] TextMeshProUGUI infoBasicAttText;
     [SerializeField] TextMeshProUGUI infoJumpAttText;
-    private void Start()
+
+    public static DOG_INDEX OnSelect;
+
+    private void Update()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         refreshState();
@@ -38,6 +41,7 @@ public class CharacterUI : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        OnSelect = index;
         circleNameText.text = "<" + playerData.Character_engname + ">";
         refreshMoreInfoAndSelectButton();
     }
@@ -67,5 +71,11 @@ public class CharacterUI : MonoBehaviour
             infoBasicAttText.text = $"일반공격력 : {basicBulletData.Bullet_min_dmg} ~ {basicBulletData.Bullet_max_dmg}";
             infoJumpAttText.text = $"점프공격력 : {jumpBulletData.Bullet_min_dmg} ~ {jumpBulletData.Bullet_max_dmg}";        
         }    
+    }
+
+    public void ApplySelectCharacter()
+    {
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SelectedPlayerINDEX = OnSelect;
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SaveOutgameDataToJson();
     }
 }

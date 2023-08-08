@@ -12,6 +12,8 @@ public class Stage1BossPattern : MonoBehaviour, IDamagable {
     public List<BossBasicBullet> bullets;
     private int bulletsCount;
 
+    public AudioClip GetDamaged;
+
     private void Awake() {
         bossHP = GetComponent<BossHP>();
         bulletsCount = bullets.Count;
@@ -22,11 +24,12 @@ public class Stage1BossPattern : MonoBehaviour, IDamagable {
     {
         float currentHp = bossHP.getHP();
         bossHP.setHP(currentHp - _amount);
+        GameManager.Instance.GlobalSoundManager.PlayByClip(GetDamaged, SOUND_TYPE.SFX);
 
         //(HitParticle, transform);
         var hitObject = ObjectPool.instance.GetObject(HitParticle);
         hitObject.transform.position = particleInstantPosition.position;
-        hitObject.transform.localScale = Vector2.one * 15f;
+        hitObject.transform.localScale = Vector2.one * 8f;
         hitObject.SetActive(true);
         StartCoroutine(AsyncOnHitVisual());
         bossHP.setHP(currentHp - _amount);
@@ -46,7 +49,6 @@ public class Stage1BossPattern : MonoBehaviour, IDamagable {
             Rigidbody2D bulletRigid = instantBossBullet.GetComponent<Rigidbody2D>();
             bulletRigid.velocity *= Random.Range(-1f, -2f);
             bulletRigid.velocity += 10* Vector2.up * Random.Range(0.5f, 1f);
-            Debug.Log(bulletRigid.velocity);
         }
     }
 

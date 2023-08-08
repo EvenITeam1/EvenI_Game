@@ -34,7 +34,7 @@ Transform:
   - {fileID: 3314987439901996105}
   - {fileID: 2176051447974047685}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1835800611663567672
 BoxCollider2D:
@@ -84,7 +84,7 @@ MonoBehaviour:
     Ob_damage: 30
     Ob_bullet_index: -1
     Ob_movement_index: 3
-    Ob_move_strength: 5
+    Ob_move_strength: 3
     OB_Hitable: 0
     Ob_HP: 100
     Ob_Score: 0
@@ -101,6 +101,9 @@ MonoBehaviour:
     animator: {fileID: 0}
     defaultColor: {r: 1, g: 1, b: 1, a: 0}
     onHitColor: {r: 1, g: 0, b: 0, a: 0}
+  soundData:
+    GetDamaged: {fileID: 0}
+    OnDisable: {fileID: 0}
   objectCollider: {fileID: 1835800611663567672}
   moveTriggerOffset: 10
   HitParticle: {fileID: 7124663019238293431, guid: 301f99a9c0b0643798ca6ef1fad42b44, type: 3}
@@ -114,7 +117,7 @@ Animator:
   m_GameObject: {fileID: 1697375171588258029}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 91ffe05e649849d4a9f332ab18e9ddd4, type: 2}
+  m_Controller: {fileID: 9100000, guid: e73fae359c9ba39499497dcaa310c95a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -182,6 +185,7 @@ GameObject:
   - component: {fileID: 3314987439901996105}
   - component: {fileID: 6144468770459404697}
   - component: {fileID: 5233863155376883035}
+  - component: {fileID: 2036038487}
   m_Layer: 8
   m_Name: model
   m_TagString: Untagged
@@ -242,7 +246,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 846495363
+  m_SortingLayerID: -1789428647
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 142792565, guid: 5e3d97e11b56ef841afd24e623f9751f, type: 3}
@@ -276,3 +280,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2036038487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8899992583042289536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 4
+  sorting_order: 0
+  renderer_type: 3
+  canvas: {fileID: 0}
+  particle: {fileID: 0}
+  sprite: {fileID: 6144468770459404697}
+  tilemap: {fileID: 0}

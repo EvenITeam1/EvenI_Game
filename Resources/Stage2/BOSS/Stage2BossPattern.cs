@@ -49,6 +49,9 @@ public class Stage2BossPattern : MonoBehaviour
     async UniTaskVoid executeRandomPattern(int patternN)
     {
         await UniTask.Delay(TimeSpan.FromSeconds(coolTime));
+        if (!gameObject.activeSelf)
+            return;
+
         int n = Random.Range(0, patternN);
         patternActive = true;
         switch (n)

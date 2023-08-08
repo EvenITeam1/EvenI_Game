@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8620079346850200606}
   - component: {fileID: 1347473405143956396}
   - component: {fileID: -7950240550755757705}
+  - component: {fileID: 1627738279888251440}
   m_Layer: 29
   m_Name: MobBullet_Template
   m_TagString: Untagged
@@ -74,9 +75,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1789428647
-  m_SortingLayer: 4
-  m_SortingOrder: 3
+  m_SortingLayerID: -1949028549
+  m_SortingLayer: 5
+  m_SortingOrder: 0
   m_Sprite: {fileID: -640121303, guid: bd0ff90622bd0494d8beae63918f1d1e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -191,3 +192,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1627738279888251440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8620079346850200605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 4
+  sorting_order: 3
+  renderer_type: 3
+  canvas: {fileID: 0}
+  particle: {fileID: 0}
+  sprite: {fileID: 8620079346850200608}
+  tilemap: {fileID: 0}

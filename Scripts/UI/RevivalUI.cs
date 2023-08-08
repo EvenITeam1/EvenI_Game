@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class RevivalUI : MonoBehaviour
 {
+    public UnityEvent OnReveival;
+    public UnityEvent OnDieEvent;
+
     public TextMeshProUGUI ContienueTMP;
     public TextMeshProUGUI TimmerTMP;
     public TextMeshProUGUI ButtonTMP;
@@ -22,6 +26,25 @@ public class RevivalUI : MonoBehaviour
         CurrentCoroutine = StartCoroutine(AsyncWaitingUntilLoadGameOver());
     }
 
+    public void HandleQuit(){
+        #if UNITY_EDITOR
+            // Application.Quit() does not work in the editor so
+            // UnityEditor.EditorApplication.isPlaying need to be set to false to end the game
+            // UnityEditor.EditorApplication.isPlaying = false;
+            
+            RunnerManager.Instance.GlobalEventInstance.IsGamePaused = false;
+            // Button에 DataTrigger.SaveGameOver()가 이벤트 바인딩 되어 있는지 잘 확인하자.
+            SceneManager.LoadScene("GameOverScene");
+            GameManager.Instance.GlobalSoundManager.StopBGM();
+        #else
+            // Application.Quit();
+            RunnerManager.Instance.GlobalEventInstance.IsGamePaused = false;
+            // Button에 DataTrigger.SaveGameOver()가 이벤트 바인딩 되어 있는지 잘 확인하자.
+            GameManager.Instance.GlobalSoundManager.StopBGM();
+            SceneManager.LoadScene("GameOverScene");
+        #endif
+    }
+
     IEnumerator AsyncWaitingUntilLoadGameOver(){
         int waitCount = 10;
         while(waitCount > 0) {
@@ -29,31 +52,28 @@ public class RevivalUI : MonoBehaviour
             waitCount--;
             TimmerTMP.text = $"{waitCount}";
         }
-        
-        RunnerManager.Instance.GlobalEventInstance.IsGamePaused = false;
 
+        OnDieEvent.Invoke();
+
+        RunnerManager.Instance.GlobalEventInstance.IsGamePaused = false;
         AsyncOperation op = SceneManager.LoadSceneAsync("GameOverScene");
         op.allowSceneActivation = false;
-        float timer = 0.0f;
         while (op.progress < 0.9f)
         {
-            yield return 0;
-            timer += Time.unscaledDeltaTime;
             if(op.progress >= 0.9f) {
                 op.allowSceneActivation = true;
-                yield break;
+                break;
             }
         }
+        op.allowSceneActivation = true;
     }
 
     public void HandleContinue(){
         if(GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.RevivalCount <= 0) return;
         StopCoroutine(CurrentCoroutine);
+        OnReveival.Invoke();
         RunnerManager.Instance.GlobalPlayer.Revival();
-        this.gameObject.SetActive(false);
-    }
-
-    private void OnDisable() {
         RunnerManager.Instance.GlobalEventInstance.IsGamePaused = false;
+        this.gameObject.SetActive(false);
     }
 }

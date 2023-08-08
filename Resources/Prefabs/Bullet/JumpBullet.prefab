@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 557377395792406259}
   - component: {fileID: 557377395792406258}
   - component: {fileID: 3350300694365813261}
+  - component: {fileID: 7921104797826169571}
   m_Layer: 29
   m_Name: JumpBullet
   m_TagString: Untagged
@@ -153,3 +154,21 @@ CircleCollider2D:
   m_Offset: {x: 0.34, y: 0}
   serializedVersion: 2
   m_Radius: 0.1510069
+--- !u!114 &7921104797826169571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557377395792406256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 4
+  sorting_order: 3
+  renderer_type: 3
+  canvas: {fileID: 0}
+  particle: {fileID: 0}
+  sprite: {fileID: 557377395792406268}

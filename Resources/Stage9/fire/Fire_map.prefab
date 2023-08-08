@@ -71,7 +71,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -992004325
+  m_SortingLayerID: -857512439
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 556190667, guid: 3e811f7675317a140a31440a182b8c9e, type: 3}
@@ -165,17 +165,25 @@ MonoBehaviour:
     Ob_move_strength: 0
     OB_Hitable: 0
     Ob_HP: 10
+    Ob_Score: 0
     Ob_filecode: 
   coinData:
     ScoreValue: 0
     particle: {fileID: 0}
+  itemData:
+    ITEM_CATEGORY: 0
+    destroyParticle: {fileID: 0}
+    activateParticle: {fileID: 0}
   visualData:
     spriteRenderer: {fileID: 0}
+    animator: {fileID: 0}
     defaultColor: {r: 0, g: 0, b: 0, a: 0}
     onHitColor: {r: 0, g: 0, b: 0, a: 0}
+  soundData:
+    GetDamaged: {fileID: 0}
+    OnDisable: {fileID: 0}
   objectCollider: {fileID: 2184592237887317944}
   moveTriggerOffset: 5
-  ObjectHP: 0
   HitParticle: {fileID: 0}
 --- !u!61 &2184592237887317944
 BoxCollider2D:

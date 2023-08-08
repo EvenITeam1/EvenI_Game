@@ -60,6 +60,7 @@ GameObject:
   - component: {fileID: 9052115767988883193}
   - component: {fileID: 9052115767988883192}
   - component: {fileID: 9052115767988883195}
+  - component: {fileID: -7113787157051921925}
   m_Layer: 30
   m_Name: DEFAULT_MOB 1 Stage1
   m_TagString: Untagged
@@ -167,6 +168,9 @@ MonoBehaviour:
     exitEaseTime: 3
     invokeEase: 27
     exitEase: 26
+  soundData:
+    GetDamaged: {fileID: 0}
+    OnDestroy: {fileID: 0}
   mobHP: {fileID: 9052115767988883195}
   mobCollider: {fileID: 9052115767988883194}
   mobRigid: {fileID: 9052115767988883193}
@@ -188,6 +192,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hp: 100
   _setHp: 100
+--- !u!114 &-7113787157051921925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9052115767988883196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 5
+  sorting_order: 0
+  renderer_type: 0
+  canvas: {fileID: 0}
+  particle: {fileID: 0}
+  sprite: {fileID: 0}
 --- !u!1 &9052115768174808334
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,7 +302,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -301136453
-  m_SortingLayer: 5
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2bae5b96c423341f78880ae7636453cb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -366,6 +366,7 @@ GameObject:
   - component: {fileID: 4156628376273428768}
   - component: {fileID: 8360852424968126275}
   - component: {fileID: 331921801}
+  - component: {fileID: 7232667760332362917}
   m_Layer: 5
   m_Name: HoldMessageUI
   m_TagString: Untagged
@@ -415,8 +416,8 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: -327802893
-  m_SortingOrder: 1
+  m_SortingLayerID: -1748483607
+  m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &4156628376273428769
 MonoBehaviour:
@@ -515,6 +516,8 @@ PlayableDirector:
     value: {fileID: 1968209573030139852}
   - key: {fileID: -2666700877159422753, guid: 98c0b8f7a3a124c349d2288aa2b5fcd6, type: 2}
     value: {fileID: 1942247480}
+  - key: {fileID: -5082952999696111459, guid: 98c0b8f7a3a124c349d2288aa2b5fcd6, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References:
     - aad49908e3f494a33a197ec2159a107f: {fileID: 1968209573030139852}
@@ -522,3 +525,22 @@ PlayableDirector:
     - 78ea38de4f4f74f33a4829c6d3b8132e: {fileID: 1942247480}
     - 1d15b40007dfe46898598f0ecb71750a: {fileID: 4156628375602669884}
     - 324a5a7b15e12488091c5880595243bb: {fileID: 4156628375602669884}
+--- !u!114 &7232667760332362917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4156628376273428771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 7
+  sorting_order: 0
+  renderer_type: 1
+  canvas: {fileID: 4156628376273428774}
+  particle: {fileID: 0}
+  sprite: {fileID: 0}
+  tilemap: {fileID: 0}

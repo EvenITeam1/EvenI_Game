@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1762946624231124782}
   - component: {fileID: 1762946624231124776}
-  - component: {fileID: 1762946624231124783}
+  - component: {fileID: 5259266101143668479}
   m_Layer: 0
   m_Name: SpeedUpMarker
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1762946624231124776
 SpriteRenderer:
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1762946624231124783
+--- !u!114 &5259266101143668479
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,38 +94,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1762946624231124781}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a668502e9a6b9442088900e2d04a7a50, type: 3}
+  m_Script: {fileID: 11500000, guid: b55fced927ad648229a7d665a1dca5bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputString: StartPoint
+  inputString: 
   PrintString:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GlobalEvent, Assembly-CSharp
-        m_MethodName: PrintString
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnTriggerEvents:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: SpeedUp
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   isActivated: 0

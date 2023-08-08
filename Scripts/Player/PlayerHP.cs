@@ -18,7 +18,6 @@ public class PlayerHP : MonoBehaviour, HP
     float _time;
 
     void Start() {
-        setHP(_setHp);
         _time = 0;
     }
 
@@ -43,6 +42,7 @@ public class PlayerHP : MonoBehaviour, HP
             die();
         }
     }
+    public void setMaxHp(float hp){_setHp = hp;}
     public float getHP() { return this._hp; }
     public float getMaxHp() {return this._setHp;}
     public bool isAlive()

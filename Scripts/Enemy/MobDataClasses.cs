@@ -88,7 +88,15 @@ public class MobGenData {
 }
 
 [System.Serializable]
+public class MobVisualData {
+    public SpriteRenderer   spriteRenderer;
+    public Animator      animator;
+    public Color         defaultColor = Color.white;
+    public Color         onHitColor = Color.red;
+}
+
+[System.Serializable]
 public class MobSoundData {
-    AudioClip GetDamaged;
-    AudioClip OnDestroy;
+    public AudioClip GetDamaged;
+    public AudioClip OnDestroy;
 }

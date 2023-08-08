@@ -65,9 +65,14 @@ public class CutSceneManager : MonoBehaviour, IPointer​Click​Handler
         isClickable = false;
         clickAlertUI.SetActive(false);
     }
- 
+    private void OnEnable() {
+        GameManager.Instance.GlobalSoundManager.ClearAudioSetting();
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.CurrentStageNumber = currentStage;
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.CurrentPhaseNumber = currentPhase;
+    }
 
-    private void Start() {
+    private async void Start() {
+        await DownloadItemSO();
         StartCoroutine(LoadScene(LoadSceneString));
         Invoke("ActivateClick", 1f);
         if(cutSceneTextDatas.Count >= 1) HandleTalk(cutSceneTextDatas[count++]);
@@ -168,7 +173,7 @@ public class CutSceneManager : MonoBehaviour, IPointer​Click​Handler
         {
             string[] parsedDatas = lines[i].Trim().Split('\t');
             if(parsedDatas.Length == 0) {continue;}
-            if(currentStage == int.Parse(parsedDatas[0])) {
+            if(currentStage == int.Parse(parsedDatas[0]) && currentPhase == int.Parse(parsedDatas[1])) {
                 cutSceneTextDatas.Add(new CutSceneTextData(parsedDatas));
             }
         }

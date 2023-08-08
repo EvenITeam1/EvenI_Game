@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5126023236782931871}
   - component: {fileID: 5126023236782931870}
   - component: {fileID: 5126023236782931869}
+  - component: {fileID: 9167045071317035426}
   m_Layer: 0
   m_Name: VFX_GetHeal
   m_TagString: Untagged
@@ -31,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!198 &5126023236782931870
 ParticleSystem:
@@ -4782,8 +4783,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1748483607
-  m_SortingLayer: 7
+  m_SortingLayerID: -1467911795
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -4815,3 +4816,22 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &9167045071317035426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5126023236782931868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 7
+  sorting_order: 0
+  renderer_type: 2
+  canvas: {fileID: 0}
+  particle: {fileID: 5126023236782931869}
+  sprite: {fileID: 0}
+  tilemap: {fileID: 0}

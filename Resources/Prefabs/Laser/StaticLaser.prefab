@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 258527282525522632}
   - component: {fileID: 258527282525522679}
+  - component: {fileID: 6318818685612978954}
   m_Layer: 0
   m_Name: LaserEffect
   m_TagString: Untagged
@@ -84,6 +85,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6318818685612978954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 258527282525522633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 4
+  sorting_order: 3
+  renderer_type: 0
+  canvas: {fileID: 0}
+  particle: {fileID: 0}
+  sprite: {fileID: 0}
+  tilemap: {fileID: 0}
 --- !u!1 &258527282536694748
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,6 +115,7 @@ GameObject:
   - component: {fileID: 258527282536694747}
   - component: {fileID: 258527282536694745}
   - component: {fileID: 258527282536694746}
+  - component: {fileID: 2362856436255719177}
   m_Layer: 0
   m_Name: StaticLaser
   m_TagString: Untagged
@@ -117,7 +138,7 @@ Transform:
   - {fileID: 258527282525522632}
   - {fileID: 258527282938035541}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!114 &258527282536694745
 MonoBehaviour:
@@ -198,6 +219,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2362856436255719177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 258527282536694748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 4
+  sorting_order: 3
+  renderer_type: 0
+  canvas: {fileID: 0}
+  particle: {fileID: 0}
+  sprite: {fileID: 0}
+  tilemap: {fileID: 0}
 --- !u!1 &258527282938035542
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,6 +248,7 @@ GameObject:
   m_Component:
   - component: {fileID: 258527282938035541}
   - component: {fileID: 258527282938035540}
+  - component: {fileID: 4637169599294409243}
   m_Layer: 0
   m_Name: WarningEffect
   m_TagString: Untagged
@@ -282,3 +323,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4637169599294409243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 258527282938035542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 4
+  sorting_order: 3
+  renderer_type: 0
+  canvas: {fileID: 0}
+  particle: {fileID: 0}
+  sprite: {fileID: 0}
+  tilemap: {fileID: 0}

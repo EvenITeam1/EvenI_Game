@@ -9,8 +9,20 @@ using Cysharp.Threading.Tasks;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
-
+    private static GameManager _instance = null;
+    public static GameManager Instance {
+        get {
+            if(_instance == null){
+                _instance = FindObjectOfType(typeof(GameManager)) as GameManager;
+                if (_instance == null)
+                    Debug.Log("no Singleton obj");
+            }
+            return _instance;
+        }
+        set {
+            _instance = value;
+        }
+    }
     public UnityEvent AfterInitializeEvent;
     public bool IsTestMode;
     public bool IsAsyncLoaded = false;
@@ -20,7 +32,6 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -29,6 +40,7 @@ public class GameManager : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+        DontDestroyOnLoad(gameObject);
 
         if (IsTestMode == false)
         {

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4068294457221479657}
   - component: {fileID: 8486776726617257182}
   - component: {fileID: 415166942823091755}
+  - component: {fileID: 3445233306301475643}
   m_Layer: 0
   m_Name: VFX_ShieldDestroy
   m_TagString: Untagged
@@ -31,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &8486776726617257182
 ParticleSystem:
@@ -4872,3 +4873,22 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &3445233306301475643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4068294457221479658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 7
+  sorting_order: 0
+  renderer_type: 2
+  canvas: {fileID: 0}
+  particle: {fileID: 415166942823091755}
+  sprite: {fileID: 0}
+  tilemap: {fileID: 0}

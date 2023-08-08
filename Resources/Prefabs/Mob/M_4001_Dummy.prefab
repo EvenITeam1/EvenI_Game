@@ -27,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 433485986516850950}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -35,7 +35,7 @@ Transform:
   - {fileID: 433485986660834037}
   - {fileID: 2489134053883128028}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &433485986516850944
 BoxCollider2D:
@@ -103,11 +103,13 @@ MonoBehaviour:
     Mob_category: 0
     Mob_width: 1
     Mob_height: 1
+    Mob_damage: 0
     Mob_hp: 100
     Mob_bullet_index: 0
     Mob_tracking: 0
     Mob_movement_index: 0
     Mob_move_strength: 0
+    Mob_Score: 0
     Mob_filecode: 
   mobMoveData:
     IsInfiniteLifetime: 0
@@ -118,6 +120,9 @@ MonoBehaviour:
     exitEaseTime: 3
     invokeEase: 27
     exitEase: 26
+  soundData:
+    GetDamaged: {fileID: 0}
+    OnDestroy: {fileID: 0}
   mobHP: {fileID: 433485986516850945}
   mobCollider: {fileID: 433485986516850944}
   mobRigid: {fileID: 433485986516850947}
@@ -150,6 +155,7 @@ GameObject:
   - component: {fileID: 433485986660834037}
   - component: {fileID: 3585553583902592131}
   - component: {fileID: 433485986660834034}
+  - component: {fileID: 9008880167788244825}
   m_Layer: 30
   m_Name: model
   m_TagString: Untagged
@@ -230,7 +236,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -301136453
+  m_SortingLayerID: -1949028549
   m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 13e7e6fe43a8aa049bcd610bbc1f5ff8, type: 3}
@@ -244,6 +250,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &9008880167788244825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433485986660834036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 5
+  sorting_order: 0
+  renderer_type: 3
+  canvas: {fileID: 0}
+  particle: {fileID: 0}
+  sprite: {fileID: 433485986660834034}
+  tilemap: {fileID: 0}
 --- !u!1 &1715670475951310741
 GameObject:
   m_ObjectHideFlags: 0

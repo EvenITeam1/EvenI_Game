@@ -75,7 +75,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4144547997641426423}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -83,7 +83,7 @@ Transform:
   - {fileID: 4144547997785277956}
   - {fileID: 2092845064115139629}
   m_Father: {fileID: 0}
-  m_RootOrder: 44
+  m_RootOrder: 49
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &4144547997641426417
 BoxCollider2D:
@@ -151,6 +151,7 @@ MonoBehaviour:
     Mob_category: 0
     Mob_width: 1
     Mob_height: 1
+    Mob_damage: 0
     Mob_hp: 100
     Mob_bullet_index: 0
     Mob_tracking: 0
@@ -167,6 +168,9 @@ MonoBehaviour:
     exitEaseTime: 3
     invokeEase: 27
     exitEase: 26
+  soundData:
+    GetDamaged: {fileID: 0}
+    OnDestroy: {fileID: 0}
   mobHP: {fileID: 4144547997641426416}
   mobCollider: {fileID: 4144547997641426417}
   mobRigid: {fileID: 4144547997641426418}
@@ -199,6 +203,7 @@ GameObject:
   - component: {fileID: 4144547997785277956}
   - component: {fileID: 1027410845613658226}
   - component: {fileID: 4144547997785277955}
+  - component: {fileID: 3884761301608943305}
   m_Layer: 30
   m_Name: model
   m_TagString: Untagged
@@ -293,3 +298,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3884761301608943305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4144547997785277957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 5
+  sorting_order: 0
+  renderer_type: 3
+  canvas: {fileID: 0}
+  particle: {fileID: 0}
+  sprite: {fileID: 4144547997785277955}
+  tilemap: {fileID: 0}

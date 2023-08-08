@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class BulletShooter : MonoBehaviour
 {
@@ -9,6 +10,12 @@ public class BulletShooter : MonoBehaviour
     [SerializeField] float _coolTime;
 
     public bool IsFireable;
+
+    private void Start() {
+        transform.DOLocalMove(Vector2.up * 0.5f, 1f)
+            .SetLoops(-1, LoopType.Yoyo)
+            .SetEase(Ease.InOutSine);
+    }
 
     public void InitializeBulletsByPlayerData(PlayerData playerData){
         bullets =  new Bullet[2];

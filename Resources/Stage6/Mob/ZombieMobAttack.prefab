@@ -34,7 +34,7 @@ Transform:
   - {fileID: 4092765702170668031}
   - {fileID: 648444098528817267}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1132459411153044622
 BoxCollider2D:
@@ -49,7 +49,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.1739502, y: -0.02485025}
+  m_Offset: {x: -0.002067566, y: -0.0008932352}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -60,7 +60,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2684937, y: 1.8451023}
+  m_Size: {x: 1.3802032, y: 1.6281502}
   m_EdgeRadius: 0
 --- !u!114 &7162585018384856078
 MonoBehaviour:
@@ -101,6 +101,9 @@ MonoBehaviour:
     animator: {fileID: 0}
     defaultColor: {r: 1, g: 1, b: 1, a: 0}
     onHitColor: {r: 1, g: 0, b: 0, a: 0}
+  soundData:
+    GetDamaged: {fileID: 0}
+    OnDisable: {fileID: 0}
   objectCollider: {fileID: 1132459411153044622}
   moveTriggerOffset: 10
   HitParticle: {fileID: 7124663019238293431, guid: 301f99a9c0b0643798ca6ef1fad42b44, type: 3}
@@ -182,6 +185,7 @@ GameObject:
   - component: {fileID: 4092765702170668031}
   - component: {fileID: 4866375728624784943}
   - component: {fileID: 6804716887688813293}
+  - component: {fileID: 453612384}
   m_Layer: 8
   m_Name: model
   m_TagString: Untagged
@@ -242,7 +246,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 846495363
+  m_SortingLayerID: -1789428647
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -152616320, guid: 5e3d97e11b56ef841afd24e623f9751f, type: 3}
@@ -276,3 +280,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &453612384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7876372582510710838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 4
+  sorting_order: 0
+  renderer_type: 3
+  canvas: {fileID: 0}
+  particle: {fileID: 0}
+  sprite: {fileID: 4866375728624784943}
+  tilemap: {fileID: 0}

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7124663019238293425}
   - component: {fileID: 7124663019238293424}
   - component: {fileID: -314169458660496769}
+  - component: {fileID: 1459227971130109755}
   m_Layer: 0
   m_Name: VFX_GetHit
   m_TagString: Untagged
@@ -28,11 +29,11 @@ Transform:
   m_GameObject: {fileID: 7124663019238293431}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!198 &7124663019238293425
 ParticleSystem:
@@ -286,8 +287,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1
-      minScalar: 0.8
+      scalar: 3
+      minScalar: 2.4
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -4842,7 +4843,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1748483607
   m_SortingLayer: 7
-  m_SortingOrder: 128
+  m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -4885,3 +4886,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f4d6c4c4b2e440e1b457296e4ff1757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1459227971130109755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7124663019238293431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 7
+  sorting_order: 0
+  renderer_type: 2
+  canvas: {fileID: 0}
+  particle: {fileID: 7124663019238293424}
+  sprite: {fileID: 0}
+  tilemap: {fileID: 0}

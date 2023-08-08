@@ -42,6 +42,8 @@ public class PlaceableObject : MonoBehaviour, IDamagable
         }
     }
 
+    Coroutine objectCycleCoroutine;
+
     /////////////////////////////////////////////////////////////////////////////////
 
     #region Basic
@@ -68,7 +70,7 @@ public class PlaceableObject : MonoBehaviour, IDamagable
     private void Start()
     {
         if(objectData.Ob_movement_index != MOVEMENT_INDEX.HOLD) {
-            StartCoroutine(CheckPlayerForMove());
+            objectCycleCoroutine = StartCoroutine(CheckPlayerForMove());
         }
         /*Set ObjectActions*/
 
@@ -77,8 +79,8 @@ public class PlaceableObject : MonoBehaviour, IDamagable
     }
 
     private void OnDisable() {
-        GameManager.Instance.GlobalSoundManager.PlayByClip(soundData.OnDisable, SOUND_TYPE.SFX);
         StopAllCoroutines();
+        GameManager.Instance.GlobalSoundManager.PlayByClip(soundData.OnDisable, SOUND_TYPE.SFX);
     }
 
     #endregion
@@ -140,16 +142,17 @@ public class PlaceableObject : MonoBehaviour, IDamagable
 
     #region GetHit
 
-    public GameObject HitParticle = null;
+    public  GameObject HitParticle = null;
     public void GetDamage(float _amount)
     {
+        ObjectHP -= _amount;
         var hitObject = ObjectPool.instance.GetObject(HitParticle.gameObject);
         hitObject.transform.position = transform.position;
         hitObject.transform.SetParent(this.transform);
-        hitObject.transform.localScale = (transform.localScale.x >= 3) ? Vector2.one * transform.localScale.x : Vector2.one * 3;
-        StartCoroutine(AsyncOnHitVisual());
+        hitObject.transform.localScale = objectData.Ob_width > 3 ? (Vector3.one * (objectData.Ob_width / 2)) : (Vector3.one * (objectData.Ob_width) * 1.5f);
         hitObject.SetActive(true);
-        ObjectHP -= _amount;
+        StartCoroutine(AsyncOnHitVisual());
+        
         GameManager.Instance.GlobalSoundManager.PlayByClip(soundData.GetDamaged, SOUND_TYPE.SFX);
     }
 
@@ -179,6 +182,11 @@ public class PlaceableObject : MonoBehaviour, IDamagable
                 return player;
             }
         );
+        moveType[(int)objectData.Ob_movement_index].Invoke();
+    }
+
+    [ContextMenu("Test Movement")]
+    public void TestMovement(){
         moveType[(int)objectData.Ob_movement_index].Invoke();
     }
 

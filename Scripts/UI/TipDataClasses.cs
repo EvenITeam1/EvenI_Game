@@ -16,6 +16,7 @@ public class TipData
         string[] datas = _parsedLine.Trim().Split('\t');
 
         this.Index = (TIP_INDEX)int.Parse(datas[0]);
-        this.tipString = datas[1].Replace('_', ' ');
+        string temp = datas[1].Replace('_', ' ');
+        this.tipString = temp.Replace('n', '\n');
     }
 }

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 433485986516850947}
   - component: {fileID: 433485986516850946}
   - component: {fileID: 433485986516850945}
-  - component: {fileID: 7262012026315807775}
   m_Layer: 30
   m_Name: stage3_3 monster
   m_TagString: Untagged
@@ -28,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 433485986516850950}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -36,7 +35,7 @@ Transform:
   - {fileID: 433485986660834037}
   - {fileID: 2489134053883128028}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &433485986516850944
 BoxCollider2D:
@@ -110,7 +109,7 @@ MonoBehaviour:
     Mob_tracking: 0
     Mob_movement_index: 0
     Mob_move_strength: 0
-    Mob_Score: 0
+    Mob_Score: 30
     Mob_filecode: 
   mobMoveData:
     IsInfiniteLifetime: 0
@@ -121,6 +120,14 @@ MonoBehaviour:
     exitEaseTime: 3
     invokeEase: 27
     exitEase: 26
+  visualData:
+    spriteRenderer: {fileID: 433485986660834034}
+    animator: {fileID: 3585553583902592131}
+    defaultColor: {r: 1, g: 1, b: 1, a: 1}
+    onHitColor: {r: 1, g: 0, b: 0, a: 1}
+  soundData:
+    GetDamaged: {fileID: 8300000, guid: 88b7bfbe202394156af36c8009be21b1, type: 3}
+    OnDestroy: {fileID: 8300000, guid: 840ac1529cced473793b902d880799d1, type: 3}
   mobHP: {fileID: 433485986516850945}
   mobCollider: {fileID: 433485986516850944}
   mobRigid: {fileID: 433485986516850947}
@@ -141,27 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hp: 0
-  _setHp: 100
---- !u!95 &7262012026315807775
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 433485986516850950}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 143255ff2b3319b4d854bce9bf7e105a, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  _setHp: 30
 --- !u!1 &433485986660834036
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,6 +160,7 @@ GameObject:
   - component: {fileID: 433485986660834037}
   - component: {fileID: 3585553583902592131}
   - component: {fileID: 433485986660834034}
+  - component: {fileID: 515526824}
   m_Layer: 30
   m_Name: model
   m_TagString: Untagged
@@ -267,6 +255,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &515526824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433485986660834036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 5
+  sorting_order: 0
+  renderer_type: 3
+  canvas: {fileID: 0}
+  particle: {fileID: 0}
+  sprite: {fileID: 433485986660834034}
+  tilemap: {fileID: 0}
 --- !u!1 &1715670475951310741
 GameObject:
   m_ObjectHideFlags: 0

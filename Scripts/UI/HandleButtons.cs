@@ -25,11 +25,13 @@ public class HandleButtons : MonoBehaviour
             
             RunnerManager.Instance.GlobalEventInstance.IsGamePaused = false;
             // Button에 DataTrigger.SaveGameOver()가 이벤트 바인딩 되어 있는지 잘 확인하자.
+            GameManager.Instance.GlobalSoundManager.StopBGM();
             SceneManager.LoadScene("GameOverScene");
         #else
             // Application.Quit();
             RunnerManager.Instance.GlobalEventInstance.IsGamePaused = false;
             // Button에 DataTrigger.SaveGameOver()가 이벤트 바인딩 되어 있는지 잘 확인하자.
+            GameManager.Instance.GlobalSoundManager.StopBGM();
             SceneManager.LoadScene("GameOverScene");
         #endif
     }

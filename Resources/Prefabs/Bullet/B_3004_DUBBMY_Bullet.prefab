@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6244826906334106071}
   - component: {fileID: 4386768875940482444}
   - component: {fileID: 1553458426057371917}
+  - component: {fileID: -3646728784286194332}
   m_Layer: 29
   m_Name: B_3004_DUBBMY_Bullet
   m_TagString: Untagged
@@ -163,20 +164,20 @@ MonoBehaviour:
   Index: 0
   player: {fileID: 0}
   bulletData:
-    Index: 3000
-    Bullet_name: "\uBE44\uC5B4\uC788\uC74C"
-    Bullet_category: 0
-    Bullet_width: 0
-    Bullet_height: 0
-    Bullet_min_dmg: 0
-    Bullet_max_dmg: 0
-    Bullet_set_dmg: 0
-    Bullet_crit_chance: 0
-    Bullet_crit_const: 0
-    Bullet_speed: 0
-    Bullet_last_time: 0
-    Bullet_reflect_count: 0
-    Bullet_filecode: 
+    Index: 3004
+    Bullet_name: "\uB354\uBBF8\uBCF4\uC2A4 \uBC18\uC0AC\uD0C4"
+    Bullet_category: 2
+    Bullet_width: 7
+    Bullet_height: 7
+    Bullet_min_dmg: -1
+    Bullet_max_dmg: -1
+    Bullet_set_dmg: 7
+    Bullet_crit_chance: -1
+    Bullet_crit_const: -1
+    Bullet_speed: 6
+    Bullet_last_time: 20
+    Bullet_reflect_count: 10
+    Bullet_filecode: ' '
   bulletVisualData:
     dmgPrefab: {fileID: 0}
     critFontSize: 0
@@ -191,3 +192,21 @@ MonoBehaviour:
     Shoot: {fileID: 0}
   time: 0
   bulletRigid: {fileID: 0}
+--- !u!114 &-3646728784286194332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2451825111431787497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 4
+  sorting_order: 3
+  renderer_type: 3
+  canvas: {fileID: 0}
+  particle: {fileID: 0}
+  sprite: {fileID: 6816373025566611999}
