@@ -72,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -462672221
-  m_SortingLayer: 3
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -421680956, guid: 0043cdcaab6a691409d95489973c45da, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -648,6 +648,10 @@ MonoBehaviour:
   playerVisualData:
     spriteRenderer: {fileID: 4051240422337465665}
     playerAnimator: {fileID: 4051240422337465666}
+  playerSoundData:
+    JumpActive: {fileID: 0}
+    GetDamaged: {fileID: 0}
+    Revival: {fileID: 0}
   playerState: {fileID: 8893035031487050735}
   playerHP: {fileID: 8893035031487050734}
   inputHandler: {fileID: 8893035031487050710}
@@ -658,6 +662,7 @@ MonoBehaviour:
   IsEnable: 0
   IsHitedOnce: 0
   HitParticle: {fileID: 7124663019238293431, guid: 301f99a9c0b0643798ca6ef1fad42b44, type: 3}
+  HealParticle: {fileID: 5126023236782931868, guid: ee93d56454be64c16950aa8a3ba53089, type: 3}
 --- !u!114 &8893035031487050734
 MonoBehaviour:
   m_ObjectHideFlags: 0

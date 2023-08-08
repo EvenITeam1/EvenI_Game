@@ -2087,6 +2087,7 @@ MonoBehaviour:
   - {fileID: 8620079346850200605, guid: 321077a01d1ab784c9271944c1295e8d, type: 3}
   - {fileID: 7131970702525554512, guid: e224f8989d9dfc64dab95be6533ed078, type: 3}
   - {fileID: 8620079346850200605, guid: b0dc6b4e86f807b4885f9e3e073cb6c3, type: 3}
+  - {fileID: 7124663019238293431, guid: 301f99a9c0b0643798ca6ef1fad42b44, type: 3}
   _poolingAmount: 100
   _parent: {fileID: 916270677}
 --- !u!4 &929400088
@@ -12101,6 +12102,9 @@ MonoBehaviour:
   _setHp: 7000
   _hpBar: {fileID: 2005786856}
   bossScore: 7000
+  isBossRaid: 0
+  bossGroups: []
+  heal_VFX: {fileID: 0}
 --- !u!95 &8845007726629981041
 Animator:
   serializedVersion: 4
@@ -12329,6 +12333,7 @@ MonoBehaviour:
   IsEnable: 1
   IsHitedOnce: 0
   HitParticle: {fileID: 7124663019238293431, guid: 301f99a9c0b0643798ca6ef1fad42b44, type: 3}
+  HealParticle: {fileID: 0}
 --- !u!114 &8893035030120839791
 MonoBehaviour:
   m_ObjectHideFlags: 0

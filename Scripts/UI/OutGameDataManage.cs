@@ -37,7 +37,7 @@ public class OutGameDataManage : MonoBehaviour
         if (goldAmount != null) { goldAmount.text = GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedCoin.ToString(); }
         if (boneAmount != null) { boneAmount.text = GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedBone.ToString(); }
         if (expAmount != null) { expAmount.text = "EXP " + GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedExp.ToString() + "/" + RequireExpAmounts[currentLevel - 1].ToString(); }
-        if(expBar != null) { expBar.value = GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedExp / RequireExpAmounts[currentLevel - 1]; }
+        if(expBar != null) { expBar.value = (float)GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedExp / (float)RequireExpAmounts[currentLevel - 1]; }
         if(levelCount != null) { levelCount.text = "Level " + currentLevel; }
         if (additionalReviveAmount != null) { additionalReviveAmount.text = "+" + GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.AdditionalRevivalCount.ToString(); }
         if (coin15Amount != null) { coin15Amount.text = "+" + GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.Coin15Count.ToString(); }

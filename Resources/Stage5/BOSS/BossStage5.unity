@@ -2805,6 +2805,7 @@ MonoBehaviour:
   - {fileID: 2451825111431787497, guid: 674c01e81472647ceab3adc8364dc49f, type: 3}
   - {fileID: 2451825111431787497, guid: bda32e45916e54ff19226998c60cd687, type: 3}
   - {fileID: 8620079346850200605, guid: 6c73f3bb6a77cd740bc25d92db75c2aa, type: 3}
+  - {fileID: 7124663019238293431, guid: 301f99a9c0b0643798ca6ef1fad42b44, type: 3}
   _poolingAmount: 150
   _parent: {fileID: 916270677}
 --- !u!4 &929400088
@@ -12872,6 +12873,9 @@ MonoBehaviour:
   _setHp: 5000
   _hpBar: {fileID: 1346242070}
   bossScore: 5000
+  isBossRaid: 0
+  bossGroups: []
+  heal_VFX: {fileID: 0}
 --- !u!1 &5891056808167106739
 GameObject:
   m_ObjectHideFlags: 0
@@ -13117,6 +13121,7 @@ MonoBehaviour:
   IsEnable: 1
   IsHitedOnce: 0
   HitParticle: {fileID: 7124663019238293431, guid: 301f99a9c0b0643798ca6ef1fad42b44, type: 3}
+  HealParticle: {fileID: 0}
 --- !u!114 &8893035030120839791
 MonoBehaviour:
   m_ObjectHideFlags: 0

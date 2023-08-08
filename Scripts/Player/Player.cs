@@ -235,6 +235,7 @@ public class Player : MonoBehaviour, IDamagable
     
     Coroutine revivalCoroutine = null;
 
+    public GameObject HealParticle = null;
     public void Heal(float _amount){
         float maxHp = playerHP.getMaxHp();
         float currentHp = playerHP.getHP();
@@ -245,6 +246,10 @@ public class Player : MonoBehaviour, IDamagable
         else {
             playerHP.setHP(currentHp + healAmount);
         }
+        var healObject = ObjectPool.instance.GetObject(HealParticle);
+        healObject.transform.position = transform.position;
+        healObject.transform.SetParent(this.transform);
+        healObject.SetActive(true);
     }
 
     public void Barrier(){

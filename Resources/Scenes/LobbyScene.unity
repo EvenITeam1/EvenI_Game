@@ -6576,7 +6576,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: EXP 40/265
+  m_text: EXP
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d74ca8e342e921f4999d2d165f2d38bc, type: 2}
   m_sharedMaterial: {fileID: 2384728880335398813, guid: d74ca8e342e921f4999d2d165f2d38bc, type: 2}
@@ -6750,6 +6750,7 @@ RectTransform:
   - {fileID: 2053930680}
   - {fileID: 2072771494}
   - {fileID: 1857259523}
+  - {fileID: 842564373}
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8550,6 +8551,93 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 842438998}
   m_CullTransparentMesh: 1
+--- !u!1001 &842564372
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 642090950}
+    m_Modifications:
+    - target: {fileID: 4495816857315907764, guid: 44ae9af94448b47a09a05dbc56af4404, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4495816857315907764, guid: 44ae9af94448b47a09a05dbc56af4404, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 38.91892
+      objectReference: {fileID: 0}
+    - target: {fileID: 4495816857315907764, guid: 44ae9af94448b47a09a05dbc56af4404, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 38.91892
+      objectReference: {fileID: 0}
+    - target: {fileID: 4495816857315907764, guid: 44ae9af94448b47a09a05dbc56af4404, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 38.91892
+      objectReference: {fileID: 0}
+    - target: {fileID: 4495816857315907764, guid: 44ae9af94448b47a09a05dbc56af4404, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4495816857315907764, guid: 44ae9af94448b47a09a05dbc56af4404, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4495816857315907764, guid: 44ae9af94448b47a09a05dbc56af4404, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3502.7026
+      objectReference: {fileID: 0}
+    - target: {fileID: 4495816857315907764, guid: 44ae9af94448b47a09a05dbc56af4404, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4495816857315907764, guid: 44ae9af94448b47a09a05dbc56af4404, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4495816857315907764, guid: 44ae9af94448b47a09a05dbc56af4404, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4495816857315907764, guid: 44ae9af94448b47a09a05dbc56af4404, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4495816857315907764, guid: 44ae9af94448b47a09a05dbc56af4404, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4495816857315907764, guid: 44ae9af94448b47a09a05dbc56af4404, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4495816857315907764, guid: 44ae9af94448b47a09a05dbc56af4404, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4495816857315907766, guid: 44ae9af94448b47a09a05dbc56af4404, type: 3}
+      propertyPath: m_Name
+      value: DataTrigger
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: 44ae9af94448b47a09a05dbc56af4404, type: 3}
+--- !u!4 &842564373 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4495816857315907764, guid: 44ae9af94448b47a09a05dbc56af4404, type: 3}
+  m_PrefabInstance: {fileID: 842564372}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &842564374 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4495816857315907765, guid: 44ae9af94448b47a09a05dbc56af4404, type: 3}
+  m_PrefabInstance: {fileID: 842564372}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bba21831d3a0d44918d86fd518d629cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &849288497
 GameObject:
   m_ObjectHideFlags: 0
@@ -12261,6 +12349,7 @@ GameObject:
   - component: {fileID: 996074446}
   - component: {fileID: 996074445}
   - component: {fileID: 996074449}
+  - component: {fileID: 996074450}
   m_Layer: 5
   m_Name: UserUIPopUpCanvas
   m_TagString: Untagged
@@ -12350,7 +12439,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 959.76965, y: 540}
+  m_SizeDelta: {x: 1110, y: 540}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &996074449
 MonoBehaviour:
@@ -12377,6 +12466,20 @@ MonoBehaviour:
   stageEnterButtonList:
   - {fileID: 0}
   currentLevel: 1
+--- !u!114 &996074450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996074444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4786f80bbe4114f9adf171dcf9098d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterCount: {fileID: 51710506}
+  stageClearCount: {fileID: 812853627}
 --- !u!1 &996722395
 GameObject:
   m_ObjectHideFlags: 0
@@ -14692,7 +14795,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "  \uBAA8\uC740 \uB204\uC801 \uCF54\uC778 : 0\uAC1C"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d74ca8e342e921f4999d2d165f2d38bc, type: 2}
   m_sharedMaterial: {fileID: 2384728880335398813, guid: d74ca8e342e921f4999d2d165f2d38bc, type: 2}
@@ -15860,7 +15963,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "  \uB2EC\uB9B0 \uAC70\uB9AC : 1500m"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d74ca8e342e921f4999d2d165f2d38bc, type: 2}
   m_sharedMaterial: {fileID: 2384728880335398813, guid: d74ca8e342e921f4999d2d165f2d38bc, type: 2}
@@ -16776,19 +16879,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
-        m_MethodName: SceneChangeWithLoadingScene
-        m_Mode: 5
+      - m_Target: {fileID: 642090951}
+        m_TargetAssemblyTypeName: SatietyUse, Assembly-CSharp
+        m_MethodName: UseSatietyInBossMode
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Stage1CutScene
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 842564374}
         m_TargetAssemblyTypeName: DataTrigger, Assembly-CSharp
         m_MethodName: InitializeData
         m_Mode: 1
@@ -16797,19 +16900,19 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Stage1CutScene
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SatietyUse, Assembly-CSharp
-        m_MethodName: UseSatietyInStoryMode
-        m_Mode: 1
+      - m_Target: {fileID: 1497892441}
+        m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
+        m_MethodName: SceneChangeWithLoadingScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: BossRaidScene
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1309199982
@@ -22224,7 +22327,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1771755631}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1497892441}
+        m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
+        m_MethodName: SceneChange
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ShopScene
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1771755631
 MonoBehaviour:
   m_ObjectHideFlags: 0
