@@ -18,14 +18,13 @@ public class OutGameDataManage : MonoBehaviour
     [SerializeField] List<Button> stageEnterButtonList; //use only in StageSelectScene
     public int currentLevel = 1;
 
-
     private static bool isFirstAccess = true;
 
     private void Awake()
     {
         if (isFirstAccess)
         {
-            GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.LoadSatietyDataFromJson();
+            GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.LoadOutgameDataFromJson();
             isFirstAccess = false;
         }
         currentLevel = GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.AccountLevel;

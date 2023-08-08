@@ -129,6 +129,13 @@ public class OutgameSaveData
         this.BGMAmount = BGM;
         this.SFXAmount = SFX;
     }
+    
+    public void ClearJson() {
+        if (File.Exists(string.Format("{0}/{1}.json", Application.persistentDataPath, "OutgameData")))
+        {
+            File.Delete(string.Format("{0}/{1}.json", Application.persistentDataPath, "OutgameData"));
+        }
+    }
 
     public void SaveOutgameDataToJson()
     {
@@ -233,5 +240,12 @@ public class SaveNLoadManager : MonoBehaviour
     public ref SaveData GetSaveDataByRef()
     {
         return ref this.saveData;
+    }
+    [ContextMenu("Clear Json")]
+    public void ClearJson() {
+        if (File.Exists(string.Format("{0}/{1}.json", Application.persistentDataPath, "OutgameData")))
+        {
+            File.Delete(string.Format("{0}/{1}.json", Application.persistentDataPath, "OutgameData"));
+        }
     }
 }

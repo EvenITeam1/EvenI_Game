@@ -1408,6 +1408,7 @@ GameObject:
   - component: {fileID: 209575238}
   - component: {fileID: 209575237}
   - component: {fileID: 209575241}
+  - component: {fileID: 209575242}
   m_Layer: 5
   m_Name: UserUIPopUpCanvas
   m_TagString: Untagged
@@ -1424,7 +1425,7 @@ RectTransform:
   m_GameObject: {fileID: 209575235}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0.018518519, y: 0.018518519, z: 0.018518519}
+  m_LocalScale: {x: 0.01851852, y: 0.01851852, z: 0.01851852}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1781067990}
@@ -1435,7 +1436,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1110, y: 540}
+  m_SizeDelta: {x: 1168.6152, y: 540}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &209575237
 MonoBehaviour:
@@ -1521,7 +1522,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: -342883927
+  m_SortingLayerID: -327802893
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &209575241
@@ -1538,6 +1539,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterCount: {fileID: 235909012}
   stageClearCount: {fileID: 1738750086}
+--- !u!114 &209575242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 209575235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 9
+  sorting_order: 0
+  renderer_type: 1
+  canvas: {fileID: 209575240}
+  particle: {fileID: 0}
+  sprite: {fileID: 0}
+  tilemap: {fileID: 0}
 --- !u!1 &214751962
 GameObject:
   m_ObjectHideFlags: 0
@@ -1819,6 +1839,7 @@ GameObject:
   - component: {fileID: 240462125}
   - component: {fileID: 240462124}
   - component: {fileID: 240462123}
+  - component: {fileID: 240462127}
   m_Layer: 5
   m_Name: IconChangeCanvas
   m_TagString: Untagged
@@ -1885,7 +1906,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: -342883927
+  m_SortingLayerID: -327802893
   m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &240462126
@@ -1897,7 +1918,7 @@ RectTransform:
   m_GameObject: {fileID: 240462121}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0.018518519, y: 0.018518519, z: 0.018518519}
+  m_LocalScale: {x: 0.01851852, y: 0.01851852, z: 0.01851852}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1227442821}
@@ -1908,8 +1929,27 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1110, y: 540}
+  m_SizeDelta: {x: 1168.6152, y: 540}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &240462127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 240462121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 9
+  sorting_order: 0
+  renderer_type: 1
+  canvas: {fileID: 240462125}
+  particle: {fileID: 0}
+  sprite: {fileID: 0}
+  tilemap: {fileID: 0}
 --- !u!1 &248624551
 GameObject:
   m_ObjectHideFlags: 0
@@ -8364,6 +8404,7 @@ GameObject:
   - component: {fileID: 1226895507}
   - component: {fileID: 1226895506}
   - component: {fileID: 1226895505}
+  - component: {fileID: 1226895509}
   m_Layer: 5
   m_Name: MoreInfoCanvas
   m_TagString: Untagged
@@ -8430,7 +8471,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: -2061923363
+  m_SortingLayerID: -327802893
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &1226895508
@@ -8442,7 +8483,7 @@ RectTransform:
   m_GameObject: {fileID: 1226895504}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0.025694445, y: 0.025694445, z: 0.025694445}
+  m_LocalScale: {x: 0.027051281, y: 0.027051281, z: 0.027051281}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 370144584}
@@ -8454,8 +8495,27 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 800, y: 389.18918}
+  m_SizeDelta: {x: 800, y: 369.66827}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1226895509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226895504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 9
+  sorting_order: 0
+  renderer_type: 1
+  canvas: {fileID: 1226895507}
+  particle: {fileID: 0}
+  sprite: {fileID: 0}
+  tilemap: {fileID: 0}
 --- !u!1 &1227442820
 GameObject:
   m_ObjectHideFlags: 0
@@ -10912,6 +10972,7 @@ GameObject:
   - component: {fileID: 1608754233}
   - component: {fileID: 1608754234}
   - component: {fileID: 1608754235}
+  - component: {fileID: 1608754236}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -11097,6 +11158,25 @@ MonoBehaviour:
   userIcons:
   - {fileID: 657440388}
   - {fileID: 563310786}
+--- !u!114 &1608754236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608754227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 8
+  sorting_order: 0
+  renderer_type: 1
+  canvas: {fileID: 1608754230}
+  particle: {fileID: 0}
+  sprite: {fileID: 0}
+  tilemap: {fileID: 0}
 --- !u!1 &1620506846
 GameObject:
   m_ObjectHideFlags: 0
