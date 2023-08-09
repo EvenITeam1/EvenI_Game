@@ -51,7 +51,7 @@ namespace Assets.PixelMonsters.Common.Scripts
                 default: throw new NotSupportedException();
             }
 
-            //Debug.Log("SetState: " + state);
+            ////Debug.Log("SetState: " + state);
         }
 
         public AnimationState GetState()

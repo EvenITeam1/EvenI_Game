@@ -9,7 +9,7 @@
 ## 구성원
 |개발 1 팀 양시훈|개발 1 팀 홍상준|
 |---|---|
-|@slhun22|<a href="https://github.com/DogGuyMan"><img src="https://github.com/DogGuyMan.png" width="90"></a>|
+|<a href="https://github.com/slhun22"><img src="https://github.com/slhun22.png" width="90">|<a href="https://github.com/DogGuyMan"><img src="https://github.com/DogGuyMan.png" width="90"></a>|
 
 ---
 

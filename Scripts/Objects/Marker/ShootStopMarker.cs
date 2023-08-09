@@ -22,7 +22,7 @@ public class ShootStopMarker : EventMarker
         if(player.Count() == 0) {isActivated = false;}
         else if(player.Count() != 0 && !isActivated)
         {
-            //Debug.Log("지나침");
+            ////Debug.Log("지나침");
             isActivated = true;
             foreach (var item in player)
             {

@@ -51,7 +51,7 @@ public class PlayerState : MonoBehaviour
 
     public void ChangeState(PLAYER_STATES _state)
     {
-        //Debug.Log($"ChangeState : {_state.ToString()}");
+        ////Debug.Log($"ChangeState : {_state.ToString()}");
         if (currentState == _state) return;
         currentState = _state;
         currentCoroutine = StartCoroutine(currentState.ToString());

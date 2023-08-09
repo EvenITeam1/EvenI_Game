@@ -181,12 +181,21 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
-      propertyPath: cutSceneTextDatas.Array.size
+      propertyPath: currentStage
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
+      propertyPath: LoadSceneString
+      value: LobbyScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
+      propertyPath: cutSceneTextDatas.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.data[0].CST_text
-      value: "\uC6A9\uC0AC\uB2D8 \uC774\uCABD\uC774\uC5D0\uC694! "
+      value: "\uC548\uB155\uD558\uC138\uC694 \uB354\uBBF8 \uD14D\uC2A4\uD2B8\uC785\uB2C8\uB2E4.
+        \uACF5\uBC31\uC740 \uC5B8\uB354\uBC14"
       objectReference: {fileID: 0}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.data[1].CST_text
@@ -259,8 +268,13 @@ PrefabInstance:
         \uD574\uC694\u2026! "
       objectReference: {fileID: 0}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
+      propertyPath: cutSceneTextDatas.Array.data[0].CST_stageNumber
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.data[0].CST_talkingOwner
-      value: OOO
+      value: "\uB098 \uC774\uAC8C\uC784\uC5D0\uC11C \uD654\uC790\uAC00 \uB418\uB294
+        \uC774\uB984\uC785\uB2C8\uB2E4"
       objectReference: {fileID: 0}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.data[1].CST_talkingOwner
@@ -360,15 +374,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.data[0].CST_contentColor.b
-      value: 0.5411765
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.data[0].CST_contentColor.g
-      value: 0.41960785
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.data[0].CST_contentColor.r
-      value: 0.91764706
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 302866959295276077, guid: ebd95df1b168d42579d8cf34dbf5c5c9, type: 3}
       propertyPath: cutSceneTextDatas.Array.data[10].CST_alignmentType

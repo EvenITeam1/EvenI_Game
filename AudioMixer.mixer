@@ -34,6 +34,26 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!244 &-5182765115337835907
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 5d18168b107a349499c1e148467bbf42
+  m_EffectName: Normalize
+  m_MixLevel: 499728bae913a4d98afbff00500d9ba4
+  m_Parameters:
+  - m_ParameterName: Fade in time
+    m_GUID: 23458f88d02224f95a0d336e3333029c
+  - m_ParameterName: Lowest volume
+    m_GUID: d1eb3d100db7145d6a2bc3693be6863c
+  - m_ParameterName: Maximum amp
+    m_GUID: e54d309e795604d89bc8f1e218c40af5
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!243 &-3336803783309557798
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -65,6 +85,28 @@ AudioMixerEffectController:
   m_EffectName: Attenuation
   m_MixLevel: 10c790468df0b40709837fe61c2f9e8c
   m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &-597526921246271184
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: b569b45cf2ccf44b7ac50411facf5071
+  m_EffectName: Compressor
+  m_MixLevel: aabc7d37113894e4e8ef0edcbdd4fd88
+  m_Parameters:
+  - m_ParameterName: Threshold
+    m_GUID: c1ec4e93e257a4cd8ab9ab7c56de645d
+  - m_ParameterName: Attack
+    m_GUID: c9473ad7c5b66425695eeb2cba9d63cd
+  - m_ParameterName: Release
+    m_GUID: dccf0742fe2a54257abd2d417956f445
+  - m_ParameterName: Make up gain
+    m_GUID: d565b28fa60cf4166831df7ff20afaac
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
@@ -185,7 +227,7 @@ AudioMixerSnapshotController:
     50ce95d60a73b4dc0b336897700056a8: -54.8
     4c779a0781aa340daaea04935e03e351: 0
     654a74f79ac9d4f198e2e08a3a30674f: 0
-    a268ba18df3fa425991e1aa045085d36: -13.69587
+    a268ba18df3fa425991e1aa045085d36: -4.2334714
     35f21138b1036473a9497d71368374db: 0.371
     d4860998edd61476b86a095efb0fd6d3: 0
     68b86139caaf64b25a6b6abff5921c77: 0.1

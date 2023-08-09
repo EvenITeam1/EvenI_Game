@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3153187838851130806}
   - component: {fileID: 3432275204586376603}
   - component: {fileID: 3432275204586376600}
+  - component: {fileID: 1645001125}
   m_Layer: 29
   m_Name: Stage1_BossBullet_2
   m_TagString: Untagged
@@ -34,7 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &6341429343447642497
 CircleCollider2D:
@@ -115,6 +116,8 @@ MonoBehaviour:
     nonCritColor:
       serializedVersion: 2
       rgba: 0
+  bulletSoundData:
+    Shoot: {fileID: 0}
   time: 0
   bulletRigid: {fileID: 6341429343447642496}
 --- !u!198 &3432275204586376603
@@ -4923,9 +4926,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -1789428647
+  m_SortingLayer: 4
+  m_SortingOrder: 3
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -4956,3 +4959,22 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &1645001125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6341429343447642499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 4
+  sorting_order: 3
+  renderer_type: 2
+  canvas: {fileID: 0}
+  particle: {fileID: 3432275204586376600}
+  sprite: {fileID: 0}
+  tilemap: {fileID: 0}

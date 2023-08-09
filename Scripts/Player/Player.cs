@@ -234,6 +234,7 @@ public class Player : MonoBehaviour, IDamagable
     }
     
     Coroutine revivalCoroutine = null;
+    Coroutine ghostCoroutine = null;
 
     public GameObject HealParticle = null;
     public void Heal(float _amount){
@@ -259,19 +260,19 @@ public class Player : MonoBehaviour, IDamagable
     
     public void Revival(){
         if(revivalCoroutine != null) {StopCoroutine(revivalCoroutine);}
-        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.RevivalCount--;
-        transform.position = GetRevivalPosition();
+        if(ghostCoroutine != null ){StopCoroutine(ghostCoroutine);}
         revivalCoroutine = StartCoroutine(AsyncRevival());
+        ghostCoroutine = StartCoroutine(BecomePlayerState());
         GameManager.Instance.GlobalSoundManager.PlayByClip(playerSoundData.Revival, SOUND_TYPE.SFX);
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.RevivalCount--;
     }
+
 
     IEnumerator AsyncRevival(){
         transform.position = GetRevivalPosition();
         playerRigid.gravityScale = 0;
         playerRigid.velocity = Vector2.right * playerRigid.velocity;
         playerHP.setHP(playerHP.getMaxHp());
-        playerState.ChangeState(PLAYER_STATES.GHOST_STATE);
-        Invoke("BecomePlayerState", 3f + 0.2f);
         float passedTime = 0;
         while(passedTime <= 3f) {
             passedTime += Time.deltaTime;
@@ -283,12 +284,14 @@ public class Player : MonoBehaviour, IDamagable
         playerJumpData.jumpCount = 3;
         yield break;
     }
-    public void BecomePlayerState(){
+    IEnumerator BecomePlayerState() {
+        playerState.ChangeState(PLAYER_STATES.GHOST_STATE);
+        yield return YieldInstructionCache.WaitForSeconds(3f);
         playerState.ChangeState(PLAYER_STATES.PLAYER_STATE);
     }
 
     private Vector2 GetRevivalPosition() {
-        if(-6f < transform.position.y && transform.position.y < -4f) {
+        if(-9999f < transform.position.y && transform.position.y < -4f) {
             return new Vector2(transform.position.x, 1f);
         }
         return transform.position;

@@ -44,6 +44,7 @@ public class SetLobbyState : MonoBehaviour
 
     void SetBossModeButton()
     {
+        /*
         if (GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.HightestStageUnlocked == 10)
         {
             BossRaidModeButton.interactable = true;
@@ -54,6 +55,10 @@ public class SetLobbyState : MonoBehaviour
         {
             BossRaidModeButton.interactable = false;
             Cover.SetActive(true);
-        }       
+        }     
+        */
+
+        BossRaidModeButton.interactable = true;
+        Cover.SetActive(false);
     }
 }

@@ -9,7 +9,6 @@ public class ParticleCallback : MonoBehaviour
         isReturned = false;
     }
     private void OnParticleSystemStopped() {
-        if(!isReturned) return;
         ObjectPool.instance.ReturnObject(gameObject);
         isReturned = true;
     }

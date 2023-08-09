@@ -16,6 +16,7 @@ public class BossHP : MonoBehaviour
     public int stageIndex;
     [SerializeField] List<GameObject> bossGroups;
     [SerializeField] List<GameObject> bossPatternManagerList;
+    [SerializeField] GameObject CountDownObj;
     private SpriteRenderer spriteRenderer;
     private void Awake() {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -54,6 +55,7 @@ public class BossHP : MonoBehaviour
                 RunnerManager.Instance.GlobalEventInstance.BroadCastBossDie();
             else
             {
+                CountDownObj.SetActive(true);
                 bossPatternManagerList[stageIndex].SetActive(false);
                 bossGroups[stageIndex].SetActive(false);
                 RunnerManager.Instance.GlobalPlayer.Heal(0.5f);

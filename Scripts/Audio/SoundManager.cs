@@ -31,6 +31,8 @@ public class SoundManager : MonoBehaviour
         AudioSources[1].clip = null;
         AudioSources[0].pitch = 1f;
         AudioSources[1].pitch = 1f;
+        UnmuteSFX();
+        UnmuteBGM();
     }
     Sequence sequence;
     /////////////////////////////////////////////////////////////////////////////////
@@ -124,6 +126,17 @@ public class SoundManager : MonoBehaviour
             AudioSources[(int)SOUND_TYPE.BGM].Stop();
             AudioSources[(int)SOUND_TYPE.BGM].clip = null;
         }
+    }
+
+    public void StopSFX(){
+        if(AudioSources[(int)SOUND_TYPE.SFX].isPlaying) {
+            StartCoroutine(AsyncStopSFX());
+        }
+    }
+    IEnumerator AsyncStopSFX(){
+        MuteSFX();
+        yield return new WaitUntil(() => {return !AudioSources[(int)SOUND_TYPE.SFX].isPlaying;});
+        FadeInSFX(0.25f);
     }
 
     public void PlaySFXByString(string audioName)

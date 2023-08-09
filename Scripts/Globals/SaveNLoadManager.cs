@@ -156,7 +156,7 @@ public class OutgameSaveData
     {
         if (!File.Exists(string.Format("{0}/{1}.json", Application.persistentDataPath, "OutgameData")))
         {
-            Debug.Log("앱 최초실행 : 아웃게임 스크립트");
+            //Debug.Log("앱 최초실행 : 아웃게임 스크립트");
             AdditionalRevivalCount = 0;
             Coin15Count = 0;
             AccountLevel = 1;
@@ -243,9 +243,11 @@ public class SaveNLoadManager : MonoBehaviour
     }
     [ContextMenu("Clear Json")]
     public void ClearJson() {
-        if (File.Exists(string.Format("{0}/{1}.json", Application.persistentDataPath, "OutgameData")))
-        {
+        //Debug.Log(Application.persistentDataPath);
+        if(File.Exists(string.Format("{0}/{1}.json", Application.persistentDataPath, "NickNameJsonData"))){
+            File.Delete(string.Format("{0}/{1}.json", Application.persistentDataPath, "NickNameJsonData"));
             File.Delete(string.Format("{0}/{1}.json", Application.persistentDataPath, "OutgameData"));
+            File.Delete(string.Format("{0}/{1}.json", Application.persistentDataPath, "QuitTimeData"));
         }
     }
 }

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 9144402727235173464}
   - component: {fileID: 3216534354840288044}
   - component: {fileID: -5585144578021607619}
+  - component: {fileID: 2491044282736726189}
   m_Layer: 29
   m_Name: EnemyReflectBullet
   m_TagString: Untagged
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1789428647
-  m_SortingLayer: 4
+  m_SortingLayer: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: -1472942929, guid: f7d4eec0ef13e22479ce6f4c08aae432, type: 3}
   m_Color: {r: 0.87812257, g: 0.514151, b: 1, a: 0.7294118}
@@ -191,3 +192,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2491044282736726189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7131970702525554512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 4
+  sorting_order: 0
+  renderer_type: 3
+  canvas: {fileID: 0}
+  particle: {fileID: 0}
+  sprite: {fileID: 7131970702525554527}
+  tilemap: {fileID: 0}

@@ -6,7 +6,7 @@ public class TimeRestore : MonoBehaviour
 {
     void Start()
     {
-        Debug.Log(Time.timeScale);
+        //Debug.Log(Time.timeScale);
         Time.timeScale = 1.0f;
     }
 }
