@@ -96,7 +96,7 @@ public class DataTrigger : MonoBehaviour
 
         RunnerManager.Instance.GlobalPlayer.playerHP.setMaxHp(coverPlayer.playerData.Character_hp);
         RunnerManager.Instance.GlobalPlayer.playerHP.setHP(coverPlayer.playerData.Character_hp);
-        RunnerManager.Instance.GlobalPlayer.playerHP.recoverHp(coverPlayer.playerData.Character_per_hp_heal);
+        RunnerManager.Instance.GlobalPlayer.playerHP.setRecoverHp(coverPlayer.playerData.Character_per_hp_heal);
     }
 
     // public void LoadOutToCutScene(){}

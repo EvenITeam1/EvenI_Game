@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 90941165848782678}
   - component: {fileID: 1132459411153044622}
   - component: {fileID: 7162585018384856078}
-  - component: {fileID: 7105880652023438257}
   m_Layer: 8
   m_Name: ZombieMobAttack
   m_TagString: Untagged
@@ -34,7 +33,7 @@ Transform:
   - {fileID: 4092765702170668031}
   - {fileID: 648444098528817267}
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1132459411153044622
 BoxCollider2D:
@@ -81,13 +80,13 @@ MonoBehaviour:
     Ob_category: 1
     Ob_width: 1
     Ob_height: 1
-    Ob_damage: 30
+    Ob_damage: 35
     Ob_bullet_index: -1
     Ob_movement_index: 0
     Ob_move_strength: 0
-    OB_Hitable: 0
-    Ob_HP: 1000
-    Ob_Score: 0
+    OB_Hitable: 1
+    Ob_HP: 100
+    Ob_Score: 100
     Ob_filecode: 
   coinData:
     ScoreValue: 0
@@ -98,35 +97,15 @@ MonoBehaviour:
     activateParticle: {fileID: 0}
   visualData:
     spriteRenderer: {fileID: 4866375728624784943}
-    animator: {fileID: 0}
-    defaultColor: {r: 1, g: 1, b: 1, a: 0}
-    onHitColor: {r: 1, g: 0, b: 0, a: 0}
+    animator: {fileID: 6804716887688813293}
+    defaultColor: {r: 1, g: 1, b: 1, a: 1}
+    onHitColor: {r: 1, g: 0, b: 0, a: 1}
   soundData:
     GetDamaged: {fileID: 0}
     OnDisable: {fileID: 0}
   objectCollider: {fileID: 1132459411153044622}
   moveTriggerOffset: 10
   HitParticle: {fileID: 7124663019238293431, guid: 301f99a9c0b0643798ca6ef1fad42b44, type: 3}
---- !u!95 &7105880652023438257
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 90941165848782683}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 865dcba136ff2de4f89d581e18c1344e, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4405456572400412980
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,7 +226,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1789428647
-  m_SortingLayer: 4
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -152616320, guid: 5e3d97e11b56ef841afd24e623f9751f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

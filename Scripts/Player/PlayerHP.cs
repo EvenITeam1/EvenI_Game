@@ -45,6 +45,8 @@ public class PlayerHP : MonoBehaviour, HP
     public void setMaxHp(float hp){_setHp = hp;}
     public float getHP() { return this._hp; }
     public float getMaxHp() {return this._setHp;}
+
+    public void setRecoverHp(float n) { _recoverHp = n;} 
     public bool isAlive()
     {
         if (_hp > 0)
