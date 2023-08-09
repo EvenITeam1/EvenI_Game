@@ -84,6 +84,7 @@ public class BossLaser : MonoBehaviour
                 if (!_laserEffect.activeSelf && _warningEffect.activeSelf)
                 {
                     _laserEffect.SetActive(true);
+                    GameManager.Instance.GlobalSoundManager.PlaySFXByString("SFX_Enemy_Laser");
                     _warningEffect.SetActive(false);
                 }
                 laserShot(width);
@@ -122,8 +123,12 @@ public class BossLaser : MonoBehaviour
                 _warningEffect.SetActive(false);
 
 
-            if (!_laserEffect.activeSelf)       
-                _laserEffect.SetActive(true);       
+            if (!_laserEffect.activeSelf)
+            {
+                _laserEffect.SetActive(true);
+                GameManager.Instance.GlobalSoundManager.PlaySFXByString("SFX_Enemy_Laser");
+            }
+                
             
             laserShot(width);
             transform.position = Vector3.MoveTowards(transform.position, (Vector3)endPoint, Time.deltaTime * moveSpeed);
