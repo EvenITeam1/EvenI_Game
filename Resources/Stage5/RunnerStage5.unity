@@ -5131,7 +5131,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5259266101143668479, guid: 67f44f6e2f4d4479c91782087f2d8f2b, type: 3}
       propertyPath: OnTriggerEvents.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SendMessage
+      value: SetMessageString
       objectReference: {fileID: 0}
     - target: {fileID: 5259266101143668479, guid: 67f44f6e2f4d4479c91782087f2d8f2b, type: 3}
       propertyPath: OnTriggerEvents.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -5139,7 +5139,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5259266101143668479, guid: 67f44f6e2f4d4479c91782087f2d8f2b, type: 3}
       propertyPath: OnTriggerEvents.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.Component, UnityEngine
+      value: TutorialUI, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5259266101143668479, guid: 67f44f6e2f4d4479c91782087f2d8f2b, type: 3}
       propertyPath: OnTriggerEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
@@ -5147,7 +5147,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5259266101143668479, guid: 67f44f6e2f4d4479c91782087f2d8f2b, type: 3}
       propertyPath: OnTriggerEvents.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
-      value: Speed UP !!
+      value: SpeedUp !!
       objectReference: {fileID: 0}
     - target: {fileID: 5259266101143668479, guid: 67f44f6e2f4d4479c91782087f2d8f2b, type: 3}
       propertyPath: OnTriggerEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -5674,7 +5674,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &194303869
 Transform:
   m_ObjectHideFlags: 0
@@ -24133,7 +24133,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &815077773
 Transform:
   m_ObjectHideFlags: 0
@@ -67095,6 +67095,7 @@ MonoBehaviour:
   particle: {fileID: 0}
   sprite: {fileID: 0}
   tilemap: {fileID: 946399451}
+  meshRenderer: {fileID: 0}
 --- !u!1001 &948825814
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -114438,6 +114439,7 @@ MonoBehaviour:
   particle: {fileID: 0}
   sprite: {fileID: 0}
   tilemap: {fileID: 2146609552}
+  meshRenderer: {fileID: 0}
 --- !u!1001 &2147377357
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -115122,6 +115124,7 @@ MonoBehaviour:
   particle: {fileID: 0}
   sprite: {fileID: 0}
   tilemap: {fileID: 0}
+  meshRenderer: {fileID: 0}
 --- !u!1001 &2129455679184852879
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -115810,6 +115813,8 @@ PlayableDirector:
     value: {fileID: 0}
   - key: {fileID: -8963154591129551095, guid: ea89af9d752994683847495557c79535, type: 2}
     value: {fileID: 0}
+  - key: {fileID: -815338062123372449, guid: ea89af9d752994683847495557c79535, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References:
     - aad49908e3f494a33a197ec2159a107f: {fileID: 6592967896950120034}
@@ -116029,6 +116034,8 @@ PlayableDirector:
   - key: {fileID: -8061485927962019394, guid: ea89af9d752994683847495557c79535, type: 2}
     value: {fileID: 0}
   - key: {fileID: -8963154591129551095, guid: ea89af9d752994683847495557c79535, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -815338062123372449, guid: ea89af9d752994683847495557c79535, type: 2}
     value: {fileID: 0}
   m_ExposedReferences:
     m_References:
@@ -116448,6 +116455,7 @@ MonoBehaviour:
   particle: {fileID: 0}
   sprite: {fileID: 0}
   tilemap: {fileID: 0}
+  meshRenderer: {fileID: 0}
 --- !u!114 &4798848270903712317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116467,6 +116475,7 @@ MonoBehaviour:
   particle: {fileID: 0}
   sprite: {fileID: 0}
   tilemap: {fileID: 0}
+  meshRenderer: {fileID: 0}
 --- !u!114 &4798848271094442872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116486,6 +116495,7 @@ MonoBehaviour:
   particle: {fileID: 0}
   sprite: {fileID: 0}
   tilemap: {fileID: 0}
+  meshRenderer: {fileID: 0}
 --- !u!222 &4825273464001148928
 CanvasRenderer:
   m_ObjectHideFlags: 0
