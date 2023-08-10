@@ -80,12 +80,6 @@ public class PlaceableObject : MonoBehaviour, IDamagable
 
     private void OnDisable() {
         StopAllCoroutines();
-        if(objectData.Ob_category == OBJECT_CATEGORY.COIN) {
-            GameManager.Instance.GlobalSoundManager.PlayByClip(soundData.OnDisable, SOUND_TYPE.CONFLICTED);
-        }
-        else {
-            GameManager.Instance.GlobalSoundManager.PlayByClip(soundData.OnDisable, SOUND_TYPE.SFX);
-        }
     }
 
     #endregion
@@ -127,6 +121,7 @@ public class PlaceableObject : MonoBehaviour, IDamagable
             coinParticle.transform.position = transform.position;
             coinParticle.SetActive(true);
             gameObject.SetActive(false);
+            GameManager.Instance.GlobalSoundManager.PlayByClip(soundData.OnDisable, SOUND_TYPE.CONFLICTED);
         }
     }
 
@@ -152,6 +147,7 @@ public class PlaceableObject : MonoBehaviour, IDamagable
     {
         ObjectHP -= _amount;
         var hitObject = ObjectPool.instance.GetObject(HitParticle.gameObject);
+        if(ObjectHP <= 0){GameManager.Instance.GlobalSoundManager.PlayByClip(soundData.OnDisable, SOUND_TYPE.SFX); return;}
         hitObject.transform.position = transform.position;
         hitObject.transform.SetParent(this.transform);
         hitObject.transform.localScale = objectData.Ob_width > 3 ? (Vector3.one * (objectData.Ob_width / 2)) : (Vector3.one * (objectData.Ob_width) * 1.5f);

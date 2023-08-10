@@ -21,13 +21,21 @@ public class HandleAudioSlide : MonoBehaviour
     public Slider SfxSlider;
 
     Color MuteColor;
+    private void Awake() {
+        ColorUtility.TryParseHtmlString("#666666", out MuteColor);
+    }
 
     private void OnEnable() {
         float loadedBGMVolume = GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.BGMAmount;
         float loadedSFXVolume = GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SFXAmount;
-        GameManager.Instance.GlobalSoundManager.SetBGMVolume(loadedBGMVolume);
-        GameManager.Instance.GlobalSoundManager.SetSFXVolume(loadedSFXVolume);
-        ColorUtility.TryParseHtmlString("#666666", out MuteColor);
+        BgmMutePressed = !GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.IsBGMMuted;
+        SfxMutePressed = !GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.IsSFXMuted;
+        BgmSlider.value = loadedBGMVolume;
+        SfxSlider.value = loadedSFXVolume;
+        GameManager.Instance.GlobalSoundManager.SetBGMVolume(BgmSlider.value);
+        GameManager.Instance.GlobalSoundManager.SetSFXVolume(SfxSlider.value);
+        HandleBGMMute();
+        HandleSFXMute();
     }
 
     public void HandleBGMMute()

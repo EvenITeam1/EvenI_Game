@@ -199,7 +199,11 @@ public class Mob : MonoBehaviour, IDamagable
     {
         float currentHp = mobHP.getHP();
         mobHP.setHP(currentHp - _amount);
-        if(mobHP.getHP() <= 0){DestroyedByPlayer = true; return;}
+        if(mobHP.getHP() <= 0){
+            GameManager.Instance.GlobalSoundManager.PlayByClip(soundData.OnDestroy, SOUND_TYPE.SFX);
+            DestroyedByPlayer = true; 
+            return;
+        }
         var hitObject = ObjectPool.instance.GetObject(HitParticle.gameObject);
         hitObject.transform.position = transform.position;
         hitObject.transform.SetParent(this.transform);
@@ -228,7 +232,6 @@ public class Mob : MonoBehaviour, IDamagable
             if (mobLifeCycleCoroutine != null) StopCoroutine(mobLifeCycleCoroutine);
             if(mobHP.getHP() <= 0) {DestroyedByPlayer= true;}
             if(DestroyedByPlayer){
-                GameManager.Instance.GlobalSoundManager.PlayByClip(soundData.OnDestroy, SOUND_TYPE.SFX);
                 RunnerManager.Instance.GlobalEventInstance.scoreCheck.Score += ((mobData.Mob_Score <= 0) ? 0 : mobData.Mob_Score);
             }
         }

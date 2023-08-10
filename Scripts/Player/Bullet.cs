@@ -33,7 +33,6 @@ public class Bullet : MonoBehaviour, Hit
         time = 0;
         setDamage((int)Random.Range(bulletData.Bullet_min_dmg, bulletData.Bullet_max_dmg + 1f));
         setDir();
-        GameManager.Instance.GlobalSoundManager.PlayByClip(bulletSoundData.Shoot, SOUND_TYPE.CONFLICTED);
     }
     private void Start()
     {

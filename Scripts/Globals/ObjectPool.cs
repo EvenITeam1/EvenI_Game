@@ -23,6 +23,7 @@ public class ObjectPool : MonoBehaviour
 
     [SerializeField] public Transform _parent;
 
+
     private void Start()
     {
         InitialPooling();
@@ -127,7 +128,7 @@ public class ObjectPool : MonoBehaviour
             int index = newObject.name.IndexOf("(Clone)");
             if (index > 0)
                 newObject.name = newObject.name.Substring(0, index);
-            //newObject.transform.SetParent(null);
+            newObject.transform.SetParent(_parent);
             newObject.SetActive(false);
             _pooledObjects[addObject.name].Enqueue(newObject);
         }

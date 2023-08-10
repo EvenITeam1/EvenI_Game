@@ -69,7 +69,6 @@ public class DataTrigger : MonoBehaviour
         
         RunnerManager.Instance.GlobalPlayer.bulletShooter.bullets[0] = GameManager.Instance.BulletDataTableDesign.GetBulletByINDEX(coverPlayer.playerData.Character_bullet_index_1);
         RunnerManager.Instance.GlobalPlayer.bulletShooter.bullets[1] = GameManager.Instance.BulletDataTableDesign.GetBulletByINDEX(coverPlayer.playerData.Character_bullet_index_2);
-
     }
 
     // 러너

@@ -25,12 +25,17 @@ public class SoundManager : MonoBehaviour
     }
     public void ClearAudioSetting()
     {
-        AudioSources[0].Stop();
-        AudioSources[0].clip = null;
-        AudioSources[1].Stop();
-        AudioSources[1].clip = null;
-        AudioSources[0].pitch = 1f;
-        AudioSources[1].pitch = 1f;
+        AudioSources[(int)SOUND_TYPE.BGM].clip = null;
+        AudioSources[(int)SOUND_TYPE.SFX].clip = null;
+        AudioSources[(int)SOUND_TYPE.CONFLICTED].clip = null;
+        AudioSources[(int)SOUND_TYPE.BGM].Stop();
+        AudioSources[(int)SOUND_TYPE.SFX].Stop();
+        AudioSources[(int)SOUND_TYPE.CONFLICTED].Stop();
+        
+        AudioSources[(int)SOUND_TYPE.BGM].pitch = 1f;
+        AudioSources[(int)SOUND_TYPE.SFX].pitch = 1f;
+        AudioSources[(int)SOUND_TYPE.CONFLICTED].pitch = 1f;
+
         UnmuteSFX();
         UnmuteBGM();
     }

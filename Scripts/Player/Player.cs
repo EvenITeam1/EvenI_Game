@@ -265,11 +265,14 @@ public class Player : MonoBehaviour, IDamagable
         Invoke("BecomePlayerState", 10f + 0.2f);
     }
     
+    public GameObject RevivalParticle = null;
+
     public void Revival(){
         if(revivalCoroutine != null) {StopCoroutine(revivalCoroutine);}
         if(ghostCoroutine != null ){StopCoroutine(ghostCoroutine);}
         revivalCoroutine = StartCoroutine(AsyncRevival());
         ghostCoroutine = StartCoroutine(BecomePlayerState());
+        Instantiate(RevivalParticle, transform);
         GameManager.Instance.GlobalSoundManager.PlayByClip(playerSoundData.Revival, SOUND_TYPE.SFX);
         GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.RevivalCount--;
     }

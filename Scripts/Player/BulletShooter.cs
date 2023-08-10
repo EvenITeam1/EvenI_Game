@@ -37,6 +37,7 @@ public class BulletShooter : MonoBehaviour
             GameObject bullet = ObjectPool.instance.GetObject(bullets[0].gameObject);
             bullet.transform.position = transform.position;
             bullet.SetActive(true);
+            GameManager.Instance.GlobalSoundManager.PlayByClip(bullets[0].bulletSoundData.Shoot, SOUND_TYPE.CONFLICTED);
             _time = 0;
         }
     }
@@ -47,5 +48,6 @@ public class BulletShooter : MonoBehaviour
         GameObject bullet = ObjectPool.instance.GetObject(bullets[1].gameObject);
         bullet.transform.position = transform.position;
         bullet.SetActive(true);
+        GameManager.Instance.GlobalSoundManager.PlayByClip(bullets[1].bulletSoundData.Shoot, SOUND_TYPE.CONFLICTED);
     }
 }
