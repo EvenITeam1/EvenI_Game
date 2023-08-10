@@ -80,7 +80,12 @@ public class PlaceableObject : MonoBehaviour, IDamagable
 
     private void OnDisable() {
         StopAllCoroutines();
-        GameManager.Instance.GlobalSoundManager.PlayByClip(soundData.OnDisable, SOUND_TYPE.SFX);
+        if(objectData.Ob_category == OBJECT_CATEGORY.COIN) {
+            GameManager.Instance.GlobalSoundManager.PlayByClip(soundData.OnDisable, SOUND_TYPE.CONFLICTED);
+        }
+        else {
+            GameManager.Instance.GlobalSoundManager.PlayByClip(soundData.OnDisable, SOUND_TYPE.SFX);
+        }
     }
 
     #endregion
@@ -153,7 +158,7 @@ public class PlaceableObject : MonoBehaviour, IDamagable
         hitObject.SetActive(true);
         StartCoroutine(AsyncOnHitVisual());
         
-        GameManager.Instance.GlobalSoundManager.PlayByClip(soundData.GetDamaged, SOUND_TYPE.SFX);
+        GameManager.Instance.GlobalSoundManager.PlayByClip(soundData.GetDamaged, SOUND_TYPE.CONFLICTED);
     }
 
     public bool IsHitable() { return objectData.OB_Hitable; }

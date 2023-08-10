@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using DG.Tweening;
 using UnityEngine.SceneManagement;
 using Cysharp.Threading.Tasks;
 
@@ -39,6 +41,8 @@ public class Player : MonoBehaviour, IDamagable
     public bool stop = false;
     [SerializeField] public BulletShooter bulletShooter;
 
+    public Image hitPanel;
+
     public bool IsEnable = false;
     /*********************************************************************************/
 
@@ -58,6 +62,8 @@ public class Player : MonoBehaviour, IDamagable
         /*Set playerVisualData*/
         playerVisualData.spriteRenderer     ??= GetComponent<SpriteRenderer>();
         playerVisualData.playerAnimator     ??= GetComponent<Animator>();
+        hitPanel                            ??= GameObject.Find("HitVignetting").GetComponent<Image>();
+        
         //playerVisualData.runningVFXAnimator ??= transform.Find("VFX_RunDust").GetComponent<Animator>();
     }
 
@@ -208,6 +214,7 @@ public class Player : MonoBehaviour, IDamagable
         hitObject.transform.SetParent(this.transform);
         hitObject.transform.localScale = hitObject.transform.parent.localScale * Vector2.one;
         hitObject.SetActive(true);
+        DOVirtual.Color(new Color(1,0,0,0.5f), new Color(1,1,1,0), 0.75f, (E)=> {hitPanel.color = E;});
         StartCoroutine(AsyncGetDamage());
         GameManager.Instance.GlobalSoundManager.PlayByClip(playerSoundData.GetDamaged, SOUND_TYPE.SFX);
     }

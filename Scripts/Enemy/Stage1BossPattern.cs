@@ -24,7 +24,7 @@ public class Stage1BossPattern : MonoBehaviour, IDamagable {
     {
         float currentHp = bossHP.getHP();
         bossHP.setHP(currentHp - _amount);
-        GameManager.Instance.GlobalSoundManager.PlayByClip(GetDamaged, SOUND_TYPE.SFX);
+        GameManager.Instance.GlobalSoundManager.PlayByClip(GetDamaged, SOUND_TYPE.CONFLICTED);
 
         //(HitParticle, transform);
         var hitObject = ObjectPool.instance.GetObject(HitParticle);

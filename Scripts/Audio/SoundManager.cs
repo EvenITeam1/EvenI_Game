@@ -5,12 +5,12 @@ using UnityEngine.Audio;
 using DG.Tweening;
 using AYellowpaper.SerializedCollections;
 
-public enum SOUND_TYPE { BGM, SFX }
+public enum SOUND_TYPE { BGM, SFX, CONFLICTED }
 
 public class SoundManager : MonoBehaviour
 {
     public AudioMixer Mixer;
-    public AudioSource[] AudioSources = new AudioSource[2];
+    public AudioSource[] AudioSources = new AudioSource[3];
     public SerializedDictionary<string, AudioClip> CachedBGMClips = new SerializedDictionary<string, AudioClip>();
     public SerializedDictionary<string, AudioClip> CachedSFXClips = new SerializedDictionary<string, AudioClip>();
 
@@ -129,13 +129,13 @@ public class SoundManager : MonoBehaviour
     }
 
     public void StopSFX(){
-        if(AudioSources[(int)SOUND_TYPE.SFX].isPlaying) {
+        if(AudioSources[(int)SOUND_TYPE.SFX].isPlaying || AudioSources[(int)SOUND_TYPE.CONFLICTED].isPlaying) {
             StartCoroutine(AsyncStopSFX());
         }
     }
     IEnumerator AsyncStopSFX(){
         MuteSFX();
-        yield return new WaitUntil(() => {return !AudioSources[(int)SOUND_TYPE.SFX].isPlaying;});
+        yield return new WaitUntil(() => {return !AudioSources[(int)SOUND_TYPE.SFX].isPlaying && !AudioSources[(int)SOUND_TYPE.CONFLICTED].isPlaying;});
         FadeInSFX(0.25f);
     }
 
@@ -173,6 +173,12 @@ public class SoundManager : MonoBehaviour
                     targetSource.PlayOneShot(audioClip); // 효과음 중첩 가능
                     break;
                 }
+            case SOUND_TYPE.CONFLICTED : 
+                {
+                    targetSource = AudioSources[(int)SOUND_TYPE.CONFLICTED];
+                    targetSource.PlayOneShot(audioClip); // 효과음 중첩 가능
+                    break;
+                }
         }
     }
 
@@ -190,6 +196,11 @@ public class SoundManager : MonoBehaviour
                 {
                     //사실 의미 없다 모든 SFX는 OneShot으로 이루어 져 있기 때문에..
                     AudioSources[(int)SOUND_TYPE.SFX].Stop();
+                    break;
+                }
+            case SOUND_TYPE.CONFLICTED : 
+                {
+                    AudioSources[(int)SOUND_TYPE.CONFLICTED].Stop();
                     break;
                 }
         }

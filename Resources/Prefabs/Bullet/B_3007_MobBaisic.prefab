@@ -34,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7239013096102837101
 SpriteRenderer:
@@ -143,20 +143,21 @@ MonoBehaviour:
   Index: 3007
   player: {fileID: 0}
   bulletData:
-    Index: 3000
-    Bullet_name: "\uBE44\uC5B4\uC788\uC74C"
-    Bullet_category: 0
-    Bullet_width: 0
-    Bullet_height: 0
-    Bullet_min_dmg: 0
-    Bullet_max_dmg: 0
-    Bullet_set_dmg: 0
-    Bullet_crit_chance: 0
-    Bullet_crit_const: 0
-    Bullet_speed: 0
-    Bullet_last_time: 0
+    Index: 3007
+    Bullet_name: "\uBAAC\uC2A4\uD130 \uAE30\uBCF8\uD0C4(5\uC2A4\uD14C\uC774\uC9C0\uC640
+      6\uC2A4\uD14C\uC774\uC9C0)"
+    Bullet_category: 1
+    Bullet_width: 0.5
+    Bullet_height: 0.5
+    Bullet_min_dmg: -1
+    Bullet_max_dmg: -1
+    Bullet_set_dmg: 20
+    Bullet_crit_chance: -1
+    Bullet_crit_const: -1
+    Bullet_speed: 8
+    Bullet_last_time: 5
     Bullet_reflect_count: 0
-    Bullet_filecode: 
+    Bullet_filecode: ' '
   bulletVisualData:
     dmgPrefab: {fileID: 0}
     critFontSize: 0
@@ -189,3 +190,5 @@ MonoBehaviour:
   canvas: {fileID: 0}
   particle: {fileID: 0}
   sprite: {fileID: 7239013096102837101}
+  tilemap: {fileID: 0}
+  meshRenderer: {fileID: 0}

@@ -206,7 +206,7 @@ public class Mob : MonoBehaviour, IDamagable
         hitObject.transform.localScale = hitObject.transform.parent.localScale * Vector2.one;
         hitObject.SetActive(true);
         StartCoroutine(AsyncOnHitVisual());
-        GameManager.Instance.GlobalSoundManager.PlayByClip(soundData.GetDamaged, SOUND_TYPE.SFX);
+        GameManager.Instance.GlobalSoundManager.PlayByClip(soundData.GetDamaged, SOUND_TYPE.CONFLICTED);
     }
 
     public bool IsHitable() { return true; }
@@ -226,10 +226,10 @@ public class Mob : MonoBehaviour, IDamagable
             transform.DOKill();
             mobCollider.enabled = false;
             if (mobLifeCycleCoroutine != null) StopCoroutine(mobLifeCycleCoroutine);
-
-            if(DestroyedByPlayer && mobData.Mob_Score > 0){
-                RunnerManager.Instance.GlobalEventInstance.scoreCheck.Score += mobData.Mob_Score;
+            if(mobHP.getHP() <= 0) {DestroyedByPlayer= true;}
+            if(DestroyedByPlayer){
                 GameManager.Instance.GlobalSoundManager.PlayByClip(soundData.OnDestroy, SOUND_TYPE.SFX);
+                RunnerManager.Instance.GlobalEventInstance.scoreCheck.Score += ((mobData.Mob_Score <= 0) ? 0 : mobData.Mob_Score);
             }
         }
     }

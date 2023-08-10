@@ -154,6 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _text: {fileID: 1560937979}
   _loopType: 1
+  IsLoadedOnce: 0
 --- !u!4 &121994118
 Transform:
   m_ObjectHideFlags: 0
@@ -500,7 +501,7 @@ PrefabInstance:
     - target: {fileID: 3411246996458117481, guid: 53c5f0b2c4471488993d2169f26e0fdd, type: 3}
       propertyPath: CachedBGMClips._serializedList.Array.data[4].Value
       value: 
-      objectReference: {fileID: 8300000, guid: 2c9df2aff001f47edb9ae73d51611514, type: 3}
+      objectReference: {fileID: 8300000, guid: ff13de3ae3c2742e08fff1457dea167a, type: 3}
     - target: {fileID: 3411246996458117481, guid: 53c5f0b2c4471488993d2169f26e0fdd, type: 3}
       propertyPath: CachedBGMClips._serializedList.Array.data[6].Value
       value: 
@@ -1109,6 +1110,7 @@ MonoBehaviour:
   particle: {fileID: 0}
   sprite: {fileID: 0}
   tilemap: {fileID: 0}
+  meshRenderer: {fileID: 0}
 --- !u!1 &1968403450
 GameObject:
   m_ObjectHideFlags: 0
