@@ -9,9 +9,12 @@ public class ShopManage : MonoBehaviour
     [SerializeField] GameObject WarningCanvas;
     [SerializeField] GameObject AlreadyCanvas;
     [SerializeField] GameObject SuccessCanvas;
+    [SerializeField] GameObject PurchaseFailedCanvas;
 
     public static int selectedDogIndex;
     public static int selectedSection;
+
+    #region ButtonSet
     public void SetOnOff()
     {
         for (int i = 0; i < PopUpCanvasList.Count; i++)
@@ -34,12 +37,14 @@ public class ShopManage : MonoBehaviour
     {
         selectedSection = index;
     }
-
     public void ChangeDogIndex(int index)
     {
         selectedDogIndex = index;
     }
 
+    #endregion
+
+    #region CoinBonePurchase
     public void BuyWithCoin()
     {
         switch(selectedSection)
@@ -350,4 +355,79 @@ public class ShopManage : MonoBehaviour
             SuccessCanvas.SetActive(true);
         }
     }
+    #endregion
+
+    #region WonBuyFunctions
+    public void GetPackage1()
+    {
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedCoin += 1000;
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.AdditionalRevivalCount++;
+        SatietyManage.GainChargeCount(1);
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SaveOutgameDataToJson();
+        SuccessCanvas.SetActive(true);
+    }
+
+    public void GetPackage2()
+    {
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedCoin += 9000;
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedBone += 30;
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.AdditionalRevivalCount += 3;
+        SatietyManage.GainChargeCount(3);
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SaveOutgameDataToJson();
+        SuccessCanvas.SetActive(true);
+    }
+    public void GetPackage3()
+    {
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedCoin += 10000;
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedBone += 70;
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.AdditionalRevivalCount += 5;
+        SatietyManage.GainChargeCount(5);
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SaveOutgameDataToJson();
+        SuccessCanvas.SetActive(true);
+    }
+
+    public void GetNoAd()
+    {
+        //NoAd
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedBone += 50;
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SaveOutgameDataToJson();
+        SuccessCanvas.SetActive(true);
+    }
+    public void HuskyCheck()
+    {
+        if (GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isHuskyUnlocked)
+            AlreadyCanvas.SetActive(true);
+    }
+
+    public void GetHusky()
+    {
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isHuskyUnlocked = true;
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SaveOutgameDataToJson();
+        SuccessCanvas.SetActive(true);
+    }
+
+    public void WolfCheck()
+    {
+        if (GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isWolfUnlocked)
+            AlreadyCanvas.SetActive(true);
+    }
+    public void GetWolf()
+    {
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isWolfUnlocked = true;
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SaveOutgameDataToJson();
+        SuccessCanvas.SetActive(true);
+    }
+
+    public void GetBone(int amount)
+    {
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedBone += amount;
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SaveOutgameDataToJson();
+        SuccessCanvas.SetActive(true);
+    }
+    public void PurchaseFailed()
+    {
+        PurchaseFailedCanvas.SetActive(true);
+    }
+
+    #endregion
 }
