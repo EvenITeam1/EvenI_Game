@@ -96,7 +96,9 @@ public class OutgameSaveData
 
     #region SoundData
     public float BGMAmount;
+    public bool IsBGMMuted = false;
     public float SFXAmount;
+    public bool IsSFXMuted = false;
     #endregion
 
     [SerializeField]
@@ -105,7 +107,7 @@ public class OutgameSaveData
         int coin, int bone,
         int hightestUnlockedStage,
         bool one, bool two, bool three, bool four, bool five, bool six, bool seven, bool eight, bool nine, bool ten,
-        float BGM, float SFX
+        float BGM, float SFX, bool isBGMMuted, bool isSFXMuted
     )
     {
         this.AdditionalRevivalCount = reviveCount;
@@ -129,6 +131,8 @@ public class OutgameSaveData
         this.isPugUnlocked = ten;
         this.BGMAmount = BGM;
         this.SFXAmount = SFX;
+        this.IsBGMMuted = isBGMMuted;
+        this.IsSFXMuted = isSFXMuted;
     }
     
     public void ClearJson() {
@@ -145,7 +149,7 @@ public class OutgameSaveData
             CollectedCoin, CollectedBone, 
             HightestStageUnlocked,
             isShibaUnlocked, isGoldenRetrieverUnlocked, isLabradorRetrieverUnlocked, isGreyHoundUnlocked, isGermanShepherdUnlocked, isHuskyUnlocked, isWolfUnlocked, isGoldenPomeranianUnlocked, isWhitePomeranianUnlocked, isPugUnlocked,
-            BGMAmount, SFXAmount
+            BGMAmount, SFXAmount, IsBGMMuted, IsSFXMuted
         );
         var result = JsonConvert.SerializeObject(outgameSaveData);
         FileStream fileStream = new FileStream(string.Format("{0}/{1}.json", Application.persistentDataPath, "OutgameData"), FileMode.Create);
@@ -157,7 +161,7 @@ public class OutgameSaveData
     {
         if (!File.Exists(string.Format("{0}/{1}.json", Application.persistentDataPath, "OutgameData")))
         {
-            Debug.Log("앱 최초실행 : 아웃게임 스크립트");
+            //Debug.Log("앱 최초실행 : 아웃게임 스크립트");
             AdditionalRevivalCount = 0;
             Coin15Count = 0;
             AccountLevel = 1;
@@ -178,6 +182,7 @@ public class OutgameSaveData
             isWhitePomeranianUnlocked = false;
             isPugUnlocked = false;
             BGMAmount = SFXAmount = 1f;
+            IsBGMMuted = IsSFXMuted = false;
         }
 
         else
@@ -205,6 +210,8 @@ public class OutgameSaveData
             isPugUnlocked = OutgameData.isPugUnlocked;
             BGMAmount = OutgameData.BGMAmount;
             SFXAmount = OutgameData.SFXAmount;
+            IsBGMMuted = OutgameData.IsBGMMuted;
+            IsSFXMuted = OutgameData.IsSFXMuted;
         }
     }
 }
@@ -244,9 +251,11 @@ public class SaveNLoadManager : MonoBehaviour
     }
     [ContextMenu("Clear Json")]
     public void ClearJson() {
-        if (File.Exists(string.Format("{0}/{1}.json", Application.persistentDataPath, "OutgameData")))
-        {
+        //Debug.Log(Application.persistentDataPath);
+        if(File.Exists(string.Format("{0}/{1}.json", Application.persistentDataPath, "NickNameJsonData"))){
+            File.Delete(string.Format("{0}/{1}.json", Application.persistentDataPath, "NickNameJsonData"));
             File.Delete(string.Format("{0}/{1}.json", Application.persistentDataPath, "OutgameData"));
+            File.Delete(string.Format("{0}/{1}.json", Application.persistentDataPath, "QuitTimeData"));
         }
     }
 }

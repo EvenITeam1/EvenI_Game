@@ -8007,7 +8007,7 @@ RectTransform:
   m_GameObject: {fileID: 395166504}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0.025694445, y: 0.025694445, z: 0.025694445}
+  m_LocalScale: {x: 0.025600838, y: 0.025600838, z: 0.025600838}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1968810112}
@@ -8018,7 +8018,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 800, y: 389.18918}
+  m_SizeDelta: {x: 800, y: 390.61224}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &395166509
 MonoBehaviour:
@@ -8039,6 +8039,7 @@ MonoBehaviour:
   particle: {fileID: 0}
   sprite: {fileID: 0}
   tilemap: {fileID: 0}
+  meshRenderer: {fileID: 0}
 --- !u!114 &395166510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8058,6 +8059,7 @@ MonoBehaviour:
   particle: {fileID: 0}
   sprite: {fileID: 0}
   tilemap: {fileID: 0}
+  meshRenderer: {fileID: 0}
 --- !u!1 &395642919
 GameObject:
   m_ObjectHideFlags: 0
@@ -9396,6 +9398,7 @@ MonoBehaviour:
   particle: {fileID: 0}
   sprite: {fileID: 0}
   tilemap: {fileID: 0}
+  meshRenderer: {fileID: 0}
 --- !u!114 &488489062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9415,6 +9418,7 @@ MonoBehaviour:
   particle: {fileID: 0}
   sprite: {fileID: 0}
   tilemap: {fileID: 0}
+  meshRenderer: {fileID: 0}
 --- !u!1 &497126251
 GameObject:
   m_ObjectHideFlags: 0
@@ -12318,6 +12322,7 @@ MonoBehaviour:
   particle: {fileID: 0}
   sprite: {fileID: 0}
   tilemap: {fileID: 0}
+  meshRenderer: {fileID: 0}
 --- !u!114 &618095631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12337,6 +12342,7 @@ MonoBehaviour:
   particle: {fileID: 0}
   sprite: {fileID: 0}
   tilemap: {fileID: 0}
+  meshRenderer: {fileID: 0}
 --- !u!1 &619138560
 GameObject:
   m_ObjectHideFlags: 0
@@ -12659,6 +12665,7 @@ MonoBehaviour:
   particle: {fileID: 0}
   sprite: {fileID: 0}
   tilemap: {fileID: 0}
+  meshRenderer: {fileID: 0}
 --- !u!1 &647072123
 GameObject:
   m_ObjectHideFlags: 0
@@ -15718,7 +15725,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &804039246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15766,7 +15773,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 804039245}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 737494754}
@@ -15822,6 +15829,7 @@ MonoBehaviour:
   particle: {fileID: 0}
   sprite: {fileID: 0}
   tilemap: {fileID: 0}
+  meshRenderer: {fileID: 0}
 --- !u!1 &811255620
 GameObject:
   m_ObjectHideFlags: 0
@@ -19636,7 +19644,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -462672221
-  m_SortingLayer: 0
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -199874336, guid: a91aea5920cdee24d80992676d5751f4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -20883,6 +20891,7 @@ MonoBehaviour:
   particle: {fileID: 0}
   sprite: {fileID: 0}
   tilemap: {fileID: 0}
+  meshRenderer: {fileID: 0}
 --- !u!1 &996722395
 GameObject:
   m_ObjectHideFlags: 0
@@ -21014,7 +21023,7 @@ MonoBehaviour:
   m_CaretWidth: 1
   m_ReadOnly: 0
   m_RichText: 1
-  m_GlobalFontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_GlobalFontAsset: {fileID: 11400000, guid: 8cd8f2559c2fd4a9ca1ab0a523d987e1, type: 2}
   m_OnFocusSelectAll: 1
   m_ResetOnDeActivation: 1
   m_RestoreOriginalTextOnEscape: 1
@@ -23424,8 +23433,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uBB49\uBB49\uC774"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d74ca8e342e921f4999d2d165f2d38bc, type: 2}
-  m_sharedMaterial: {fileID: 2384728880335398813, guid: d74ca8e342e921f4999d2d165f2d38bc, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8cd8f2559c2fd4a9ca1ab0a523d987e1, type: 2}
+  m_sharedMaterial: {fileID: 2384728880335398813, guid: 8cd8f2559c2fd4a9ca1ab0a523d987e1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -27503,6 +27512,7 @@ MonoBehaviour:
   particle: {fileID: 0}
   sprite: {fileID: 0}
   tilemap: {fileID: 0}
+  meshRenderer: {fileID: 0}
 --- !u!1 &1309199979
 GameObject:
   m_ObjectHideFlags: 0
@@ -28358,6 +28368,7 @@ MonoBehaviour:
   particle: {fileID: 0}
   sprite: {fileID: 0}
   tilemap: {fileID: 0}
+  meshRenderer: {fileID: 0}
 --- !u!1 &1338909454
 GameObject:
   m_ObjectHideFlags: 0
@@ -30317,8 +30328,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u200B"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d74ca8e342e921f4999d2d165f2d38bc, type: 2}
-  m_sharedMaterial: {fileID: 2384728880335398813, guid: d74ca8e342e921f4999d2d165f2d38bc, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8cd8f2559c2fd4a9ca1ab0a523d987e1, type: 2}
+  m_sharedMaterial: {fileID: 2384728880335398813, guid: 8cd8f2559c2fd4a9ca1ab0a523d987e1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -32461,8 +32472,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uD589\uB3D9\uB825\uC774 3 \uC18C\uBAA8\uB429\uB2C8\uB2E4. \uC785\uC7A5\uD558\uC2DC\uACA0\uC2B5\uB2C8\uAE4C?"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ae084fb6c75894a4fa44e82dacdad0d4, type: 2}
-  m_sharedMaterial: {fileID: 2384728880335398813, guid: ae084fb6c75894a4fa44e82dacdad0d4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8cd8f2559c2fd4a9ca1ab0a523d987e1, type: 2}
+  m_sharedMaterial: {fileID: 2384728880335398813, guid: 8cd8f2559c2fd4a9ca1ab0a523d987e1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -39779,6 +39790,7 @@ MonoBehaviour:
   particle: {fileID: 0}
   sprite: {fileID: 0}
   tilemap: {fileID: 0}
+  meshRenderer: {fileID: 0}
 --- !u!1 &1896907370
 GameObject:
   m_ObjectHideFlags: 0
@@ -40847,8 +40859,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: +
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8cd8f2559c2fd4a9ca1ab0a523d987e1, type: 2}
+  m_sharedMaterial: {fileID: 2384728880335398813, guid: 8cd8f2559c2fd4a9ca1ab0a523d987e1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

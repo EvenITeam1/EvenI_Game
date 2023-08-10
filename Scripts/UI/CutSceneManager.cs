@@ -136,10 +136,10 @@ public class CutSceneManager : MonoBehaviour, IPointer​Click​Handler
 
         while (!op.isDone)
         {
-            Debug.Log(op.progress);
+            //Debug.Log(op.progress);
             if(op.progress >= 0.9f)
             {
-                Debug.Log("End");
+                //Debug.Log("End");
                 break;
             }
             yield return null;
@@ -158,7 +158,7 @@ public class CutSceneManager : MonoBehaviour, IPointer​Click​Handler
     public void PrintCTSs(){
         string retString = "";
         cutSceneTextDatas.ForEach(E => {retString += E.ToString() + '\n';});
-        Debug.Log(retString);
+        //Debug.Log(retString);
     }
 
     public async UniTask DownloadItemSO()

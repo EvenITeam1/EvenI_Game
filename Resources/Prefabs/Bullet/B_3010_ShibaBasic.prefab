@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 7239013096102837009}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 846495363
+  m_SortingLayerID: -1789428647
   m_SortingLayer: 4
   m_SortingOrder: 3
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
@@ -166,9 +166,9 @@ MonoBehaviour:
       rgba: 255
     nonCritColor:
       serializedVersion: 2
-      rgba: 0
+      rgba: 4294967295
   bulletSoundData:
-    Shoot: {fileID: 0}
+    Shoot: {fileID: 8300000, guid: a83304bc5ebae46e781867ec7869506c, type: 3}
   time: 0
   bulletRigid: {fileID: 0}
 --- !u!114 &4173283243059676205
@@ -189,3 +189,5 @@ MonoBehaviour:
   canvas: {fileID: 0}
   particle: {fileID: 0}
   sprite: {fileID: 7239013096102837101}
+  tilemap: {fileID: 0}
+  meshRenderer: {fileID: 0}

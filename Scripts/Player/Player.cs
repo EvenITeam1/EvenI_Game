@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using DG.Tweening;
 using UnityEngine.SceneManagement;
 using Cysharp.Threading.Tasks;
 
@@ -39,6 +41,8 @@ public class Player : MonoBehaviour, IDamagable
     public bool stop = false;
     [SerializeField] public BulletShooter bulletShooter;
 
+    public Image hitPanel;
+
     public bool IsEnable = false;
     /*********************************************************************************/
 
@@ -58,6 +62,8 @@ public class Player : MonoBehaviour, IDamagable
         /*Set playerVisualData*/
         playerVisualData.spriteRenderer     ??= GetComponent<SpriteRenderer>();
         playerVisualData.playerAnimator     ??= GetComponent<Animator>();
+        hitPanel                            ??= GameObject.Find("HitVignetting").GetComponent<Image>();
+        
         //playerVisualData.runningVFXAnimator ??= transform.Find("VFX_RunDust").GetComponent<Animator>();
     }
 
@@ -208,6 +214,7 @@ public class Player : MonoBehaviour, IDamagable
         hitObject.transform.SetParent(this.transform);
         hitObject.transform.localScale = hitObject.transform.parent.localScale * Vector2.one;
         hitObject.SetActive(true);
+        DOVirtual.Color(new Color(1,0,0,0.5f), new Color(1,1,1,0), 0.75f, (E)=> {hitPanel.color = E;});
         StartCoroutine(AsyncGetDamage());
         GameManager.Instance.GlobalSoundManager.PlayByClip(playerSoundData.GetDamaged, SOUND_TYPE.SFX);
     }
@@ -234,6 +241,7 @@ public class Player : MonoBehaviour, IDamagable
     }
     
     Coroutine revivalCoroutine = null;
+    Coroutine ghostCoroutine = null;
 
     public GameObject HealParticle = null;
     public void Heal(float _amount){
@@ -257,21 +265,24 @@ public class Player : MonoBehaviour, IDamagable
         Invoke("BecomePlayerState", 10f + 0.2f);
     }
     
+    public GameObject RevivalParticle = null;
+
     public void Revival(){
         if(revivalCoroutine != null) {StopCoroutine(revivalCoroutine);}
-        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.RevivalCount--;
-        transform.position = GetRevivalPosition();
+        if(ghostCoroutine != null ){StopCoroutine(ghostCoroutine);}
         revivalCoroutine = StartCoroutine(AsyncRevival());
+        ghostCoroutine = StartCoroutine(BecomePlayerState());
+        Instantiate(RevivalParticle, transform);
         GameManager.Instance.GlobalSoundManager.PlayByClip(playerSoundData.Revival, SOUND_TYPE.SFX);
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.RevivalCount--;
     }
+
 
     IEnumerator AsyncRevival(){
         transform.position = GetRevivalPosition();
         playerRigid.gravityScale = 0;
         playerRigid.velocity = Vector2.right * playerRigid.velocity;
         playerHP.setHP(playerHP.getMaxHp());
-        playerState.ChangeState(PLAYER_STATES.GHOST_STATE);
-        Invoke("BecomePlayerState", 3f + 0.2f);
         float passedTime = 0;
         while(passedTime <= 3f) {
             passedTime += Time.deltaTime;
@@ -283,12 +294,14 @@ public class Player : MonoBehaviour, IDamagable
         playerJumpData.jumpCount = 3;
         yield break;
     }
-    public void BecomePlayerState(){
+    IEnumerator BecomePlayerState() {
+        playerState.ChangeState(PLAYER_STATES.GHOST_STATE);
+        yield return YieldInstructionCache.WaitForSeconds(3f);
         playerState.ChangeState(PLAYER_STATES.PLAYER_STATE);
     }
 
     private Vector2 GetRevivalPosition() {
-        if(-6f < transform.position.y && transform.position.y < -4f) {
+        if(-9999f < transform.position.y && transform.position.y < -4f) {
             return new Vector2(transform.position.x, 1f);
         }
         return transform.position;

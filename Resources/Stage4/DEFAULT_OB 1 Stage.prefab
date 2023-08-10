@@ -71,8 +71,8 @@ MonoBehaviour:
   visualData:
     spriteRenderer: {fileID: 2393503716358272133}
     animator: {fileID: 1659493137920814489}
-    defaultColor: {r: 0, g: 0, b: 0, a: 0}
-    onHitColor: {r: 0, g: 0, b: 0, a: 0}
+    defaultColor: {r: 1, g: 1, b: 1, a: 0}
+    onHitColor: {r: 1, g: 0, b: 0, a: 0}
   soundData:
     GetDamaged: {fileID: 8300000, guid: 88b7bfbe202394156af36c8009be21b1, type: 3}
     OnDisable: {fileID: 8300000, guid: 840ac1529cced473793b902d880799d1, type: 3}
@@ -178,7 +178,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1789428647
-  m_SortingLayer: 0
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -2978808618200810919, guid: d5f2d2f41ee89754bbf85483a68090f3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -230,3 +230,4 @@ MonoBehaviour:
   particle: {fileID: 0}
   sprite: {fileID: 2393503716358272133}
   tilemap: {fileID: 0}
+  meshRenderer: {fileID: 0}

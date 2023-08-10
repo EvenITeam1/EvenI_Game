@@ -33,7 +33,6 @@ public class Bullet : MonoBehaviour, Hit
         time = 0;
         setDamage((int)Random.Range(bulletData.Bullet_min_dmg, bulletData.Bullet_max_dmg + 1f));
         setDir();
-        GameManager.Instance.GlobalSoundManager.PlayByClip(bulletSoundData.Shoot, SOUND_TYPE.SFX);
     }
     private void Start()
     {
@@ -46,7 +45,7 @@ public class Bullet : MonoBehaviour, Hit
         if (other.tag == "Player") return;
         if (other.TryGetComponent(out IDamagable damagable))
         {
-            //Debug.Log("IDamagable");
+            ////Debug.Log("IDamagable");
             if (!damagable.IsHitable()) { return; }
             float actualDmg = bulletData.Bullet_set_dmg;
             var dmgPrefab = ObjectPool.instance.GetObject(bulletVisualData.dmgPrefab);

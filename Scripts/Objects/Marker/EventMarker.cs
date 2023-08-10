@@ -14,7 +14,7 @@ public class EventMarker : MonoBehaviour
     public bool isActivated;
     protected RaycastHit2D[] hits;
     protected virtual void Awake() {
-        PrintString.AddListener((_string) => Debug.Log(_string));
+        //PrintString.AddListener((_string) => //Debug.Log(_string));
     }
     protected virtual void FixedUpdate()
     {

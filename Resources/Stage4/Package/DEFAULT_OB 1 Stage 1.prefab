@@ -52,7 +52,7 @@ MonoBehaviour:
     Ob_name: "\uAC70\uBBF8"
     Ob_category: 1
     Ob_width: 1
-    Ob_height: 1
+    Ob_height: 1.5
     Ob_damage: 30
     Ob_bullet_index: 0
     Ob_movement_index: 5
@@ -78,7 +78,7 @@ MonoBehaviour:
     OnDisable: {fileID: 8300000, guid: 840ac1529cced473793b902d880799d1, type: 3}
   objectCollider: {fileID: 5172971096665940192}
   moveTriggerOffset: 20
-  HitParticle: {fileID: 0}
+  HitParticle: {fileID: 7124663019238293431, guid: 301f99a9c0b0643798ca6ef1fad42b44, type: 3}
 --- !u!61 &5172971096665940192
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -230,3 +230,4 @@ MonoBehaviour:
   particle: {fileID: 0}
   sprite: {fileID: 2393503716358272133}
   tilemap: {fileID: 0}
+  meshRenderer: {fileID: 0}
