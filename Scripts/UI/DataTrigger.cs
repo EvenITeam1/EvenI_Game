@@ -7,12 +7,11 @@ using UnityEngine;
 public class DataTrigger : MonoBehaviour
 {
 
-    //[System.Obsolete("세부로 확장되었으므로 다른 스크립트로 교체하길 바람.")]
+    [System.Obsolete("세부로 확장되었으므로 다른 스크립트로 교체하길 바람.")]
     public void InitializeData()
     {
         GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.PrevHP = 100;
         GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.CollectedScore = 0;
-        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.RevivalCount = GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.AdditionalRevivalCount + 3;
     }
     [System.Obsolete("세부로 확장되었으므로 다른 스크립트로 교체하길 바람.")]
     public void DataSave(){
