@@ -12,6 +12,7 @@ public class SetLobbyState : MonoBehaviour
     [SerializeField] Color bossRaidColor;
     [SerializeField] Button BossRaidModeButton;
     [SerializeField] GameObject Cover;
+    [SerializeField] GameObject background;
 
     private void Awake()
     {
@@ -19,12 +20,14 @@ public class SetLobbyState : MonoBehaviour
         {
             BossraidCanvas.SetActive(true);
             mainCamera.backgroundColor = bossRaidColor;
+            background.SetActive(false);
         }
            
         else
         {
             BossraidCanvas.SetActive(false);
             mainCamera.backgroundColor = normalColor;
+            background.SetActive(true);
         }          
     }
     private void Start()
