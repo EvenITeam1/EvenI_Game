@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5044970750814968536}
   - component: {fileID: 5044970750814968542}
   - component: {fileID: 5044970750814968543}
-  - component: {fileID: 1449027594648286053}
+  - component: {fileID: 6187596506149490117}
   m_Layer: 5
   m_Name: Particle System (1)
   m_TagString: Untagged
@@ -4850,7 +4850,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2061923363
-  m_SortingLayer: 8
+  m_SortingLayer: 0
   m_SortingOrder: 1
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -4882,7 +4882,7 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &1449027594648286053
+--- !u!114 &6187596506149490117
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4896,9 +4896,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sorting_layer: 7
   sorting_order: 0
-  renderer_type: 0
+  renderer_type: 2
   canvas: {fileID: 0}
-  particle: {fileID: 0}
+  particle: {fileID: 5044970750814968543}
   sprite: {fileID: 0}
   tilemap: {fileID: 0}
   meshRenderer: {fileID: 0}
@@ -4913,7 +4913,7 @@ GameObject:
   - component: {fileID: 5044970750829505709}
   - component: {fileID: 5044970750829505710}
   - component: {fileID: 5044970750829505711}
-  - component: {fileID: 6547271690429398943}
+  - component: {fileID: 5746682971980462666}
   m_Layer: 0
   m_Name: VFX_Revival
   m_TagString: Untagged
@@ -5011,7 +5011,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 1
+  moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
   randomSeed: 0
@@ -9745,7 +9745,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2061923363
-  m_SortingLayer: 8
+  m_SortingLayer: 0
   m_SortingOrder: 1
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -9777,7 +9777,7 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &6547271690429398943
+--- !u!114 &5746682971980462666
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9791,9 +9791,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sorting_layer: 7
   sorting_order: 0
-  renderer_type: 0
+  renderer_type: 2
   canvas: {fileID: 0}
-  particle: {fileID: 0}
+  particle: {fileID: 5044970750829505711}
   sprite: {fileID: 0}
   tilemap: {fileID: 0}
   meshRenderer: {fileID: 0}
@@ -9808,7 +9808,7 @@ GameObject:
   - component: {fileID: 5044970751197810905}
   - component: {fileID: 5044970751197810911}
   - component: {fileID: 5044970751197810904}
-  - component: {fileID: 4513245127558131918}
+  - component: {fileID: 8219746128732665242}
   m_Layer: 5
   m_Name: Particle System (2)
   m_TagString: Untagged
@@ -14647,7 +14647,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2061923363
-  m_SortingLayer: 8
+  m_SortingLayer: 0
   m_SortingOrder: 1
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -14679,7 +14679,7 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &4513245127558131918
+--- !u!114 &8219746128732665242
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14693,9 +14693,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sorting_layer: 7
   sorting_order: 0
-  renderer_type: 0
+  renderer_type: 2
   canvas: {fileID: 0}
-  particle: {fileID: 0}
+  particle: {fileID: 5044970751197810904}
   sprite: {fileID: 0}
   tilemap: {fileID: 0}
   meshRenderer: {fileID: 0}
