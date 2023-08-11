@@ -24,7 +24,7 @@ public class AdmobRewardAd : MonoBehaviour
     {
         MobileAds.Initialize((InitializationStatus initStatus) =>
         {
-            //ÃÊ±âÈ­ ¿Ï·á
+            //ï¿½Ê±ï¿½È­ ï¿½Ï·ï¿½
         });
 
         LoadRewardedAd();
@@ -35,7 +35,7 @@ public class AdmobRewardAd : MonoBehaviour
         selectedIndex = n;
     }
 
-    public void LoadRewardedAd() //±¤°í ·Îµå ÇÏ±â
+    public void LoadRewardedAd() //ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ ï¿½Ï±ï¿½
     {
         // Clean up the old ad before loading a new one.
         if (rewardedAd != null)
@@ -75,7 +75,7 @@ public class AdmobRewardAd : MonoBehaviour
             BeforeAdPanel.SetActive(true);
     }
 
-    public void ShowAd() //±¤°í º¸±â
+    public void ShowAd() //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     {
         const string rewardMsg =
             "Rewarded ad rewarded the user. Type: {0}, amount: {1}.";
@@ -118,7 +118,7 @@ public class AdmobRewardAd : MonoBehaviour
         AdSuccessPanel.SetActive(true);
     }
 
-    private void RegisterReloadHandler(RewardedAd ad) //±¤°í Àç·Îµå
+    private void RegisterReloadHandler(RewardedAd ad) //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Îµï¿½
     {
         // Raised when the ad closed full screen content.
         ad.OnAdFullScreenContentClosed += (null);

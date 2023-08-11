@@ -34,7 +34,7 @@ Transform:
   m_Children:
   - {fileID: 49896029427748311}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3937568910038251892
 MonoBehaviour:
@@ -61,7 +61,7 @@ MonoBehaviour:
     Ob_move_strength: 8
     OB_Hitable: 1
     Ob_HP: 300
-    Ob_Score: 0
+    Ob_Score: 300
     Ob_filecode: 
   coinData:
     ScoreValue: 10
@@ -73,11 +73,14 @@ MonoBehaviour:
   visualData:
     spriteRenderer: {fileID: 2393503716358272133}
     animator: {fileID: 1659493137920814489}
-    defaultColor: {r: 0, g: 0, b: 0, a: 0}
-    onHitColor: {r: 0, g: 0, b: 0, a: 0}
+    defaultColor: {r: 1, g: 1, b: 1, a: 1}
+    onHitColor: {r: 1, g: 0, b: 0, a: 1}
+  soundData:
+    GetDamaged: {fileID: 8300000, guid: 88b7bfbe202394156af36c8009be21b1, type: 3}
+    OnDisable: {fileID: 8300000, guid: 840ac1529cced473793b902d880799d1, type: 3}
   objectCollider: {fileID: 5172971096665940192}
   moveTriggerOffset: 14
-  HitParticle: {fileID: 0}
+  HitParticle: {fileID: 7124663019238293431, guid: 301f99a9c0b0643798ca6ef1fad42b44, type: 3}
 --- !u!61 &5172971096665940192
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -187,6 +190,7 @@ GameObject:
   - component: {fileID: 49896029427748311}
   - component: {fileID: 2393503716358272133}
   - component: {fileID: 1659493137920814489}
+  - component: {fileID: 3935539293524938097}
   m_Layer: 8
   m_Name: model
   m_TagString: Untagged
@@ -202,8 +206,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5617314729169556013}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0, y: -0.1684, z: 0}
-  m_LocalScale: {x: 1, y: 1.0947, z: 1}
+  m_LocalPosition: {x: -0.1, y: -0.5, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1310387243257477264}
@@ -229,7 +233,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 2100000, guid: 9db26d854ac0f4d92a77d75b8e9ab018, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -281,3 +285,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3935539293524938097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5617314729169556013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 4
+  sorting_order: 0
+  renderer_type: 3
+  canvas: {fileID: 0}
+  particle: {fileID: 0}
+  sprite: {fileID: 2393503716358272133}
+  tilemap: {fileID: 0}
+  meshRenderer: {fileID: 0}
