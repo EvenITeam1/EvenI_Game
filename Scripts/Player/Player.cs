@@ -275,6 +275,7 @@ public class Player : MonoBehaviour, IDamagable
         Instantiate(RevivalParticle, transform);
         GameManager.Instance.GlobalSoundManager.PlayByClip(playerSoundData.Revival, SOUND_TYPE.SFX);
         GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.RevivalCount--;
+        if(GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.RevivalCount <= 0) {GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.RevivalCount = 0;}
     }
 
 
@@ -294,6 +295,7 @@ public class Player : MonoBehaviour, IDamagable
         playerJumpData.jumpCount = 3;
         yield break;
     }
+
     IEnumerator BecomePlayerState() {
         playerState.ChangeState(PLAYER_STATES.GHOST_STATE);
         yield return YieldInstructionCache.WaitForSeconds(3f);

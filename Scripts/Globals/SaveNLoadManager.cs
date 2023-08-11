@@ -43,7 +43,7 @@ public class IngameSaveData
         IsStageClear = false;
         PrevHP = -1;
         CollectedScore = 0;
-        RevivalCount = GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.AdditionalRevivalCount + 3;
+        RevivalCount = -1;
     }
 }
 #endregion
