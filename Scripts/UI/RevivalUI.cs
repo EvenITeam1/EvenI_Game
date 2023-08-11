@@ -14,9 +14,7 @@ public class RevivalUI : MonoBehaviour
     public TextMeshProUGUI TimmerTMP;
     public TextMeshProUGUI ButtonTMP;
     Coroutine CurrentCoroutine;
-    public bool isAdOn;
     private void OnEnable() {
-        isAdOn = false;
         RunnerManager.Instance.GlobalEventInstance.IsGamePaused = true;
         ContienueTMP.text = "Continue?";
         TimmerTMP.text = "10";
@@ -47,19 +45,10 @@ public class RevivalUI : MonoBehaviour
         #endif
     }
 
-    public void AdOn()
-    {
-        isAdOn = true;
-    }
-    public void AdOff()
-    {
-        isAdOn=false;
-    }
     IEnumerator AsyncWaitingUntilLoadGameOver(){
         int waitCount = 10;
         while(waitCount > 0) {
-            yield return new WaitForSecondsRealtime(1f);       
-            yield return new WaitUntil(() => !isAdOn);
+            yield return new WaitForSecondsRealtime(1f);
             waitCount--;
             TimmerTMP.text = $"{waitCount}";
         }

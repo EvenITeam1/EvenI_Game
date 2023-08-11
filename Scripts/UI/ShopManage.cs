@@ -386,15 +386,9 @@ public class ShopManage : MonoBehaviour
         SuccessCanvas.SetActive(true);
     }
 
-    public void NoAdActivatedCheck()
-    {
-        if (GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.IsNoAdActivated)
-            AlreadyCanvas.SetActive(true);
-    }
-
     public void GetNoAd()
     {
-        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.IsNoAdActivated = true;
+        //NoAd
         GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedBone += 50;
         GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SaveOutgameDataToJson();
         SuccessCanvas.SetActive(true);

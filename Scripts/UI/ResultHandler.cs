@@ -51,7 +51,7 @@ public class ResultHandler : MonoBehaviour
            = (int)((IsClearState) ? (WinExpRatio * Score) : (LoseExpRatio * Score));
 
         textRoulettes[(int)RESULT_INDEX.COIN].CountingNumber
-            = (int)((IsClearState) ? (WinCoinRatio * Score * CoinBoostRatio) : (LoseCoinRatio * Score * CoinBoostRatio));
+            = (int)((IsClearState) ? (WinCoinRatio * Score) : (LoseCoinRatio * Score));
 
         int usedReviveCount = GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.AdditionalRevivalCount + 3 - GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.RevivalCount;
 

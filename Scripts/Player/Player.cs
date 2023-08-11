@@ -260,6 +260,25 @@ public class Player : MonoBehaviour, IDamagable
         healObject.SetActive(true);
     }
 
+    public void HealAbs(float _amount)
+    {
+        float maxHp = playerHP.getMaxHp();
+        float currentHp = playerHP.getHP();
+        float healAmount = _amount;
+        if (healAmount + currentHp >= maxHp)
+        {
+            playerHP.setHP(maxHp);
+        }
+        else
+        {
+            playerHP.setHP(currentHp + healAmount);
+        }
+        var healObject = ObjectPool.instance.GetObject(HealParticle);
+        healObject.transform.position = transform.position;
+        healObject.transform.SetParent(this.transform);
+        healObject.SetActive(true);
+    }
+
     public void Barrier(){
         playerState.ChangeState(PLAYER_STATES.BARRIER_STATE);
         Invoke("BecomePlayerState", 10f + 0.2f);
@@ -275,6 +294,7 @@ public class Player : MonoBehaviour, IDamagable
         Instantiate(RevivalParticle, transform);
         GameManager.Instance.GlobalSoundManager.PlayByClip(playerSoundData.Revival, SOUND_TYPE.SFX);
         GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.RevivalCount--;
+        if(GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.RevivalCount <= 0) {GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.RevivalCount = 0;}
     }
 
 
@@ -294,6 +314,7 @@ public class Player : MonoBehaviour, IDamagable
         playerJumpData.jumpCount = 3;
         yield break;
     }
+
     IEnumerator BecomePlayerState() {
         playerState.ChangeState(PLAYER_STATES.GHOST_STATE);
         yield return YieldInstructionCache.WaitForSeconds(3f);

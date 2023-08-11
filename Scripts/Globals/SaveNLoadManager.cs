@@ -57,7 +57,6 @@ public class OutgameSaveData
 {
     public int AdditionalRevivalCount;
     public int Coin15Count;
-    public bool IsNoAdActivated;
 
     #region AccountData
 
@@ -104,7 +103,7 @@ public class OutgameSaveData
 
     [SerializeField]
     public OutgameSaveData(
-        int reviveCount, int coin15Count, bool isNoAd, int level, int CollectedExp, DOG_INDEX selectedPlayerIndex, int selectedIconIndex,
+        int reviveCount, int coin15Count,int level, int CollectedExp, DOG_INDEX selectedPlayerIndex, int selectedIconIndex,
         int coin, int bone,
         int hightestUnlockedStage,
         bool one, bool two, bool three, bool four, bool five, bool six, bool seven, bool eight, bool nine, bool ten,
@@ -113,7 +112,6 @@ public class OutgameSaveData
     {
         this.AdditionalRevivalCount = reviveCount;
         this.Coin15Count = coin15Count; 
-        this.IsNoAdActivated = isNoAd;
         this.AccountLevel = level;
         this.CollectedExp = CollectedExp;
         this.SelectedPlayerINDEX = selectedPlayerIndex;
@@ -147,7 +145,7 @@ public class OutgameSaveData
     public void SaveOutgameDataToJson()
     {
         OutgameSaveData outgameSaveData = new OutgameSaveData(
-            AdditionalRevivalCount, Coin15Count, IsNoAdActivated, AccountLevel, CollectedExp, SelectedPlayerINDEX, SelectedIconINDEX, 
+            AdditionalRevivalCount, Coin15Count, AccountLevel, CollectedExp, SelectedPlayerINDEX, SelectedIconINDEX, 
             CollectedCoin, CollectedBone, 
             HightestStageUnlocked,
             isShibaUnlocked, isGoldenRetrieverUnlocked, isLabradorRetrieverUnlocked, isGreyHoundUnlocked, isGermanShepherdUnlocked, isHuskyUnlocked, isWolfUnlocked, isGoldenPomeranianUnlocked, isWhitePomeranianUnlocked, isPugUnlocked,
@@ -166,7 +164,6 @@ public class OutgameSaveData
             //Debug.Log("앱 최초실행 : 아웃게임 스크립트");
             AdditionalRevivalCount = 0;
             Coin15Count = 0;
-            IsNoAdActivated = false;
             AccountLevel = 1;
             CollectedExp = 0;
             SelectedPlayerINDEX = DOG_INDEX.C_01;
@@ -194,7 +191,6 @@ public class OutgameSaveData
             OutgameSaveData OutgameData = JsonConvert.DeserializeObject<OutgameSaveData>(JsonFileText);
             AdditionalRevivalCount = OutgameData.AdditionalRevivalCount;
             Coin15Count = OutgameData.Coin15Count;
-            IsNoAdActivated = OutgameData.IsNoAdActivated;
             AccountLevel = OutgameData.AccountLevel;
             CollectedExp = OutgameData.CollectedExp;
             SelectedPlayerINDEX = OutgameData.SelectedPlayerINDEX;
