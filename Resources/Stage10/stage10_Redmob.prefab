@@ -35,7 +35,7 @@ Transform:
   - {fileID: 433485986660834037}
   - {fileID: 2489134053883128028}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &433485986516850944
 BoxCollider2D:
@@ -160,6 +160,7 @@ GameObject:
   - component: {fileID: 433485986660834037}
   - component: {fileID: 3585553583902592131}
   - component: {fileID: 433485986660834034}
+  - component: {fileID: 8732417833419456242}
   m_Layer: 30
   m_Name: model
   m_TagString: Untagged
@@ -241,7 +242,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1789428647
-  m_SortingLayer: 4
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 00b6dfbe404e5e14783f8a31e9eea3b7, type: 3}
   m_Color: {r: 0.754717, g: 0.5448692, b: 0.17443931, a: 1}
@@ -254,6 +255,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8732417833419456242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433485986660834036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110bde582b214f0caa0fd3d6fb8acf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorting_layer: 5
+  sorting_order: 0
+  renderer_type: 0
+  canvas: {fileID: 0}
+  particle: {fileID: 0}
+  sprite: {fileID: 0}
+  tilemap: {fileID: 0}
+  meshRenderer: {fileID: 0}
 --- !u!1 &1715670475951310741
 GameObject:
   m_ObjectHideFlags: 0
