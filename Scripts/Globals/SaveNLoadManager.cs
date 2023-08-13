@@ -43,7 +43,7 @@ public class IngameSaveData
         IsStageClear = false;
         PrevHP = -1;
         CollectedScore = 0;
-        RevivalCount = -1;
+        RevivalCount = 0;
     }
 }
 #endregion
