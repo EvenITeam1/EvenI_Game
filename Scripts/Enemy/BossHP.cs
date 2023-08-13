@@ -58,7 +58,7 @@ public class BossHP : MonoBehaviour
                 CountDownObj.SetActive(true);
                 bossPatternManagerList[stageIndex].SetActive(false);
                 bossGroups[stageIndex].SetActive(false);
-                RunnerManager.Instance.GlobalPlayer.HealAbs(50);
+                RunnerManager.Instance.GlobalPlayer.Heal(0.5f);
                 await UniTask.Delay(TimeSpan.FromSeconds(4));
                 bossGroups[stageIndex + 1].SetActive(true);
             }      

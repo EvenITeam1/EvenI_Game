@@ -20,6 +20,7 @@ public class AutoSortingLayer : MonoBehaviour {
     [SerializeField] private TilemapRenderer tilemap;
     [SerializeField] private MeshRenderer meshRenderer;
     private void Awake() {
+        //if(canvas != null || particle != null || sprite != null || tilemap != null || meshRenderer != null){return;}
         if(transform.TryGetComponent<Canvas>(out canvas)){
             renderer_type = RENDERER_TYPE.CANVAS;
             return;
