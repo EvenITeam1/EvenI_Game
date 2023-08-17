@@ -102,13 +102,16 @@ public class AdmobRewardAd : MonoBehaviour
             case 0:
                 GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.AdditionalRevivalCount++;
                 GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SaveOutgameDataToJson();
+                FreeItemManage.adReady1 = false;
                 break;
             case 1:
                 SatietyManage.GainChargeCount(1);
+                FreeItemManage.adReady2 = false;
                 break;
             case 2:
                 GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.Coin15Count++;
                 GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SaveOutgameDataToJson();
+                FreeItemManage.adReady3 = false;
                 break;
             case 3:
                 AdRevivalButton.interactable = false;

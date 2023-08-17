@@ -54,8 +54,17 @@ public class OutGameDataManage : MonoBehaviour
             characterUIList[8].isUnlocked = GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isWhitePomeranianUnlocked;
             characterUIList[9].isUnlocked = GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isPugUnlocked;
         }
-       
-        for (int i = 0; i < stageEnterButtonList.Count; i++)
+
+        for (int i = 0; i < 2; i++)
+        {
+            if (stageEnterButtonList[i] == null)
+                break;
+
+            stageEnterButtonList[i].interactable = true;
+            stageEnterButtonList[i].gameObject.GetComponent<Image>().color = Color.white;
+        }
+
+        for (int i = 2; i < stageEnterButtonList.Count; i++)
         {
             if (stageEnterButtonList[i] == null)
                 break;

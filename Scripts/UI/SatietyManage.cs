@@ -138,6 +138,7 @@ public class SatietyManage : MonoBehaviour
             SatietyJsonData satietyJsonData = JsonConvert.DeserializeObject<SatietyJsonData>(JsonFileText);
             prevTime = satietyJsonData.quitTime;
             chargeCount = satietyJsonData.chargeCount;
+            Debug.Log(satietyJsonData.passedTimeInLobby);
             passedTimeInLobby = satietyJsonData.passedTimeInLobby;
         }   
     }
