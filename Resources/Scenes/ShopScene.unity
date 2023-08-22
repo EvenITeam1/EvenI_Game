@@ -1786,7 +1786,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '-'
+  m_text: "\uCCB4\uB825 \uBC38\uB7F0\uC2A4 \uD0C0\uC785"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d74ca8e342e921f4999d2d165f2d38bc, type: 2}
   m_sharedMaterial: {fileID: 2384728880335398813, guid: d74ca8e342e921f4999d2d165f2d38bc, type: 2}
@@ -1813,8 +1813,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7404,7 +7404,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '-'
+  m_text: "\uCCB4\uB825 \uD68C\uBCF5 \uD0C0\uC785"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d74ca8e342e921f4999d2d165f2d38bc, type: 2}
   m_sharedMaterial: {fileID: 2384728880335398813, guid: d74ca8e342e921f4999d2d165f2d38bc, type: 2}
@@ -7431,8 +7431,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -10357,7 +10357,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '-'
+  m_text: "\uACF5\uACA9\uB825 \uB79C\uB364 \uD0C0\uC785"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d74ca8e342e921f4999d2d165f2d38bc, type: 2}
   m_sharedMaterial: {fileID: 2384728880335398813, guid: d74ca8e342e921f4999d2d165f2d38bc, type: 2}
@@ -10384,8 +10384,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -12626,7 +12626,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 389870150}
   m_CullTransparentMesh: 1
-<<<<<<< HEAD
 --- !u!1 &390046518
 GameObject:
   m_ObjectHideFlags: 0
@@ -12773,8 +12772,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 390046518}
   m_CullTransparentMesh: 1
-=======
->>>>>>> d2a8370... 광고 도입 완료, 일반탄 크리티컬 폰트 알파값 수정, 보스레이드 분기 로직 수정
 --- !u!1 &390443232
 GameObject:
   m_ObjectHideFlags: 0
@@ -14456,7 +14453,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &427980148
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15849,35 +15846,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-<<<<<<< HEAD
       - m_Target: {fileID: 1028380888}
         m_TargetAssemblyTypeName: AdMobCoin, Assembly-CSharp
-=======
-      - m_Target: {fileID: 1028380886}
-        m_TargetAssemblyTypeName: AdmobRewardAd, Assembly-CSharp
-        m_MethodName: AdChangeIndex
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1028380886}
-        m_TargetAssemblyTypeName: AdmobRewardAd, Assembly-CSharp
->>>>>>> d2a8370... 광고 도입 완료, 일반탄 크리티컬 폰트 알파값 수정, 보스레이드 분기 로직 수정
         m_MethodName: NoAdCheck
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-<<<<<<< HEAD
           m_IntArgument: 2
-=======
-          m_IntArgument: 0
->>>>>>> d2a8370... 광고 도입 완료, 일반탄 크리티컬 폰트 알파값 수정, 보스레이드 분기 로직 수정
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -17688,25 +17664,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-<<<<<<< HEAD
       - m_Target: {fileID: 1028380890}
         m_TargetAssemblyTypeName: AdMobRevival, Assembly-CSharp
-=======
-      - m_Target: {fileID: 1028380886}
-        m_TargetAssemblyTypeName: AdmobRewardAd, Assembly-CSharp
-        m_MethodName: AdChangeIndex
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1028380886}
-        m_TargetAssemblyTypeName: AdmobRewardAd, Assembly-CSharp
->>>>>>> d2a8370... 광고 도입 완료, 일반탄 크리티컬 폰트 알파값 수정, 보스레이드 분기 로직 수정
         m_MethodName: NoAdCheck
         m_Mode: 1
         m_Arguments:
@@ -25404,9 +25363,9 @@ RectTransform:
   m_Father: {fileID: 1276530019}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 859.625, y: -177.04}
   m_SizeDelta: {x: 307.85, y: 314.08}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &675742017
@@ -26118,7 +26077,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "[\uC0C1\uD488 \uAD6C\uC131]\n\uD5C8\uC2A4\uD0A4 X 1\n\n[\uB2A5\uB825\uCE58]\n\uCCB4\uB825
-    : 100\n\uCCB4\uB825 \uD68C\uBCF5 : 0.5/s\n\uAE30\uBCF8 \uACF5\uACA9\uB825 : 10~15\n\uC810\uD504
+    : 125\n\uCCB4\uB825 \uD68C\uBCF5 : 0.5/s\n\uAE30\uBCF8 \uACF5\uACA9\uB825 : 10~15\n\uC810\uD504
     \uACF5\uACA9\uB825 : 12~18\n\n[\uC0C1\uD488 \uC124\uBA85]\n\uAC8C\uC784 \uCE90\uB9AD\uD130
     \uD5C8\uC2A4\uD0A4\uB97C \uD68D\uB4DD\uD569\uB2C8\uB2E4. \uBCF8 \uCE90\uB9AD\uD130\uB294
     \uC624\uC9C1 \uD604\uAE08\uC744 \uD1B5\uD574 \uAD6C\uB9E4\uAC00 \uAC00\uB2A5\uD55C
@@ -26704,9 +26663,9 @@ RectTransform:
   m_Father: {fileID: 1276530019}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 521.775, y: -177.04}
   m_SizeDelta: {x: 307.85, y: 314.08}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &716971354
@@ -31665,7 +31624,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '-'
+  m_text: "\uCCB4\uB825 \uADF9\uB300\uD654 \uD0C0\uC785"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d74ca8e342e921f4999d2d165f2d38bc, type: 2}
   m_sharedMaterial: {fileID: 2384728880335398813, guid: d74ca8e342e921f4999d2d165f2d38bc, type: 2}
@@ -31692,8 +31651,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -36736,35 +36695,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-<<<<<<< HEAD
       - m_Target: {fileID: 1028380889}
         m_TargetAssemblyTypeName: AdMobSatiety, Assembly-CSharp
-=======
-      - m_Target: {fileID: 1028380886}
-        m_TargetAssemblyTypeName: AdmobRewardAd, Assembly-CSharp
-        m_MethodName: AdChangeIndex
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1028380886}
-        m_TargetAssemblyTypeName: AdmobRewardAd, Assembly-CSharp
->>>>>>> d2a8370... 광고 도입 완료, 일반탄 크리티컬 폰트 알파값 수정, 보스레이드 분기 로직 수정
         m_MethodName: NoAdCheck
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-<<<<<<< HEAD
           m_IntArgument: 1
-=======
-          m_IntArgument: 0
->>>>>>> d2a8370... 광고 도입 완료, 일반탄 크리티컬 폰트 알파값 수정, 보스레이드 분기 로직 수정
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -37150,15 +37088,10 @@ GameObject:
   - component: {fileID: 1028380883}
   - component: {fileID: 1028380884}
   - component: {fileID: 1028380885}
-<<<<<<< HEAD
   - component: {fileID: 1028380887}
   - component: {fileID: 1028380890}
   - component: {fileID: 1028380889}
   - component: {fileID: 1028380888}
-=======
-  - component: {fileID: 1028380886}
-  - component: {fileID: 1028380887}
->>>>>>> d2a8370... 광고 도입 완료, 일반탄 크리티컬 폰트 알파값 수정, 보스레이드 분기 로직 수정
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -37283,11 +37216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneName: ShopScene
   quitPopUpCanvas: {fileID: 0}
-<<<<<<< HEAD
   freeItemManageScript: {fileID: 1028380887}
-=======
-  freeItemManageScript: {fileID: 0}
->>>>>>> d2a8370... 광고 도입 완료, 일반탄 크리티컬 폰트 알파값 수정, 보스레이드 분기 로직 수정
 --- !u!114 &1028380884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37406,41 +37335,6 @@ MonoBehaviour:
   BeforeAdPanel: {fileID: 943508934}
   AdFailedPanel: {fileID: 1754073815}
   AdSuccessPanel: {fileID: 500485244}
-<<<<<<< HEAD
-=======
-  AdRevivalButton: {fileID: 0}
-  AdRewardEvent:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &1028380887
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1028380877}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c84f9cdd8c2e2f14cb855636d1b3eae3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leftTimeTextsList:
-  - {fileID: 166648659}
-  - {fileID: 1766732086}
-  - {fileID: 389870152}
-  AdPagesList:
-  - {fileID: 502241146}
-  - {fileID: 1011857054}
-  - {fileID: 469014085}
-  TimePagesList:
-  - {fileID: 885014374}
-  - {fileID: 1441131646}
-  - {fileID: 57100525}
-  initialChargeTime:
-  - 3700
-  - 4500
-  - 28000
->>>>>>> d2a8370... 광고 도입 완료, 일반탄 크리티컬 폰트 알파값 수정, 보스레이드 분기 로직 수정
 --- !u!1 &1029832379
 GameObject:
   m_ObjectHideFlags: 0
@@ -37953,7 +37847,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '-'
+  m_text: "\uC810\uD504\uACF5\uACA9\uB825 \uAC15\uD654 \uD0C0\uC785"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d74ca8e342e921f4999d2d165f2d38bc, type: 2}
   m_sharedMaterial: {fileID: 2384728880335398813, guid: d74ca8e342e921f4999d2d165f2d38bc, type: 2}
@@ -37980,8 +37874,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -40226,9 +40120,9 @@ RectTransform:
   m_Father: {fileID: 1700389143}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 521.775, y: -177.04}
   m_SizeDelta: {x: 307.85, y: 314.08}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1125754799
@@ -41230,7 +41124,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1161692137
 RectTransform:
   m_ObjectHideFlags: 0
@@ -42278,9 +42172,9 @@ RectTransform:
   m_Father: {fileID: 1276530019}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 183.925, y: -177.04}
   m_SizeDelta: {x: 307.85, y: 314.08}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1184185216
@@ -45371,7 +45265,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 349.05005, y: 364.08}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1276530020
 MonoBehaviour:
@@ -46131,9 +46025,9 @@ RectTransform:
   m_Father: {fileID: 1700389143}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 183.925, y: -177.04}
   m_SizeDelta: {x: 307.85, y: 314.08}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1287066728
@@ -50261,7 +50155,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '-'
+  m_text: "\uACF5\uACA9\uB825 \uBC38\uB7F0\uC2A4 \uD0C0\uC785"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d74ca8e342e921f4999d2d165f2d38bc, type: 2}
   m_sharedMaterial: {fileID: 2384728880335398813, guid: d74ca8e342e921f4999d2d165f2d38bc, type: 2}
@@ -50288,8 +50182,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -50820,7 +50714,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 899.99994, y: 540}
+  m_SizeDelta: {x: 1170, y: 540}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1437075575
 MonoBehaviour:
@@ -54291,7 +54185,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '-'
+  m_text: "\uACF5\uACA9\uB825 \uACE0\uC815 \uD0C0\uC785"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d74ca8e342e921f4999d2d165f2d38bc, type: 2}
   m_sharedMaterial: {fileID: 2384728880335398813, guid: d74ca8e342e921f4999d2d165f2d38bc, type: 2}
@@ -54318,8 +54212,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -59758,7 +59652,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1678343086}
   m_CullTransparentMesh: 1
-<<<<<<< HEAD
 --- !u!1 &1681185859
 GameObject:
   m_ObjectHideFlags: 0
@@ -59892,8 +59785,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1681185859}
   m_CullTransparentMesh: 1
-=======
->>>>>>> d2a8370... 광고 도입 완료, 일반탄 크리티컬 폰트 알파값 수정, 보스레이드 분기 로직 수정
 --- !u!1 &1687380255
 GameObject:
   m_ObjectHideFlags: 0
@@ -60392,7 +60283,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 349.05005, y: 364.08}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1700389144
 MonoBehaviour:
@@ -65742,7 +65633,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '-'
+  m_text: "\uAE30\uBCF8\uACF5\uACA9\uB825 \uAC15\uD654 \uD0C0\uC785"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d74ca8e342e921f4999d2d165f2d38bc, type: 2}
   m_sharedMaterial: {fileID: 2384728880335398813, guid: d74ca8e342e921f4999d2d165f2d38bc, type: 2}
@@ -65769,8 +65660,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -71092,7 +70983,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "[\uC0C1\uD488 \uAD6C\uC131]\n\uC6B8\uD504 X 1\n\n[\uB2A5\uB825\uCE58]\n\uCCB4\uB825
-    : 150\n\uCCB4\uB825 \uD68C\uBCF5 : 0.5/s\n\uAE30\uBCF8 \uACF5\uACA9\uB825 : 1~20\n\uC810\uD504
+    : 125\n\uCCB4\uB825 \uD68C\uBCF5 : 0.5/s\n\uAE30\uBCF8 \uACF5\uACA9\uB825 : 1~20\n\uC810\uD504
     \uACF5\uACA9\uB825 : 1~30\n\n[\uC0C1\uD488 \uC124\uBA85]\n\uAC8C\uC784 \uCE90\uB9AD\uD130
     \uC6B8\uD504\uB97C \uD68D\uB4DD\uD569\uB2C8\uB2E4. \uBCF8 \uCE90\uB9AD\uD130\uB294
     \uC624\uC9C1 \uD604\uAE08\uC744 \uD1B5\uD574 \uAD6C\uB9E4\uAC00 \uAC00\uB2A5\uD55C
@@ -72886,9 +72777,9 @@ RectTransform:
   m_Father: {fileID: 1700389143}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 859.625, y: -177.04}
   m_SizeDelta: {x: 307.85, y: 314.08}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2038898768
@@ -73980,7 +73871,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '-'
+  m_text: "\uACF5\uACA9\uB825 \uADF9\uB300\uD654 \uD0C0\uC785"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d74ca8e342e921f4999d2d165f2d38bc, type: 2}
   m_sharedMaterial: {fileID: 2384728880335398813, guid: d74ca8e342e921f4999d2d165f2d38bc, type: 2}
@@ -74007,8 +73898,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
