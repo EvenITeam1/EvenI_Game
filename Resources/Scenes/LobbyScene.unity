@@ -5495,7 +5495,7 @@ MonoBehaviour:
   fillColor: {r: 0.9960785, g: 0.9803922, b: 0, a: 1}
   guageCountText: {fileID: 595902793}
   leftTimeText: {fileID: 605746184}
-  initialChargeTimeBySec: 1800
+  initialChargeTimeBySec: 600
   remainTime: 0
 --- !u!1 &270639037
 GameObject:
@@ -28809,7 +28809,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 842564374}
         m_TargetAssemblyTypeName: DataTrigger, Assembly-CSharp
-        m_MethodName: InitializeData
+        m_MethodName: ClearIngameData
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -32937,6 +32937,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneName: LobbyScene
   quitPopUpCanvas: {fileID: 395166504}
+  freeItemManageScript: {fileID: 0}
 --- !u!114 &1497892444
 MonoBehaviour:
   m_ObjectHideFlags: 0

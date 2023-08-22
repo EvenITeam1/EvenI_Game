@@ -848,8 +848,8 @@ GameObject:
   - component: {fileID: 2391074956952298008}
   - component: {fileID: 2391074956952298009}
   - component: {fileID: 2391074956952298013}
-  - component: {fileID: 1008948290656122129}
   - component: {fileID: -1129715780593109902}
+  - component: {fileID: 379818695778355560}
   m_Layer: 5
   m_Name: ReviveCanvas
   m_TagString: Untagged
@@ -964,37 +964,6 @@ MonoBehaviour:
   TimmerTMP: {fileID: 2391074956539797912}
   ButtonTMP: {fileID: 2391074956123187946}
   isAdOn: 0
---- !u!114 &1008948290656122129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2391074956952298010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4f9646eadcbf324598888d90e518a93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BeforeAdPanel: {fileID: 1992523583819991057}
-  AdFailedPanel: {fileID: 8927313256242283804}
-  AdSuccessPanel: {fileID: 0}
-  AdRevivalButton: {fileID: 1282205996233793636}
-  AdRewardEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2391074956952298013}
-        m_TargetAssemblyTypeName: RevivalUI, Assembly-CSharp
-        m_MethodName: HandleContinue
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &-1129715780593109902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1015,6 +984,36 @@ MonoBehaviour:
   sprite: {fileID: 0}
   tilemap: {fileID: 0}
   meshRenderer: {fileID: 0}
+--- !u!114 &379818695778355560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2391074956952298010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9d2ee676b32f8746b01f071fa115786, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BeforeAdPanel: {fileID: 1992523583819991057}
+  AdFailedPanel: {fileID: 8927313256242283804}
+  AdRevivalButton: {fileID: 1282205996233793636}
+  AdRewardEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2391074956952298013}
+        m_TargetAssemblyTypeName: RevivalUI, Assembly-CSharp
+        m_MethodName: HandleContinue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2391074957437774688
 GameObject:
   m_ObjectHideFlags: 0
@@ -1418,26 +1417,14 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1008948290656122129}
-        m_TargetAssemblyTypeName: AdmobRewardAd, Assembly-CSharp
-        m_MethodName: AdChangeIndex
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1008948290656122129}
-        m_TargetAssemblyTypeName: AdmobRewardAd, Assembly-CSharp
+      - m_Target: {fileID: 379818695778355560}
+        m_TargetAssemblyTypeName: AdMobInGameRevival, Assembly-CSharp
         m_MethodName: NoAdCheck
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1991,20 +1978,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2391074956952298013}
-        m_TargetAssemblyTypeName: RevivalUI, Assembly-CSharp
-        m_MethodName: StopTimer
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1008948290656122129}
-        m_TargetAssemblyTypeName: AdmobRewardAd, Assembly-CSharp
+      - m_Target: {fileID: 379818695778355560}
+        m_TargetAssemblyTypeName: AdMobInGameRevival, Assembly-CSharp
         m_MethodName: ShowAd
         m_Mode: 1
         m_Arguments:

@@ -173,7 +173,7 @@ public class OutgameSaveData
             SelectedIconINDEX = 0;
             CollectedCoin = 0;
             CollectedBone = 0;
-            HightestStageUnlocked = 0;
+            HightestStageUnlocked = 1;
             isShibaUnlocked = true;
             isGoldenRetrieverUnlocked = false;
             isLabradorRetrieverUnlocked = false;
