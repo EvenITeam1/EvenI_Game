@@ -55,7 +55,20 @@ public class OutGameDataManage : MonoBehaviour
             characterUIList[9].isUnlocked = GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isPugUnlocked;
         }
 
+<<<<<<< HEAD
         for (int i = 0; i < stageEnterButtonList.Count; i++)
+=======
+        for (int i = 0; i < 2; i++)
+        {
+            if (stageEnterButtonList[i] == null)
+                break;
+
+            stageEnterButtonList[i].interactable = true;
+            stageEnterButtonList[i].gameObject.GetComponent<Image>().color = Color.white;
+        }
+
+        for (int i = 2; i < stageEnterButtonList.Count; i++)
+>>>>>>> d2a8370... 광고 도입 완료, 일반탄 크리티컬 폰트 알파값 수정, 보스레이드 분기 로직 수정
         {
             if (stageEnterButtonList[i] == null)
                 break;
