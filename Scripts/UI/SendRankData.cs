@@ -11,6 +11,8 @@ public class SendRankData : MonoBehaviour
         PlayerData playerData = GameManager.Instance.CharacterDataTableDesign.GetPlayerDataByINDEX(selectedDogIndex);
         string characterName = playerData.Character_korname;
         int score = (int)RunnerManager.Instance.GlobalEventInstance.scoreCheck.Score;
+        if (score > 29500)
+            score = 29500;
         WWWForm form = new WWWForm();
         form.AddField("nickname", NickName.Nickname);
         form.AddField("character", characterName);

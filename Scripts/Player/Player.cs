@@ -259,6 +259,24 @@ public class Player : MonoBehaviour, IDamagable
         healObject.transform.SetParent(this.transform);
         healObject.SetActive(true);
     }
+    public void HealAbs(float _amount)
+    {
+        float maxHp = playerHP.getMaxHp();
+        float currentHp = playerHP.getHP();
+        float healAmount = _amount;
+        if (healAmount + currentHp >= maxHp)
+        {
+            playerHP.setHP(maxHp);
+        }
+        else
+        {
+            playerHP.setHP(currentHp + healAmount);
+        }
+        var healObject = ObjectPool.instance.GetObject(HealParticle);
+        healObject.transform.position = transform.position;
+        healObject.transform.SetParent(this.transform);
+        healObject.SetActive(true);
+    }
 
     public void Barrier(){
         playerState.ChangeState(PLAYER_STATES.BARRIER_STATE);

@@ -2048,11 +2048,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1797044181935726497, guid: 2056d526443fc41afb43d68a9b174a22, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1797044181935726497, guid: 2056d526443fc41afb43d68a9b174a22, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1797044182982345258, guid: 2056d526443fc41afb43d68a9b174a22, type: 3}
       propertyPath: m_Pivot.x
@@ -2060,7 +2060,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1797044182982345258, guid: 2056d526443fc41afb43d68a9b174a22, type: 3}
       propertyPath: m_Pivot.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1797044182982345258, guid: 2056d526443fc41afb43d68a9b174a22, type: 3}
       propertyPath: m_RootOrder
@@ -2084,11 +2084,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1797044182982345258, guid: 2056d526443fc41afb43d68a9b174a22, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 400
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 1797044182982345258, guid: 2056d526443fc41afb43d68a9b174a22, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 80
+      value: 74
       objectReference: {fileID: 0}
     - target: {fileID: 1797044182982345258, guid: 2056d526443fc41afb43d68a9b174a22, type: 3}
       propertyPath: m_LocalScale.x
@@ -2132,7 +2132,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1797044182982345258, guid: 2056d526443fc41afb43d68a9b174a22, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -60
+      value: -127
       objectReference: {fileID: 0}
     - target: {fileID: 1797044182982345258, guid: 2056d526443fc41afb43d68a9b174a22, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2149,6 +2149,10 @@ PrefabInstance:
     - target: {fileID: 1797044182982345259, guid: 2056d526443fc41afb43d68a9b174a22, type: 3}
       propertyPath: m_Name
       value: BossHpBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 1797044182982345259, guid: 2056d526443fc41afb43d68a9b174a22, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1797044183146444879, guid: 2056d526443fc41afb43d68a9b174a22, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -3535,6 +3539,7 @@ MonoBehaviour:
   particle: {fileID: 0}
   sprite: {fileID: 0}
   tilemap: {fileID: 1124677203}
+  meshRenderer: {fileID: 0}
 --- !u!1001 &1317151288
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10813,6 +10818,7 @@ MonoBehaviour:
   particle: {fileID: 0}
   sprite: {fileID: 0}
   tilemap: {fileID: 1387234843}
+  meshRenderer: {fileID: 0}
 --- !u!1 &1645058699
 GameObject:
   m_ObjectHideFlags: 0

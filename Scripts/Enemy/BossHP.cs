@@ -51,14 +51,14 @@ public class BossHP : MonoBehaviour
         if (isBossRaid)
         {
             _hp = 0;
-            if(stageIndex == 5)
-                RunnerManager.Instance.GlobalEventInstance.BroadCastBossDie();
+            if (stageIndex == 5)
+                RunnerManager.Instance.GlobalPlayer.playerHP.setHP(0);
             else
             {
                 CountDownObj.SetActive(true);
                 bossPatternManagerList[stageIndex].SetActive(false);
                 bossGroups[stageIndex].SetActive(false);
-                RunnerManager.Instance.GlobalPlayer.Heal(0.5f);
+                RunnerManager.Instance.GlobalPlayer.HealAbs(50);
                 await UniTask.Delay(TimeSpan.FromSeconds(4));
                 bossGroups[stageIndex + 1].SetActive(true);
             }      

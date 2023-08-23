@@ -252,12 +252,12 @@ public class PlaceableObject : MonoBehaviour, IDamagable
     
     #region Items
     public void ItemSmallHeal(){
-        RunnerManager.Instance.GlobalPlayer.Heal(0.3f);
+        RunnerManager.Instance.GlobalPlayer.HealAbs(30);
         Instantiate(itemData.destroyParticle, transform.position, Quaternion.identity);
         Instantiate(itemData.activateParticle, RunnerManager.Instance.GlobalPlayer.transform);
     }
     public void ItemMediumHeal(){
-        RunnerManager.Instance.GlobalPlayer.Heal(0.5f);
+        RunnerManager.Instance.GlobalPlayer.HealAbs(50);
         Instantiate(itemData.destroyParticle, transform.position, Quaternion.identity).transform.localScale *= 1.5f;
         Instantiate(itemData.activateParticle, RunnerManager.Instance.GlobalPlayer.transform);
 

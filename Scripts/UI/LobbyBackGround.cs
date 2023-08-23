@@ -9,8 +9,8 @@ public class LobbyBackGround : MonoBehaviour
     void Start()
     {
         currentHIghestUnlockLevel = GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.HightestStageUnlocked;
-        if (currentHIghestUnlockLevel >= 6)
-            currentHIghestUnlockLevel = 5;
+        if (currentHIghestUnlockLevel >= 7)
+            currentHIghestUnlockLevel = 6;
         ActiveBackground();
     }
 
