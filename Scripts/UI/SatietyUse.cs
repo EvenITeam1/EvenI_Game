@@ -8,6 +8,7 @@ using System.Text;
 
 public class SatietyUse : MonoBehaviour
 {
+    [SerializeField] GameObject NotOpenedStageCanvas;
     [SerializeField] GameObject EnterFailedCanvas;
     [SerializeField] GameObject EnterCanvas;
     [SerializeField] List<GameObject> EnterMessageCanvas;
@@ -119,6 +120,8 @@ public class SatietyUse : MonoBehaviour
 
     public void Stage8ChargeCountCheckInStoryMode()
     {
+        NotOpenedStageCanvas.SetActive(true);
+        /*
         if (SatietyManage.GetChargeCount() < 1)
         {
             EnterFailedCanvas.SetActive(true);
@@ -130,10 +133,13 @@ public class SatietyUse : MonoBehaviour
             EnterMessageCanvas[7].SetActive(true);
             ResultHandler.SendEnterStageData(7);
         }
+        */
     }
 
     public void Stage9ChargeCountCheckInStoryMode()
     {
+        NotOpenedStageCanvas.SetActive(true);
+        /*
         if (SatietyManage.GetChargeCount() < 1)
         {
             EnterFailedCanvas.SetActive(true);
@@ -145,10 +151,13 @@ public class SatietyUse : MonoBehaviour
             EnterMessageCanvas[8].SetActive(true);
             ResultHandler.SendEnterStageData(8);
         }
+        */
     }
 
     public void Stage10ChargeCountCheckInStoryMode()
     {
+        NotOpenedStageCanvas.SetActive(true);
+        /*
         if (SatietyManage.GetChargeCount() < 1)
         {
             EnterFailedCanvas.SetActive(true);
@@ -160,6 +169,7 @@ public class SatietyUse : MonoBehaviour
             EnterMessageCanvas[9].SetActive(true);
             ResultHandler.SendEnterStageData(9);
         }
+        */
     }
 
     public void ChargeCountCheckInBossMode()
