@@ -99,5 +99,6 @@ public class OutGameDataManage : MonoBehaviour
         RequireExpAmounts[17] = 285;
         RequireExpAmounts[18] = 300;
         RequireExpAmounts[19] = 315;
+        RequireExpAmounts[20] = 315;
     }
 }
