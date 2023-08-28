@@ -6,11 +6,13 @@ using UnityEngine.UI;
 using Cysharp.Threading.Tasks;
 using System;
 
-public class BossHP : MonoBehaviour
+public class BossHP : MonoBehaviour //hpbar 색 변화하는거 다음 보스레이드 넘어갈 때는 다시 원상복구해야됨
 {
     [SerializeField] float _hp;
     [SerializeField] float _setHp;
     [SerializeField] Slider _hpBar;
+    [SerializeField] Image _fillImage;
+    [SerializeField] Color _color;
     [SerializeField] int bossScore;
     public bool isBossRaid;
     public int stageIndex;
@@ -51,7 +53,7 @@ public class BossHP : MonoBehaviour
         if (isBossRaid)
         {
             _hp = 0;
-            if (stageIndex == 5)
+            if (stageIndex == 7)
                 RunnerManager.Instance.GlobalPlayer.playerHP.setHP(0);
             else
             {
@@ -76,6 +78,8 @@ public class BossHP : MonoBehaviour
     public void updateHpBar() 
     {
         _hpBar.value = _hp / _setHp;
+        if (stageIndex == 7 && getHP() < 4500)
+            _fillImage.color = _color;
     }
     public void GetDamaged(){
         StartCoroutine(AsyncOnHitVisual());
