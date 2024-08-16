@@ -51,7 +51,7 @@ public class ResultHandler : MonoBehaviour
            = (int)((IsClearState) ? (WinExpRatio * Score) : (LoseExpRatio * Score));
 
         textRoulettes[(int)RESULT_INDEX.COIN].CountingNumber
-            = (int)((IsClearState) ? (WinCoinRatio * Score) : (LoseCoinRatio * Score));
+            = (int)((IsClearState) ? (WinCoinRatio * Score * CoinBoostRatio) : (LoseCoinRatio * Score * CoinBoostRatio));
 
         int usedReviveCount = GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.AdditionalRevivalCount + 3 - GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.RevivalCount;
 
@@ -122,5 +122,6 @@ public class ResultHandler : MonoBehaviour
         RequireExpAmounts[17] = 285;
         RequireExpAmounts[18] = 300;
         RequireExpAmounts[19] = 315;
+        RequireExpAmounts[20] = 315;
     }
 }

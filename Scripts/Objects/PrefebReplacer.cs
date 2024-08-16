@@ -17,7 +17,6 @@ public class PrefebReplacer : MonoBehaviour
                 cloneObj.transform.position = replaceTransform.position;
                 cloneObj.transform.rotation = replaceTransform.rotation;
                 cloneObj.transform.localScale = replaceTransform.localScale;
-                DestroyImmediate(E.gameObject);
             }
         }
         #endif

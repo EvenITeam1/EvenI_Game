@@ -9,7 +9,7 @@ public class JsonTest : MonoBehaviour
         var result = JsonConvert.DeserializeObject<TestClass002[]>(JsonFile.text);//convert to usable data
         foreach (var i in result)
         {
-            Debug.Log($"Id : {i.Id}, Value : {i.Value}, Bool : {i.Boolean}");//Print data;
+            //Debug.Log($"Id : {i.Id}, Value : {i.Value}, Bool : {i.Boolean}");//Print data;
         }
     }
 }

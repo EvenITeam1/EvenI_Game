@@ -1886,13 +1886,15 @@ MonoBehaviour:
       CurrentStageNumber: 0
       CurrentPhaseNumber: 0
       IsStageClear: 0
-      IsDoubleScore: 0
       IsRevivalChecked: 0
       PrevHP: -1
       CollectedScore: -1
+      isCoinBoostOn: 0
       RevivalCount: -1
     outgameSaveData:
       AdditionalRevivalCount: 0
+      Coin15Count: 0
+      IsNoAdActivated: 0
       AccountLevel: 0
       CollectedExp: 0
       SelectedPlayerINDEX: 0
@@ -1910,6 +1912,10 @@ MonoBehaviour:
       isGoldenPomeranianUnlocked: 0
       isWhitePomeranianUnlocked: 0
       isPugUnlocked: 0
+      BGMAmount: 0
+      IsBGMMuted: 0
+      SFXAmount: 0
+      IsSFXMuted: 0
 --- !u!1 &1053655646358247286
 GameObject:
   m_ObjectHideFlags: 0
@@ -2245,6 +2251,7 @@ Transform:
   m_Children:
   - {fileID: 1879901201681438804}
   - {fileID: 4616730691362515600}
+  - {fileID: 6427911079903297439}
   m_Father: {fileID: 909079728720041145}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2264,8 +2271,31 @@ MonoBehaviour:
   AudioSources:
   - {fileID: 8189624276282162027}
   - {fileID: 3557876478947803234}
+  - {fileID: 670944333606456975}
   CachedBGMClips:
     _serializedList:
+    - Key: BGM_BossRaid
+      Value: {fileID: 8300000, guid: c4cb0de77145257489f4790621b13c76, type: 3}
+    - Key: BGM_Boss1
+      Value: {fileID: 8300000, guid: 033e0356749885d45a6c8c2c4a329dd4, type: 3}
+    - Key: BGM_Boss2
+      Value: {fileID: 8300000, guid: 4bfe88da4f9467245ac7cb4647b8da55, type: 3}
+    - Key: BGM_Boss3
+      Value: {fileID: 8300000, guid: 8aa58d055b6e0264faa246f1a310e9d5, type: 3}
+    - Key: BGM_Boss4
+      Value: {fileID: 8300000, guid: ee606a597e6761b4e8d1849cfae236a3, type: 3}
+    - Key: BGM_Boss5
+      Value: {fileID: 8300000, guid: 297d698a89ab42841aca6d5da4af1d47, type: 3}
+    - Key: BGM_Boss6
+      Value: {fileID: 8300000, guid: cf5b588148c4c42169983e237772c1dc, type: 3}
+    - Key: BGM_Boss7
+      Value: {fileID: 8300000, guid: df30ea89c4b609e48bef8accf1f45b0a, type: 3}
+    - Key: BGM_Boss8
+      Value: {fileID: 8300000, guid: a28cf0376c532ac489690cdbf4802d2c, type: 3}
+    - Key: BGM_Boss9
+      Value: {fileID: 8300000, guid: ceb6a2c642a145e4cbc38e8935f3edb7, type: 3}
+    - Key: BGM_Boss10
+      Value: {fileID: 8300000, guid: 65c18ac58b60bd34cad5cbeef8f486bc, type: 3}
     - Key: BGM_Stage1
       Value: {fileID: 8300000, guid: 4b7f4ca99daeb47719b02341230e7498, type: 3}
     - Key: BGM_Stage2
@@ -2275,9 +2305,17 @@ MonoBehaviour:
     - Key: BGM_Stage4
       Value: {fileID: 8300000, guid: ff13de3ae3c2742e08fff1457dea167a, type: 3}
     - Key: BGM_Stage5
-      Value: {fileID: 0}
+      Value: {fileID: 8300000, guid: 2c9df2aff001f47edb9ae73d51611514, type: 3}
     - Key: BGM_Stage6
       Value: {fileID: 8300000, guid: b12ea4b050e5d4885b9c138a2fa20ae8, type: 3}
+    - Key: BGM_Stage7
+      Value: {fileID: 8300000, guid: 380f6e8e6f6ef456cbc2bc046634188a, type: 3}
+    - Key: BGM_Stage8
+      Value: {fileID: 8300000, guid: dd78ce4f7994b4af69ebed2d1843f878, type: 3}
+    - Key: BGM_Stage9
+      Value: {fileID: 8300000, guid: cc6a72fca842a436fb30e9d5a78e3268, type: 3}
+    - Key: BGM_Stage10
+      Value: {fileID: 8300000, guid: 5ff8a928b40d74a65b9be856890fa790, type: 3}
   CachedSFXClips:
     _serializedList:
     - Key: SFX_Enemy_Explode
@@ -2300,3 +2338,131 @@ MonoBehaviour:
       Value: {fileID: 8300000, guid: fa22e3b69aa794ab59c9c6aa2dbfa45a, type: 3}
     - Key: SFX_UI_Button_Click
       Value: {fileID: 8300000, guid: 0d310d25e4c4d49289e0bf99079f9eac, type: 3}
+--- !u!1 &8402894536536184114
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6427911079903297439}
+  - component: {fileID: 670944333606456975}
+  m_Layer: 0
+  m_Name: CONFLICTED
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6427911079903297439
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8402894536536184114}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4942539238862084448}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &670944333606456975
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8402894536536184114}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 5607213024889370461, guid: d4e8dc403ddab4a32b9d2031293db86f, type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.7
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

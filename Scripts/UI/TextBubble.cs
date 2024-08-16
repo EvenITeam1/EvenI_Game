@@ -66,7 +66,7 @@ public class TextBubble : MonoBehaviour
                 textList = pugText;
                 break;
             default:
-                Debug.Log("������ ĳ���� �ε����� �ùٸ��� ����");
+                //Debug.Log("������ ĳ���� �ε����� �ùٸ��� ����");
                 break;
         }
         selectedText = textList[Random.Range(0, textList.Count)];

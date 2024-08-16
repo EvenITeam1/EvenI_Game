@@ -7,7 +7,6 @@ public class SetBossLaser //�ϴ� �������� ���� �Լ
 {
     public static void executeLaser(GameObject laser)
     {
-        GameManager.Instance.GlobalSoundManager.PlaySFXByString("SFX_Enemy_Laser");
         laser.SetActive(true);
     }
 }

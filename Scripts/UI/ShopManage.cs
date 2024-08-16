@@ -9,9 +9,12 @@ public class ShopManage : MonoBehaviour
     [SerializeField] GameObject WarningCanvas;
     [SerializeField] GameObject AlreadyCanvas;
     [SerializeField] GameObject SuccessCanvas;
+    [SerializeField] GameObject PurchaseFailedCanvas;
 
     public static int selectedDogIndex;
     public static int selectedSection;
+
+    #region ButtonSet
     public void SetOnOff()
     {
         for (int i = 0; i < PopUpCanvasList.Count; i++)
@@ -34,12 +37,14 @@ public class ShopManage : MonoBehaviour
     {
         selectedSection = index;
     }
-
     public void ChangeDogIndex(int index)
     {
         selectedDogIndex = index;
     }
 
+    #endregion
+
+    #region CoinBonePurchase
     public void BuyWithCoin()
     {
         switch(selectedSection)
@@ -91,58 +96,81 @@ public class ShopManage : MonoBehaviour
                 case 1:
                     if (GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isGoldenRetrieverUnlocked)
                         AlreadyCanvas.SetActive(true);
-                    return;
+                    else
+                    {
+                        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isGoldenRetrieverUnlocked = true;
+                        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedCoin -= 55000;
+                        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SaveOutgameDataToJson();
+                        SuccessCanvas.SetActive(true);
+                    }
+                    break;
                 case 2:
                     if (GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isLabradorRetrieverUnlocked)
                         AlreadyCanvas.SetActive(true);
-                    return;
+                    else
+                    {
+                        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isLabradorRetrieverUnlocked = true;
+                        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedCoin -= 55000;
+                        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SaveOutgameDataToJson();
+                        SuccessCanvas.SetActive(true);
+                    }
+                    break;
                 case 3:
-                    if(GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isGreyHoundUnlocked)
+                    if (GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isGreyHoundUnlocked)
                         AlreadyCanvas.SetActive(true);
-                    return;
+                    else
+                    {
+                        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isGreyHoundUnlocked = true;
+                        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedCoin -= 55000;
+                        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SaveOutgameDataToJson();
+                        SuccessCanvas.SetActive(true);
+                    }
+                    break;
                 case 4:
-                    if(GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isGermanShepherdUnlocked)
+                    if (GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isGermanShepherdUnlocked)
                         AlreadyCanvas.SetActive(true);
-                    return;
+                    else
+                    {
+                        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isGermanShepherdUnlocked = true;
+                        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedCoin -= 55000;
+                        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SaveOutgameDataToJson();
+                        SuccessCanvas.SetActive(true);
+                    }
+                    break;
                 case 7:
-                    if(GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isGoldenPomeranianUnlocked)
+                    if (GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isGoldenPomeranianUnlocked)
                         AlreadyCanvas.SetActive(true);
-                    return;
+                    else
+                    {
+                        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isGoldenPomeranianUnlocked = true;
+                        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedCoin -= 55000;
+                        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SaveOutgameDataToJson();
+                        SuccessCanvas.SetActive(true);
+                    }
+                    break;
                 case 8:
-                    if(GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isWhitePomeranianUnlocked)
+                    if (GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isWhitePomeranianUnlocked)
                         AlreadyCanvas.SetActive(true);
-                    return;
+                    else
+                    {
+                        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isWhitePomeranianUnlocked = true;
+                        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedCoin -= 55000;
+                        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SaveOutgameDataToJson();
+                        SuccessCanvas.SetActive(true);
+                    }
+                    break;
                 case 9:
-                    if(GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isPugUnlocked)
+                    if (GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isPugUnlocked)
                         AlreadyCanvas.SetActive(true);
-                    return;
-            }
-
-
-
-
-            GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedCoin -= 55000;
-
-            switch (selectedDogIndex)
-            {
-                case 1: GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isGoldenRetrieverUnlocked = true;
-                    break;
-                case 2: GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isLabradorRetrieverUnlocked = true;
-                    break;
-                case 3: GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isGreyHoundUnlocked = true;
-                    break;
-                case 4: GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isGermanShepherdUnlocked = true;
-                    break;
-                case 7: GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isGoldenPomeranianUnlocked = true;
-                    break;
-                case 8: GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isWhitePomeranianUnlocked = true;
-                    break;
-                case 9: GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isPugUnlocked = true;
+                    else
+                    {
+                        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isPugUnlocked = true;
+                        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedCoin -= 55000;
+                        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SaveOutgameDataToJson();
+                        SuccessCanvas.SetActive(true);
+                    }
                     break;
             }
-           
-            GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SaveOutgameDataToJson();
-            SuccessCanvas.SetActive(true);
         }
     }
 
@@ -162,65 +190,81 @@ public class ShopManage : MonoBehaviour
                 case 1:
                     if (GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isGoldenRetrieverUnlocked)
                         AlreadyCanvas.SetActive(true);
-                    return;
+                    else
+                    {
+                        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isGoldenRetrieverUnlocked = true;
+                        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedBone -= 169;
+                        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SaveOutgameDataToJson();
+                        SuccessCanvas.SetActive(true);
+                    }       
+                    break;
                 case 2:
                     if (GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isLabradorRetrieverUnlocked)
                         AlreadyCanvas.SetActive(true);
-                    return;
+                    else
+                    {
+                        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isLabradorRetrieverUnlocked = true;
+                        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedBone -= 169;
+                        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SaveOutgameDataToJson();
+                        SuccessCanvas.SetActive(true);
+                    }
+                    break;
                 case 3:
                     if (GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isGreyHoundUnlocked)
-                        AlreadyCanvas.SetActive(true);
-                    return;
+                        AlreadyCanvas.SetActive(true);            
+                    else
+                    {
+                        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isGreyHoundUnlocked = true;
+                        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedBone -= 169;
+                        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SaveOutgameDataToJson();
+                        SuccessCanvas.SetActive(true);
+                    }
+                    break;
                 case 4:
                     if (GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isGermanShepherdUnlocked)
                         AlreadyCanvas.SetActive(true);
-                    return;
+                    else
+                    {
+                        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isGermanShepherdUnlocked = true;
+                        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedBone -= 169;
+                        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SaveOutgameDataToJson();
+                        SuccessCanvas.SetActive(true);
+                    }
+                    break;
                 case 7:
                     if (GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isGoldenPomeranianUnlocked)
                         AlreadyCanvas.SetActive(true);
-                    return;
+                    else
+                    {
+                        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isGoldenPomeranianUnlocked = true;
+                        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedBone -= 169;
+                        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SaveOutgameDataToJson();
+                        SuccessCanvas.SetActive(true);
+                    }
+                    break;
                 case 8:
                     if (GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isWhitePomeranianUnlocked)
                         AlreadyCanvas.SetActive(true);
-                    return;
+                    else
+                    {
+                        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isWhitePomeranianUnlocked = true;
+                        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedBone -= 169;
+                        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SaveOutgameDataToJson();
+                        SuccessCanvas.SetActive(true);
+                    }
+                    break;
                 case 9:
                     if (GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isPugUnlocked)
                         AlreadyCanvas.SetActive(true);
-                    return;
-            }
-
-
-
-
-            GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedBone -= 169;
-
-            switch (selectedDogIndex)
-            {
-                case 1:
-                    GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isGoldenRetrieverUnlocked = true;
-                    break;
-                case 2:
-                    GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isLabradorRetrieverUnlocked = true;
-                    break;
-                case 3:
-                    GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isGreyHoundUnlocked = true;
-                    break;
-                case 4:
-                    GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isGermanShepherdUnlocked = true;
-                    break;
-                case 7:
-                    GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isGoldenPomeranianUnlocked = true;
-                    break;
-                case 8:
-                    GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isWhitePomeranianUnlocked = true;
-                    break;
-                case 9:
-                    GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isPugUnlocked = true;
+                    else
+                    {
+                        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isPugUnlocked = true;
+                        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedBone -= 169;
+                        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SaveOutgameDataToJson();
+                        SuccessCanvas.SetActive(true);
+                    }
                     break;
             }
-
-            GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SaveOutgameDataToJson();
-            SuccessCanvas.SetActive(true);
         }
     }
 
@@ -311,4 +355,85 @@ public class ShopManage : MonoBehaviour
             SuccessCanvas.SetActive(true);
         }
     }
+    #endregion
+
+    #region WonBuyFunctions
+    public void GetPackage1()
+    {
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedCoin += 1000;
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.AdditionalRevivalCount++;
+        SatietyManage.GainChargeCount(1);
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SaveOutgameDataToJson();
+        SuccessCanvas.SetActive(true);
+    }
+
+    public void GetPackage2()
+    {
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedCoin += 9000;
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedBone += 30;
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.AdditionalRevivalCount += 3;
+        SatietyManage.GainChargeCount(3);
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SaveOutgameDataToJson();
+        SuccessCanvas.SetActive(true);
+    }
+    public void GetPackage3()
+    {
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedCoin += 10000;
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedBone += 70;
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.AdditionalRevivalCount += 5;
+        SatietyManage.GainChargeCount(5);
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SaveOutgameDataToJson();
+        SuccessCanvas.SetActive(true);
+    }
+
+    public void NoAdActivatedCheck()
+    {
+        if (GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.IsNoAdActivated)
+            AlreadyCanvas.SetActive(true);
+    }
+
+    public void GetNoAd()
+    {
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.IsNoAdActivated = true;
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedBone += 50;
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SaveOutgameDataToJson();
+        SuccessCanvas.SetActive(true);
+    }
+    public void HuskyCheck()
+    {
+        if (GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isHuskyUnlocked)
+            AlreadyCanvas.SetActive(true);
+    }
+
+    public void GetHusky()
+    {
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isHuskyUnlocked = true;
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SaveOutgameDataToJson();
+        SuccessCanvas.SetActive(true);
+    }
+
+    public void WolfCheck()
+    {
+        if (GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isWolfUnlocked)
+            AlreadyCanvas.SetActive(true);
+    }
+    public void GetWolf()
+    {
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.isWolfUnlocked = true;
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SaveOutgameDataToJson();
+        SuccessCanvas.SetActive(true);
+    }
+
+    public void GetBone(int amount)
+    {
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.CollectedBone += amount;
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SaveOutgameDataToJson();
+        SuccessCanvas.SetActive(true);
+    }
+    public void PurchaseFailed()
+    {
+        PurchaseFailedCanvas.SetActive(true);
+    }
+
+    #endregion
 }

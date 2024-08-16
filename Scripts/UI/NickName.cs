@@ -68,7 +68,7 @@ public class NickName : MonoBehaviour
     {
         if (!File.Exists(string.Format("{0}/{1}.json", Application.persistentDataPath, "NickNameJsonData")))
         {
-            Debug.Log("¾Û ÃÖÃÊ½ÇÇà : ´Ð³×ÀÓ ½ºÅ©¸³Æ®");
+            //Debug.Log("ï¿½ï¿½ ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ : ï¿½Ð³ï¿½ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½Æ®");
             isFirstLogin = true;
         }
          

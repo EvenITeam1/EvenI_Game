@@ -451,7 +451,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -763909781
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: -20
   m_Sprite: {fileID: 21300000, guid: fe1ef0633923b714d963c844f7be8a93, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -515,6 +515,7 @@ MonoBehaviour:
   particle: {fileID: 0}
   sprite: {fileID: 122231282}
   tilemap: {fileID: 0}
+  meshRenderer: {fileID: 0}
 --- !u!1 &150323442
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,7 +720,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -763909781
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: -20
   m_Sprite: {fileID: 21300000, guid: c1cf28463cc2f594ea5be4ae1ea9efb9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -788,6 +789,7 @@ MonoBehaviour:
   particle: {fileID: 0}
   sprite: {fileID: 182128526}
   tilemap: {fileID: 0}
+  meshRenderer: {fileID: 0}
 --- !u!1 &277776729
 GameObject:
   m_ObjectHideFlags: 0
@@ -1288,7 +1290,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -763909781
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: -20
   m_Sprite: {fileID: 21300000, guid: bc7677841fa24d949bb7a277a68ff2c5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1357,6 +1359,7 @@ MonoBehaviour:
   particle: {fileID: 0}
   sprite: {fileID: 515950986}
   tilemap: {fileID: 0}
+  meshRenderer: {fileID: 0}
 --- !u!1 &537428231
 GameObject:
   m_ObjectHideFlags: 0
@@ -1448,7 +1451,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1789428647
-  m_SortingLayer: 4
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.31505653, g: 0, b: 0.6603774, a: 1}
@@ -1566,7 +1569,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -763909781
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: -20
   m_Sprite: {fileID: 21300000, guid: a6b6c9b22e524ab44817124a92ec8c1f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1598,6 +1601,7 @@ MonoBehaviour:
   particle: {fileID: 0}
   sprite: {fileID: 549115171}
   tilemap: {fileID: 0}
+  meshRenderer: {fileID: 0}
 --- !u!1001 &636384931
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1898,7 +1902,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -763909781
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: -20
   m_Sprite: {fileID: 21300000, guid: a6b6c9b22e524ab44817124a92ec8c1f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1930,6 +1934,7 @@ MonoBehaviour:
   particle: {fileID: 0}
   sprite: {fileID: 733251989}
   tilemap: {fileID: 0}
+  meshRenderer: {fileID: 0}
 --- !u!1001 &763144228
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2014,12 +2019,44 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1559299009691419483, guid: 899cc9c6bcc3a4c3696ee7b705d202a7, type: 3}
+      propertyPath: AnimStartEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1559299009691419483, guid: 899cc9c6bcc3a4c3696ee7b705d202a7, type: 3}
+      propertyPath: AnimStartEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1559299009691419483, guid: 899cc9c6bcc3a4c3696ee7b705d202a7, type: 3}
+      propertyPath: AnimStartEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 905879280}
+    - target: {fileID: 1559299009691419483, guid: 899cc9c6bcc3a4c3696ee7b705d202a7, type: 3}
       propertyPath: AnimStopEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 905879280}
     - target: {fileID: 1559299009691419483, guid: 899cc9c6bcc3a4c3696ee7b705d202a7, type: 3}
+      propertyPath: AnimStartEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1559299009691419483, guid: 899cc9c6bcc3a4c3696ee7b705d202a7, type: 3}
+      propertyPath: AnimStartEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlayerEnable
+      objectReference: {fileID: 0}
+    - target: {fileID: 1559299009691419483, guid: 899cc9c6bcc3a4c3696ee7b705d202a7, type: 3}
       propertyPath: AnimStopEvents.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: PlayerEnable
+      objectReference: {fileID: 0}
+    - target: {fileID: 1559299009691419483, guid: 899cc9c6bcc3a4c3696ee7b705d202a7, type: 3}
+      propertyPath: AnimStartEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Player, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1559299009691419483, guid: 899cc9c6bcc3a4c3696ee7b705d202a7, type: 3}
+      propertyPath: AnimStartEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1559299009691419483, guid: 899cc9c6bcc3a4c3696ee7b705d202a7, type: 3}
+      propertyPath: AnimStartEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3182051928126793993, guid: 899cc9c6bcc3a4c3696ee7b705d202a7, type: 3}
       propertyPath: InvokeLevelEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2101,7 +2138,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1797044181935726497, guid: 2056d526443fc41afb43d68a9b174a22, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.232
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1797044181935726497, guid: 2056d526443fc41afb43d68a9b174a22, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2141,19 +2178,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1797044182982345258, guid: 2056d526443fc41afb43d68a9b174a22, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1250.0854
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 1797044182982345258, guid: 2056d526443fc41afb43d68a9b174a22, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 74.388306
+      value: 74
       objectReference: {fileID: 0}
     - target: {fileID: 1797044182982345258, guid: 2056d526443fc41afb43d68a9b174a22, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 1797044182982345258, guid: 2056d526443fc41afb43d68a9b174a22, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 1797044182982345258, guid: 2056d526443fc41afb43d68a9b174a22, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2189,7 +2226,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1797044182982345258, guid: 2056d526443fc41afb43d68a9b174a22, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -131
+      value: -127
       objectReference: {fileID: 0}
     - target: {fileID: 1797044182982345258, guid: 2056d526443fc41afb43d68a9b174a22, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2210,6 +2247,10 @@ PrefabInstance:
     - target: {fileID: 1797044182982345259, guid: 2056d526443fc41afb43d68a9b174a22, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1797044183146444879, guid: 2056d526443fc41afb43d68a9b174a22, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -75.599976
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -2539,6 +2580,7 @@ MonoBehaviour:
   particle: {fileID: 0}
   sprite: {fileID: 1062859553}
   tilemap: {fileID: 0}
+  meshRenderer: {fileID: 0}
 --- !u!1 &1124677200
 GameObject:
   m_ObjectHideFlags: 0
@@ -2631,7 +2673,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -992004325
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -9619,6 +9661,7 @@ MonoBehaviour:
   particle: {fileID: 0}
   sprite: {fileID: 0}
   tilemap: {fileID: 1124677203}
+  meshRenderer: {fileID: 0}
 --- !u!114 &1198526489 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2817258273755125827, guid: 72f665887dd2146cebc566c8dcce7a73, type: 3}
@@ -9872,7 +9915,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -763909781
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: -20
   m_Sprite: {fileID: 21300000, guid: c1cf28463cc2f594ea5be4ae1ea9efb9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -9904,6 +9947,7 @@ MonoBehaviour:
   particle: {fileID: 0}
   sprite: {fileID: 1360695833}
   tilemap: {fileID: 0}
+  meshRenderer: {fileID: 0}
 --- !u!1 &1361027478
 GameObject:
   m_ObjectHideFlags: 0
@@ -9999,7 +10043,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -763909781
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: -20
   m_Sprite: {fileID: 21300000, guid: c1cf28463cc2f594ea5be4ae1ea9efb9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -10031,6 +10075,7 @@ MonoBehaviour:
   particle: {fileID: 0}
   sprite: {fileID: 1361027482}
   tilemap: {fileID: 0}
+  meshRenderer: {fileID: 0}
 --- !u!1 &1523507874
 GameObject:
   m_ObjectHideFlags: 0
@@ -10120,7 +10165,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -763909781
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: -20
   m_Sprite: {fileID: 21300000, guid: a6b6c9b22e524ab44817124a92ec8c1f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -10184,6 +10229,7 @@ MonoBehaviour:
   particle: {fileID: 0}
   sprite: {fileID: 1645058700}
   tilemap: {fileID: 0}
+  meshRenderer: {fileID: 0}
 --- !u!1 &1753172336
 GameObject:
   m_ObjectHideFlags: 0
@@ -10279,7 +10325,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -763909781
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: -20
   m_Sprite: {fileID: 21300000, guid: bc7677841fa24d949bb7a277a68ff2c5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -10311,6 +10357,7 @@ MonoBehaviour:
   particle: {fileID: 0}
   sprite: {fileID: 1753172340}
   tilemap: {fileID: 0}
+  meshRenderer: {fileID: 0}
 --- !u!1 &1769939583
 GameObject:
   m_ObjectHideFlags: 0
@@ -10467,7 +10514,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -763909781
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: -20
   m_Sprite: {fileID: 21300000, guid: bc7677841fa24d949bb7a277a68ff2c5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -10499,6 +10546,7 @@ MonoBehaviour:
   particle: {fileID: 0}
   sprite: {fileID: 1812043544}
   tilemap: {fileID: 0}
+  meshRenderer: {fileID: 0}
 --- !u!1 &1933354465
 GameObject:
   m_ObjectHideFlags: 0
@@ -11046,7 +11094,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2817258273676713403, guid: 72f665887dd2146cebc566c8dcce7a73, type: 3}
-      insertIndex: -1
+      insertIndex: 2
       addedObject: {fileID: 883377533}
   m_SourcePrefab: {fileID: 100100000, guid: 72f665887dd2146cebc566c8dcce7a73, type: 3}
 --- !u!1 &2066334130 stripped
@@ -11073,6 +11121,7 @@ MonoBehaviour:
   particle: {fileID: 0}
   sprite: {fileID: 0}
   tilemap: {fileID: 0}
+  meshRenderer: {fileID: 0}
 --- !u!114 &2091402970 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2817258273540982862, guid: 72f665887dd2146cebc566c8dcce7a73, type: 3}
@@ -11161,7 +11210,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1949028549
-  m_SortingLayer: 5
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -630684322, guid: 6f41d9cc5a919724a80bd3a66a06c556, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -11299,7 +11348,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1789428647
-  m_SortingLayer: 4
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 38c9012b7a02e4d0c9135c34c07a8adb, type: 3}
   m_Color: {r: 1, g: 0, b: 0.69146776, a: 1}
@@ -11349,8 +11398,10 @@ MonoBehaviour:
   _hpBar: {fileID: 2005786856}
   bossScore: 2500
   isBossRaid: 0
+  stageIndex: 0
   bossGroups: []
-  heal_VFX: {fileID: 0}
+  bossPatternManagerList: []
+  CountDownObj: {fileID: 0}
 --- !u!1 &5891056808167106739
 GameObject:
   m_ObjectHideFlags: 0
@@ -11423,3 +11474,4 @@ MonoBehaviour:
   particle: {fileID: 0}
   sprite: {fileID: 1513390019322818290}
   tilemap: {fileID: 0}
+  meshRenderer: {fileID: 0}

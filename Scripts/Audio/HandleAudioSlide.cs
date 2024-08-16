@@ -20,11 +20,22 @@ public class HandleAudioSlide : MonoBehaviour
     public Slider BgmSlider;
     public Slider SfxSlider;
 
+    Color MuteColor;
+    private void Awake() {
+        ColorUtility.TryParseHtmlString("#666666", out MuteColor);
+    }
+
     private void OnEnable() {
         float loadedBGMVolume = GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.BGMAmount;
         float loadedSFXVolume = GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.SFXAmount;
-        GameManager.Instance.GlobalSoundManager.SetBGMVolume(loadedBGMVolume);
-        GameManager.Instance.GlobalSoundManager.SetSFXVolume(loadedSFXVolume);
+        BgmMutePressed = !GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.IsBGMMuted;
+        SfxMutePressed = !GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.IsSFXMuted;
+        BgmSlider.value = loadedBGMVolume;
+        SfxSlider.value = loadedSFXVolume;
+        GameManager.Instance.GlobalSoundManager.SetBGMVolume(BgmSlider.value);
+        GameManager.Instance.GlobalSoundManager.SetSFXVolume(SfxSlider.value);
+        HandleBGMMute();
+        HandleSFXMute();
     }
 
     public void HandleBGMMute()
@@ -33,11 +44,15 @@ public class HandleAudioSlide : MonoBehaviour
         {
             BgmMutePressed = true;
             GameManager.Instance.GlobalSoundManager.MuteBGM();
+            BgmSlider.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color = MuteColor;
+            BgmSlider.transform.Find("Handle Slide Area").Find("Handle").GetComponent<Image>().color = MuteColor;
         }
         else
         {
             BgmMutePressed = false;
             GameManager.Instance.GlobalSoundManager.UnmuteBGM();
+            BgmSlider.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color = Color.white;
+            BgmSlider.transform.Find("Handle Slide Area").Find("Handle").GetComponent<Image>().color = Color.white;
         }
     }
 
@@ -47,11 +62,16 @@ public class HandleAudioSlide : MonoBehaviour
         {
             SfxMutePressed = true;
             GameManager.Instance.GlobalSoundManager.MuteSFX();
+            SfxSlider.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color = MuteColor;
+            SfxSlider.transform.Find("Handle Slide Area").Find("Handle").GetComponent<Image>().color = MuteColor;
         }
         else
         {
             SfxMutePressed = false;
             GameManager.Instance.GlobalSoundManager.UnmuteSFX();
+
+            SfxSlider.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color = Color.white;
+            SfxSlider.transform.Find("Handle Slide Area").Find("Handle").GetComponent<Image>().color = Color.white;
         }
     }
 

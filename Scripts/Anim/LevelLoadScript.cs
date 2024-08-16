@@ -34,9 +34,15 @@ public class LevelLoadScript : MonoBehaviour
     public void InitializeCurrentLevel(){
         InvokeLevelEvent.AddListener(() => {GameManager.Instance.GlobalSoundManager.FadeInBGM(1);});
         InvokeLevelEvent.AddListener(() => {GameManager.Instance.GlobalSoundManager.FadeInSFX(1);});
-        if(SceneManager.GetActiveScene().name.Contains("BossStage")){
-            InvokeLevelEvent.AddListener(() => {GameManager.Instance.GlobalSoundManager.PlayBGMByString("BGM_Boss");});
+        if(SceneManager.GetActiveScene().name.Contains("Raid")){
+            InvokeLevelEvent.AddListener(() => {GameManager.Instance.GlobalSoundManager.PlayBGMByString("BGM_BossRaid");});
         }
+
+        else if(SceneManager.GetActiveScene().name.Contains("BossStage"))
+        {
+            InvokeLevelEvent.AddListener(() => { GameManager.Instance.GlobalSoundManager.PlayBGMByString("BGM_Boss" + currentStageNumber.ToString()); });
+        }
+
         else 
         {
             InvokeLevelEvent.AddListener(() => {GameManager.Instance.GlobalSoundManager.PlayBGMByString("BGM_Stage" + currentStageNumber.ToString());});

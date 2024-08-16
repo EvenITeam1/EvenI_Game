@@ -6,16 +6,19 @@ using UnityEngine.UI;
 using Cysharp.Threading.Tasks;
 using System;
 
-public class BossHP : MonoBehaviour
+public class BossHP : MonoBehaviour //hpbar 색 변화하는거 다음 보스레이드 넘어갈 때는 다시 원상복구해야됨
 {
     [SerializeField] float _hp;
     [SerializeField] float _setHp;
     [SerializeField] Slider _hpBar;
+    [SerializeField] Image _fillImage;
+    [SerializeField] Color _color;
     [SerializeField] int bossScore;
     public bool isBossRaid;
     public int stageIndex;
     [SerializeField] List<GameObject> bossGroups;
     [SerializeField] List<GameObject> bossPatternManagerList;
+    [SerializeField] GameObject CountDownObj;
     private SpriteRenderer spriteRenderer;
     private void Awake() {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -50,13 +53,14 @@ public class BossHP : MonoBehaviour
         if (isBossRaid)
         {
             _hp = 0;
-            if(stageIndex == 5)
-                RunnerManager.Instance.GlobalEventInstance.BroadCastBossDie();
+            if (stageIndex == 7)
+                RunnerManager.Instance.GlobalPlayer.playerHP.setHP(0);
             else
             {
+                CountDownObj.SetActive(true);
                 bossPatternManagerList[stageIndex].SetActive(false);
                 bossGroups[stageIndex].SetActive(false);
-                RunnerManager.Instance.GlobalPlayer.Heal(0.5f);
+                RunnerManager.Instance.GlobalPlayer.HealAbs(50);
                 await UniTask.Delay(TimeSpan.FromSeconds(4));
                 bossGroups[stageIndex + 1].SetActive(true);
             }      
@@ -74,6 +78,8 @@ public class BossHP : MonoBehaviour
     public void updateHpBar() 
     {
         _hpBar.value = _hp / _setHp;
+        if (stageIndex == 7 && getHP() < 4500)
+            _fillImage.color = _color;
     }
     public void GetDamaged(){
         StartCoroutine(AsyncOnHitVisual());

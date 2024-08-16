@@ -6,37 +6,10 @@ using UnityEngine;
 /// </summary>
 public class DataTrigger : MonoBehaviour
 {
-
-    //[System.Obsolete("세부로 확장되었으므로 다른 스크립트로 교체하길 바람.")]
-    public void InitializeData()
-    {
-        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.PrevHP = 100;
-        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.CollectedScore = 0;
-        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.RevivalCount = GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.AdditionalRevivalCount + 3;
-    }
-    [System.Obsolete("세부로 확장되었으므로 다른 스크립트로 교체하길 바람.")]
-    public void DataSave(){
-        //GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.PrevHP    
-        //    = RunnerManager.Instance.GlobalPlayer.playerHP.getHP();
-        //GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.CollectedScore 
-        //    = (int)RunnerManager.Instance.GlobalEventInstance.scoreCheck.Score;
-    }
-
-    
-    [ContextMenu("LoadData")]
-    [System.Obsolete("세부로 확장되었으므로 다른 스크립트로 교체하길 바람.")]
-    public void LoadData(){
-        //SaveData loadedData = GameManager.Instance.GlobalSaveNLoad.saveData;
-        //Player coverPlayer = GameManager.Instance.CharacterDataTableDesign.GetPlayerByINDEX(loadedData.outgameSaveData.SelectedPlayerINDEX);
-        //RunnerManager.Instance.GlobalPlayer.playerVisualData.spriteRenderer.sprite = coverPlayer.playerVisualData.spriteRenderer.sprite;
-        //RunnerManager.Instance.GlobalPlayer.playerVisualData.playerAnimator.runtimeAnimatorController = coverPlayer.playerVisualData.playerAnimator.runtimeAnimatorController;
-        //RunnerManager.Instance.GlobalPlayer.playerHP.setHP(GameManager.Instance.GlobalSaveNLoad.saveData.ingameSaveData.PrevHP);
-        //RunnerManager.Instance.GlobalEventInstance.scoreCheck.Score = GameManager.Instance.GlobalSaveNLoad.saveData.ingameSaveData.CollectedScore;
-    }
-    
     /*********************************************************************************/
     public void ClearIngameData() {
         GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.ClearIngameData();
+        GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.RevivalCount = GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().outgameSaveData.AdditionalRevivalCount + 3;
     }
 
     // 러너 
@@ -84,6 +57,10 @@ public class DataTrigger : MonoBehaviour
         RunnerManager.Instance.GlobalEventInstance.scoreCheck.Score  = GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.CollectedScore;
         RunnerManager.Instance.GlobalPlayer.playerHP.setMaxHp(coverPlayer.playerData.Character_hp);
         RunnerManager.Instance.GlobalPlayer.playerHP.setHP(GameManager.Instance.GlobalSaveNLoad.GetSaveDataByRef().ingameSaveData.PrevHP);
+        RunnerManager.Instance.GlobalPlayer.playerHP.setRecoverHp(coverPlayer.playerData.Character_per_hp_heal);
+        
+        RunnerManager.Instance.GlobalPlayer.bulletShooter.bullets[0] = GameManager.Instance.BulletDataTableDesign.GetBulletByINDEX(coverPlayer.playerData.Character_bullet_index_1);
+        RunnerManager.Instance.GlobalPlayer.bulletShooter.bullets[1] = GameManager.Instance.BulletDataTableDesign.GetBulletByINDEX(coverPlayer.playerData.Character_bullet_index_2);
     }
 
     // 러너
@@ -96,7 +73,10 @@ public class DataTrigger : MonoBehaviour
 
         RunnerManager.Instance.GlobalPlayer.playerHP.setMaxHp(coverPlayer.playerData.Character_hp);
         RunnerManager.Instance.GlobalPlayer.playerHP.setHP(coverPlayer.playerData.Character_hp);
-        RunnerManager.Instance.GlobalPlayer.playerHP.recoverHp(coverPlayer.playerData.Character_per_hp_heal);
+        RunnerManager.Instance.GlobalPlayer.playerHP.setRecoverHp(coverPlayer.playerData.Character_per_hp_heal);
+        
+        RunnerManager.Instance.GlobalPlayer.bulletShooter.bullets[0] = GameManager.Instance.BulletDataTableDesign.GetBulletByINDEX(coverPlayer.playerData.Character_bullet_index_1);
+        RunnerManager.Instance.GlobalPlayer.bulletShooter.bullets[1] = GameManager.Instance.BulletDataTableDesign.GetBulletByINDEX(coverPlayer.playerData.Character_bullet_index_2);
     }
 
     // public void LoadOutToCutScene(){}

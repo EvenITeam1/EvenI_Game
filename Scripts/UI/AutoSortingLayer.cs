@@ -1,9 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using UnityEngine.Tilemaps;
 
 public enum RENDERER_TYPE {
-    DEFAULT= 0, CANVAS, PARTICLE, SPRITE, TILE
+    DEFAULT= 0, CANVAS, PARTICLE, SPRITE, TILE, MESH
 }
 
 public class AutoSortingLayer : MonoBehaviour {
@@ -17,7 +18,9 @@ public class AutoSortingLayer : MonoBehaviour {
     [SerializeField] private ParticleSystemRenderer particle;
     [SerializeField] private SpriteRenderer sprite;
     [SerializeField] private TilemapRenderer tilemap;
+    [SerializeField] private MeshRenderer meshRenderer;
     private void Awake() {
+        //if(canvas != null || particle != null || sprite != null || tilemap != null || meshRenderer != null){return;}
         if(transform.TryGetComponent<Canvas>(out canvas)){
             renderer_type = RENDERER_TYPE.CANVAS;
             return;
@@ -34,10 +37,14 @@ public class AutoSortingLayer : MonoBehaviour {
             renderer_type = RENDERER_TYPE.TILE;
             return;
         }
+        if(transform.TryGetComponent<MeshRenderer>(out meshRenderer)){
+            renderer_type = RENDERER_TYPE.MESH;
+            return;
+        }
     }
 
     private void OnEnable() {
-        Debug.Log("Sorted");
+        //Debug.Log("Sorted");
         ChangeSortingLayerByPublic();
     }
     
@@ -59,7 +66,10 @@ public class AutoSortingLayer : MonoBehaviour {
             renderer_type = RENDERER_TYPE.TILE;
             return;
         }
-
+        if(transform.TryGetComponent<MeshRenderer>(out meshRenderer)){
+            renderer_type = RENDERER_TYPE.MESH;
+            return;
+        }
     }
 
     [ContextMenu("소팅레이어 변경하기")]
@@ -84,6 +94,11 @@ public class AutoSortingLayer : MonoBehaviour {
             case RENDERER_TYPE.TILE : {
                 tilemap.sortingLayerName = sorting_layer.ToString();
                 if(tilemap.sortingOrder == 0) tilemap.sortingOrder = sorting_order;
+                break;
+            }
+            case RENDERER_TYPE.MESH : {
+                meshRenderer.sortingLayerName = sorting_layer.ToString();
+                if(meshRenderer.sortingOrder == 0) meshRenderer.sortingOrder = sorting_order;
                 break;
             }
         }

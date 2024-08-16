@@ -30,11 +30,11 @@ Transform:
   m_GameObject: {fileID: 7239013096102837009}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7239013096102837101
 SpriteRenderer:
@@ -74,11 +74,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 846495363
-  m_SortingLayer: 4
+  m_SortingLayerID: -1789428647
+  m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 1c9a4db5d43894620b0e9e81745cb431, type: 3}
+  m_Color: {r: 0.7490196, g: 1, b: 0.56078434, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -158,17 +158,17 @@ MonoBehaviour:
     Bullet_reflect_count: 0
     Bullet_filecode: ' '
   bulletVisualData:
-    dmgPrefab: {fileID: 0}
-    critFontSize: 0
-    nonCritFontSize: 0
+    dmgPrefab: {fileID: 4515944402512719955, guid: 6bc424913194ab045a343d0058e7edbe, type: 3}
+    critFontSize: 13
+    nonCritFontSize: 10
     critColor:
       serializedVersion: 2
-      rgba: 0
+      rgba: 4278190335
     nonCritColor:
       serializedVersion: 2
-      rgba: 0
+      rgba: 4294967295
   bulletSoundData:
-    Shoot: {fileID: 0}
+    Shoot: {fileID: 8300000, guid: a83304bc5ebae46e781867ec7869506c, type: 3}
   time: 0
   bulletRigid: {fileID: 0}
 --- !u!114 &7521979565022450524
@@ -189,3 +189,5 @@ MonoBehaviour:
   canvas: {fileID: 0}
   particle: {fileID: 0}
   sprite: {fileID: 7239013096102837101}
+  tilemap: {fileID: 0}
+  meshRenderer: {fileID: 0}

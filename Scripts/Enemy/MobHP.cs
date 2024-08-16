@@ -36,6 +36,7 @@ public class MobHP : MonoBehaviour, HP
 
     public void die()
     {
-        _hp = 0; gameObject.SetActive(false);
+        _hp = 0; 
+        gameObject.SetActive(false);
     }
 }

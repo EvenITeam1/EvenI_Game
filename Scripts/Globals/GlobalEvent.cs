@@ -58,7 +58,7 @@ public class GlobalEvent : MonoBehaviour
             if (value == true) { GameTimeScale = 0; }
             else { GameTimeScale = mCurrentTimeScale; }
             mIsGamePaused = value;
-           ////Debug.Log("Time Changed");
+           //////Debug.Log("Time Changed");
         }
     }
 
@@ -74,7 +74,7 @@ public class GlobalEvent : MonoBehaviour
     /////////////////////////////////////////////////////////////////////////////////
 #region DebugEvent
     public void PrintString(string _input){
-       ////Debug.Log(_input);
+       //////Debug.Log(_input);
     }
     //플레이어가 죽었을때, RevivalCanvas의 DieEventHandler함수를 바인딩 시키자
     public UnityEvent OnPlayerDieEvent;

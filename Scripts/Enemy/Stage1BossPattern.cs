@@ -24,7 +24,7 @@ public class Stage1BossPattern : MonoBehaviour, IDamagable {
     {
         float currentHp = bossHP.getHP();
         bossHP.setHP(currentHp - _amount);
-        GameManager.Instance.GlobalSoundManager.PlayByClip(GetDamaged, SOUND_TYPE.SFX);
+        GameManager.Instance.GlobalSoundManager.PlayByClip(GetDamaged, SOUND_TYPE.CONFLICTED);
 
         //(HitParticle, transform);
         var hitObject = ObjectPool.instance.GetObject(HitParticle);
@@ -41,14 +41,15 @@ public class Stage1BossPattern : MonoBehaviour, IDamagable {
     public void ActiveShootable(){IsShootable = true;}
     public void DeActiveShootable(){IsShootable = false;}
     public void ShootBullet(){
-        if(IsShootable == true){
+        if(IsShootable == true)
+        {
             IsShootable = false;
-            Invoke("ActiveShootable", Random.Range(0.2f, 0.6f));
+            Invoke("ActiveShootable", Random.Range(0.6f, 0.1f));
             BossBasicBullet refBullet = bullets[Random.Range(0, bulletsCount)];
             var instantBossBullet = Instantiate(refBullet, transform.position, Quaternion.identity);
             Rigidbody2D bulletRigid = instantBossBullet.GetComponent<Rigidbody2D>();
             bulletRigid.velocity *= Random.Range(-1f, -2f);
-            bulletRigid.velocity += 10* Vector2.up * Random.Range(0.5f, 1f);
+            bulletRigid.velocity += 10 * Vector2.up * Random.Range(0.5f, 0.8f);
         }
     }
 

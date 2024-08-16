@@ -210,6 +210,7 @@ MonoBehaviour:
   particle: {fileID: 0}
   sprite: {fileID: 0}
   tilemap: {fileID: 0}
+  meshRenderer: {fileID: 0}
 --- !u!1 &706766941047904505
 GameObject:
   m_ObjectHideFlags: 0
@@ -428,7 +429,7 @@ MonoBehaviour:
   - {fileID: 626804335690743037, guid: 674c01e81472647ceab3adc8364dc49f, type: 3}
   - {fileID: 626804335690743037, guid: bda32e45916e54ff19226998c60cd687, type: 3}
   _coolTime: 0.1
-  IsFireable: 1
+  IsFireable: 0
 --- !u!1 &706766941881987378
 GameObject:
   m_ObjectHideFlags: 0
@@ -638,6 +639,7 @@ MonoBehaviour:
   particle: {fileID: 0}
   sprite: {fileID: 53275320836706333}
   tilemap: {fileID: 0}
+  meshRenderer: {fileID: 0}
 --- !u!1 &5376309790247113652
 GameObject:
   m_ObjectHideFlags: 0
@@ -808,9 +810,12 @@ MonoBehaviour:
   playerRigid: {fileID: 819822058153129712}
   stop: 0
   bulletShooter: {fileID: 706766941828774879}
+  hitPanel: {fileID: 0}
   IsEnable: 0
   IsHitedOnce: 0
   HitParticle: {fileID: 7124663019238293431, guid: 301f99a9c0b0643798ca6ef1fad42b44, type: 3}
+  HealParticle: {fileID: 5126023236782931868, guid: ee93d56454be64c16950aa8a3ba53089, type: 3}
+  RevivalParticle: {fileID: 5044970750829505704, guid: 805217b2dc86f447d9ba754625783fec, type: 3}
 --- !u!114 &5376309790247113611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5683,6 +5688,7 @@ MonoBehaviour:
   particle: {fileID: 6307970979409441853}
   sprite: {fileID: 0}
   tilemap: {fileID: 0}
+  meshRenderer: {fileID: 0}
 --- !u!1001 &3600088568996572146
 PrefabInstance:
   m_ObjectHideFlags: 0
